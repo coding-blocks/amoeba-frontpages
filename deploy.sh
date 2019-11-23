@@ -1,12 +1,14 @@
-COMMAND14="cd ~/frontends/landing-pages/hellointern.codingblocks.com && \
+COMMAND14="cd ~/frontends/amoeba-frontpages/online.codingblocks.com && \
 	git checkout master && \
 	git fetch --all --prune && \
 	git reset --hard origin/master && \
 	git pull && \
+    nvm use && \
     ulimit -S -n 65000 && \
   yarn && yarn build && \
-  pm2 restart landing --update-env
+  pm2 restart amoeba-frontpages --update-env
 	"
-# pm2 restart ./node_modules/nuxt/bin/nuxt.js --name landing -- start
 
-ssh codingblocks@srv9.cb.lk $COMMAND14
+ssh codingblocks@srv12.cb.lk $COMMAND14
+
+

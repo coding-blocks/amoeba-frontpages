@@ -1,5 +1,8 @@
 export default {
   mode: 'universal',
+  server: {
+    port: 8081
+  },
   /*
    ** Headers of the page
    */
