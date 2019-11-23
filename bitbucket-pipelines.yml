@@ -1,0 +1,15 @@
+image: node:12.13.1
+
+pipelines:
+  branches:
+    master:
+      - step:
+          caches:
+            - node
+          deployment: production
+          script: 
+            - cd online.codingblocks.com
+            - yarn install
+            - yarn build
+            - ls
+            - ../deploy.sh
