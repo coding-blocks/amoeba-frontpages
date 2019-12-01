@@ -18,3 +18,14 @@ export const topRunForCourse = (course) => {
 
 export const textForDifficulty = (difficulty) =>
   !isNaN(+difficulty) && ['Beginner', 'Medium', 'Advanced'][+difficulty]
+
+
+export const formatContentDuration = function (duration) {
+	if(isNaN(duration) || duration == 0){
+			return "--";
+  }
+  const hours = Math.floor(duration / (60 * 60 * 1000))
+  const mins = Math.floor(duration / (60 * 1000))
+
+  return hours > 1 ? `${hours}hrs` : `${mins}mins`
+}

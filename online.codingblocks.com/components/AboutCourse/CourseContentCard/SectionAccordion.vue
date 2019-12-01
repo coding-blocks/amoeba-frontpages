@@ -2,15 +2,60 @@
   <VAsync :task="fetchSection">
     <template v-slot="{ value: section }">
       <VAccordion>
-        <template v-slot:head="{ onToggle }">
-          <div @click="onToggle"> 
-            {{section.name}}
+        <template v-slot:head="{ onToggle, expanded }">
+          <div
+            class="row mx-0 align-items-center justify-content-between pointer"
+            @click="onToggle"
+          >
+            <div>
+              <div class="d-flex align-items-center">
+                <h6 class="bold d-inline-block mr-5">
+                  {{ section.name }}
+                </h6>
+                <div
+                  class="pill bg-gradient-orange white card-md font-normal"
+                  v-if="isFree"
+                >
+                  Free
+                </div>
+              </div>
+              <div class="card-md font-normal mt-1">
+                {{ section.contents.length }} Items | Duration : 60 minutes
+              </div>
+            </div>
+            <div>
+              <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" />
+            </div>
           </div>
         </template>
 
         <template v-slot:content>
-          <div v-for="content in section.contents" :key="content.id">
-            {{content.title}}
+          <div
+            class="row no-gutters justify-content-between my-3"
+            v-for="content in section.contents"
+            :key="content.id"
+          >
+            <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
+              <i class="fas fa-play-circle s-20x20 font-md mr-3"></i>
+              <span class="font-normal">{{ content.title }}</span>
+            </a>
+            <div class="col-2 col-md-1 t-align-c">
+              <a href="#" 
+                class="card-md font-normal orange d-inline-block"
+                v-if="isFree"
+                >
+                Preview
+              </a>
+              <a href="#" 
+                class="card-md font-normal d-inline-block"
+                v-else
+                >
+                <i class="fas fa-lock fa-md"></i>
+              </a>
+
+              
+            </div>
+            <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{content.duration | formatContentDuration}}</div>
           </div>
         </template>
       </VAccordion>
@@ -21,6 +66,8 @@
 <script>
 import VAsync from '~/components/Base/VAsync'
 import VAccordion from '~/components/Base/VAccordion'
+
+import { formatContentDuration } from '~/utils/course'
 
 export default {
   name: 'SectionAccordion',
@@ -34,7 +81,21 @@ export default {
       required: true
     }
   },
-  tasks (t) {
+  computed: {
+    section () {
+      return this.fetchSection.lastResolved.value
+    },
+    colorClass() {
+      return this.isFree && 'orange'
+    },
+    isFree () {
+      return !this.section.premium
+    }
+  },
+  filters: {
+    formatContentDuration
+  },
+  tasks(t) {
     return {
       fetchSection: t(function*() {
         const response = yield this.$axios.get(

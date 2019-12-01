@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h3>Course Content</h3>
-    <hr>
-
+  <div class="border-card p-5">
+    <h5 class="bold">Course Content</h5>
+    <div class="divider-h my-4"></div>
+    
     <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
   </div>
 </template>

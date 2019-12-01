@@ -35,7 +35,6 @@ export default {
   tasks(t, {timeout}) {
     return {
       fetchProjects: t(function * () {
-        yield timeout(5000)
         const response = yield this.$axios.get('projects', {
           params: {
             filter: {

@@ -16,7 +16,11 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
     "@coding-blocks/motley": "^0.4.9",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/vue-fontawesome": "^0.1.8",
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",
@@ -25,6 +29,7 @@
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.0.1",
     "jsonapi-datastore": "^0.4.0-beta",
+    "marked": "^0.7.0",
     "prettier": "^1.16.4",
     "qs": "^6.9.1",
     "vuency": "^0.1.7"

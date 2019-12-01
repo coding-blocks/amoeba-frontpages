@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot name="head" :onToggle="toggle"></slot>
+    <slot name="head" :onToggle="toggle" :expanded="showContent"></slot>
 
     <div v-show="showContent">
       <slot name="content"></slot>

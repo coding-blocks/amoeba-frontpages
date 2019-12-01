@@ -35,6 +35,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    '~/plugins/fontawesome.js',
     '~/plugins/jsonapi-datastore.js',
     '~/plugins/vuency.js',
     '~/plugins/axios.js'
@@ -65,6 +66,11 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { },
+    babel: {
+      plugins: [
+        ["@babel/plugin-proposal-optional-chaining"]
+      ]
+    }
   }
 }
