@@ -5,6 +5,32 @@
     </template>
     <template v-slot="{ value }">
       This is the Projects list. We have {{value.length}} Projects
+
+      <div class="border-card p-5">
+        <h5 class="bold">Projects</h5>
+        <div class="divider-h my-4"></div>
+        
+        <div class="border-bottom-list">
+          <div
+            class="row mx-0 align-items-center justify-content-between pointer"
+            v-for="project in value"
+            :key="project.id"
+            >
+            <div>
+              <div class="d-flex align-items-center">
+                <h6 class="bold d-inline-block mr-5 orange">
+                  {{ project.title }}
+                </h6>
+                
+              </div>
+              <div class="card-md font-normal mt-1">
+                {{project.description}}
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
     </template>
   </VAsync>
 </template>

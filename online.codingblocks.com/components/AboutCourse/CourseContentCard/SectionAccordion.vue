@@ -30,32 +30,34 @@
         </template>
 
         <template v-slot:content>
-          <div
-            class="row no-gutters justify-content-between my-3"
-            v-for="content in section.contents"
-            :key="content.id"
-          >
-            <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
-              <i class="fas fa-play-circle s-20x20 font-md mr-3"></i>
-              <span class="font-normal">{{ content.title }}</span>
-            </a>
-            <div class="col-2 col-md-1 t-align-c">
-              <a href="#" 
-                class="card-md font-normal orange d-inline-block"
-                v-if="isFree"
-                >
-                Preview
+          <div class="border-top my-4">
+            <div
+              class="row no-gutters justify-content-between my-3"
+              v-for="content in section.contents"
+              :key="content.id"
+            >
+              <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
+                <FaIcon icon="play-circle" class="s-20x20 font-md mr-3"></FaIcon>
+                <span class="font-normal">{{ content.title }}</span>
               </a>
-              <a href="#" 
-                class="card-md font-normal d-inline-block"
-                v-else
-                >
-                <i class="fas fa-lock fa-md"></i>
-              </a>
+              <div class="col-2 col-md-1 t-align-c">
+                <a href="#" 
+                  class="card-md font-normal orange d-inline-block"
+                  v-if="isFree"
+                  >
+                  Preview
+                </a>
+                <a href="#" 
+                  class="card-md font-normal d-inline-block"
+                  v-else
+                  >
+                  <i class="fas fa-lock fa-md"></i>
+                </a>
 
-              
+                
+              </div>
+              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{content.duration | formatContentDuration}}</div>
             </div>
-            <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{content.duration | formatContentDuration}}</div>
           </div>
         </template>
       </VAccordion>
@@ -108,3 +110,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.border-top {
+  border-top: 1px solid #f3f3f3;
+}
+</style>

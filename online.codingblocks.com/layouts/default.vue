@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="a-ocb">
     <TheNavbarTop />
     <div class="mt-70">
       <nuxt />
