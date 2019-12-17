@@ -1,9 +1,16 @@
 <template>
   <div class="a-ocb">
-    <TheNavbarTop />
-    <div class="mt-70">
-      <nuxt />
+    <script defer src="https://hack.codingblocks.com/index.js"></script>
+    <div class="row no-gutters">
+      <div class="col-1 bg-grey"></div>
+      <div class="col-11">
+        <TheNavbarTop />
+        <cb-navbar topalign="right"></cb-navbar>
+        <nuxt />
+      </div>
     </div>
+    
+    
   </div>
 </template>
 
@@ -16,9 +23,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css" scoped>
-.mt-70 {
-  margin-top: 70px;
-}
-</style>

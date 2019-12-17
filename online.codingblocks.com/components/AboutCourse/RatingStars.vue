@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span class="pos-rating orange" v-for="n in numberOfYellowStars" :key="n">
+    <span :class="'pos-rating orange ' + posRatingClass" v-for="n in numberOfYellowStars" :key="n">
             <FaIcon icon="star" class="fa-lg" />
     </span>
     <span class="neg-rating" v-for="n in numberOfEmptyStars" :key="n">
-        <FaIcon icon="star" class="fa-lg" />
+        <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
     </span>
     <slot></slot>
   </div>
@@ -21,6 +21,14 @@ export default {
     total: {
       type: Number,
       default: 5
+    },
+    showEmpty: {
+      type: Boolean,
+      default: true
+    },
+    posRatingClass: {
+      type: String,
+      default: ''
     }
   },
   computed: {

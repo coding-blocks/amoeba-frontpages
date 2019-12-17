@@ -1,22 +1,25 @@
 <template>
-  <div class="container-fluid">
-    <div class="col-9">
-      <IntroductionCard :course="course" />
-      <div>
-        <h2>Summary</h2>
-        <VMarkdown :markdown="course.summary"/>
+  <div class="container mt-5">
+    <div class="row">
+      <IntroductionCard class="col-8" :course="course" />
+      <IntroVideoPlayer class="col-4" :url="course['promo-video']" />
+      <div class="col-8 mt-5">
+        <div class="border-card">
+          <h2>Summary</h2>
+          <VMarkdown :markdown="course.summary"/>
+        </div>
       </div>
       
-      <VAsync :task="fetchRatingStats">
+      <VAsync class="col-8 mt-5" :task="fetchRatingStats">
         <template v-slot="{ value }">
-          <CourseRatingStats :stats="value" />
+          <CourseRatingStats class="border-card" :stats="value" />
         </template>
       </VAsync>
 
-      <CourseContentCard :sectionIds="topRunSectionIds"  />
-      <ProjectsList :project-ids="projectIds" />
+      <CourseContentCard class="col-8 mt-5" :sectionIds="topRunSectionIds"  />
+      <ProjectsList class="col-8 mt-5" :project-ids="projectIds" />
+      <MentorsCard class="col-8 mt-5" :instructors="course.instructors" />
     </div>
-
   </div>
 
 
@@ -29,9 +32,12 @@ import CourseRatingStats from '~/components/AboutCourse/CourseRatingStats.vue'
 
 import CourseContentCard from '~/components/AboutCourse/CourseContentCard/Index.vue'
 import ProjectsList from '~/components/AboutCourse/ProjectsList.vue'
+import MentorsCard from "~/components/AboutCourse/MentorsCard.vue";
+import IntroVideoPlayer from "~/components/AboutCourse/IntroVideoPlayer.vue";
+import ChooseBatch from "~/components/AboutCourse/ChooseBatch.vue";
+
 
 import VAsync from '~/components/Base/VAsync.vue'
-
 
 import { topRunForCourse } from '~/utils/course';
 
@@ -48,6 +54,8 @@ export default {
     CourseContentCard,
     ProjectsList,
     CourseRatingStats,
+    MentorsCard,
+    IntroVideoPlayer,
     VAsync,
   },
   async asyncData ({ params, $axios, app }) {
@@ -79,3 +87,14 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 2%;
+  }
+}
+
+</style>

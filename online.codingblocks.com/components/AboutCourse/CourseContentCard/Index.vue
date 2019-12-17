@@ -1,10 +1,12 @@
 <template>
-  <div class="border-card p-5">
-    <h5 class="bold">Course Content</h5>
-    <div class="divider-h my-4"></div>
-    
-    <div class="border-bottom-list">
-      <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
+  <div>
+    <div class="border-card">
+      <h5 class="bold">Course Content</h5>
+      <div class="divider-h my-4"></div>
+      
+      <div class="border-bottom-list">
+        <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
+      </div>
     </div>
   </div>
 </template>
@@ -36,5 +38,12 @@ export default {
   height: 1px;
   width: 100%;
   margin: 1.5rem 0; 
-  }
+}
+</style>
+
+<style scoped>
+.border-card {
+  max-height: 600px;
+  overflow: auto;
+}
 </style>

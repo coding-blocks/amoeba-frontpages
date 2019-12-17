@@ -4,9 +4,7 @@
       Loading....
     </template>
     <template v-slot="{ value }">
-      This is the Projects list. We have {{value.length}} Projects
-
-      <div class="border-card p-5">
+      <div class="border-card">
         <h5 class="bold">Projects</h5>
         <div class="divider-h my-4"></div>
         
