@@ -3,12 +3,12 @@
     <div class="border-card bg-light-grey">
       <div class="font-mds bold mb-5">About Mentors</div>
       <div class="d-flex instructor-row" v-for="instructor in instructors" :key="instructor.id">
-        <img class="s-50x50 round" src="https://minio.codingblocks.com/amoeba/8393c1ff-670e-4cd2-934f-fbfad1ea5c19" alt="" srcset="">
+        <img class="s-50x50 round" :src="instructor.photo" alt="" srcset="">
         <div class="ml-3">
-          <div class="font-mds bold">Arnav Gupta</div>
-          <div class="grey mb-2">arnav@cb.lk</div>
+          <div class="font-mds bold">{{instructor.name}}</div>
+          <a class="grey mb-2" :href="'mailto:' + instructor.email">{{instructor.email}}</a>
           <div class="t-align-j">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, illo ut nihil aspernatur id non provident quod fugit? Corporis possimus cupiditate nam? Beatae, maiores? Quas beatae repudiandae error dolorum ut?
+            <VMarkdown :markdown="instructor.description"/>
           </div>
         </div>
       </div>
@@ -18,6 +18,7 @@
 
 
 <script>
+import VMarkdown from '~/components/Base/VMarkdown.vue'
 export default {
   name: 'MentorsCard',
   props: {
@@ -25,6 +26,9 @@ export default {
       type: Array,
       required: true
     }
+  },
+  components: {
+    VMarkdown
   }
 }
 </script>

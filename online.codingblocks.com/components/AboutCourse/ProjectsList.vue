@@ -74,3 +74,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.border-card {
+  max-height: 320px;
+  overflow: hidden;
+}
+.border-bottom-list {
+  height: 280px;
+  overflow: auto;
+}
+</style>

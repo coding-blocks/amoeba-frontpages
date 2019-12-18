@@ -2,7 +2,7 @@
   <div>
     <div class="border-card">
       <h5 class="bold">Course Content</h5>
-      <div class="divider-h my-4"></div>
+      <div class="divider-h mt-4"></div>
       
       <div class="border-bottom-list">
         <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
@@ -45,5 +45,13 @@ export default {
 .border-card {
   max-height: 600px;
   overflow: auto;
+}
+
+.border-bottom-list {
+  max-height: 500px;
+  overflow: auto;
+}
+.border-bottom-list > *:first-child {
+  margin-top: 1.5rem;
 }
 </style>
