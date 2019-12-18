@@ -1,9 +1,20 @@
 <template>
   <div>
-    Hello World
+    <Test />
+    <div class="test">HHHLO</div>
   </div>
 </template>
 
 <script>
-export default {}
+import Test from "~/components/Test.vue";
+
+export default {
+  components: {
+    Test
+  }
+}
 </script>
+
+<style scoped>
+
+</style>
