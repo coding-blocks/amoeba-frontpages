@@ -1,20 +1,24 @@
 <template>
   <div>
-    <Test />
-    <div class="test">HHHLO</div>
+    <info />
+    <companycard />
+    <trackCard />
   </div>
 </template>
 
 <script>
-import Test from "~/components/Test.vue";
+import info from '~/components/LandingPage/InfoCard'
+import companycard from '~/components/LandingPage/CompanyCard'
+import trackCard from '~/components/LandingPage/LearningTrackCard'
 
 export default {
   components: {
-    Test
+    info,
+    companycard,
+    trackCard
   }
 }
 </script>
 
 <style scoped>
-
 </style>
