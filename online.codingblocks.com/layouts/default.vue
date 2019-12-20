@@ -9,6 +9,7 @@
         <nuxt />
       </div>
     </div>
+    <TheFooter />
     
     
   </div>
@@ -16,10 +17,12 @@
 
 <script>
 import TheNavbarTop from '~/components/TheNavbarTop.vue'
+import TheFooter from '~/components/TheFooter.vue'
 
 export default {
   components: {
-    TheNavbarTop
+    TheNavbarTop,
+    TheFooter
   }
 }
 </script>
