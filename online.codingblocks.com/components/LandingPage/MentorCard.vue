@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="row mt-5 c-card-carousel p-5 mx-auto">
+  <div class="container py-3 mb-5">
+    <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-5 col-8">
         <div class="border-card p-0 mentor-card">
           <div class="bg-grey head"></div>

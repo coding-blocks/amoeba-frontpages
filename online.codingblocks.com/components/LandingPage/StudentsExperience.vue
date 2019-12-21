@@ -1,15 +1,18 @@
 <template>
-  <div>
+  <div class="container mb-5">
     <h2 class="bold t-align-c my-5">What our students say</h2>
-    <div class="position-relative mb-5">
-      <img
-        src="https://www.mymaldives.com.au/wp-content/uploads/sites/11/2016/12/Beach-Banner.jpg"
-        alt="BannerImage"
-        class="w-100 h-100"
-      />
+    <div class="mb-5">
+      <iframe
+        src="https://www.youtube.com/embed/h_YmJLN9IgY"
+        frameborder="0"
+        loading="lazy"
+        class="w-100"
+        data-v-03fd9cc6
+        style="height: 450px"
+      ></iframe>
     </div>
 
-    <div class="row c-card-carousel mx-0 mt-5">
+    <div class="row mt-5">
       <div class="col-lg-4 col-md-7 col-8">
         <div class="border-card p-5">
           <img src="\images\group.png" alt class="overlay-icon" />

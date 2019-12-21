@@ -1,11 +1,11 @@
 <template>
-  <div class="mb-4" style="background: linear-gradient(90deg, #00205B 0%, #84358E 100%);">
+  <div class="mb-4 p-4" style="background: linear-gradient(90deg, #00205B 0%, #84358E 100%);">
     <div class="container">
       <div class="mb-4">
         <div class="row justify-content-between">
           <div class="white col-12 col-md-5">
             <div class="ml-5 pt-4 pb-3">
-              <div class="bold" style="padding-bottom: 31px; ">For Freshers</div>
+              <div class="bold mb-2" style="padding-bottom: 31px; ">For Freshers</div>
               <div class="d-flex">
                 <div>
                   <img
@@ -51,7 +51,7 @@
             </div>
           </div>
 
-          <div style="width: 1px; margin:2rem 0; background-color:white"></div>
+          <div style="width: 1px; margin:3rem 0; background-color:white"></div>
           <div class="white col-12 col-md-5">
             <div class="mr-5 pt-4 pb-3">
               <div class="bold" style="padding-bottom: 31px;">For Laterals</div>

@@ -2,6 +2,28 @@
   <div>
     <Info />
     <CompanyCard />
+    <div></div>
+    <div class="container mb-5">
+      <div class="row justify-content-between">
+        <div class="col-6 font-lg mb-5">
+          <strong>Learn from instructor led online courses</strong>
+        </div>
+        <div class="col-6 t-align-r">
+          <button class="button-dashed button-orange">Browse Courses</button>
+        </div>
+      </div>
+      <div class="row">
+        <ClassRoomCard v-for="num in 3" :key="num" />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="font-lg mb-3">
+          <strong>Our Talented Mentors</strong>
+        </div>
+      </div>
+    </div>
     <MentorCard />
     <TrackCard />
     <CourseCard />
@@ -9,7 +31,6 @@
     <ExprienceCard />
     <NumberQuote />
     <Perkcard />
-    <ExclusiveFeature />
     <FeatureCard />
     <PromotionCard />
     <StudentsExperience />
@@ -25,11 +46,11 @@ import ExprienceCard from '~/components/LandingPage/ExperienceCard'
 import Perkcard from '~/components/LandingPage/PerkCard'
 import SuccessQuote from '~/components/LandingPage/SuccessQuote'
 import NumberQuote from '~/components/LandingPage/NumberQuote'
-import ExclusiveFeature from '~/components/LandingPage/FeatureTitle'
 import MentorCard from '~/components/LandingPage/MentorCard'
 import PromotionCard from '~/components/LandingPage/PromotionCard'
 import FeatureCard from '~/components/LandingPage/FeatureCard'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience'
+import ClassRoomCard from '~/components/Base/CourseCard'
 
 export default {
   components: {
@@ -41,11 +62,11 @@ export default {
     Perkcard,
     SuccessQuote,
     NumberQuote,
-    ExclusiveFeature,
     MentorCard,
     PromotionCard,
     FeatureCard,
-    StudentsExperience
+    StudentsExperience,
+    ClassRoomCard
   }
 }
 </script>

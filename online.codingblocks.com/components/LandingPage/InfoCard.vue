@@ -1,27 +1,29 @@
 <template>
   <div class="container a-ocb">
-    <div class="row mt-4">
-      <div class="col-12 col-md-5">
-        <div class="gradient-text-orange mb-2 font-lg">Uplift your career with us!</div>
-        <div class="font-md mb-4">We will help you build skills & land your dream job</div>
-        <div class="grey mb-3 pt-3">Let's get to know your preferences first</div>
-        <div class="border-card">
-          <div class="mb-3">
-            I am a
-            <button class="button-solid button-orange ml-3">Student</button>
-            <button class="button-dashed button-orange ml-2">Professional</button>
+    <div class="mt-5">
+      <div class="row">
+        <div class="col-12 col-md-5">
+          <div class="gradient-text-orange mb-2 font-lg bold">Uplift your career with us!</div>
+          <div class="font-md mb-4">We will help you build skills & land your dream job</div>
+          <div class="grey mb-3 pt-3">Let's get to know your preferences first</div>
+          <div class="border-card">
+            <div class="mb-3">
+              I am a
+              <button class="button-solid button-orange ml-3">Student</button>
+              <button class="button-dashed button-orange ml-2">Professional</button>
+            </div>
+            <div class="mb-3 pt-3">
+              I want to become a
+              <select class="ml-2">
+                <option value="xxx">Web Development</option>
+              </select>
+            </div>
+            <button class="button-dashed button-orange">Continue</button>
           </div>
-          <div class="mb-3 pt-3">
-            I want to become a
-            <select class="ml-2">
-              <option value="xxx">Web Development</option>
-            </select>
-          </div>
-          <button class="button-dashed button-orange">Continue</button>
         </div>
-      </div>
-      <div class="offset-0 col-12 offset-md-1 col-md-6 d-none d-md-block">
-        <img src="https://minio.codingblocks.com/amoeba/hellointern-banner.svg" alt srcset />
+        <div class="offset-0 col-12 offset-md-1 col-md-6 d-none d-md-block">
+          <img src="https://minio.codingblocks.com/amoeba/hellointern-banner.svg" alt srcset />
+        </div>
       </div>
     </div>
   </div>

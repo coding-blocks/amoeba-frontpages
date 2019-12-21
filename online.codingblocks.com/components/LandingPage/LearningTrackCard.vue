@@ -1,9 +1,9 @@
 <template>
-  <div class>
+  <div class="mb-3">
     <div class="container a-ocb learning-track-banner pb-4">
       <div class="border-card bg-gradient-black-lr b-card" style="position: relative;">
         <div class="row font-lg p-3 ml-4" style="font-family: Gilroy-Bold">
-          <div class="gradient-text-orange">Introducing: Learning tracks</div>
+          <div class="gradient-text-orange bold">Introducing: Learning tracks</div>
           <div
             class="white button-dashed button-white d-none d-md-block"
             style="position: absolute; right: 27px; top:20px"

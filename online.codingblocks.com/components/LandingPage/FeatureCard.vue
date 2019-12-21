@@ -1,7 +1,7 @@
 <template>
-  <div class="landing-page__section">
-    <div class="mb-5 t-align-c">
-      <h2 class="bold">Our Exclusive Features</h2>
+  <div class="container mb-5">
+    <div class="mb-5 t-align-c font-md">
+      <strong>Our Exclusive Features</strong>
     </div>
     <div class="row">
       <div class="col-md-4 col-6 mb-4">
