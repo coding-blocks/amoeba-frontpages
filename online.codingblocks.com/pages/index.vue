@@ -1,21 +1,30 @@
 <template>
   <div>
-    <info />
-    <companycard />
-    <trackCard />
+    <Info />
+    <CompanyCard />
+    <TrackCard />
+    <CourseCard />
+    <ExprienceCard />
+    <Perkcard />
   </div>
 </template>
 
 <script>
-import info from '~/components/LandingPage/InfoCard'
-import companycard from '~/components/LandingPage/CompanyCard'
-import trackCard from '~/components/LandingPage/LearningTrackCard'
+import Info from '~/components/LandingPage/InfoCard'
+import CompanyCard from '~/components/LandingPage/CompanyCard'
+import TrackCard from '~/components/LandingPage/LearningTrackCard'
+import CourseCard from '~/components/LandingPage/courseCard'
+import ExprienceCard from '~/components/LandingPage/ExperienceCard'
+import Perkcard from '~/components/LandingPage/PerkCard'
 
 export default {
   components: {
-    info,
-    companycard,
-    trackCard
+    Info,
+    CompanyCard,
+    TrackCard,
+    CourseCard,
+    ExprienceCard,
+    Perkcard
   }
 }
 </script>
