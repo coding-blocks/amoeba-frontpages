@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-5">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-12 col-md-3">

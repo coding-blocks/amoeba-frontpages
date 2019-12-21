@@ -1,10 +1,7 @@
 <template>
-  <div class="mb-4">
+  <div class="mb-4" style="background: linear-gradient(90deg, #00205B 0%, #84358E 100%);">
     <div class="container">
-      <div
-        class="border-card"
-        style="background: linear-gradient(90deg, #00205B 0%, #84358E 100%);"
-      >
+      <div class="mb-4">
         <div class="row justify-content-between">
           <div class="white col-12 col-md-5">
             <div class="ml-5 pt-4 pb-3">

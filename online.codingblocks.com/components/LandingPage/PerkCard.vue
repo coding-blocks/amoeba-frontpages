@@ -31,7 +31,7 @@
 
               <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
                 <div class="mx-4">
-                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-orange">12000+</div>
+                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-pink">12000+</div>
                   <div class="mb-2">Students Taught</div>
                 </div>
               </div>
@@ -49,7 +49,7 @@
 
               <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
                 <div class="mx-4">
-                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-orange">18000+</div>
+                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-blue">18000+</div>
                   <div class="mb-2">Hours of Study</div>
                 </div>
               </div>
@@ -67,7 +67,7 @@
 
               <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
                 <div class="mx-4">
-                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-orange">100+</div>
+                  <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-purple">100+</div>
                   <div class="mb-2">Years of Teaching</div>
                 </div>
               </div>
