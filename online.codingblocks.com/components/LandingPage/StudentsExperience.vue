@@ -13,7 +13,7 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-lg-4 col-md-7 col-8">
+      <div class="col-lg-4 col-md-6 pb-4">
         <div class="border-card p-5">
           <img src="\images\group.png" alt class="overlay-icon" />
           <div class="d-flex align-items-center">
@@ -31,7 +31,7 @@
           <div class="extra-bold">Placed at Google</div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-7 col-8">
+      <div class="col-lg-4 col-md-6 pb-4">
         <div class="border-card p-5">
           <img src="\images\group.png" alt class="overlay-icon" />
           <div class="d-flex align-items-center">
@@ -49,7 +49,7 @@
           <div class="extra-bold">Placed at Google</div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-7 col-8">
+      <div class="col-lg-4 col-md-6 pb-4">
         <div class="border-card p-5">
           <img src="\images\group.png" alt class="overlay-icon" />
           <div class="d-flex align-items-center">

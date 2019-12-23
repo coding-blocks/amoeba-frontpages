@@ -1,39 +1,48 @@
 <template>
   <div>
-    <Info />
+    <div class="my-auto p-md-4">
+      <Info />
+    </div>
     <CompanyCard />
-    <div></div>
-    <div class="container mb-5">
-      <div class="row justify-content-between">
-        <div class="col-6 font-lg mb-5">
-          <strong>Learn from instructor led online courses</strong>
+    <div class="my-auto">
+      <div class="container mb-5">
+        <div class="row justify-content-between">
+          <div class="col-6 font-lg mb-5">
+            <strong>Learn from instructor led online courses</strong>
+          </div>
+          <div class="col-6 t-align-r">
+            <button class="button-dashed button-orange">Browse Courses</button>
+          </div>
         </div>
-        <div class="col-6 t-align-r">
-          <button class="button-dashed button-orange">Browse Courses</button>
+        <div class="row">
+          <ClassRoomCard v-for="num in 3" :key="num" />
         </div>
       </div>
-      <div class="row">
-        <ClassRoomCard v-for="num in 3" :key="num" />
+
+      <div class="container">
+        <div class="d-flex justify-content-center">
+          <div class="font-lg mb-3">
+            <strong>Our Talented Mentors</strong>
+          </div>
+        </div>
       </div>
+      <MentorCard />
+      <TrackCard />
+      <CourseCard />
+      <SuccessQuote />
+    </div>
+    <ExprienceCard />
+
+    <div class="my-auto">
+      <NumberQuote />
+      <Perkcard />
+      <FeatureCard />
     </div>
 
-    <div class="container">
-      <div class="d-flex justify-content-center">
-        <div class="font-lg mb-3">
-          <strong>Our Talented Mentors</strong>
-        </div>
-      </div>
-    </div>
-    <MentorCard />
-    <TrackCard />
-    <CourseCard />
-    <SuccessQuote />
-    <ExprienceCard />
-    <NumberQuote />
-    <Perkcard />
-    <FeatureCard />
     <PromotionCard />
-    <StudentsExperience />
+    <div class="my-auto">
+      <StudentsExperience />
+    </div>
   </div>
 </template>
 
@@ -72,4 +81,8 @@ export default {
 </script>
 
 <style scoped>
+
+.pad{
+
+}
 </style>

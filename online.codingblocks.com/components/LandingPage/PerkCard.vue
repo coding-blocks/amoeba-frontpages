@@ -7,7 +7,7 @@
             <div
               class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
             >
-              <img src="http://via.placeholder.com/50x50?text=B" alt class="mx-4 my-lg-4" />
+              <img src="https://minio.codingblocks.com/landing-pages/portfolio.svg" alt class="mx-4 my-lg-4" />
             </div>
 
             <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
@@ -25,13 +25,13 @@
             <div
               class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
             >
-              <img src="http://via.placeholder.com/50x50?text=B" alt class="mx-4 my-lg-4" />
+              <img src="https://minio.codingblocks.com/landing-pages/college-graduation.svg" alt class="mx-4 my-lg-4" />
             </div>
 
             <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
               <div class="mx-4">
                 <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-pink">12000+</div>
-                <div class="mb-2">Students Taught</div>
+                <div >Students Taught</div>
               </div>
             </div>
           </div>
@@ -43,13 +43,13 @@
             <div
               class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
             >
-              <img src="http://via.placeholder.com/50x50?text=B" alt class="mx-4 my-lg-4" />
+              <img src="https://minio.codingblocks.com/landing-pages/books-stack-of-three.svg" alt class="mx-4 my-lg-4" />
             </div>
 
             <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
               <div class="mx-4">
                 <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-blue">18000+</div>
-                <div class="mb-2">Hours of Study</div>
+                <div >Hours of Study</div>
               </div>
             </div>
           </div>
@@ -61,13 +61,13 @@
             <div
               class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
             >
-              <img src="http://via.placeholder.com/50x50?text=B" alt class="mx-4 my-lg-4" />
+              <img src="../../../images/rocket.svg" alt class="mx-4 my-lg-4" />
             </div>
 
             <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
               <div class="mx-4">
                 <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-purple">100+</div>
-                <div class="mb-2">Years of Teaching</div>
+                <div>Years of Teaching</div>
               </div>
             </div>
           </div>

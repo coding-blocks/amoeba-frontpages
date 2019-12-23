@@ -4,12 +4,12 @@
       <div class="mb-4">
         <div class="row justify-content-between">
           <div class="white col-12 col-md-5">
-            <div class="ml-5 pt-4 pb-3">
+            <div class="ml-md-5 pt-4 pb-md-3">
               <div class="bold mb-2" style="padding-bottom: 31px; ">For Freshers</div>
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=Bag"
+                    src="../../../images/suitcase-white.svg"
                     alt="Bag"
                     style=" height:32px;width:44px"
                   />
@@ -23,8 +23,8 @@
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=R"
-                    alt="Bag"
+                    src="../../../images/rocket-white.svg"
+                    alt="rocket"
                     style=" height:32px;width:39px"
                   />
                 </div>
@@ -37,7 +37,7 @@
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=P"
+                    src="../../../images/man-plus.svg"
                     alt="Bag"
                     style=" height:32px;width:34px"
                   />
@@ -53,12 +53,12 @@
 
           <div style="width: 1px; margin:3rem 0; background-color:white"></div>
           <div class="white col-12 col-md-5">
-            <div class="mr-5 pt-4 pb-3">
+            <div class="mr-5 pt-md-4 pb-3">
               <div class="bold" style="padding-bottom: 31px;">For Laterals</div>
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=Bag"
+                    src="../../../images/video-white.svg"
                     alt="Bag"
                     style=" height:32px;width:50px"
                   />
@@ -72,7 +72,7 @@
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=R"
+                    src="../../../images/rocket-white.svg"
                     alt="Bag"
                     style=" height:32px;width:50px"
                   />
@@ -86,7 +86,7 @@
               <div class="d-flex">
                 <div>
                   <img
-                    src="http://via.placeholder.com/32x32?text=P"
+                    src="../../../images/salary-card.svg"
                     alt="Bag"
                     style=" height:32px;width:32px"
                   />

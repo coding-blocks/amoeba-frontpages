@@ -2,77 +2,80 @@
   <div class="mb-5">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-12 col-md-3">
-          <div class="border-card">
+        <div class="col-12 col-md-4 pb-4">
+          <div class="border-card p-0">
             <div class="d-flex align-center" style="position: relative;">
-              <div>
-                <img
-                  src="https://minio.codingblocks.com/amoeba/0ee7474c-de3c-44d7-a704-646491c702e8.svg"
-                  alt="Data Science"
-                  style=" height:60px;width:70px"
-                />
-              </div>
-              <div class="font-sm ml-3 my-auto">
-                Become a Certified
-                <br />
-                <strong>Data Scientist</strong>
-                <div class="font-xs mt-1">4 courses</div>
+              <div class="row p-3 p-md-4 mt-2">
+                <div class="col-5">
+                  <img
+                    src="../../../images/Data-scientist.svg"
+                    alt="Data Science"
+                    style=" height:60px;width:70px"
+                  />
+                </div>
+                <div class="col-7 font-sm my-auto">
+                  Become a Certified
+                  <br />
+                  <strong>Data Scientist</strong>
+                  <div class="font-xs mt-2 mb-4">4 courses</div>
+                </div>
+                <div
+                  class="t-align-md-r t-align-c font-xs offset-2 offset-md-0 col-10 col-md-12 pr-3 pl-2 mb-2"
+                  style="text-decoration:underline;color:#F2734C;"
+                >View Track</div>
               </div>
             </div>
-            <div
-              class="t-align-r font-xs"
-              style="position: absolute; right:24px;
-      text-decoration:underline;color:#F2734C;"
-            >View Track</div>
           </div>
         </div>
-        <div class="col-12 col-md-3">
-          <div class="border-card">
+        <div class="col-12 col-md-4">
+          <div class="border-card p-0">
             <div class="d-flex align-center" style="position:relative">
-              <div>
-                <img
-                  src="https://minio.codingblocks.com/amoeba/7c03adbd-67b6-4699-b8e4-13bdbb9adf12.svg"
-                  alt="android"
-                  style=" height:60px;width:70px"
-                />
-              </div>
-              <div class="font-sm ml-3 my-auto">
-                Become a ceritfied
-                <br />
-                <strong>Android Developer</strong>
-                <div class="font-xs mt-1">4 courses</div>
+              <div class="row p-3 p-md-4 mt-2">
+                <div class="col-5">
+                  <img
+                    src="../../../images/android.svg"
+                    alt="android"
+                    style=" height:60px;width:70px"
+                  />
+                </div>
+                <div class="col-7 font-sm my-auto">
+                  Become a ceritfied
+                  <br />
+                  <strong>Android Developer</strong>
+                  <div class="font-xs mt-2 mb-4">4 courses</div>
+                </div>
+                <div
+                  class="t-align-md-r t-align-c font-xs offset-2 offset-md-0 col-10 col-md-12 pr-3 pl-2 mb-2"
+                  style="text-decoration:underline;color:#F2734C;"
+                >View Track</div>
               </div>
             </div>
-            <div
-              class="t-align-r font-xs"
-              style="position: absolute; right:24px;
-            text-decoration:underline;color:#F2734C;"
-            >View Track</div>
           </div>
         </div>
 
-        <div class="col-12 col-md-3">
-          <div class="border-card">
+        <div class="col-12 col-md-4 pb-4">
+          <div class="border-card p-0">
             <div class="d-flex align-center" style="position: relative;">
-              <div>
-                <img
-                  src="https://minio.codingblocks.com/amoeba/ab386c20-4fcb-4720-bbc4-ce33829bcf7e.svg"
-                  alt="Python"
-                  style=" height:60px;width:70px"
-                />
-              </div>
-              <div class="font-sm ml-3 my-auto">
-                Become a ceritfied
-                <br />
-                <strong>Python Developer</strong>
-                <div class="font-xs mt-1">4 courses</div>
+              <div class="row p-3 p-md-4 mt-2">
+                <div class="col-5">
+                  <img
+                    src="../../../images/python.svg"
+                    alt="Python"
+                    style=" height:60px;width:70px"
+                  />
+                </div>
+                <div class="col-7 font-sm my-auto">
+                  Become a ceritfied
+                  <br />
+                  <strong>Python Developer</strong>
+                  <div class="font-xs mt-2 mb-4">4 courses</div>
+                </div>
+                <div
+                  class="t-align-md-r t-align-c font-xs offset-2 offset-md-0 col-10 col-md-12 pr-3 pl-2 mb-2"
+                  style="text-decoration:underline;color:#F2734C;"
+                >View Track</div>
               </div>
             </div>
-            <div
-              class="t-align-r font-xs"
-              style="position: absolute; right:24px;
-            text-decoration:underline;color:#F2734C;"
-            >View Track</div>
           </div>
         </div>
       </div>

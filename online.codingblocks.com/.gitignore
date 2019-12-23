@@ -91,3 +91,6 @@ sw.*
 
 #vscode-setting
 .vscode
+
+#image-folder
+.images/

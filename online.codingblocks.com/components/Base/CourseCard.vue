@@ -1,5 +1,5 @@
 <template>
-  <div class="col-10 col-md-6 col-lg-4 mb-3">
+  <div class="col-md-6 col-lg-4 mb-3">
     <div class="img-card">
       <div class="head pt-4">
         <!-- <img class="back-img back-img-course" loading="lazy" src="https://minio.codingblocks.com/amoeba/d89ffb7f-8f27-4aad-b490-2d3b2653d11d.svg"> -->
