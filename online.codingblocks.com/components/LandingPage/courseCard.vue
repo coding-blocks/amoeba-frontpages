@@ -2,7 +2,7 @@
   <div class="mb-5">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-12 col-md-4 pb-4">
+        <div class="col-md-4 pb-4">
           <div class="border-card p-0">
             <div class="d-flex align-center" style="position: relative;">
               <div class="row p-3 p-md-4 mt-2">

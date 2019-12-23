@@ -2,7 +2,7 @@
   <div class="container a-ocb">
     <div class="mt-5">
       <div class="row">
-        <div class="col-12 col-md-5">
+        <div class="col-md-5">
           <div class="gradient-text-orange mb-2 font-lg bold">Uplift your career with us!</div>
           <div class="font-md mb-4">We will help you build skills & land your dream job</div>
           <div class="grey mb-3 pt-3">Let's get to know your preferences first</div>
@@ -17,7 +17,7 @@
               </div>
             </div>
             <!-- <div class="mb-3"></div> -->
-            <div class="row no-gutters">
+            <div class="row">
               <div class="col-4 col-md-5 mb-3 mr-2">I want to become a</div>
               <div class="col-6">
                 <select>
@@ -28,7 +28,7 @@
             <button class="button-dashed button-orange">Continue</button>
           </div>
         </div>
-        <div class="offset-0 col-12 offset-md-1 col-md-6 d-none d-md-block my-auto">
+        <div class="offset-0 offset-md-1 col-md-6 d-none d-md-block my-auto">
           <img src="../../../images/girl.svg" alt srcset />
         </div>
       </div>
