@@ -1,0 +1,105 @@
+<template>
+  <div class="mb-4 p-4" style="background: linear-gradient(90deg, #00205B 0%, #84358E 100%);">
+    <div class="container">
+      <div class="mb-4">
+        <div class="row justify-content-between">
+          <div class="white col-12 col-md-5">
+            <div class="ml-md-5 pt-4 pb-md-3">
+              <div class="bold mb-2" style="padding-bottom: 31px; ">For Freshers</div>
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/suitcase-white.svg"
+                    alt="Bag"
+                    style=" height:32px;width:44px"
+                  />
+                </div>
+                <div style="margin-left:28px; margin-bottom: 20px">
+                  Internship and job opportunities for big companies
+                  like Amazon, Samsung, CueMath, Zomato etc
+                </div>
+              </div>
+
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/rocket-white.svg"
+                    alt="rocket"
+                    style=" height:32px;width:39px"
+                  />
+                </div>
+                <div style="margin-left:28px; margin-bottom: 20px">
+                  Courses to build a strong foundation for you to become
+                  an experienced programmer.
+                </div>
+              </div>
+
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/man-plus.svg"
+                    alt="Bag"
+                    style=" height:32px;width:34px"
+                  />
+                </div>
+
+                <div style="margin-left:28px; margin-bottom: 20px">
+                  Hiring Referrals in tech giants from our world wide
+                  alumini network
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="width: 1px; margin:3rem 0; background-color:white"></div>
+          <div class="white col-12 col-md-5">
+            <div class="mr-5 pt-md-4 pb-3">
+              <div class="bold" style="padding-bottom: 31px;">For Laterals</div>
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/video-white.svg"
+                    alt="Bag"
+                    style=" height:32px;width:50px"
+                  />
+                </div>
+                <div style="margin-left:28px; margin-bottom: 20px">
+                  Expert level courses to quickly learn and implement new
+                  technologies in your workspace.
+                </div>
+              </div>
+
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/rocket-white.svg"
+                    alt="Bag"
+                    style=" height:32px;width:50px"
+                  />
+                </div>
+                <div style="margin-left:28px; margin-bottom: 20px">
+                  Opportunity to learn advanced concepts of computer programming
+                  to aim for the next big job.
+                </div>
+              </div>
+
+              <div class="d-flex">
+                <div>
+                  <img
+                    src="../../../images/salary-card.svg"
+                    alt="Bag"
+                    style=" height:32px;width:32px"
+                  />
+                </div>
+
+                <div
+                  style="margin-left:28px; margin-bottom: 20px"
+                >High Salary Increments when you switch to your next job.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
