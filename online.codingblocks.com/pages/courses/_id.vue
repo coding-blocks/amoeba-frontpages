@@ -65,6 +65,7 @@ import CourseFeatures from "~/components/AboutCourse/CourseFeatures.vue";
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue';
 
 
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser';
 
 import VAsync from '~/components/Base/VAsync.vue'
 
@@ -72,6 +73,7 @@ import { topRunForCourse } from '~/utils/course';
 
 
 export default {
+  mixins: [sidebarLayoutMixin],
   data () {
     return {
       course: {}
@@ -94,7 +96,7 @@ export default {
   },
   async asyncData ({ params, $axios, app }) {
     const res = await $axios.get(`/courses/${params.id}`)
-    const course = app.$store.sync(res.data)
+    const course = app.$jsonApiStore.sync(res.data)
     return  {
       course
     }

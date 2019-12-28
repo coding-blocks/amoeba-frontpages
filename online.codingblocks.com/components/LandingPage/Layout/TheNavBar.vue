@@ -64,6 +64,15 @@
           </div>
         </li> -->
         <li>
+          <nuxt-link to=""> Learning Tracks </nuxt-link> 
+        </li>
+        <li class="ml-3">
+          <nuxt-link to="/courses"> Explore Course </nuxt-link> 
+        </li>
+        <li class="ml-3">
+          <nuxt-link to=""> Hiring Blocks </nuxt-link> 
+        </li>
+        <li class="ml-3">
           <button class="button-solid button-orange" v-if="session.isAuthenticated">
             Get Started
            

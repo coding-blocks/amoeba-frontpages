@@ -12,19 +12,19 @@
         <h5 class="bold">Web Development</h5>
         <div class="mt-2">
           <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+            <FaIcon icon="star" class="fa-lg"  />
           </span>
           <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+            <FaIcon icon="star" class="fa-lg"  />
           </span>
           <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+            <FaIcon icon="star" class="fa-lg"  />
           </span>
           <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+            <FaIcon icon="star" class="fa-lg"  />
           </span>
           <span class="neg-rating">
-            <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+            <FaIcon icon="star" class="fa-lg"  />
           </span>
           <span class="card-md font-normal ml-2">4/5, 435 ratings</span>
         </div>

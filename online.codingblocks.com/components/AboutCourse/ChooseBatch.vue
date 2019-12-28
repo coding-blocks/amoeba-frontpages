@@ -17,7 +17,7 @@
       <div class="gradient-text-orange">Enrollment ends {{ selectedRun.end }}</div>
     </div>
     <div class="d-flex">
-      <button class="button-solid button-orange flex-1 mr-4">Buy Now</button>
+      <a class="button-solid button-orange flex-1 mr-4" href="">Buy Now</a>
       <button class="button-dashed button-orange flex-1">Try it for free!</button>
     </div>
   </div>

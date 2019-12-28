@@ -62,6 +62,7 @@ import StudentsExperience from '~/components/LandingPage/StudentsExperience'
 import ClassRoomCard from '~/components/Base/CourseCard'
 
 export default {
+  layout: 'landing-page',
   components: {
     Info,
     CompanyCard,
@@ -79,10 +80,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-.pad{
-
-}
-</style>

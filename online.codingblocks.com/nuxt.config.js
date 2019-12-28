@@ -38,7 +38,7 @@ export default {
     '~/plugins/fontawesome.js',
     '~/plugins/jsonapi-datastore.js',
     '~/plugins/vuency.js',
-    '~/plugins/axios.js'
+    '~/plugins/axios.js',
   ],
   /*
    ** Nuxt.js dev-modules
@@ -52,13 +52,21 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: config.axios,
+  /*
+  ** Middlewares
+  **
+  */
+  router: {
+    middleware: 'auth'
+  },
   /*
    ** Build configuration
    */

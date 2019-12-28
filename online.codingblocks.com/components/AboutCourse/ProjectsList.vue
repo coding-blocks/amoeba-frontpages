@@ -68,7 +68,7 @@ export default {
             }
           }
         })
-        return this.$store.sync(response.data)
+        return this.$jsonApiStore.sync(response.data)
       })
     }
   }

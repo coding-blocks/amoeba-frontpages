@@ -1,19 +1,23 @@
 <template>
   <div class="a-ocb">
     <script defer src="https://hack.codingblocks.com/index.js"></script>
+
+    <!-- With sidenav -->
     <div class="c-sidenav bottom-nav"></div>
     <div class="ml-sidenav">
       <div class="row no-gutters">
         <div class="col-12">
           <TheNavbarTop class="ml-sidenav" />
-          <cb-navbar topalign="right">
-          </cb-navbar>
-          <nuxt />
+          <div class="page-content">
+            <cb-navbar topalign="right">
+            </cb-navbar>
+            
+            <nuxt />
+          </div>
         </div>
       </div>
       <TheFooter />
     </div>
-    
     
     
   </div>
@@ -33,11 +37,21 @@ export default {
 
 
 <style>
-/* body {
+body {
   padding: 0
-} */
+}
 
 .ml-sidenav {
-  margin-left: 12vw;
+  margin-left: 8vw;
+}
+
+.c-sidenav {
+  width: 8vw;
+}
+</style>
+
+<style scoped>
+.page-content {
+  padding-top: 63px;
 }
 </style>

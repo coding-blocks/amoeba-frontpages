@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5 mx-5">
+    <div class="container mt-5">
         <div class="row mb-4">
             <div class="col-lg-4 col-md-6 col-12">
                 <h3>Uplift your career with us</h3>
@@ -22,10 +22,12 @@
 
 <script>
 import CourseCard from '~/components/Base/CourseCard.vue';
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser';
 export default {
-    components: {
-        CourseCard
-    }
+  mixins: [sidebarLayoutMixin],
+  components: {
+      CourseCard
+  }
 }
 
 </script>

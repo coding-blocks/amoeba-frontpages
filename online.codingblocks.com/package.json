@@ -24,6 +24,7 @@
     "@nuxtjs/eslint-config": "^1.0.1",
     "@nuxtjs/eslint-module": "^1.0.0",
     "babel-eslint": "^10.0.1",
+    "cookie-universal-nuxt": "^2.1.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-nuxt": ">=0.4.2",
@@ -32,6 +33,7 @@
     "marked": "^0.7.0",
     "prettier": "^1.16.4",
     "qs": "^6.9.1",
-    "vuency": "^0.1.7"
+    "vuency": "^0.1.7",
+    "vuex": "^3.1.2"
   }
 }
