@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :runs="availableRuns" />
-        <CourseTags class="d-block d-sm-none" :tags="topRun.tags" v-if="!topRun.tags.length" />
+        <CourseTags class="d-block d-sm-none" :tags="course.tags" v-if="!course.tags.length" />
       </div>
     </div>
     <div class="row">

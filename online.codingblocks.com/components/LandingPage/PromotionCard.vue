@@ -2,7 +2,7 @@
   <div class="bg-gradient-hi-blue">
     <div class="container md-5">
       <div
-        class="row no-gutters align-items-center white position-relative justify-content-between landing-page__section"
+        class="row no-gutters align-items-center white position-relative justify-content-between py-5"
       >
         <div class="col-md-5 col-12">
           <h2 class="bold">Promoting Coding Culture</h2>
