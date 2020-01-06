@@ -65,11 +65,11 @@
                   <div class="col-lg-2 col-12 word-wrap"><h5 class="mb-lg-5 mb-4">Contact Us</h5>
                       <div class="font-sm light row no-gutters">
                           <div class="col-lg-12 col-6">
-                              <div class="extra-bold orange my-2">Technical Support</div>
+                              <div class="extra-bold gradient-text-orange my-2">Technical Support</div>
                               <a href="mailto:support@codingblocks.com" class="my-2 white font-xs">support@codingblocks.com</a>
                               <br> <a href="tel:+18002744504" class="my-2 white font-sm">+1800 274 4504</a></div>
                           <div class="mt-4 col-12">
-                              <div class="extra-bold orange my-2">Online Courses Enquiry</div>
+                              <div class="extra-bold gradient-text-orange my-2">Online Courses Enquiry</div>
                               <div class="my-2 white font-xs">support@hellointern.com</div>
                               <a href="tel:+914049492040" class="my-2 white font-sm">+91 40-49492040</a></div>
                           <div class="mt-5 col-12 d-flex"><a href="#" class="grey"><i

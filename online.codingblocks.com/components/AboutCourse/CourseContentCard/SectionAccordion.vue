@@ -42,7 +42,7 @@
               </a>
               <div class="col-2 col-md-1 t-align-c">
                 <a href="#" 
-                  class="card-md font-normal orange d-inline-block"
+                  class="card-md font-normal gradient-text-orange d-inline-block"
                   v-if="isFree"
                   >
                   Preview
