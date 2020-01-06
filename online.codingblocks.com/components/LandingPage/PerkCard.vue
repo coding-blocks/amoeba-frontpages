@@ -76,3 +76,10 @@
     </div>
   </div>
 </template>
+
+
+<style scoped>
+.bg-grey {
+  background-color: #F3F3F3 !important;
+}
+</style>

@@ -11,10 +11,7 @@
             </div>
         </div>
         <div class="row a-ocb">
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+            <CourseCard :course="course" v-for="course in courses" :key="course.id"/>
         </div>
     </div>
 </template>
@@ -27,6 +24,30 @@ export default {
   mixins: [sidebarLayoutMixin],
   components: {
       CourseCard
+  },
+  async asyncData ({ $axios, app }) {
+    const res = await $axios.get('/courses', {
+      params: {
+        exclude: `ratings,instructors.*`,
+        include: `instructors,runs`,
+        filter: {
+          unlisted: false,
+          domains: {
+            $contains: ['hellointern']
+          }
+        },
+        page: {
+          limit: 100
+        }
+      }
+    })
+    const courses = app.$jsonApiStore.sync(res.data)
+    return  { courses }
+  },
+  data () {
+    return {
+      courses: [] 
+    }
   }
 }
 

@@ -11,11 +11,11 @@
             <strong>Learn from instructor led online courses</strong>
           </div>
           <div class="col-6 t-align-r">
-            <button class="button-dashed button-orange">Browse Courses</button>
+            <nuxt-link to="/courses" class="button-dashed button-orange">Browse Courses</nuxt-link>
           </div>
         </div>
         <div class="row">
-          <ClassRoomCard v-for="num in 3" :key="num" />
+          <ClassRoomCard :course="course" v-for="course in courses" :key="course.id" />
         </div>
       </div>
 
@@ -77,6 +77,32 @@ export default {
     FeatureCard,
     StudentsExperience,
     ClassRoomCard
+  },
+  async asyncData ({ $axios, app }) {
+    const res = await $axios.get(`/courses`, {
+      params: {
+        include: 'instructors,runs',
+        exclude: 'ratings,instructors.*,feedbacks,runs.*',
+        filter: {
+          recommended: true,
+          unlisted: false,
+        },
+        page: {
+          limit: 3
+        },
+        sort: 'difficulty'
+      }
+    })
+
+    const courses = app.$jsonApiStore.sync(res.data)
+    return {
+      courses
+    }
+  },
+  data () {
+    return {
+      courses: []
+    }
   }
 }
 </script>

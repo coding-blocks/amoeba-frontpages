@@ -4,7 +4,7 @@
             <FaIcon icon="star" class="fa-lg" />
     </span>
     <span class="neg-rating" v-for="n in numberOfEmptyStars" :key="n">
-        <FaIcon icon="star" class="fa-lg" v-show="!showEmpty" />
+        <FaIcon icon="star" class="fa-lg" v-show="showEmpty" />
     </span>
     <slot></slot>
   </div>

@@ -1,40 +1,32 @@
 <template>
   <div class="col-md-6 col-lg-4 mb-3">
     <div class="img-card">
-      <div class="head pt-4">
-        <!-- <img class="back-img back-img-course" loading="lazy" src="https://minio.codingblocks.com/amoeba/d89ffb7f-8f27-4aad-b490-2d3b2653d11d.svg"> -->
+      <div class="head pt-4"
+        :style="`background-image: url('${course['cover-image']}')`"
+      >
+        <!-- <img class="back-img back-img-course" loading="lazy" :src="course['cover-image']"> -->
         <div class="t-align-r">
-          <span class="font-lg pl-1 orange">&#8226;</span>
-          <span class="font-lg pl-1 grey">&#8226;</span>
-          <span class="font-lg pl-1 grey">&#8226;</span>
-          <div class="card-sms">Beginner</div>
+          <span class="font-lg" 
+          v-for="i in 3"
+          :key="i"
+          :class="i-1 <= course.difficulty ?  'orange' : 'white'"
+        > 
+          &#10625;
+        </span>
+          <!-- <div class="card-sms">Beginner</div> -->
+          <div class="course-card__difficulty card-sm"> {{ difficultyText }} </div>
         </div>
-        <h5 class="bold">Web Development</h5>
-        <div class="mt-2">
-          <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg"  />
-          </span>
-          <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg"  />
-          </span>
-          <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg"  />
-          </span>
-          <span class="pos-rating orange">
-            <FaIcon icon="star" class="fa-lg"  />
-          </span>
-          <span class="neg-rating">
-            <FaIcon icon="star" class="fa-lg"  />
-          </span>
-          <span class="card-md font-normal ml-2">4/5, 435 ratings</span>
-        </div>
+        <h5 class="bold">{{course.title}}</h5>
+          <RatingStars class="mt-2" :value="Math.round(+this.course.rating)">
+            <span class="card-md font-normal ml-2"> {{this.course.rating}}/5, {{this.course['review-count']}} ratings</span>
+          </RatingStars>
         <div
           class="head__course-logo"
           style="padding: 0%; bottom: -30px; width: 70px; height: 70px;"
         >
           <img
             style="border-radius: 50%;"
-            src="https://minio.codingblocks.com/amoeba/d89ffb7f-8f27-4aad-b490-2d3b2653d11d.svg"
+            :src="course.logo"
             alt="logo"
           />
         </div>
@@ -44,30 +36,30 @@
           <div class="card-mentor-image">
             <img
               class="card-mentors"
-              src="https://avatars0.githubusercontent.com/u/1327050?s=460&v=4"
+              :src="instructor.photo"
+              :alt="'photo of' + instructor.name"
+              v-for="instructor in visibleInstructors"
+              :key="instructor.id"
             />
-            <img
-              class="card-mentors"
-              src="https://avatars0.githubusercontent.com/u/1327050?s=460&v=4"
-            />
+           
           </div>
           <div class="pl-4">
             <div class="card-md font-normal">Instructors</div>
-            <div class="bold">Arnav Gupta, Ayush Arora</div>
+            <div class="bold">{{visibleInstructorNames}}</div>
           </div>
         </div>
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="col-lg-8 col-6">
             <div>
-              <span class="bold orange font-sm">&#x20b9; 9499</span>
+              <span class="bold orange font-sm">&#x20b9; {{price}} </span>
               <span class="card-md bold grey pl-lg-3 pl-1">
                 &#x20b9;
-                <del>12999</del>
+                <del>{{mrp}}</del>
               </span>
             </div>
-            <div class="card-md mt-1">Batches starting Dec 1st</div>
+            <div class="card-md mt-1">Batches starting {{topRun.start}}</div>
           </div>
-          <button class="button-solid button-orange">Explore</button>
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
         <a href="#" class="orange t-align-c d-block card-md font-normal">Try it for Free!</a>
@@ -77,9 +69,40 @@
 </template>
 
 <script>
+import RatingStars from '~/components/AboutCourse/RatingStars'
+
+import { topRunForCourse, textForDifficulty } from '~/utils/course';
+
 export default {
   name: 'CourseCard',
-  props: {}
+  props: {
+    course: {
+      type: Object
+    }
+  },
+  computed: {
+    visibleInstructors() {
+      return this.course.instructors.slice(0, 2)
+    },
+    visibleInstructorNames () {
+      return this.visibleInstructors.map(i => i.name).join(', ')
+    },
+    topRun () {
+      return topRunForCourse(this.course)
+    },
+    price () {
+      return this.topRun ? this.topRun.price : 9999
+    },
+    mrp () {
+      return this.topRun ? this.topRun.mrp : ''
+    },
+    difficultyText () {
+      return textForDifficulty(this.course.difficulty)
+    }
+  },
+  components: {
+    RatingStars
+  }
 }
 </script>
 
@@ -94,6 +117,12 @@ export default {
   padding-right: 31px;
   background-image: url('https://minio.codingblocks.com/amoeba/ccaf84b6-63df-40f8-b4df-f64b8b9ecd9e.svg');
   background-size: 100%;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.head__course-logo {
+  border-radius: 50%;
 }
 
 /* .course-card {
