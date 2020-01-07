@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import TheNavbarTop from '~/components/LandingPage/Layout/TheNavbar.vue'
+import TheNavbarTop from '~/components/LandingPage/Layout/TheNavBar.vue'
 import TheFooter from '~/components/TheFooter.vue'
 
 export default {
