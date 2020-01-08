@@ -725,10 +725,9 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@coding-blocks/motley@^0.4.9":
+"@coding-blocks/motley@coding-blocks/motley#7b837f0":
   version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-0.4.9.tgz#39d5a70aa7262d823d69dd99a000e4390e903d66"
-  integrity sha512-TX2Ku97PrP1e0+H8018y4Vqs9lZAm6Yfnj4yspDSZ9OIdCbggcucmKmP5tfZxRxmiiBrRMEIQtkRwkQn1qA7Wg==
+  resolved "https://codeload.github.com/coding-blocks/motley/tar.gz/7b837f07d0268707d56c6c5e4732e33e989c70c4"
   dependencies:
     build "^0.1.4"
     run "^1.4.0"
