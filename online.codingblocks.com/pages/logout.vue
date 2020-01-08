@@ -12,6 +12,9 @@ div {
 
 <script>
 export default {
+  asyncData ({ $axios }) {
+    return $axios.get(`/jwt/logout`)
+  },
   mounted () {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()

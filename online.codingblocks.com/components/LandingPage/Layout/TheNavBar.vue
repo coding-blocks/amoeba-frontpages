@@ -24,9 +24,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-12 col-10">
+          <nuxt-link to="/" class="col-lg-12 col-10">
             <img src="https://online.codingblocks.com/images/online-logo-66038d0bc8e98ba84eb596e64accf139.png" alt="Logo">
-          </div>
+          </nuxt-link>
         </div>
       </div>
       <div class="col-lg-9 col-4">
