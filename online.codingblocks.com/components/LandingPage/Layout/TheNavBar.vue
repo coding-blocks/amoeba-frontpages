@@ -32,13 +32,13 @@
       <div class="col-lg-9 col-4">
         <div class="row mx-0 align-items-center h-100 justify-content-end d-md-flex d-none">
           <div class="d-lg-inline-flex d-none align-items-center hover-orange">
-            <a href="#" class="px-3">
+            <a href="/app/tracks" class="px-3">
               <h6 class="normal">Learning Tracks</h6>
             </a>
-            <a href="#" class="px-3">
+            <nuxt-link to="/courses" class="px-3">
               <h6 class="normal">Explore Courses</h6>
-            </a>
-            <a href="#" class="px-3">
+            </nuxt-link>
+            <a href="/app/jobs" class="px-3">
               <h6 class="normal">Hiring Blocks</h6>
             </a>
             <a href="#" class="px-3">
