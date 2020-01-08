@@ -48,7 +48,7 @@
               <i class="fas fa-shopping-cart fa-2x"></i>
             </a>
           </div>
-          <a class="button-solid button-orange ml-4" href="/app/">Get Started</a>
+          <a class="button-solid button-orange ml-4" href="/app/login">Get Started</a>
         </div>
       </div>
     </div>
