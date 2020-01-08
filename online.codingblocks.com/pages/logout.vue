@@ -12,8 +12,8 @@ div {
 
 <script>
 export default {
-  asyncData ({ $axios }) {
-    return $axios.get(`/jwt/logout`)
+  async asyncData ({ $axios }) {
+    await $axios.get(`/jwt/logout`)
   },
   mounted () {
     this.$nextTick(() => {
