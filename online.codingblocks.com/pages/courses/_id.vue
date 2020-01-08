@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :runs="availableRuns" />
-        <CourseTags class="d-block d-sm-none" :tags="course.tags" v-if="!course.tags.length" />
+        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -115,6 +115,9 @@ export default {
     topRunSectionIds () {
       const sections = this?.topRun?.sections
       return Array.isArray(sections) ? sections.map(s => +s.id) : []
+    },
+    tags () {
+      return this.course.tags || []
     }
   },
   tasks(t, {timeout}) {
