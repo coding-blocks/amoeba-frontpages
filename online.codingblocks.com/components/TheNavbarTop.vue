@@ -1,76 +1,131 @@
 <template>
-  <!-- <div class="container-fluid c-topnav py-3" id="TheNavbarTop">
-    <div class="d-flex justify-content-between align-items-center ">
-      <div class="d-flex nav-items">
-        <div>Learning Tracks</div>
-        <div>Explore Courses</div>
-        <div>Hiring Blocks</div>
+  <div>
+    <div class="row c-topnav py-4 justify-content-between align-items-center">
+      <div class="col-6 px-0">
+        <div class="d-md-none d-block d-flex align-items-center ml-3">
+          <div class="hamburger-menu mr-3" @click="toggleHamburger">
+            <div class="ham-toggle">
+              <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <img src="https://minio.codingblocks.com/motley/online-logo-text.png" alt="" class="d-inline-block w-75">
+        </div>
       </div>
-      <button class="button-solid button-orange">Get Started</button>
+      <div class="col-6 offset-1 d-md-block d-none">
+        <ul>
+          <li class="top-nav-option px-3 d-none d-md-block">
+            <a href="#classroom-courses">
+              <h6>Classroom Courses</h6>
+            </a>
+          </li>
+          <li class="top-nav-option px-3 d-none d-md-block">
+            <a href="#hacker-blocks">
+              <h6>Hacker Blocks</h6>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="align-items-center">
+        <ul class="right-nav d-md-flex d-none">
+          <li class="top-nav-option px-3">
+            <a href="#">
+              <FaIcon icon="bell" class="fa-lg"></FaIcon>
+            </a>
+          </li>
+          <li class="top-nav-option px-3">
+            <a href="#">
+              <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
+            </a>
+          </li>
+          <li class="top-nav-option px-3">
+            <div class="img-desc align-items-center font-sm">
+              <img class="round s-30x30" :src="user.photo" :alt="user.firstname">
+              <div class="description ml-4 font-sm bold">
+                Hi, {{user.firstname}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div> -->
-  <div class="row c-topnav py-3 justify-content-between ml-sidenav no-gutters pl-5">
-    <div class="col-6 px-0 d-md-none d-block">
-      <div class="d-flex align-items-center ml-3">
-        <div class="hamburger-menu mr-3">
-          <div class="ham-toggle">
-            <div class="hamburger" data-ember-action="" data-ember-action-278="278">
-              <span></span>
-              <span></span>
-              <span></span>
+
+    <!-- Hamburger -->
+    <div class="hamburger-nav b-right overflow-y-auto no-scrollbar" :class="hamburgerCollapsed && 'hamburger-nav--hidden'">
+      <div class="d-flex py-3 justify-content-between align-items-center hamburger-nav__top-bar">
+        <img src="https://minio.codingblocks.com/motley/online-logo-text.png" alt="Online CodingBlocks" class="hamburger-nav__ham-logo ml-4">
+        <img src="https://minio.codingblocks.com/motley/wrong_g.png" alt="Close" class="mr-4 hamburger-nav__cross pointer" @click="toggleHamburger">
+      </div>
+      <div class="divider-h"></div>
+      <div class="d-flex align-items-center my-4 pl-4" v-if="session.isAuthenticated">
+        <div>
+          <div class="img-ring s-80x80">
+            <img class="round img"
+              :src="user.photo"
+              :alt="user.firstname">
+          </div>
+        </div>
+        <div class="pl-4">
+          <div class="extra-bold gradient-text">{{user.firstname}} {{user.lastname}}</div>
+          <div class="bold card-sm"><a href="https://account.codingblocks.com/users/me" target="_blank" class="orange">View Profile</a></div>
+        </div>
+      </div>
+      <div class="hover-orange d-flex justify-content-end mt-3">
+        <a href="#">
+          <i class="far fa-bell fa-lg pr-4"></i>
+        </a>
+        <a href="#">
+          <i class="fas fa-shopping-cart fa-lg pr-4"></i>
+        </a>
+      </div>
+      <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
+        <div class="d-flex justify-content-between">
+          <div class="card-md extra-bold orange">Courses</div>
+          <a href="#" class="orange"><i class="fas fa-angle-up fa-lg"></i></a>
+        </div>
+        <div class="my-4 pl-4">
+          <div class="hamburger-nav__menu-element active">
+            <div class="card-md extra-bold">Classroom Courses</div>
+            <div class="card-sm light"><a href="#" class="orange">Explore All</a></div>
+          </div>
+          <div class="pl-4">
+            <div class="mt-4">
+              <div class="card-sm light extra-bold">Beginner Courses</div>
+              <div class="card-sm light">C++ For Beginners</div>
+              <div class="card-sm light">JAVA For Beginners</div>
+              <div class="card-sm light">Python App Development</div>
+            </div>
+            <div class="mt-3">
+              <div class="card-sm light extra-bold">Development Courses</div>
+              <div class="card-sm light">Android App Dev</div>
+              <div class="card-sm light">Python Django</div>
+              <div class="card-sm light">Unity Game Development</div>
+              <div class="card-sm light">Full Stack Web Dev</div>
+            </div>
+            <div class="mt-3">
+              <div class="card-sm light extra-bold">Advanced Courses</div>
+              <div class="card-sm light">Algo++</div>
+              <div class="card-sm light">Algo.JAVA</div>
+              <div class="card-sm light">Competitive Programming</div>
+              <div class="card-sm light">Machine Learning</div>
             </div>
           </div>
         </div>
-        <span class="font-sm">Online<strong> Coding Blocks</strong></span>
+        <div class="my-4 pl-4">
+          <div class="hamburger-nav__menu-element">
+            <div class="card-md extra-bold">Online Courses</div>
+            <div class="card-sm light"><a href="#" class="orange">Explore All</a></div>
+          </div>
+        </div>
+        <div class="card-md light mt-5 mb-4">Products</div>
+        <div class="card-md light my-4">Resources</div>
+        <div class="card-md light my-4">Campus Ambassadors</div>
+        <div class="card-md light my-4">About Us</div>
+        <div class="card-md light my-4">Contact Us</div>
       </div>
-    </div>
-    <div class="col-6 d-md-block d-none">
-      <ul>
-        <li class="top-nav-option mt-2 d-none d-md-block">
-          <a href="https://codingblocks.com/classroom-courses/?__hstc=212190091.4762b1990ae4481817f2203dff049b1f.1575546990712.1576574709021.1576688469727.25&amp;__hssc=212190091.1.1576688469727&amp;__hsfp=4050479647" target="blank">
-            <h6>Classroom Courses</h6>
-          </a>
-        </li>
-        <li class="top-nav-option px-3 mt-2 d-none d-md-block">
-          <a href="https://hack.codingblocks.com/?__hstc=212190091.4762b1990ae4481817f2203dff049b1f.1575546990712.1576574709021.1576688469727.25&amp;__hssc=212190091.1.1576688469727&amp;__hsfp=4050479647" target="blank">
-            <h6>HackerBlocks</h6>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-6 align-items-center">
-      <ul class="right-nav pull-right">
-        <!-- <li class="top-nav-option hoverable px-3 d-md-block d-none">
-          <div class="img-desc align-items-center font-sm pt-1">
-            <img class="round s-30x30" src="https://graph.facebook.com/1509942179038029/picture?type=large" alt="Profile Pic">
-            <div class="description ml-3">
-              Hi, Abhishek Gupta
-            </div>
-          </div>
-          <div class="pop-up border-card p-3 br-5">
-            <ul class="t-align-l">
-              <li>
-                <a href="https://account.codingblocks.com/users/me?__hstc=212190091.4762b1990ae4481817f2203dff049b1f.1575546990712.1576574709021.1576688469727.25&amp;__hssc=212190091.1.1576688469727&amp;__hsfp=4050479647">
-                  Profile
-                </a>
-              </li>
-              <div class="divider-h my-3"></div>
-              <li>
-                <a class="dark-grey">
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li> -->
-        <li>
-          <button class="button-solid button-orange" v-if="session.isAuthenticated">
-            Get Started
-           
-            {{ session.user.firstname }}
-          </button>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
@@ -80,13 +135,25 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'TheNavbarTop',
-  computed: mapState(['session'])
+  data () {
+    return {
+      hamburgerCollapsed: true
+    }
+  },
+  methods: {
+    toggleHamburger () {
+      this.hamburgerCollapsed = !this.hamburgerCollapsed
+    }
+  },
+  computed: {
+    ...mapState(['session']),
+    user () {
+      return this.session?.user
+    }
+  }
 }
 </script>
 
 <style scoped>
-.c-topnav {
-  width: 92vw;
-  padding: 0 3%;
-}
+
 </style>

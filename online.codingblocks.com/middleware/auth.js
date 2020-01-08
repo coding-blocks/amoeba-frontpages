@@ -1,3 +1,5 @@
+
+
 export default async function ({ store, app: { $cookies }, $axios }) {
   const isAuthenticated = !!store.state.session.user
   const token = $cookies.get('auth-jwt')
@@ -11,15 +13,20 @@ export default async function ({ store, app: { $cookies }, $axios }) {
     $axios.defaults.headers.common['Authorization'] = `JWT ${token}`
 
     // fetch current users
-    const { data: { data: response } } = await $axios.request('/users/me')
-    
-    const user = {
-      id: response.id,
-      ...response.attributes
-    }
+    try {
+      const { data: { data: response } } = await $axios.request('/users/me')
+      
+      const user = {
+        id: response.id,
+        ...response.attributes
+      }
 
-    // set user
-    store.commit('session/setUser', user)
+      // set user
+      store.commit('session/setUser', user)
+    } catch (err) {
+      // can't fetch user, consider noauth
+      $cookies.set('auth-jwt', null)
+    }
   }
 
 }

@@ -2,22 +2,18 @@
   <div class="a-ocb">
     <script defer src="https://hack.codingblocks.com/index.js"></script>
 
-    <!-- With sidenav -->
-    <div class="c-sidenav bottom-nav"></div>
-    <div class="ml-sidenav">
-      <div class="row no-gutters">
-        <div class="col-12">
-          <TheNavbarTop class="ml-sidenav" />
-          <div class="page-content">
-            <cb-navbar topalign="right">
-            </cb-navbar>
+    <TheNavbarTop />
+    <TheSideBar />
+    <cb-navbar topalign="right" />
+    <div class="row justify-content-center mx-0">
+      <div class="offset-0 offset-md-1 col-11 px-lg-5 px-md-4 px-0 pt-4">
+        <nuxt />
             
-            <nuxt />
-          </div>
-        </div>
+
       </div>
       <TheFooter />
     </div>
+   
     
     
   </div>
@@ -26,11 +22,13 @@
 <script>
 import TheNavbarTop from '~/components/TheNavbarTop.vue'
 import TheFooter from '~/components/TheFooter.vue'
+import TheSideBar from '~/components/TheSideBar.vue'
 
 export default {
   components: {
     TheNavbarTop,
-    TheFooter
+    TheFooter,
+    TheSideBar
   }
 }
 </script>
@@ -38,20 +36,10 @@ export default {
 
 <style>
 body {
-  padding: 0
-}
-
-.ml-sidenav {
-  margin-left: 8vw;
-}
-
-.c-sidenav {
-  width: 8vw;
+  padding-top: 70px;
 }
 </style>
 
 <style scoped>
-.page-content {
-  padding-top: 63px;
-}
+
 </style>
