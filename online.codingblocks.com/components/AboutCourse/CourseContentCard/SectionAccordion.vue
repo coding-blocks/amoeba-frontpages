@@ -103,7 +103,6 @@ export default {
         const response = yield this.$axios.get(
           `sections/${this.sectionId}/?include=contents&exclude=contents.*&sort=content.section_content.order&public=true`
         )
-        console.log(response.data)
         return this.$jsonApiStore.sync(response.data)
       })
     }

@@ -35,18 +35,13 @@
             <a href="/app/tracks" class="px-3">
               <h6 class="normal">Learning Tracks</h6>
             </a>
-            <nuxt-link to="/courses" class="px-3">
+            <nuxt-link to="/courses" active-class="active" class="px-3">
               <h6 class="normal">Explore Courses</h6>
             </nuxt-link>
             <a href="/app/jobs" class="px-3">
               <h6 class="normal">Hiring Blocks</h6>
             </a>
-            <a href="#" class="px-3">
-              <i class="far fa-bell fa-2x"></i>
-            </a>
-            <a href="#" class="px-1">
-              <i class="fas fa-shopping-cart fa-2x"></i>
-            </a>
+           
           </div>
           <a class="button-solid button-orange ml-4" href="/app/login">Get Started</a>
         </div>
@@ -60,27 +55,7 @@
         <img src="\images\wrong_g.png" alt="#" class="mr-4 hamburger-nav__cross pointer">
       </div>
       <div class="divider-h"></div>
-      <!-- {{!-- <div class="d-flex align-items-center my-4 pl-4">
-        <div>
-          <div class="img-ring s-80x80">
-            <img class="round img"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL43mSCo0MAu3fCgV8t6QRsNzyiatE_Har4TjE8M6NZ-i0tKDzA"
-              alt="">
-          </div>
-        </div>
-        <div class="pl-4">
-          <div class="extra-bold gradient-text">Siddharth Jain</div>
-          <div class="bold card-sm"><a href="#" class="orange">View Profile</a></div>
-        </div>
-      </div> --}} -->
-      <div class="hover-orange d-flex justify-content-end mt-3">
-        <a href="#">
-          <i class="far fa-bell fa-lg pr-4"></i>
-        </a>
-        <a href="#">
-          <i class="fas fa-shopping-cart fa-lg pr-4"></i>
-        </a>
-      </div>
+      
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
           <div class="card-md extra-bold orange">Courses</div>
