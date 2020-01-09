@@ -13,7 +13,9 @@ div {
 <script>
 export default {
   async asyncData ({ $axios }) {
-    await $axios.get(`/jwt/logout`)
+    await $axios.get(`/jwt/logout`).catch(err => {
+      console.error('Already Logged out', err)
+    })
   },
   mounted () {
     this.$nextTick(() => {
