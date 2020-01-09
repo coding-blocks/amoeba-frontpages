@@ -7,25 +7,42 @@
           <div class="font-md mb-4">We will help you build skills & land your dream job</div>
           <div class="grey mb-3 pt-3">Let's get to know your preferences first</div>
           <div class="border-card">
-            <div class="row">
-              <div class="col-lg-3 col-12 px-5 px-md-4 t-align-r-md pb-2">I am a</div>
-              <div class="col-3 col-md-3">
-                <button class="button-solid button-orange">Student</button>
-              </div>
-              <div class="col-5 ml-5 ml-lg-0 mb-3">
-                <button class="button-dashed button-orange mb-3">Professional</button>
+            <div class="row no-gutters">
+              <div class="col-3 font-mds my-auto">I am a</div>
+              <div class="col">
+                <div class="row no-gutters align-items-center">
+                  <div class="col-6 my-2">
+                    <button 
+                      class="status-button button-orange font-sm" 
+                      :class="selectedStatus == 'student' ? 'button-solid' : 'button-dashed'"
+                      @click="setSelectedStatus('student')"  
+                    >
+                      Student
+                    </button>
+                  </div>
+                  <div class="col-6 my-2">
+                    <button 
+                      class="status-button button-orange font-sm" 
+                      :class="selectedStatus == 'professional' ? 'button-solid' : 'button-dashed'"
+                      @click="setSelectedStatus('professional')"  
+                    >
+                      Professional
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- <div class="mb-3"></div> -->
-            <div class="row">
-              <div class="col-4 col-md-5 mb-3 mr-2">I want to become a</div>
+            <div class="row no-gutters mt-4">
+              <div class="col-6 font-sm">I want to become</div>
               <div class="col-6">
-                <select>
-                  <option value="xxx">Web Development</option>
+                <select class="rounded-select font-sm">
+                  <option class="capitalize" v-for="profession in professions" :key="profession.id" :value="profession.id">
+                    {{profession.title | capitalize}}
+                  </option>
                 </select>
               </div>
             </div>
-            <button class="button-dashed button-orange">Continue</button>
+            <button class="button-dashed button-orange mt-4" @click="goToTrack">Continue</button>
           </div>
         </div>
         <div class="offset-0 offset-md-1 col-md-6 d-none d-md-block my-auto">
@@ -34,5 +51,49 @@
       </div>
     </div>
   </div>
-</template>
+</template> 
 
+
+
+<script>
+export default {
+  async created () {
+    const response = await this.$axios.get('professions')
+    this.professions = this.$jsonApiStore.sync(response.data)
+    this.selectedProfessionId = this.professions[0]?.id
+  },
+  data () {
+    return {
+      professions: [],
+      selectedProfessionId: null,
+      selectedStatus: 'student'
+    }
+  },
+  methods: {
+    setSelectedStatus (newStatus) {
+      this.selectedStatus = newStatus
+    },
+    goToTrack () {
+      const a = document.createElement('a')
+      a.href = `${window.location.href}app/tracks?status=${this.selectedStatus}&professionId=${this.selectedProfessionId}`
+      a.target = '_blank'
+      a.click()
+    }
+  },
+  filters: {
+    capitalize: function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+      }
+  },
+}
+
+</script>
+
+
+<style scoped>
+.status-button {
+  height: 40px;
+}
+</style>
