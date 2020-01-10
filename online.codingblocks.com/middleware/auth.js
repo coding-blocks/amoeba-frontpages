@@ -25,7 +25,7 @@ export default async function ({ store, app: { $cookies }, $axios }) {
       store.commit('session/setUser', user)
     } catch (err) {
       // can't fetch user, consider noauth
-      $cookies.set('auth-jwt', null)
+      $cookies.remove('auth-jwt')
     }
   }
 
