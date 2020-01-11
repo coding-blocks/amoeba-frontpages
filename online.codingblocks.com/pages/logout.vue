@@ -18,15 +18,13 @@ export default {
     })
   },
   mounted () {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      
-      window.localStorage.clear()
-      this.$cookies.remove('auth-jwt')      
-      setTimeout(() => {
-        this.$nuxt.$loading.finish()
-        window.location.href = "/"
-      }, 0)
+    this.$cookies.remove('auth-jwt', {
+      path: '/',
+      domain: window.location.host
+    })      
+    window.localStorage.clear()
+    setTimeout(() => {
+      window.location.href = '/'
     })
   }
 }
