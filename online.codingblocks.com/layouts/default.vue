@@ -10,7 +10,6 @@
         <nuxt />
         
       </div>
-      <TheFooter />
     </div>
    
     
