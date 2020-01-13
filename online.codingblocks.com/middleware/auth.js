@@ -4,6 +4,7 @@ export default async function ({ store, app: { $cookies }, $axios }) {
   const isAuthenticated = !!store.state.session.user
   const token = $cookies.get('auth-jwt')
 
+  console.log(isAuthenticated, token)
   if (isAuthenticated || !token) {
     return;
   }
