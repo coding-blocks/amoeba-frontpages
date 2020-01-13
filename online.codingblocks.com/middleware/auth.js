@@ -17,11 +17,13 @@ export default async function ({ store, app: { $cookies }, $axios }) {
     try {
       const { data: { data: response } } = await $axios.request('/users/me')
       
+      console.log(response)
       const user = {
         id: response.id,
         ...response.attributes
       }
 
+      console.log(user)
       // set user
       store.commit('session/setUser', user)
     } catch (err) {
