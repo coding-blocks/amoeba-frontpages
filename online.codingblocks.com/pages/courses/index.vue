@@ -28,7 +28,7 @@ export default {
   async asyncData ({ $axios, app }) {
     const res = await $axios.get('/courses', {
       params: {
-        exclude: `ratings,instructors.*`,
+        exclude: `ratings,instructors.*,jobs`,
         include: `instructors,runs`,
         filter: {
           unlisted: false
