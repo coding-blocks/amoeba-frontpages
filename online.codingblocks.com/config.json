@@ -8,7 +8,7 @@
   },
   "production": {
     "axios": {
-      "host": "online-api.codingblocks.com",
+      "host": "online-api.codingblocks.xyz",
       "port": 443,
       "https": true,
       "prefix": "/api/v2/"         
