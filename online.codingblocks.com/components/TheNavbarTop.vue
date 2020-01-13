@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="top-nav-option px-3">
-            <div class="img-desc align-items-center font-sm">
+            <div class="img-desc align-items-center font-sm" v-if="session.isAuthenticated">
               <img class="round s-30x30" :src="user.photo" :alt="user.firstname">
               <div class="description ml-4 font-sm bold">
                 Hi, {{user.firstname}}
