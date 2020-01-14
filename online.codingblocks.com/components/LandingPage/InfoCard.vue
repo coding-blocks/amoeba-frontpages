@@ -35,11 +35,13 @@
             <div class="row no-gutters mt-4">
               <div class="col-6 font-sm">I want to become</div>
               <div class="col-6">
-                <select class="rounded-select font-sm">
+                <div class="select-container">
+                <select class="rounded-select font-sm pl-3" v-model="selectedProfessionId">
                   <option class="capitalize" v-for="profession in professions" :key="profession.id" :value="profession.id">
                     {{profession.title | capitalize}}
                   </option>
                 </select>
+                </div>
               </div>
             </div>
             <button class="button-dashed button-orange mt-4" @click="goToTrack">Continue</button>

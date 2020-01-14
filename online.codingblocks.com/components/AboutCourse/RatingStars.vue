@@ -3,7 +3,7 @@
     <span :class="'pos-rating orange ' + posRatingClass" v-for="n in numberOfYellowStars" :key="n">
             <FaIcon icon="star" class="fa-lg" />
     </span>
-    <span class="neg-rating" v-for="n in numberOfEmptyStars" :key="n">
+    <span :class="'neg-rating ' + negRatingClass" v-for="n in numberOfEmptyStars" :key="n">
         <FaIcon icon="star" class="fa-lg" v-show="showEmpty" />
     </span>
     <slot></slot>
@@ -27,6 +27,10 @@ export default {
       default: true
     },
     posRatingClass: {
+      type: String,
+      default: ''
+    },
+    negRatingClass: {
       type: String,
       default: ''
     }

@@ -1,9 +1,11 @@
 <template>
   <div v-if="showCard">
     <div class="font-mds bold mb-3">Choose Batch</div>
-    <select name="batch" class="mb-3" v-model="selectedRunId">
-      <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
-    </select>
+     <div class="select-container mb-3">
+      <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
+        <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
+      </select>
+     </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
     <div class="divider-h my-4"></div>
     <div class="d-flex justify-content-between mb-4">

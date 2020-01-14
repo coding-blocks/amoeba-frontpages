@@ -12,7 +12,7 @@
         <div class="col-12 col-sm-7">
           <progress :value="stat.ratio"></progress>
         </div>
-        <RatingStars class="col-12 col-sm-5 mt-sm-0 mt-2 rating d-flex" :pos-rating-class="'mx-3'" :value="+stat.stars">
+        <RatingStars class="col-12 col-sm-5 mt-sm-0 mt-2 rating d-flex"  :neg-rating-class="'d-none'" :pos-rating-class="'mx-3'" :value="+stat.stars">
         </RatingStars>
       </div>
     </div>
