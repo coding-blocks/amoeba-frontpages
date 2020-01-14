@@ -1,6 +1,5 @@
 <template>
   <div class="container mt-5">
-
     <!-- First Half -> IntroCard IntroVideo Summary Choose Batch Course Tags -->
     <div class="row first-half">
       <IntroductionCard class="col-md-8 order-1" :course="course" />
@@ -8,16 +7,19 @@
       <div class="col-md-8 mt-5 order-4">
         <div class="border-card">
           <h2>Summary</h2>
-          <VMarkdown :markdown="course.summary"/>
+          <VMarkdown :markdown="course.summary" />
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :runs="availableRuns" />
-        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
+        <CourseTags
+          class="d-block d-sm-none"
+          :tags="tags"
+          v-if="!tags.length"
+        />
       </div>
     </div>
     <div class="row">
-      
       <div class="col-md-8 mt-5">
         <!-- Course Rating -->
         <VAsync :task="fetchRatingStats">
@@ -27,7 +29,10 @@
         </VAsync>
 
         <!-- Sections Contents Accordion -->
-        <CourseContentCard class="mt-5 course-content" :sectionIds="topRunSectionIds"  />
+        <CourseContentCard
+          class="mt-5 course-content"
+          :sectionIds="topRunSectionIds"
+        />
       </div>
 
       <div class="col-md-4 mt-5">
@@ -35,9 +40,8 @@
         <WildcraftCard class="mt-4" />
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
       </div>
-
     </div>
-    <div class="row  mt-5">
+    <div class="row mt-5">
       <MentorsCard class="col-md-8" :instructors="course.instructors" />
       <LeadGenerationCard class="col-md-4" />
     </div>
@@ -45,9 +49,7 @@
     <!-- Fin. -->
     <div class="my-5"></div>
   </div>
-
-
-</template> 
+</template>
 
 <script>
 import IntroductionCard from '~/components/AboutCourse/IntroductionCard.vue'
@@ -56,27 +58,65 @@ import CourseRatingStats from '~/components/AboutCourse/CourseRatingStats.vue'
 
 import CourseContentCard from '~/components/AboutCourse/CourseContentCard/Index.vue'
 import ProjectsList from '~/components/AboutCourse/ProjectsList.vue'
-import MentorsCard from "~/components/AboutCourse/MentorsCard.vue";
-import IntroVideoPlayer from "~/components/AboutCourse/IntroVideoPlayer.vue";
-import ChooseBatch from "~/components/AboutCourse/ChooseBatch.vue";
-import CourseTags from "~/components/AboutCourse/CourseTags.vue";
-import WildcraftCard from "~/components/AboutCourse/WildcraftCard.vue";
-import CourseFeatures from "~/components/AboutCourse/CourseFeatures.vue";
-import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue';
+import MentorsCard from '~/components/AboutCourse/MentorsCard.vue'
+import IntroVideoPlayer from '~/components/AboutCourse/IntroVideoPlayer.vue'
+import ChooseBatch from '~/components/AboutCourse/ChooseBatch.vue'
+import CourseTags from '~/components/AboutCourse/CourseTags.vue'
+import WildcraftCard from '~/components/AboutCourse/WildcraftCard.vue'
+import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
+import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 
-
-import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser';
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
 import VAsync from '~/components/Base/VAsync.vue'
-
-import { topRunForCourse } from '~/utils/course';
-
+import { jsonSchemaForCourse } from '~/utils/seo'
+import { topRunForCourse } from '~/utils/course'
 
 export default {
   mixins: [sidebarLayoutMixin],
-  data () {
+  async asyncData({ params, $axios, app }) {
+    const res = await $axios.get(`/courses/${params.id}`)
+    const course = app.$jsonApiStore.sync(res.data)
+    return {
+      course
+    }
+  },
+  data() {
     return {
       course: {}
+    }
+  },
+
+  jsonld() {
+    console.log(jsonSchemaForCourse(this.course))
+    return jsonSchemaForCourse(this.course)
+  },
+  head() {
+    return {
+      title: this.course.subtitle,
+
+      meta: [
+        { hid: 1, type: 'description', content: this.course['seo-meta'] },
+        { hid: 2, type: 'title', content: this.course.subtitle },
+        { hid: 3, type: 'twitter:card', content: 'summary' },
+        { hid: 4, type: 'twitter:site', content: '@CodingBlocksIn' },
+        { hid: 5, property: 'og:title', content: this.course.subtitle },
+        {
+          hid: 6,
+          property: 'og:description',
+          content: this.course['seo-meta']
+        },
+        { hid: 7, property: 'og:image', content: this.course.logo },
+        { hid: 8, property: 'og:site_name', content: 'Coding Blocks Online' },
+        {
+          hid: 9,
+          property: 'og:url',
+          content: 'https://online.codingblocks.com/'
+        },
+        { hid: 10, itemprop: 'name', content: this.course.subtitle },
+        { hid: 11, itemprop: 'description', content: this.course['seo-meta'] },
+        { hid: 12, itemprop: 'image', content: this.course.logo }
+      ]
     }
   },
   components: {
@@ -94,43 +134,38 @@ export default {
     LeadGenerationCard,
     VAsync
   },
-  async asyncData ({ params, $axios, app }) {
-    const res = await $axios.get(`/courses/${params.id}`)
-    const course = app.$jsonApiStore.sync(res.data)
-    return  {
-      course
-    }
-  },
   computed: {
-    projectIds () {
-      return this.course.projects.map(x => x.id)
+    projectIds() {
+      return this.course.projects.map((x) => x.id)
     },
-    topRun () {
+    topRun() {
       return topRunForCourse(this.course)
     },
-    availableRuns () {
-      return (this.course['active-runs'] || [])
-        .sort((run1, run2) => +run1.start - +run2.start)
+    availableRuns() {
+      return (this.course['active-runs'] || []).sort(
+        (run1, run2) => +run1.start - +run2.start
+      )
     },
-    topRunSectionIds () {
+    topRunSectionIds() {
       const sections = this?.topRun?.sections
-      return Array.isArray(sections) ? sections.map(s => +s.id) : []
+      return Array.isArray(sections) ? sections.map((s) => +s.id) : []
     },
-    tags () {
+    tags() {
       return this.course.tags || []
     }
   },
-  tasks(t, {timeout}) {
+  tasks(t, { timeout }) {
     return {
-      fetchRatingStats: t(function * () {
-        const { data: ratingStats } = yield this.$axios.get(`courses/${this.course.id}/rating`)
+      fetchRatingStats: t(function*() {
+        const { data: ratingStats } = yield this.$axios.get(
+          `courses/${this.course.id}/rating`
+        )
         return ratingStats
       })
     }
   }
 }
 </script>
-
 
 <style scoped>
 @media (min-width: 1200px) {
@@ -150,5 +185,4 @@ export default {
   max-height: 600px;
   overflow: hidden;
 }
-
 </style>
