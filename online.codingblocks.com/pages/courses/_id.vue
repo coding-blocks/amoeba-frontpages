@@ -12,11 +12,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :runs="availableRuns" />
-        <CourseTags
-          class="d-block d-sm-none"
-          :tags="tags"
-          v-if="!tags.length"
-        />
+        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -29,10 +25,7 @@
         </VAsync>
 
         <!-- Sections Contents Accordion -->
-        <CourseContentCard
-          class="mt-5 course-content"
-          :sectionIds="topRunSectionIds"
-        />
+        <CourseContentCard class="mt-5 course-content" :sectionIds="topRunSectionIds" />
       </div>
 
       <div class="col-md-4 mt-5">
@@ -71,6 +64,7 @@ import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 import VAsync from '~/components/Base/VAsync.vue'
 import { jsonSchemaForCourse } from '~/utils/seo'
 import { topRunForCourse } from '~/utils/course'
+import { metaForCourse } from '~/utils/seo'
 
 export default {
   mixins: [sidebarLayoutMixin],
@@ -88,35 +82,13 @@ export default {
   },
 
   jsonld() {
-    console.log(jsonSchemaForCourse(this.course))
     return jsonSchemaForCourse(this.course)
   },
   head() {
     return {
       title: this.course.subtitle,
 
-      meta: [
-        { hid: 1, type: 'description', content: this.course['seo-meta'] },
-        { hid: 2, type: 'title', content: this.course.subtitle },
-        { hid: 3, type: 'twitter:card', content: 'summary' },
-        { hid: 4, type: 'twitter:site', content: '@CodingBlocksIn' },
-        { hid: 5, property: 'og:title', content: this.course.subtitle },
-        {
-          hid: 6,
-          property: 'og:description',
-          content: this.course['seo-meta']
-        },
-        { hid: 7, property: 'og:image', content: this.course.logo },
-        { hid: 8, property: 'og:site_name', content: 'Coding Blocks Online' },
-        {
-          hid: 9,
-          property: 'og:url',
-          content: 'https://online.codingblocks.com/'
-        },
-        { hid: 10, itemprop: 'name', content: this.course.subtitle },
-        { hid: 11, itemprop: 'description', content: this.course['seo-meta'] },
-        { hid: 12, itemprop: 'image', content: this.course.logo }
-      ]
+      meta: metaForCourse(this.course)
     }
   },
   components: {

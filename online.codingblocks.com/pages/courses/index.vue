@@ -25,6 +25,7 @@
 import CourseCard from '~/components/Base/CourseCard.vue'
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 import { jsonSchemaForAllCourses } from '~/utils/seo'
+import { metaForAllCourses } from '~/utils/seo'
 
 export default {
   mixins: [sidebarLayoutMixin],
@@ -61,65 +62,7 @@ export default {
   head() {
     return {
       title: this.courses.subtitle,
-
-      meta: [
-        {
-          hid: 1,
-          type: 'description',
-          content:
-            'Coding Blocks is the best online programming and software training Institute offer online certification courses in Jave, C++, Android, NodeJs, Data structure, Machine learning, Interview preparation and more.'
-        },
-        {
-          hid: 2,
-          type: 'title',
-          content:
-            'Best online computer programming and coding courses in India.'
-        },
-        { hid: 3, type: 'twitter:card', content: 'summary' },
-        { hid: 4, type: 'twitter:site', content: '@CodingBlocksIn' },
-        {
-          hid: 5,
-          property: 'og:title',
-          content:
-            'Best online computer programming and coding courses in India.'
-        },
-        {
-          hid: 6,
-          property: 'og:description',
-          content:
-            'Coding Blocks is the best online programming and software training Institute offer online certification courses in Jave, C++, Android, NodeJs, Data structure, Machine learning, Interview preparation and more.'
-        },
-        {
-          hid: 7,
-          property: 'og:image',
-          content:
-            'https://online.codingblocks.com/images/online-logo-66038d0bc8e98ba84eb596e64accf139.png'
-        },
-        { hid: 8, property: 'og:site_name', content: 'Coding Blocks Online' },
-        {
-          hid: 9,
-          property: 'og:url',
-          content: 'https://online.codingblocks.com/'
-        },
-        {
-          hid: 10,
-          itemprop: 'name',
-          content:
-            'Best online computer programming and coding courses in India.'
-        },
-        {
-          hid: 11,
-          itemprop: 'description',
-          content:
-            'Coding Blocks is the best online programming and software training Institute offer online certification courses in Jave, C++, Android, NodeJs, Data structure, Machine learning, Interview preparation and more.'
-        },
-        {
-          hid: 12,
-          itemprop: 'image',
-          content:
-            'https://online.codingblocks.com/images/online-logo-66038d0bc8e98ba84eb596e64accf139.png'
-        }
-      ]
+      meta: metaForAllCourses()
     }
   },
   tasks(t, { timeout }) {
