@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseBatch :runs="availableRuns" />
+        <ChooseBatch :course-id="course.id" :runs="availableRuns" />
         <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
       </div>
     </div>

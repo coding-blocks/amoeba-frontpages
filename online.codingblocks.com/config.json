@@ -4,6 +4,9 @@
       "host": "localhost",
       "port": "3000",
       "prefix": "/api/v2/"      
+    },
+    "dukaan": {
+      "url": "https://dukaan.codingblocks.xyz"
     }
   },
   "production": {
@@ -12,6 +15,9 @@
       "port": 443,
       "https": true,
       "prefix": "/api/v2/"         
+    },
+    "dukaan": {
+      "url": "https://dukaan.codingblocks.xyz"
     }
   }
 }

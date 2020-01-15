@@ -62,7 +62,7 @@
           <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
-        <a href="#" class="orange t-align-c d-block card-md font-normal">Try it for Free!</a>
+        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" >Try it for Free!</a>
       </div>
     </div>
   </div>
@@ -98,6 +98,9 @@ export default {
     },
     difficultyText () {
       return textForDifficulty(this.course.difficulty)
+    },
+    tryNowLink () {
+      return `/app/classroom/course/${this.course.id}/run/${this.topRun.id}`
     }
   },
   components: {

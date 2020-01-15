@@ -19,20 +19,25 @@
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex">
-      <a class="button-solid button-orange flex-1 mr-4" href="">Buy Now</a>
-      <button class="button-dashed button-orange flex-1">Try it for free!</button>
+      <a class="button-solid button-orange flex-1 mr-4" :href="`${dukaanPublicUrl}/paymentWidget?productId=${selectedRun['product-id']}`">Buy Now</a>
+      <a class="button-dashed button-orange flex-1" :href="tryNowLink" >Try it for free!</a>
     </div>
   </div>
 </template>
 
 <script>
 import { formatTimestamp } from '~/utils/date'
+import config from '~/config.json'
 export default {
   name: 'ChooseBatch',
   props: {
     runs: {
       type: Array,
       required: false
+    },
+    courseId: {
+      type: Number,
+      required: true
     }
   },
   data() {
@@ -52,6 +57,12 @@ export default {
     },
     selectedRunStart () {
       return formatTimestamp(this.selectedRun.start, "dd ccc MMM")
+    },
+    dukaanPublicUrl () {
+      return config[process.env.NODE_ENV].dukaan.url
+    },
+    tryNowLink () {
+      return `/app/classroom/course/${this.courseId}/run/${this.selectedRunId}`
     }
   }
 }
