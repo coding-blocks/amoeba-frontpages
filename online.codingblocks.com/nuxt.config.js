@@ -39,6 +39,7 @@ export default {
     '~/plugins/jsonapi-datastore.js',
     '~/plugins/vuency.js',
     '~/plugins/axios.js',
+    '~/plugins/jsonld.js'
   ],
   /*
    ** Nuxt.js dev-modules
