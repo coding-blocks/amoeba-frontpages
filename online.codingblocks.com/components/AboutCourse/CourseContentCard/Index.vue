@@ -3,7 +3,7 @@
     <div class="border-card">
       <h5 class="bold">Course Content</h5>
       <div class="divider-h mt-4"></div>
-      
+
       <div class="border-bottom-list">
         <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
       </div>
@@ -16,6 +16,7 @@ import VAccordion from '~/components/Base/VAccordion'
 import SectionAccordion from '~/components/AboutCourse/CourseContentCard/SectionAccordion.vue'
 export default {
   name: 'CourseContentCard',
+
   components: {
     VAccordion,
     SectionAccordion
@@ -24,7 +25,7 @@ export default {
     sectionIds: {
       type: Array,
       default: () => [],
-      validator: (values) => values.every(val => !isNaN(+val))
+      validator: (values) => values.every((val) => !isNaN(+val))
     }
   }
 }
@@ -37,7 +38,7 @@ export default {
   background-color: #f3f3f3;
   height: 1px;
   width: 100%;
-  margin: 1.5rem 0; 
+  margin: 1.5rem 0;
 }
 </style>
 
