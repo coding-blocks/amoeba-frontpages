@@ -39,7 +39,7 @@
     </div>
     <div class="row  mt-5">
       <MentorsCard class="col-md-8" :instructors="course.instructors" />
-      <LeadGenerationCard class="col-md-4" />
+      <LeadGenerationCard :course-title="course.title" class="col-md-4" />
     </div>
 
     <!-- Fin. -->
