@@ -59,10 +59,10 @@
             </div>
             <div class="card-md mt-1">Batches starting {{topRun.start}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
+          <nuxt-link :to="`/courses/${course.slug}`" v-on:click.native="log($event, 'Explore')" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
-        <a href="#" class="orange t-align-c d-block card-md font-normal">Try it for Free!</a>
+        <a href="#" class="orange t-align-c d-block card-md font-normal" v-on:click="log($event, 'FreeTrial')">Try it for Free!</a>
       </div>
     </div>
   </div>
@@ -102,6 +102,11 @@ export default {
   },
   components: {
     RatingStars
+  },
+  methods: {
+    log: function(event, title) {
+      this.$gtm.pushEvent({ event: title})
+    }
   }
 }
 </script>

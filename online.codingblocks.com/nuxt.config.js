@@ -53,7 +53,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    ['@nuxtjs/google-tag-manager', { id: 'GTM-KJC7DH3', dev: true }],
   ],
   /*
    ** Axios module configuration

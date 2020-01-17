@@ -19,8 +19,8 @@
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex">
-      <a class="button-solid button-orange flex-1 mr-4" href="">Buy Now</a>
-      <button class="button-dashed button-orange flex-1">Try it for free!</button>
+      <a class="button-solid button-orange flex-1 mr-4" href="" v-on:click="log($event, 'BuyNow')">Buy Now</a>
+      <button v-on:click="log($event, 'FreeTrial')" class="button-dashed button-orange flex-1">Try it for free!</button>
     </div>
   </div>
 </template>
@@ -52,6 +52,11 @@ export default {
     },
     selectedRunStart () {
       return formatTimestamp(this.selectedRun.start, "dd ccc MMM")
+    }
+  },
+  methods: {
+    log: function(event, title) {
+      this.$gtm.pushEvent({ event: title})
     }
   }
 }
