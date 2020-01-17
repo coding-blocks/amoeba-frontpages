@@ -77,7 +77,9 @@ export default {
   },
   data() {
     return {
-      course: {}
+      course: {},
+      eventFor75Percent: false,
+      eventFor90Percent: false,
     }
   },
 
@@ -134,6 +136,30 @@ export default {
         )
         return ratingStats
       })
+    }
+  },
+  methods: {
+    handleScroll (event) {
+      // Any code to be executed when the window is scrolled
+      let percent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+      if(!this.eventFor75Percent && percent > 0.75) {
+        this.eventFor75Percent = true;
+        this.$gtm.pushEvent({event: "Scroll75"})
+      }
+      if(!this.eventFor90Percent && percent > 0.90) {
+        this.eventFor90Percent=true;
+        this.$gtm.pushEvent({event: "Scroll90"})
+      }
+    }
+  },
+  created () {
+    if(typeof window !== 'undefined') {
+    window.addEventListener('scroll', this.handleScroll);
+    }
+  },
+  destroyed () {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 }
