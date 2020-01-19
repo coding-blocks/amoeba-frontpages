@@ -20,7 +20,7 @@
                 </div>
               </div>
               <div class="card-md font-normal mt-1">
-                {{ section.contents.length }} Items | Duration : 60 minutes
+                {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
               </div>
             </div>
             <div>
@@ -56,7 +56,7 @@
 
                 
               </div>
-              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{content.duration | formatContentDuration}}</div>
+              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{ contentDuration(content) | formatContentDuration}}</div>
             </div>
           </div>
         </template>
@@ -92,7 +92,34 @@ export default {
     },
     isFree () {
       return !this.section.premium
-    }
+    },
+    sectionDuration(){
+      var totalTemp = 0;
+      this.section.contents.forEach( content => {
+        totalTemp += this.contentDuration(content)
+      })
+      return  totalTemp;
+    },
+  },
+  methods : {
+    contentDuration(content){
+      if(isNaN(content.duration) || content.duration == 0){
+        
+        // default duration for different types
+        switch(content.contentable){
+          case  'code-challenge':
+            return 1800000
+          
+          case 'csv' : 
+            return 3600000
+          
+          default : 
+            return 900000
+        }
+      }
+      return content.duration
+      
+    },
   },
   filters: {
     formatContentDuration
