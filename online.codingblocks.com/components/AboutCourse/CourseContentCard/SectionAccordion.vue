@@ -93,32 +93,23 @@ export default {
     isFree () {
       return !this.section.premium
     },
-    sectionDuration(){
-      var totalTemp = 0;
-      this.section.contents.forEach( content => {
-        totalTemp += this.contentDuration(content)
-      })
-      return  totalTemp;
+    sectionDuration() {
+      return this.section.contents.reduce((acc, content) => acc + this.contentDuration(content), 0)
     },
   },
   methods : {
-    contentDuration(content){
-      if(isNaN(content.duration) || content.duration == 0){
-        
-        // default duration for different types
-        switch(content.contentable){
-          case  'code-challenge':
-            return 1800000
-          
-          case 'csv' : 
-            return 3600000
-          
-          default : 
-            return 900000
-        }
+    contentDuration(content) {
+      if (!isNaN(+content.duration)) {
+        return content.duration
       }
-      return content.duration
       
+      // default duration for different types
+      switch(content.contentable){
+        case  'code-challenge': return 1800000
+        case 'csv' : return 3600000
+        default : return 900000
+      }
+       
     },
   },
   filters: {
