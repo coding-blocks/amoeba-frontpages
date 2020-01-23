@@ -25,6 +25,7 @@
             </div>
             <div>
               <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" />
+              
             </div>
           </div>
         </template>
@@ -37,7 +38,7 @@
               :key="content.id"
             >
               <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
-                <FaIcon icon="play-circle" class="s-20x20 font-md mr-3"></FaIcon>
+                <FaIcon :icon= getIcon(content.contentable) class="s-20x20 font-md mr-3"></FaIcon>
                 <span class="font-normal">{{ content.title }}</span>
               </a>
               <div class="col-2 col-md-1 t-align-c">
@@ -92,8 +93,24 @@ export default {
     },
     isFree () {
       return !this.section.premium
-    }
+    },
   },
+  methods : {
+    getIcon(contentable){
+      
+      switch(contentable){
+        case 'code-challenge' : 
+          return 'file-code'
+        case 'csv' : 
+          return 'file-excel'
+        case 'document':
+          return 'file-word'
+        default :
+          return 'play-circle'
+      }
+    },
+  },
+
   filters: {
     formatContentDuration
   },
