@@ -32,16 +32,16 @@
       <div class="align-items-center">
         <ul class="right-nav d-md-flex d-none">
           <li class="top-nav-option px-3">
-            <a href="#" @click="toggleNotification">
+            <a href="#" @click="toggleNotification" v-on-clickaway="closeNotification">
               <FaIcon icon="bell" class="fa-lg"></FaIcon>
             </a>
-            <NotificationPopUp v-if="!notificationCollapsed" />
+            <NotificationPopUp v-if="!notificationCollapsed" data-no-clickaway="true" />
           </li>
           <li class="top-nav-option px-3">
-            <a href="#" @click="toggleShoppingCart">
+            <a href="#" @click="toggleShoppingCart" v-on-clickaway="closeShoppingCart">
               <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
             </a>
-            <ShoppingCartPopUp v-if="!shoppingCartCollapsed" />
+            <ShoppingCartPopUp v-if="!shoppingCartCollapsed" data-no-clickaway="true" />
           </li>
           <li class="top-nav-option px-3">
             <div class="img-desc align-items-center font-sm" v-if="session.isAuthenticated">
@@ -136,9 +136,13 @@
 import { mapState } from 'vuex'
 import ShoppingCartPopUp from '~/components/Navbar/ShoppingCartPopUp'
 import NotificationPopUp from '~/components/Navbar/NotificationPopUp'
+import { directive as onClickaway } from 'vue-clickaway';
 
 export default {
   name: 'TheNavbarTop',
+  directives: {
+    onClickaway
+  },
   data () {
     return {
       hamburgerCollapsed: true,
@@ -151,8 +155,21 @@ export default {
     NotificationPopUp
   },
   methods: {
+    isClickFromPopup(e) {
+      return e.srcElement.attributes['data-no-clickaway']
+    },
+    closeNotification (e) {
+      if (!this.isClickFromPopup(e)) {
+        this.notificationCollapsed = true
+      }
+    },
     toggleNotification () {
       this.notificationCollapsed = !this.notificationCollapsed
+    },
+    closeShoppingCart (e) {
+      if (!this.isClickFromPopup(e)) {
+        this.shoppingCartCollapsed = true
+      }
     },
     toggleShoppingCart () {
       this.shoppingCartCollapsed = !this.shoppingCartCollapsed
