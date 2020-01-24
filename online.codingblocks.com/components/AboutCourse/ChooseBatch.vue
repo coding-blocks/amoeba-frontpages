@@ -19,7 +19,14 @@
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex">
-      <a class="button-solid button-orange flex-1 mr-4" :href="`${dukaanPublicUrl}/paymentWidget?productId=${selectedRun['product-id']}`" v-on:click="log($event, 'BuyNow')">Buy Now</a>
+      <a 
+        class="button-solid button-orange flex-1 mr-4"
+        target="_blank"
+        :href="`${dukaanPublicUrl}/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
+        v-on:click="log($event, 'BuyNow')"
+      >
+        Buy Now
+      </a>
       <a class="button-dashed button-orange flex-1" :href="tryNowLink" v-on:click="log($event, 'FreeTrial')">Try it for free!</a>
     </div>
   </div>
@@ -27,7 +34,9 @@
 
 <script>
 import { formatTimestamp } from '~/utils/date'
+import { mapState } from 'vuex'
 import config from '~/config.json'
+
 export default {
   name: 'ChooseBatch',
   props: {
@@ -63,7 +72,11 @@ export default {
     },
     tryNowLink () {
       return `/app/classroom/course/${this.courseId}/run/${this.selectedRunId}`
-    }
+    },
+    user () {
+      return this.session?.user
+    },
+    ...mapState(['session'])
   },
   methods: {
     log: function(event, title) {

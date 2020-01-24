@@ -112,8 +112,6 @@ export default {
       }
        
     },
-  },
-  methods : {
     getIcon(contentable){
       
       switch(contentable){
@@ -126,9 +124,8 @@ export default {
         default :
           return 'play-circle'
       }
-    },
+    }
   },
-
   filters: {
     formatContentDuration
   },
