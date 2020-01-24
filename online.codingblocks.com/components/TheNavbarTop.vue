@@ -37,15 +37,16 @@
             </a>
           </li>
           <li class="top-nav-option px-3">
-            <a href="#">
+            <a href="#" @click="toggleShoppingCart()">
               <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
             </a>
+            <ShoppingCartPopUp v-if="!shoppingCartCollapsed" />
           </li>
           <li class="top-nav-option px-3">
             <div class="img-desc align-items-center font-sm" v-if="session.isAuthenticated">
               <img class="round s-30x30" :src="user.photo" :alt="user.firstname">
               <div class="description ml-4 font-sm bold">
-                Hi, {{user.firstname}}
+                Hi, {{user.firstname}} {{user.lastname}}
               </div>
             </div>
           </li>
@@ -132,15 +133,23 @@
 
 <script>
 import { mapState } from 'vuex'
+import ShoppingCartPopUp from '~/components/Navbar/ShoppingCartPopUp'
 
 export default {
   name: 'TheNavbarTop',
   data () {
     return {
-      hamburgerCollapsed: true
+      hamburgerCollapsed: true,
+      shoppingCartCollapsed: true
     }
   },
+  components: {
+    ShoppingCartPopUp
+  },
   methods: {
+    toggleShoppingCart () {
+      this.shoppingCartCollapsed = !this.shoppingCartCollapsed
+    },
     toggleHamburger () {
       this.hamburgerCollapsed = !this.hamburgerCollapsed
     }
@@ -155,5 +164,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .pop-up {
+    position: absolute;
+    width: 375px;
+  }
 </style>

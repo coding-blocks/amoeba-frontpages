@@ -45,7 +45,7 @@ export const jsonSchemaForCourse = (course) => {
               'yyyy-mm-dd'
             )
           : formatTimestamp(Date.now() / 1000, 'yyyy-mm-dd'),
-      price: course.runs.reduce((acc, curr) =>
+      price: course.runs.length && course.runs.reduce((acc, curr) =>
         acc.price < curr.price ? acc : curr
       ).price,
       availability: 'http://schema.org/InStock',

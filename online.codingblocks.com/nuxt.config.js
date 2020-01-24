@@ -5,6 +5,12 @@ export default {
   server: {
     port: 8081
   },
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
   /*
    ** Headers of the page
    */
