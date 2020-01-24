@@ -32,12 +32,13 @@
       <div class="align-items-center">
         <ul class="right-nav d-md-flex d-none">
           <li class="top-nav-option px-3">
-            <a href="#">
+            <a href="#" @click="toggleNotification">
               <FaIcon icon="bell" class="fa-lg"></FaIcon>
             </a>
+            <NotificationPopUp v-if="!notificationCollapsed" />
           </li>
           <li class="top-nav-option px-3">
-            <a href="#" @click="toggleShoppingCart()">
+            <a href="#" @click="toggleShoppingCart">
               <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
             </a>
             <ShoppingCartPopUp v-if="!shoppingCartCollapsed" />
@@ -134,19 +135,25 @@
 <script>
 import { mapState } from 'vuex'
 import ShoppingCartPopUp from '~/components/Navbar/ShoppingCartPopUp'
+import NotificationPopUp from '~/components/Navbar/NotificationPopUp'
 
 export default {
   name: 'TheNavbarTop',
   data () {
     return {
       hamburgerCollapsed: true,
-      shoppingCartCollapsed: true
+      shoppingCartCollapsed: true,
+      notificationCollapsed: true
     }
   },
   components: {
-    ShoppingCartPopUp
+    ShoppingCartPopUp,
+    NotificationPopUp
   },
   methods: {
+    toggleNotification () {
+      this.notificationCollapsed = !this.notificationCollapsed
+    },
     toggleShoppingCart () {
       this.shoppingCartCollapsed = !this.shoppingCartCollapsed
     },
