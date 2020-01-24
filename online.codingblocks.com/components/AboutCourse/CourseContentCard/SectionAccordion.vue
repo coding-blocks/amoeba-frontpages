@@ -20,11 +20,12 @@
                 </div>
               </div>
               <div class="card-md font-normal mt-1">
-                {{ section.contents.length }} Items | Duration : 60 minutes
+                {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
               </div>
             </div>
             <div>
               <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" />
+              
             </div>
           </div>
         </template>
@@ -37,7 +38,7 @@
               :key="content.id"
             >
               <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
-                <FaIcon icon="play-circle" class="s-20x20 font-md mr-3"></FaIcon>
+                <FaIcon :icon= getIcon(content.contentable) class="s-20x20 font-md mr-3"></FaIcon>
                 <span class="font-normal">{{ content.title }}</span>
               </a>
               <div class="col-2 col-md-1 t-align-c">
@@ -56,7 +57,7 @@
 
                 
               </div>
-              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{content.duration | formatContentDuration}}</div>
+              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{ contentDuration(content) | formatContentDuration}}</div>
             </div>
           </div>
         </template>
@@ -92,6 +93,37 @@ export default {
     },
     isFree () {
       return !this.section.premium
+    },
+    sectionDuration() {
+      return this.section.contents.reduce((acc, content) => acc + this.contentDuration(content), 0)
+    },
+  },
+  methods : {
+    contentDuration(content) {
+      if (!isNaN(+content.duration)) {
+        return content.duration
+      }
+      
+      // default duration for different types
+      switch(content.contentable){
+        case  'code-challenge': return 1800000
+        case 'csv' : return 3600000
+        default : return 900000
+      }
+       
+    },
+    getIcon(contentable){
+      
+      switch(contentable){
+        case 'code-challenge' : 
+          return 'file-code'
+        case 'csv' : 
+          return 'file-excel'
+        case 'document':
+          return 'file-word'
+        default :
+          return 'play-circle'
+      }
     }
   },
   filters: {

@@ -27,5 +27,5 @@ export const formatContentDuration = function (duration) {
   const hours = Math.floor(duration / (60 * 60 * 1000))
   const mins = Math.floor(duration / (60 * 1000))
 
-  return hours > 1 ? `${hours}hrs` : `${mins}mins`
+  return hours >= 1 ? `${hours}hrs` : `${mins}mins`
 }

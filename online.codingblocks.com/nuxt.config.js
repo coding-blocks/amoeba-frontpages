@@ -39,6 +39,7 @@ export default {
     '~/plugins/jsonapi-datastore.js',
     '~/plugins/vuency.js',
     '~/plugins/axios.js',
+    '~/plugins/jsonld.js'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -53,7 +54,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    ['@nuxtjs/google-tag-manager', { id: config.gtm, dev: process.env.NODE_ENV == 'development' }],
   ],
   /*
    ** Axios module configuration

@@ -32,20 +32,22 @@
       <div class="align-items-center">
         <ul class="right-nav d-md-flex d-none">
           <li class="top-nav-option px-3">
-            <a href="#">
+            <a href="#" @click="toggleNotification" v-on-clickaway="closeNotification">
               <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/notification.svg" alt="">
             </a>
+            <NotificationPopUp v-if="!notificationCollapsed" data-no-clickaway="true" />
           </li>
           <li class="top-nav-option px-3">
-            <a href="#">
+            <a href="#" @click="toggleShoppingCart" v-on-clickaway="closeShoppingCart">
               <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/cart.svg" alt="">
             </a>
+            <ShoppingCartPopUp v-if="!shoppingCartCollapsed" data-no-clickaway="true" />
           </li>
           <li class="top-nav-option px-3">
             <div class="img-desc align-items-center font-sm" v-if="session.isAuthenticated">
               <img class="round s-30x30" :src="user.photo" :alt="user.firstname">
               <div class="description ml-4 font-sm bold">
-                Hi, {{user.firstname}}
+                Hi, {{user.firstname}} {{user.lastname}}
               </div>
             </div>
           </li>
@@ -132,15 +134,46 @@
 
 <script>
 import { mapState } from 'vuex'
+import ShoppingCartPopUp from '~/components/Navbar/ShoppingCartPopUp'
+import NotificationPopUp from '~/components/Navbar/NotificationPopUp'
+import { directive as onClickaway } from 'vue-clickaway';
 
 export default {
   name: 'TheNavbarTop',
+  directives: {
+    onClickaway
+  },
   data () {
     return {
-      hamburgerCollapsed: true
+      hamburgerCollapsed: true,
+      shoppingCartCollapsed: true,
+      notificationCollapsed: true
     }
   },
+  components: {
+    ShoppingCartPopUp,
+    NotificationPopUp
+  },
   methods: {
+    isClickFromPopup(e) {
+      return e.srcElement.attributes['data-no-clickaway']
+    },
+    closeNotification (e) {
+      if (!this.isClickFromPopup(e)) {
+        this.notificationCollapsed = true
+      }
+    },
+    toggleNotification () {
+      this.notificationCollapsed = !this.notificationCollapsed
+    },
+    closeShoppingCart (e) {
+      if (!this.isClickFromPopup(e)) {
+        this.shoppingCartCollapsed = true
+      }
+    },
+    toggleShoppingCart () {
+      this.shoppingCartCollapsed = !this.shoppingCartCollapsed
+    },
     toggleHamburger () {
       this.hamburgerCollapsed = !this.hamburgerCollapsed
     }
@@ -155,5 +188,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .pop-up {
+    position: absolute;
+    width: 375px;
+  }
 </style>
