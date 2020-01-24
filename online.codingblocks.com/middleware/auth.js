@@ -1,5 +1,3 @@
-
-
 export default async function ({ store, app: { $cookies }, $axios }) {
   const isAuthenticated = !!store.state.session.user
   const token = $cookies.get('auth-jwt')
@@ -9,9 +7,6 @@ export default async function ({ store, app: { $cookies }, $axios }) {
   }
 
   if (token) {
-    // we have loggedIn session
-    $axios.defaults.headers.common['Authorization'] = `JWT ${token}`
-
     // fetch current users
     try {
       const { data: { data: response } } = await $axios.request('/users/me')
@@ -26,5 +21,4 @@ export default async function ({ store, app: { $cookies }, $axios }) {
       $cookies.remove('auth-jwt')
     }
   }
-
 }
