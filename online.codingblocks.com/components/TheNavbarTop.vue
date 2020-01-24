@@ -33,12 +33,12 @@
         <ul class="right-nav d-md-flex d-none">
           <li class="top-nav-option px-3">
             <a href="#">
-              <FaIcon icon="bell" class="fa-lg"></FaIcon>
+              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/notification.svg" alt="">
             </a>
           </li>
           <li class="top-nav-option px-3">
             <a href="#">
-              <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
+              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/cart.svg" alt="">
             </a>
           </li>
           <li class="top-nav-option px-3">
