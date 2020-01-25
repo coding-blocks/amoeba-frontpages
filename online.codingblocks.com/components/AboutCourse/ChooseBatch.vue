@@ -62,10 +62,10 @@ export default {
       return this.runs.find((r) => r.id == this.selectedRunId)
     },
     selectedRunEnrollmentEnd () {
-      return formatTimestamp(this.selectedRun['enrollment-end'], "dd ccc MMM")
+      return formatTimestamp(this.selectedRun['enrollment-end'])
     },
     selectedRunStart () {
-      return formatTimestamp(this.selectedRun.start, "dd ccc MMM")
+      return formatTimestamp(this.selectedRun.start)
     },
     dukaanPublicUrl () {
       return config[process.env.NODE_ENV].dukaan.url
