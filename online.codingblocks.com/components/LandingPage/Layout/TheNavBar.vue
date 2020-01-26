@@ -43,7 +43,7 @@
             </a>
            
           </div>
-          <a class="button-solid button-orange ml-4" href="/app/login">Get Started</a>
+          <a class="button-solid button-orange ml-4" href="/app/login">Login</a>
         </div>
       </div>
     </div>

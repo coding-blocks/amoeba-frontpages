@@ -61,7 +61,7 @@ export default {
 
   head() {
     return {
-      title: this.courses.subtitle,
+      title: 'Coding Blocks Online | All Courses',
       meta: metaForAllCourses()
     }
   },
