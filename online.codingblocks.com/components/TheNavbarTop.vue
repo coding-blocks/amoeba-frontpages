@@ -33,13 +33,13 @@
         <ul class="right-nav d-md-flex d-none">
           <li class="top-nav-option px-3">
             <a href="#" @click="toggleNotification" v-on-clickaway="closeNotification">
-              <FaIcon icon="bell" class="fa-lg"></FaIcon>
+              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/notification.svg" />
             </a>
             <NotificationPopUp v-if="!notificationCollapsed" data-no-clickaway="true" />
           </li>
           <li class="top-nav-option px-3">
             <a href="#" @click="toggleShoppingCart" v-on-clickaway="closeShoppingCart">
-              <FaIcon icon="shopping-cart" class="fa-lg"></FaIcon>
+              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/cart.svg" />
             </a>
             <ShoppingCartPopUp v-if="!shoppingCartCollapsed" data-no-clickaway="true" />
           </li>
