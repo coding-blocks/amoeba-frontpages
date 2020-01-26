@@ -88,7 +88,7 @@ export default {
   },
   head() {
     return {
-      title: this.course.subtitle,
+      title: this.course.title,
 
       meta: metaForCourse(this.course)
     }
