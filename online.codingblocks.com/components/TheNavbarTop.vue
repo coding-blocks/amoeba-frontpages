@@ -43,12 +43,27 @@
             </a>
             <ShoppingCartPopUp v-if="!shoppingCartCollapsed" data-no-clickaway="true" />
           </li>
-          <li class="top-nav-option px-3">
+          <li class="top-nav-option hoverable px-3">
             <div class="img-desc align-items-center font-sm" v-if="session.isAuthenticated">
               <img class="round s-30x30" :src="user.photo" :alt="user.firstname">
               <div class="description ml-4 font-sm bold">
                 Hi, {{user.firstname}} {{user.lastname}}
               </div>
+            </div>
+            <div class="pop-up border-card p-3 br-5">
+              <ul class="t-align-l">
+                <li>
+                  <a href="https://account.codingblocks.com/users/me" target="_blank">
+                    Profile
+                  </a>
+                </li>
+                <div class="divider-h my-3"></div>
+                <li>
+                  <a class="dark-grey" :href="logoutUrl">
+                    Logout
+                  </a>
+                </li>
+              </ul>
             </div>
           </li>
         </ul>
@@ -137,6 +152,7 @@ import { mapState } from 'vuex'
 import ShoppingCartPopUp from '~/components/Navbar/ShoppingCartPopUp'
 import NotificationPopUp from '~/components/Navbar/NotificationPopUp'
 import { directive as onClickaway } from 'vue-clickaway';
+import config from '~/config.json';
 
 export default {
   name: 'TheNavbarTop',
@@ -182,6 +198,9 @@ export default {
     ...mapState(['session']),
     user () {
       return this.session?.user
+    },
+    logoutUrl() {
+      return `https://account.codingblocks.com/logout?redirect=${config[process.env.NODE_ENV].publicUrl}/logout`
     }
   }
 }

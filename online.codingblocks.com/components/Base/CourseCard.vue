@@ -57,7 +57,7 @@
                 <del>{{mrp}}</del>
               </span>
             </div>
-            <div class="card-md mt-1">Batches starting {{topRun.start}}</div>
+            <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
           <nuxt-link :to="`/courses/${course.slug}`" v-on:click.native="log($event, 'Explore')" class="button-solid button-orange">Explore</nuxt-link>
         </div>
@@ -70,7 +70,7 @@
 
 <script>
 import RatingStars from '~/components/AboutCourse/RatingStars'
-
+import { formatTimestamp } from '~/utils/date'
 import { topRunForCourse, textForDifficulty } from '~/utils/course';
 
 export default {
@@ -101,6 +101,9 @@ export default {
     },
     tryNowLink () {
       return `/app/classroom/course/${this.course.id}/run/${this.topRun.id}`
+    },
+    startDateString () {
+      return formatTimestamp(this.topRun.start)
     }
   },
   components: {
