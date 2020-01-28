@@ -4,11 +4,12 @@
 
     <TheNavbarTop />
     <TheSideBar />
-    <cb-navbar topalign="right" />
-    <div class="row justify-content-center mx-0">
-      <div class="offset-0 offset-md-1 col-11 px-lg-5 px-md-4 px-0 pt-4">
-        <nuxt />
-
+    <div class="row justify-content-center">
+      <div class="offset-0 offset-md-1 col-11" style="margin-top: 72px;">
+        <cb-navbar topalign="right" />
+        <div class="px-lg-5 px-md-4 px-0 pt-4">
+          <nuxt />
+        </div>        
       </div>
     </div>
 

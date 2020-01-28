@@ -38,7 +38,7 @@
               :key="content.id"
             >
               <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
-                <FaIcon :icon= getIcon(content.contentable) class="s-20x20 font-md mr-3"></FaIcon>
+                <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
                 <span class="font-normal">{{ content.title }}</span>
               </a>
               <div class="col-2 col-md-1 t-align-c">
@@ -112,17 +112,14 @@ export default {
       }
        
     },
-    getIcon(contentable){
+    getIcon(content){
       
-      switch(contentable){
-        case 'code-challenge' : 
-          return 'file-code'
-        case 'csv' : 
-          return 'file-excel'
-        case 'document':
-          return 'file-word'
-        default :
-          return 'play-circle'
+      switch(content.contentable){
+        case 'document': return 'https://minio.codingblocks.com/amoeba/notes_grey.svg'; break;
+        case 'code-challenge': return 'https://minio.codingblocks.com/amoeba/code_grey.svg'; break;
+        case 'qna': return 'https://minio.codingblocks.com/amoeba/quiz_grey.svg'; break;
+        case 'lecture':
+        default: return 'https://minio.codingblocks.com/amoeba/video_grey.svg'; break;
       }
     }
   },
