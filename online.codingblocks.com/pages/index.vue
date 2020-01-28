@@ -20,10 +20,8 @@
       </div>
 
       <div class="container">
-        <div class="d-flex justify-content-center">
-          <div class="font-lg mb-3">
-            <strong>Our Talented Mentors</strong>
-          </div>
+        <div class="t-align-c mb-5">
+          <h4 class="bold">Our Talented Mentors</h4>
         </div>
       </div>
       <MentorCard />
@@ -78,14 +76,14 @@ export default {
     StudentsExperience,
     ClassRoomCard
   },
-  async asyncData ({ $axios, app }) {
+  async asyncData({ $axios, app }) {
     const res = await $axios.get(`/courses`, {
       params: {
         include: 'instructors,runs',
         exclude: 'ratings,instructors.*,feedbacks,runs.*',
         filter: {
           recommended: true,
-          unlisted: false,
+          unlisted: false
         },
         page: {
           limit: 3
@@ -99,7 +97,7 @@ export default {
       courses
     }
   },
-  data () {
+  data() {
     return {
       courses: []
     }
