@@ -24,7 +24,7 @@
           </li>
           <li class="top-nav-option px-3 d-none d-md-block">
             <a href="#hacker-blocks">
-              <h6>Hacker Blocks</h6>
+              <h6>HackerBlocks</h6>
             </a>
           </li>
         </ul>
