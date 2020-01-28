@@ -39,6 +39,7 @@
       <LeadGenerationCard :course-title="course.title" class="col-md-4" />
     </div>
 
+    <StudentsExperience :show-iframe="false" />
     <!-- Fin. -->
     <div class="my-5"></div>
   </div>
@@ -58,6 +59,7 @@ import CourseTags from '~/components/AboutCourse/CourseTags.vue'
 import WildcraftCard from '~/components/AboutCourse/WildcraftCard.vue'
 import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
+import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -106,6 +108,7 @@ export default {
     WildcraftCard,
     CourseFeatures,
     LeadGenerationCard,
+    StudentsExperience,
     VAsync
   },
   computed: {

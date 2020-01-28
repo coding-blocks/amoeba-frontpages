@@ -1,10 +1,10 @@
 <template>
   <div>
     <span :class="'pos-rating orange ' + posRatingClass" v-for="n in numberOfYellowStars" :key="n">
-            <FaIcon icon="star" class="fa-lg" />
+      <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/star_filled.svg" />
     </span>
     <span :class="'neg-rating ' + negRatingClass" v-for="n in numberOfEmptyStars" :key="n">
-        <FaIcon icon="star" class="fa-lg" v-show="showEmpty" />
+      <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/star_unfilled.svg" />
     </span>
     <slot></slot>
   </div>
