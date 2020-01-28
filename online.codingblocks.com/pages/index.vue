@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="my-auto p-md-4">
+    <div class="my-auto p-md-4 position-relative">
       <Info />
     </div>
     <CompanyCard />

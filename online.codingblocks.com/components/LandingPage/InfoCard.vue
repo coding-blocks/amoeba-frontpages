@@ -47,15 +47,22 @@
             <button class="button-dashed button-orange mt-4" @click="goToTrack">Continue</button>
           </div>
         </div>
-        <div class="offset-0 offset-md-1 col-md-6 d-none d-md-block my-auto">
-          <img src="../../../images/girl.svg" alt srcset />
-        </div>
+        <img class="home-img" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset />
       </div>
     </div>
   </div>
 </template> 
 
 
+<style scoped>
+.home-img {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: -57px;
+  max-height: 500px;
+}
+</style>
 
 <script>
 export default {
