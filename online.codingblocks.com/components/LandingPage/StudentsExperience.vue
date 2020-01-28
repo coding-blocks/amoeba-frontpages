@@ -1,7 +1,7 @@
 <template>
   <div class="container mb-5">
     <h2 class="bold t-align-c my-5">What our students say</h2>
-    <div class="mb-5">
+    <div class="mb-5" v-if="showIframe">
       <iframe
         src="https://www.youtube.com/embed/h_YmJLN9IgY"
         frameborder="0"
@@ -43,6 +43,12 @@
 </style>
 <script>
 export default {
+  props: {
+    showIframe: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       reviews: [{
