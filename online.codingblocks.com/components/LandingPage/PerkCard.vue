@@ -1,73 +1,61 @@
 <template>
   <div class="container mb-5">
-    <div class="row justify-content-between">
-      <div class="my-2 col-md-5 col-lg-3">
+    <div class="row">
+      <div class="col-md-6 col-lg-3 mb-lg-0 mb-5">
         <div class="border-card p-0">
-          <div class="row">
-            <div
-              class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
-            >
-              <img src="https://minio.codingblocks.com/landing-pages/portfolio.svg" alt class="mx-4 my-lg-4" />
+          <div class="row no-gutters">
+            <div class="p-4 col-md-12 col-4 d-flex justify-content-center justify-content-md-start">
+              <img style="height: 50px;" src="https://minio.codingblocks.com/landing-pages/portfolio.svg" />
             </div>
-
-            <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
-              <div class="mx-4">
-                <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-orange">4500+</div>
-                <strong>Students Placed</strong>
+            <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center">
+              <div>
+                <div class="bold gradient-text-hi-orange" style="font-size: 2rem;">4500+</div>
+                <div class="normal font-mds mt-1">Students Placed</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="my-2 col-md-5 col-lg-3">
+      <div class="col-md-6 col-lg-3 mb-lg-0 mb-5">
         <div class="border-card p-0">
-          <div class="row">
-            <div
-              class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
-            >
-              <img src="https://minio.codingblocks.com/landing-pages/college-graduation.svg" alt class="mx-4 my-lg-4" />
+          <div class="row no-gutters">
+            <div class="p-4 col-md-12 col-4 d-flex justify-content-center justify-content-md-start">
+              <img style="height: 50px;" src="https://minio.codingblocks.com/landing-pages/college-graduation.svg" />
             </div>
-
-            <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
-              <div class="mx-4">
-                <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-pink">12000+</div>
-                <strong>Students Taught</strong>
+            <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center">
+              <div>
+                <div class="bold gradient-text-hi-pink" style="font-size: 2rem;">12000+</div>
+                <div class="normal font-mds mt-1">Students Taught</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="my-2 col-md-5 col-lg-3">
+      <div class="col-md-6 col-lg-3 mb-lg-0 mb-5">
         <div class="border-card p-0">
-          <div class="row">
-            <div
-              class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
-            >
-              <img src="https://minio.codingblocks.com/landing-pages/books-stack-of-three.svg" alt class="mx-4 my-lg-4" />
+          <div class="row no-gutters">
+            <div class="p-4 col-md-12 col-4 d-flex justify-content-center justify-content-md-start">
+              <img style="height: 50px;" src="https://minio.codingblocks.com/landing-pages/books-stack-of-three.svg" />
             </div>
-
-            <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
-              <div class="mx-4">
-                <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-blue">18000+</div>
-                <strong >Hours of Study</strong>
+            <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center">
+              <div>
+                <div class="bold gradient-text-hi-blue" style="font-size: 2rem;">18000+</div>
+                <div class="normal font-mds mt-1">Hours of Study</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="my-2 col-md-5 col-lg-3">
+      <div class="col-md-6 col-lg-3 mb-lg-0 mb-5">
         <div class="border-card p-0">
-          <div class="row">
-            <div
-              class="col-4 col-lg-12 d-flex align-items-center justify-content-center justify-content-md-start"
-            >
-              <img src="../../../images/rocket.svg" alt class="mx-4 my-lg-4" />
+          <div class="row no-gutters">
+            <div class="p-4 col-md-12 col-4 d-flex justify-content-center justify-content-md-start">
+              <img style="height: 50px;" src="../../../images/rocket.svg" />
             </div>
-
-            <div class="my-auto py-3 col-8 col-lg-12 bg-grey">
-              <div class="mx-4">
-                <div class="mt-4 mt-md-0 bold font-lg gradient-text-hi-purple">100+</div>
-                <strong>Years of Teaching</strong>
+            <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center">
+              <div>
+                <div class="bold gradient-text-hi-purple" style="font-size: 2rem;">100+</div>
+                <div class="normal font-mds mt-1">Years of Teaching</div>
               </div>
             </div>
           </div>
@@ -80,6 +68,6 @@
 
 <style scoped>
 .bg-grey {
-  background-color: #F3F3F3 !important;
+  background-color: #f3f3f3 !important;
 }
 </style>

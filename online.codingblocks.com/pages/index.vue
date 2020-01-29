@@ -6,11 +6,11 @@
     <CompanyCard />
     <div class="my-auto">
       <div class="container mb-5">
-        <div class="row justify-content-between">
-          <div class="col-6 font-lg mb-5">
-            <strong>Learn from instructor led online courses</strong>
+        <div class="row justify-content-between mb-5 align-items-center no-gutters">
+          <div class="col-md-8 col-6">
+            <h4 class="bold">Learn from instructor led online courses</h4>
           </div>
-          <div class="col-6 t-align-r">
+          <div>
             <nuxt-link to="/courses" class="button-dashed button-orange">Browse Courses</nuxt-link>
           </div>
         </div>
@@ -20,10 +20,8 @@
       </div>
 
       <div class="container">
-        <div class="d-flex justify-content-center">
-          <div class="font-lg mb-3">
-            <strong>Our Talented Mentors</strong>
-          </div>
+        <div class="t-align-c mb-5">
+          <h4 class="bold">Our Talented Mentors</h4>
         </div>
       </div>
       <MentorCard />
@@ -78,14 +76,14 @@ export default {
     StudentsExperience,
     ClassRoomCard
   },
-  async asyncData ({ $axios, app }) {
+  async asyncData({ $axios, app }) {
     const res = await $axios.get(`/courses`, {
       params: {
         include: 'instructors,runs',
         exclude: 'ratings,instructors.*,feedbacks,runs.*',
         filter: {
           recommended: true,
-          unlisted: false,
+          unlisted: false
         },
         page: {
           limit: 3
@@ -99,7 +97,7 @@ export default {
       courses
     }
   },
-  data () {
+  data() {
     return {
       courses: []
     }

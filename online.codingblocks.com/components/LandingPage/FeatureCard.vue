@@ -1,11 +1,11 @@
 <template>
-  <div class="container mb-5">
+  <div class="container mb-4">
     <div class="mb-5 t-align-c font-md">
       <strong>Our Exclusive Features</strong>
     </div>
     <div class="row">
-      <div class="col-md-4 col-6 mb-4">
-        <div class="border-card h-100">
+      <div class="col-md-4 col-6 mb-5">
+        <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/learning.svg" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">Comprehensive Learning</h5>
           <div class="font-normal">
@@ -15,8 +15,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-6 mb-4">
-        <div class="border-card h-100">
+      <div class="col-md-4 col-6 mb-5">
+        <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/mentorsupport.svg" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">24x7 Mentor Support</h5>
           <div class="font-normal">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-6 mb-4">
+      <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/webinar.png" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">Live Webinars for Doubt Clearing</h5>
@@ -35,7 +35,7 @@
           >Get exclusive access to Live Webinars where you can interact with mentors for important course topics.</div>
         </div>
       </div>
-      <div class="col-md-4 col-6 mb-4">
+      <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/revisit.svg" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">Revisit and Revise</h5>
@@ -46,8 +46,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-6 mb-4">
-        <div class="border-card h-100">
+      <div class="col-md-4 col-6 mb-5">
+        <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/certificate.svg" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">Evaluation and Certification</h5>
           <div class="font-normal">
@@ -56,8 +56,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-6 mb-4">
-        <div class="border-card h-100">
+      <div class="col-md-4 col-6 mb-5">
+        <div class="border-card p-lg-5 p-4 h-100">
           <img src="https://minio.codingblocks.com/landing-pages/interview.svg" alt="contests" class="s-100x100 mb-3" />
           <h5 class="bold mb-3">Get Hired</h5>
           <div class="font-normal">

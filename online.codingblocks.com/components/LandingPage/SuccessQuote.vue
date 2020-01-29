@@ -1,9 +1,7 @@
 <template>
-  <div class="mb-5 pt-3">
+  <div class="my-md-5 pt-md-4 mb-5">
     <div class="container">
-      <div class="d-flex justify-content-center font-lg">
-        <strong>Your Success is Our Success</strong>
-      </div>
+      <h4 class="bold t-align-c">Your Success is Our Success</h4>
     </div>
   </div>
 </template>
