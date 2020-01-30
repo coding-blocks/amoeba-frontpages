@@ -38,12 +38,14 @@
 
       <div class="d-none d-md-flex course-info-row position-relative">
         <div class="card-mentor-image mr-4">
-            <img class="card-mentors" src="https://avatars0.githubusercontent.com/u/1327050?s=460&amp;v=4">
-            <img class="card-mentors" src="https://avatars0.githubusercontent.com/u/1327050?s=460&amp;v=4">
+            <img class="card-mentors" 
+              :src="instructor.photo"
+              :alt="'photo of' + instructor.name"
+              v-for="instructor in visibleInstructors" :key="instructor.id">
         </div>
         <div class="info-item">
           <div>Instructors</div>
-          <div>Arnav Gupta, Prateek Narang</div>
+          <div>{{visibleInstructorNames}}</div>
         </div>
         <div class="info-item">
           <div>Course Language</div>
@@ -71,6 +73,14 @@ export default {
   },
   components: {
     RatingStars
+  },
+  computed: {
+    visibleInstructors() {
+      return this.course.instructors.slice(0, 2)
+    },
+    visibleInstructorNames () {
+      return this.visibleInstructors.map(i => i.name).join(', ')
+    },
   }
 }
 </script>

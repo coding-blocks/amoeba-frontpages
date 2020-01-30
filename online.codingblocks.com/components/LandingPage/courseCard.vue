@@ -11,10 +11,10 @@
               Become a Certified
               <br />
               <strong>Data Scientist</strong>
-              <div class="font-xs mt-3">4 courses</div>
+              <div class="font-xs mt-3">2 courses</div>
             </div>
           </div>
-          <a href="#" class="orange d-block t-align-r card-md">View Track</a>
+          <a href="/app/tracks/data-science" class="orange d-block t-align-r card-md">View Track</a>
         </div>
       </div>
       <div class="col-md-4 mb-md-0 mb-5">
@@ -26,7 +26,7 @@
             <div class="flex-1 font-mds">
               Become a Certified
               <br />
-              <strong>Android Developer</strong>
+              <strong>Competetive Programmer</strong>
               <div class="font-xs mt-3">4 courses</div>
             </div>
           </div>
