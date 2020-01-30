@@ -21,7 +21,7 @@
 
       <div class="container">
         <div class="t-align-c mb-5">
-          <h4 class="bold">Our Talented Mentors</h4>
+          <h4 class="bold">Our Experienced Mentors</h4>
         </div>
       </div>
       <MentorCard />

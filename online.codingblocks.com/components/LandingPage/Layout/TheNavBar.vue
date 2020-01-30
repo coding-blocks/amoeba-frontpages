@@ -25,7 +25,7 @@
             </div>
           </div>
           <nuxt-link to="/" class="col-lg-12 col-10">
-            <img src="https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png" alt="Logo">
+            <img src="https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png" width="80%" alt="Logo">
           </nuxt-link>
         </div>
       </div>
