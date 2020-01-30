@@ -59,8 +59,8 @@
   position: absolute;
   z-index: -1;
   right: 0;
-  bottom: -57px;
-  max-height: 500px;
+  bottom: -58px;
+  max-height: 515px;
 }
 </style>
 
