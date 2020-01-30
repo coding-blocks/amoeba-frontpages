@@ -141,7 +141,7 @@ export const metaForAllCourses = () => {
       hid: 7,
       property: 'og:image',
       content:
-        'https://online.codingblocks.com/images/online-logo-66038d0bc8e98ba84eb596e64accf139.png'
+        'https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png'
     },
     { hid: 8, property: 'og:site_name', content: 'Coding Blocks Online' },
     {
@@ -164,7 +164,7 @@ export const metaForAllCourses = () => {
       hid: 12,
       itemprop: 'image',
       content:
-        'https://online.codingblocks.com/images/online-logo-66038d0bc8e98ba84eb596e64accf139.png'
+        'https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png'
     }
 
 
