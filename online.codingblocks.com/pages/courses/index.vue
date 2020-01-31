@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-4">
     <div class="row mb-4">
       <div class="col-lg-4 col-md-6 col-12">
         <h3>Uplift your career with us</h3>

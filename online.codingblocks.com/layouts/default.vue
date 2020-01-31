@@ -4,7 +4,7 @@
 
     <TheNavbarTop />
     <TheSideBar />
-    <div class="row justify-content-center">
+    <div class="row justify-content-center no-gutters">
       <div class="offset-0 offset-md-1 col-11" style="margin-top: 72px;">
         <cb-navbar topalign="right" />
         <div class="px-lg-5 px-md-4 px-0 pt-4">
