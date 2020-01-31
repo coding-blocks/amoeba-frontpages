@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="border-card bg-light-grey">
-      <div class="font-mds bold mb-5">About Mentors</div>
+      <div class="font-md bold mb-5">About Mentors</div>
       <div class="d-flex instructor-row" v-for="instructor in instructors" :key="instructor.id">
         <img class="s-50x50 round" :src="instructor.photo" alt="" srcset="">
         <div class="ml-3">

@@ -67,10 +67,8 @@ export default {
   },
   tasks(t, { timeout }) {
     return {
-      search: t(async function() {
-        // await timeout(1000)
-
-        const res = await this.$axios.get('/courses', {
+      search: t(function *() {
+        const res = yield this.$axios.get('/courses', {
           params: {
             exclude: `ratings,instructors.*`,
             include: `instructors,runs`,
@@ -88,7 +86,7 @@ export default {
 
         this.courses = this.$jsonApiStore.sync(res.data)
       })
-        .flow('restart', { delay: 400 })
+        .flow('restart', { delay: 500 })
         .runWith('searchQuery')
     }
   }

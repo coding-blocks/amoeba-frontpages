@@ -8,7 +8,7 @@
             <div class="pr-5">
               <img src="../../../images/suitcase-white.svg" alt="Bag" />
             </div>
-            <div class="normal flex-1">
+            <div class="normal flex-1 font-sm">
               Internship and job opportunities for big companies
               like Amazon, Samsung, CueMath, Zomato etc
             </div>
@@ -18,7 +18,7 @@
             <div class="pr-5">
               <img src="../../../images/rocket-white.svg" alt="rocket" />
             </div>
-            <div class="normal flex-1">
+            <div class="normal flex-1 font-sm">
               Courses to build a strong foundation for you to become
               an experienced programmer.
             </div>
@@ -29,7 +29,7 @@
               <img src="../../../images/man-plus.svg" alt="Bag" />
             </div>
 
-            <div class="normal flex-1">
+            <div class="normal flex-1 font-sm">
               Hiring Referrals in tech giants from our world wide
               alumini network
             </div>
@@ -45,7 +45,7 @@
             <div class="pr-5">
               <img src="../../../images/video-white.svg" alt="Bag" />
             </div>
-            <div class="normal flex-1">
+            <div class="normal flex-1 font-sm">
               Expert level courses to quickly learn and implement new
               technologies in your workspace.
             </div>
@@ -55,7 +55,7 @@
             <div class="pr-5">
               <img src="../../../images/rocket-white.svg" alt="Bag" />
             </div>
-            <div class="normal flex-1">
+            <div class="normal flex-1 font-sm">
               Opportunity to learn advanced concepts of computer programming
               to aim for the next big job.
             </div>
@@ -66,7 +66,7 @@
               <img src="../../../images/salary-card.svg" alt="Bag" />
             </div>
 
-            <div class="normal flex-1">High Salary Increments when you switch to your next job.</div>
+            <div class="normal flex-1 font-sm">High Salary Increments when you switch to your next job.</div>
           </div>
         </div>
       </div>

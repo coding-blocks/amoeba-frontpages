@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="border-card">
-      <h5 class="bold">Course Content</h5>
-      <div class="divider-h mt-4"></div>
-
-      <div class="border-bottom-list">
-        <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
+    <div class="border-card p-0">
+      <div class="p-30p bg-black-grey font-md white">
+        <h5 class="bold">Course Content</h5>
+        <!-- <div class="divider-h mt-4"></div> -->
       </div>
+
+     
+      <SectionAccordion v-for="sectionId in sectionIds" :key="sectionId" :section-id="sectionId" />
+      
     </div>
   </div>
 </template>
@@ -54,5 +56,8 @@ export default {
 }
 .border-bottom-list > *:first-child {
   margin-top: 1.5rem;
+}
+.p-30p {
+  padding: 30px;
 }
 </style>

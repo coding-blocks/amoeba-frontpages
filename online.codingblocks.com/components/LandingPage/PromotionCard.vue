@@ -14,7 +14,7 @@
             <br />We will provide you with an ecosystem of Mentor, TAs, lectures, assignments and many more to ensure you learn
             right things at right pace.
           </div>
-          <button class="button-solid button-white blue">Join Now</button>
+          <a class="button-solid button-white blue" href="https://www.youtube.com/channel/UCICWIYEx2mo4wYZzLwJ7wVw" target="_blank">Join Now</a>
         </div>
         <div class="col-md-7 col-12 mt-md-0 mt-5">
           <div class="row align-items-center mb-5">

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="mt-5">
-      <div class="row">
+      <div class="row" style="z-index: 1">
         <div class="col-md-5">
           <div class="gradient-text-orange mb-2 font-lg bold">Uplift your career with us!</div>
           <div class="font-md mb-5">We will help you build skills &amp; land your dream job</div>
@@ -57,11 +57,12 @@
 <style scoped>
 .home-img {
   position: absolute;
-  z-index: -1;
   right: 0;
-  bottom: -57px;
-  max-height: 500px;
+  bottom: -58px;
+  max-height: 515px;
 }
+
+
 </style>
 
 <script>
