@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="my-auto p-md-4 position-relative">
-      <Info />
-    </div>
-    <CompanyCard />
+      <div class="my-auto p-md-4 position-relative home-banner">
+        <Info />
+      </div>
+    <CompanyCard class="position-relative" />
     <div class="my-auto">
       <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
@@ -43,6 +43,12 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.home-banner {
+  background-color: #FBFDF9;
+}
+</style>
 
 <script>
 import Info from '~/components/LandingPage/InfoCard'

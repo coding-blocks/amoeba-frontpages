@@ -1,6 +1,6 @@
 <template>
   <div class="course-features border-card">
-    <div class="font-mds bold">Course Includes</div>
+    <div class="font-md bold">Course Includes</div>
     <div class="divider-h my-3"></div>
     <div class="row justify-content-center">
       <div class="col-6 d-flex align-items-center my-3" v-for="feature in features" :key="feature.icon">

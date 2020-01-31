@@ -1,13 +1,23 @@
 <template>
   <div class="container mt-5">
+        <ul class="breadcrumbs mb-4">    
+          <li>
+              <a href="/app/classroom">
+                Buy Courses
+              </a>
+          </li>
+          <li>    
+            {{course.title}}
+          </li>
+        </ul>
     <!-- First Half -> IntroCard IntroVideo Summary Choose Batch Course Tags -->
     <div class="row first-half">
       <IntroductionCard class="col-md-8 order-1" :course="course" />
       <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
       <div class="col-md-8 mt-5 order-4">
         <div class="border-card">
-          <h2>Summary</h2>
-          <VMarkdown :markdown="course.summary" />
+          <h2 class="font-md">Summary</h2>
+          <VMarkdown class="course-summary" :markdown="course.summary" />
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
@@ -186,4 +196,43 @@ export default {
   max-height: 600px;
   overflow: hidden;
 }
+
+
+
+.course-summary {
+  line-height: 1.5rem;
+  text-align: justify
+}
+</style>
+
+
+<style>
+.course-summary h3{
+  font-size: 1.428rem;
+  margin-top: 2rem;
+}
+
+.breadcrumbs > li:not(:last-child) {
+  font-weight: bold;
+}
+
+.breadcrumbs {
+  padding-left: 0 !important;
+}
+
+.breadcrumbs > li:not(:first-child) {
+  padding-left: 1rem !important;
+
+}
+
+.breadcrumbs > li:not(:first-child)::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  left: 0px;
+  background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg') no-repeat;
+}
+
 </style>

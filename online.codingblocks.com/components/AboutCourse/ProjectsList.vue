@@ -5,7 +5,7 @@
     </template>
     <template v-slot="{ value }">
       <div class="border-card">
-        <h5 class="bold">Projects</h5>
+        <h5 class="bold font-md">Projects</h5>
         <div class="divider-h my-4"></div>
         
         <div class="border-bottom-list">

@@ -54,4 +54,8 @@
 .mentor-card .head {
   height: 200px;
 }
+
+.mentor-card .p-4 {
+  text-align: center;
+}
 </style>
