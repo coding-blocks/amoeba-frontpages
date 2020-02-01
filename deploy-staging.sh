@@ -7,7 +7,7 @@ COMMAND14="cd ~/frontends/amoeba-frontpages-staging/online.codingblocks.com && \
     nvm use && \
   yarn && yarn build && \
   nvm use 8 && \
-  pm2 start ../ecosystem.config.js --update-env --env staging
+  pm2 restart amoeba-frontpages-staging --update-env --env staging
 	"
 
 ssh codingblocks@srv12.cb.lk $COMMAND14
