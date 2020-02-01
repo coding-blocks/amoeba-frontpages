@@ -725,9 +725,9 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@coding-blocks/motley@coding-blocks/motley#2e526c6":
+"@coding-blocks/motley@coding-blocks/motley#55194c4":
   version "0.5.0"
-  resolved "https://codeload.github.com/coding-blocks/motley/tar.gz/2e526c651d205e09dc3ab747565c2fd4f0fb5247"
+  resolved "https://codeload.github.com/coding-blocks/motley/tar.gz/55194c41448720410ee4d1bdf07f143ade8e6332"
   dependencies:
     build "^0.1.4"
     run "^1.4.0"
