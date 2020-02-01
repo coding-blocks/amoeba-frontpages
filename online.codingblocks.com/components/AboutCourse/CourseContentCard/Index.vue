@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="border-card p-0">
-      <div class="p-30p bg-black-grey font-md white">
+    <div class="border-card p-0 position-relative">
+      <div class="p-30p bg-black-grey font-md white position-sticky tl z-pos">
         <h5 class="bold">Course Content</h5>
         <!-- <div class="divider-h mt-4"></div> -->
       </div>

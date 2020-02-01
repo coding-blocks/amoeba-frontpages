@@ -8,14 +8,14 @@
      </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
     <div class="divider-h my-4"></div>
-    <div class="d-flex justify-content-between mb-4 align-items-center">
-      
-        <span class="bold gradient-text-orange font-big">{{selectedRunPriceString}}</span>
-        <span class="font-sm bold grey pl-lg-3 pl-1 font-big">
-          ₹
-          <del>{{selectedRun.mrp}}</del>
-        </span>
-      
+    <div class="row no-gutters justify-content-between mb-4 align-items-center">
+        <div class="v-align-ma">
+          <span class="bold gradient-text-orange font-big">{{selectedRunPriceString}}</span>
+          <span class="font-sm bold grey pl-3">
+            ₹
+            <del>{{selectedRun.mrp}}</del>
+          </span>
+        </div>
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex t-align-c">

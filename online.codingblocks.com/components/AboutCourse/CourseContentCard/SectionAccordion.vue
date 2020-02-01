@@ -26,7 +26,7 @@
                 {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
               </span>
 
-              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="accordion-icon" :class="expanded && 'down'">
+              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="accordion-icon" :class="!expanded && 'down'">
               <!-- <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" /> -->
               
             </div>

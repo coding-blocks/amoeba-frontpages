@@ -1,13 +1,10 @@
 <template>
   <div class="course-features border-card">
-    <div class="font-md bold">Course Includes</div>
-    <div class="divider-h my-3"></div>
-    <div class="row justify-content-center">
-      <div class="col-6 d-flex align-items-center my-3" v-for="feature in features" :key="feature.icon">
-        <div class="col-5 pl-0">
-          <img :src="feature.icon" alt="">
-        </div>
-        <div class="col-7 align-self-center font-sm pr-0">
+    <div class="font-md bold mb-4">Course Includes</div>
+    <div class="row no-gutters">
+      <div class="col-6 my-4" v-for="feature in features" :key="feature.icon">
+        <img :src="feature.icon" alt class="mb-3" style="max-width: 60px !important;" />
+        <div class="font-sm">
           {{feature.text}}
         </div>
       </div>

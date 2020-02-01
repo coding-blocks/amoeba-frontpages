@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-md-0 mt-5">
     <iframe :src="url" frameborder="0" controls allowfullscreen></iframe>
   </div>
 </template>
