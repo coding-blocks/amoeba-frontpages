@@ -84,7 +84,7 @@ export default {
           }
         })
 
-        this.courses = this.$jsonApiStore.sync(res.data)
+        this.courses = yield this.$jsonApiStore.sync(res.data)
       })
         .flow('restart', { delay: 500 })
         .runWith('searchQuery')
