@@ -249,7 +249,13 @@ export default {
       mobileSelectedTab: 'classroom'
     }
   },
-  computed: mapState(['session'])
+  computed: {
+    ...mapState(['session']),
+    user () {
+      return this.session?.user
+    }
+  },
+  
 }
 </script>
 
