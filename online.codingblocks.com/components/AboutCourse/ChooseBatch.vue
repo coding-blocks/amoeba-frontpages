@@ -1,11 +1,11 @@
 <template>
   <div v-if="showCard">
     <div class="font-md bold mb-3">Choose Batch</div>
-     <div class="select-container mb-3">
+    <div class="select-container mb-3">
       <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
         <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
       </select>
-     </div>
+    </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
     <div class="divider-h my-4"></div>
     <div class="d-flex justify-content-between mb-4">
@@ -17,7 +17,7 @@
           ₹
           <del>{{ selectedRun.mrp }}</del>
         </span>
-      
+      </div>
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex t-align-c">
@@ -70,7 +70,7 @@ export default {
       return formatTimestamp(this.selectedRun.start)
     },
     selectedRunPriceString () {
-      return this.selectedRun.price ? `₹ ${this.selectedRun.price}` : 'Free'
+      return +this.selectedRun.price > 0 ? `₹ ${this.selectedRun.price}` : 'Free'
     },
     dukaanPublicUrl () {
       return config[process.env.NODE_ENV].dukaan.url
