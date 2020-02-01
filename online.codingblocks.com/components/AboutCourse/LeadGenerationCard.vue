@@ -6,8 +6,8 @@
       </p>
       <div v-else>
         <div>
-          <img class="s-25x25 v-align-m mr-3" src="https://minio.codingblocks.com/amoeba/flag-orange.png" alt="flag">
-          <span class="gradient-text-orange font-mds bold">Have any Doubts?</span>
+          <img class="s-25x25 v-align-m mr-3" src="https://minio.codingblocks.com/amoeba/doubt-lead-icon.svg" alt="flag">
+          <span class="gradient-text-orange font-md bold">Have any Doubts?</span>
         </div>
 
         <div class="divider-h my-3"></div>

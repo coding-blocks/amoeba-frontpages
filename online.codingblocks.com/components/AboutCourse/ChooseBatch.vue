@@ -1,6 +1,6 @@
 <template>
   <div v-if="showCard">
-    <div class="font-mds bold mb-3">Choose Batch</div>
+    <div class="font-md bold mb-3">Choose Batch</div>
      <div class="select-container mb-3">
       <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
         <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
@@ -11,30 +11,25 @@
     <div class="d-flex justify-content-between mb-4">
       <div>
         <span class="bold gradient-text-orange font-xl">
-          <span v-if="selectedRun.price > 0">
-            ₹ {{ selectedRun.price }}
-          </span>
-          <span v-else>
-            Free
-          </span>
+          {{ selectedRunPriceString }}
         </span>
         <span class="font-sm bold grey pl-lg-3 pl-1" v-if="+selectedRun.mrp > +selectedRun.price">
           ₹
           <del>{{ selectedRun.mrp }}</del>
         </span>
-      </div>
+      
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
-    <div class="d-flex">
+    <div class="d-flex t-align-c">
       <a 
-        class="button-solid button-orange flex-1 mr-4"
+        class="button-solid button-orange flex-1 mr-4 font-sm"
         target="_blank"
         :href="`${dukaanPublicUrl}/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
         v-on:click="log($event, 'BuyNow')"
       >
         Buy Now
       </a>
-      <a class="button-dashed button-orange flex-1" :href="tryNowLink" v-on:click="log($event, 'FreeTrial')">Try it for free!</a>
+      <a class="button-dashed button-orange flex-1 font-sm" :href="tryNowLink" v-on:click="log($event, 'FreeTrial')">Try it for free!</a>
     </div>
   </div>
 </template>
@@ -74,6 +69,9 @@ export default {
     selectedRunStart () {
       return formatTimestamp(this.selectedRun.start)
     },
+    selectedRunPriceString () {
+      return this.selectedRun.price ? `₹ ${this.selectedRun.price}` : 'Free'
+    },
     dukaanPublicUrl () {
       return config[process.env.NODE_ENV].dukaan.url
     },
@@ -92,3 +90,10 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+.font-big {
+  font-size: 1.857rem;
+}
+</style>

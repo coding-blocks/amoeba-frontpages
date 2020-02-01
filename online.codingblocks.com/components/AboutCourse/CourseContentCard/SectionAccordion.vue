@@ -4,7 +4,7 @@
       <VAccordion>
         <template v-slot:head="{ onToggle, expanded }">
           <div
-            class="row mx-0 align-items-center justify-content-between pointer"
+            class="d-flex align-items-center justify-content-between pointer p-30p py-4 hover-grey"
             @click="onToggle"
           >
             <div>
@@ -19,31 +19,34 @@
                   Free
                 </div>
               </div>
-              <div class="card-md font-normal mt-1">
-                {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
-              </div>
+              
             </div>
             <div>
-              <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" />
+              <span class="d-none d-md-inline mt-1 mr-4 dark-grey word-spaced">
+                {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
+              </span>
+
+              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="accordion-icon" :class="expanded && 'down'">
+              <!-- <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" /> -->
               
             </div>
           </div>
         </template>
 
         <template v-slot:content>
-          <div class="border-top my-4">
+          <div class="p-30p py-0">
             <div
-              class="row no-gutters justify-content-between my-3"
+              class="row no-gutters justify-content-between my-4"
               v-for="content in section.contents"
               :key="content.id"
             >
-              <a href="#" :class="'col-6 col-md-7 d-flex align-items-center ' + colorClass">
+              <a href="#" class="col-6 col-md-7 d-flex align-items-center">
                 <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
                 <span class="font-normal">{{ content.title }}</span>
               </a>
               <div class="col-2 col-md-1 t-align-c">
                 <a href="#" 
-                  class="card-md font-normal gradient-text-orange d-inline-block"
+                  class="card-md font-normal orange d-inline-block"
                   v-if="isFree"
                   >
                   Preview
@@ -57,7 +60,7 @@
 
                 
               </div>
-              <div :class="'col-2 col-md-1 card-md font-normal t-align-r ' + colorClass">{{ contentDuration(content) | formatContentDuration}}</div>
+              <div class="col-2 col-md-1 card-md font-normal t-align-r">{{ contentDuration(content) | formatContentDuration}}</div>
             </div>
           </div>
         </template>
@@ -87,9 +90,6 @@ export default {
   computed: {
     section () {
       return this.fetchSection.lastResolved.value
-    },
-    colorClass() {
-      return this.isFree && 'orange'
     },
     isFree () {
       return !this.section.premium
@@ -142,5 +142,17 @@ export default {
 <style scoped>
 .border-top {
   border-top: 1px solid #f3f3f3;
+}
+.word-spaced {
+  word-spacing: 0.2rem;
+}
+.accordion-icon {
+  transition: all 0.3s;
+}
+.accordion-icon.down{
+  transform: rotate(180deg)
+}
+.p-30p {
+  padding: 30px;
 }
 </style>

@@ -16,7 +16,7 @@
           <div class="d-lg-none">
             <div class="hamburger-menu mr-3">
               <div class="ham-toggle">
-                <div class="hamburger">
+                <div class="hamburger" @click="hamburgerOpen = !hamburgerOpen">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -49,10 +49,10 @@
     </div>
 
     <!-- Hamburger-nav --}} -->
-    <div class="hamburger-nav b-right hamburger-nav--hidden overflow-y-auto no-scrollbar">
-      <div class="d-flex py-3 justify-content-between align-items-center hamburger-nav__top-bar">
-        <img src="\images\online-logo.png" alt="OCB" class="hamburger-nav__ham-logo ml-4">
-        <img src="\images\wrong_g.png" alt="#" class="mr-4 hamburger-nav__cross pointer">
+    <div class="hamburger-nav b-right overflow-y-auto no-scrollbar" :class="!hamburgerOpen && 'hamburger-nav--hidden'">
+      <div class="d-flex py-3 justify-content-between align-items-center hamburger-nav__top-bar" @click="hamburgerOpen = !hamburgerOpen">
+        <img src="https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png" alt="OCB" class="hamburger-nav__ham-logo ml-4">
+        <img src="https://minio.codingblocks.com/amoeba/wrong-close.png" alt="#" class="mr-4 hamburger-nav__cross pointer" >
       </div>
       <div class="divider-h"></div>
       
@@ -110,6 +110,11 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'TheNavbarTop',
+  data () {
+    return {
+      hamburgerOpen: false
+    }
+  },
   computed: mapState(['session'])
 }
 </script>
