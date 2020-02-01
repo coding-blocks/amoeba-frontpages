@@ -8,28 +8,28 @@
     </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
     <div class="divider-h my-4"></div>
-    <div class="d-flex justify-content-between mb-4">
-      <div>
-        <span class="bold gradient-text-orange font-xl">
-          {{ selectedRunPriceString }}
-        </span>
-        <span class="font-sm bold grey pl-lg-3 pl-1" v-if="+selectedRun.mrp > +selectedRun.price">
+    <div class="row no-gutters justify-content-between mb-4 align-items-center">
+      <div class="v-align-ma">
+        <span class="bold gradient-text-orange font-big">{{selectedRunPriceString}}</span>
+        <span class="font-sm bold grey pl-3" v-if="+selectedRun.mrp > +selectedRun.price">
           ₹
-          <del>{{ selectedRun.mrp }}</del>
+          <del>{{selectedRun.mrp}}</del>
         </span>
       </div>
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
     </div>
     <div class="d-flex t-align-c">
-      <a 
+      <a
         class="button-solid button-orange flex-1 mr-4 font-sm"
         target="_blank"
         :href="`${dukaanPublicUrl}/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
         v-on:click="log($event, 'BuyNow')"
-      >
-        Buy Now
-      </a>
-      <a class="button-dashed button-orange flex-1 font-sm" :href="tryNowLink" v-on:click="log($event, 'FreeTrial')">Try it for free!</a>
+      >Buy Now</a>
+      <a
+        class="button-dashed button-orange flex-1 font-sm"
+        :href="tryNowLink"
+        v-on:click="log($event, 'FreeTrial')"
+      >Try it for free!</a>
     </div>
   </div>
 </template>
@@ -63,29 +63,31 @@ export default {
     selectedRun() {
       return this.runs.find((r) => r.id == this.selectedRunId)
     },
-    selectedRunEnrollmentEnd () {
+    selectedRunEnrollmentEnd() {
       return formatTimestamp(this.selectedRun['enrollment-end'])
     },
-    selectedRunStart () {
+    selectedRunStart() {
       return formatTimestamp(this.selectedRun.start)
     },
-    selectedRunPriceString () {
-      return +this.selectedRun.price > 0 ? `₹ ${this.selectedRun.price}` : 'Free'
+    selectedRunPriceString() {
+      return +this.selectedRun.price > 0
+        ? `₹ ${this.selectedRun.price}`
+        : 'Free'
     },
-    dukaanPublicUrl () {
+    dukaanPublicUrl() {
       return config[process.env.NODE_ENV].dukaan.url
     },
-    tryNowLink () {
+    tryNowLink() {
       return `/app/classroom/course/${this.courseId}/run/${this.selectedRunId}`
     },
-    user () {
+    user() {
       return this.session?.user
     },
     ...mapState(['session'])
   },
   methods: {
     log: function(event, title) {
-      this.$gtm.pushEvent({ event: title})
+      this.$gtm.pushEvent({ event: title })
     }
   }
 }
