@@ -1,28 +1,24 @@
 <template>
   <div class="container">
-    <div class="row justify-content-between">
-      <div class="col-md-4 mb-md-0 mb-5" v-for="track in tracks" :key="track.slug">
-        <a :href="`/app/tracks/${track.slug}`">
-          <div class="border-card p-4 h-100">
-            <div class="row no-gutters mb-2">
-              <div class="pr-4">
-                <img :src="track.logo" :alt="track.slug" style="height: 75px;" class="round course-info-card-logo" />
-              </div>
-              <div class="flex-1 font-mds">
-                Become a Certified
-                <br />
-                <strong>{{ (track.professions.length ? track.professions[0].title : '')}}</strong>
-                <div class="font-xs mt-3">{{track.courses.length}} courses</div>
-              </div>
+    <div class="row justify-content-between c-card-carousel">
+      <div class="col-md-3 mx-3 mb-md-0 mb-5" v-for="track in tracks" :key="track.slug">
+        <div class="border-card p-4 h-100 white bg-transparent">
+          <div class="row no-gutters mb-2">
+            <div class="pr-4">
+              <img :src="track.logo" :alt="track.slug" style="height: 75px;" class="round course-info-card-logo" />
             </div>
-            <div class="px-4">
-              <p>
-                {{track.description}}
-              </p>
+            <div class="flex-1 font-mds">
+              <strong class="gradient-text-orange">{{ (track.professions.length ? track.professions[0].title : '')}}</strong>
+              <div class="font-xs mt-3">{{track.courses.length}} courses</div>
             </div>
-            <span class="orange d-block t-align-r card-md">View Track</span>
           </div>
-        </a>
+          <div class="px-4">
+            <p>
+              {{track.description}}
+            </p>
+          </div>
+          <a :href="`/app/tracks/${track.slug}`" class="button-solid button-orange float-right">Begin →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +41,7 @@ export default {
         const response = yield this.$axios.get(`/career_tracks`, {
           params: {
             page: {
-              limit: 3
+              limit: 6
             }
           }
         })

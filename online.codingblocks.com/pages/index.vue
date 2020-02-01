@@ -5,8 +5,7 @@
       </div>
     <CompanyCard class="position-relative" />
     <div class="my-auto">
-      <TrackCard />
-      <TrackCards class="mb-5" />
+      <TrackCard class="mb-5" />
       <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
           <div class="col-md-8 col-6">
