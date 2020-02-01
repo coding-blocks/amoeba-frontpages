@@ -11,7 +11,7 @@
     },
     "gtm": "GTM-KJC7DH3"
   },
-  "production": {
+  "staging": {
     "axios": {
       "host": "api-online.codingblocks.xyz",
       "port": 443,
@@ -22,6 +22,21 @@
     "dukaan": {
       "url": "https://dukaan.codingblocks.xyz"
     },
-    "gtm": "GTM-TWLQ78S"
+    "gtm": "GTM-TWLQ78S",
+    "port": 8081
+  },
+  "production": {
+    "axios": {
+      "host": "online-api.codingblocks.com",
+      "port": 443,
+      "https": true,
+      "prefix": "/api/v2/"         
+    },
+    "publicUrl": "https://online.codingblocks.com",
+    "dukaan": {
+      "url": "https://dukaan.codingblocks.com"
+    },
+    "gtm": "GTM-TWLQ78",
+    "port": 8082
   }
 }

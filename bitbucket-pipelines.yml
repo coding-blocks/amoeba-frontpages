@@ -10,6 +10,19 @@ pipelines:
           script: 
             - cd online.codingblocks.com
             - yarn install
+            - yarn build:prod
+            - ls
+            - ../deploy.sh
+
+  branches:
+    development:
+      - step:
+          caches:
+            - node
+          deployment: staging
+          script: 
+            - cd online.codingblocks.com
+            - yarn install
             - yarn build
             - ls
             - ../deploy.sh

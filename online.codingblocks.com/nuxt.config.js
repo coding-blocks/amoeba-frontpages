@@ -3,7 +3,7 @@ const config = require('./config.json')[process.env.NODE_ENV]
 export default {
   mode: 'universal',
   server: {
-    port: 8081
+    port: config.port
   },
   /*
    ** Headers of the page
