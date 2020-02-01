@@ -45,6 +45,11 @@
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
       </div>
     </div>
+
+
+    <RatingCarousel :courseId="course.id"/>
+
+
     <div class="row mt-5">
       <MentorsCard class="col-md-8" :instructors="course.instructors" />
       <LeadGenerationCard :course-title="course.title" class="col-md-4" />
@@ -71,7 +76,11 @@ import WildcraftCard from '~/components/AboutCourse/WildcraftCard.vue'
 import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
+<<<<<<< HEAD
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
+=======
+import RatingCarousel from '~/components/AboutCourse/RatingCarousel.vue'
+>>>>>>> added the rating carousel to the course page
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -122,7 +131,11 @@ export default {
     LeadGenerationCard,
     StudentsExperience,
     VAsync,
+<<<<<<< HEAD
     SuggestedTrackCard
+=======
+    RatingCarousel
+>>>>>>> added the rating carousel to the course page
   },
   computed: {
     projectIds() {
