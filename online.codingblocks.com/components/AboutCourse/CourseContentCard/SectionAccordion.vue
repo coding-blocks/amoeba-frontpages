@@ -4,31 +4,28 @@
       <VAccordion>
         <template v-slot:head="{ onToggle, expanded }">
           <div
-            class="d-flex align-items-center justify-content-between pointer p-30p py-4 hover-grey"
+            class="row no-gutters align-items-center justify-content-between pointer p-30p py-4 hover-grey"
             @click="onToggle"
           >
-            <div>
-              <div class="d-flex align-items-center">
-                <h6 class="bold d-inline-block mr-5">
+            <div class="col-11">
+              <div>
+                <h6 class="bold d-inline-block mr-lg-5 mr-3">
                   {{ section.name }}
                 </h6>
                 <div
-                  class="pill bg-gradient-orange white card-md font-normal"
+                  class="pill bg-gradient-orange white card-md normal"
                   v-if="isFree"
                 >
                   Free
                 </div>
               </div>
-              
-            </div>
-            <div>
-              <span class="d-none d-md-inline mt-1 mr-4 dark-grey word-spaced">
+              <div class="mt-1 dark-grey word-spaced">
                 {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
-              </span>
-
-              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="accordion-icon" :class="!expanded && 'down'">
+              </div> 
+            </div>
+            <div class="col-1">
+              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="float-right accordion-icon" :class="!expanded && 'down'">
               <!-- <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" /> -->
-              
             </div>
           </div>
         </template>

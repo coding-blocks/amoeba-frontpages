@@ -8,7 +8,7 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Arnav Gupta</h4>
-            <div class="normal mt-2">Web Development Mentor</div>
+            <div class="normal mt-2">Web Development</div>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Prateek Narang</h4>
-            <div class="normal mt-2">C++ and Data Science Mentor</div>
+            <div class="normal mt-2">ML and Data Science</div>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Anuj Garg</h4>
-            <div class="normal mt-2">Java Mentor</div>
+            <div class="normal mt-2">Java</div>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Kartik Mathur</h4>
-            <div class="normal mt-2">C++ Mentor</div>
+            <div class="normal mt-2">C++</div>
           </div>
         </div>
       </div>

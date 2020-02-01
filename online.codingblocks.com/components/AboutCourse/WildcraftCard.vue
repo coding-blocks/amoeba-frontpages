@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="border-card p-5 bg-black white goodies-card">
+    <div class="border-card p-5 bg-black white goodies-card mt-5">
       <div class="position-absolute free-tag">
         <img src="https://minio.codingblocks.com/amoeba/wildcraft-fire-free.png" alt="fire">
       </div>

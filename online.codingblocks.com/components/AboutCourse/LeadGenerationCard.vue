@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="border-card">
+    <div class="border-card mt-md-0 mt-5">
       <p class="grey" v-if="alreadySubmitted"> 
         Thanks for getting in touch! <br> We'll get back to you shortly!
       </p>

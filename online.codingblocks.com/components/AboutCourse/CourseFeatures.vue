@@ -1,5 +1,5 @@
 <template>
-  <div class="course-features border-card">
+  <div class="course-features border-card mt-5">
     <div class="font-md bold mb-4">Course Includes</div>
     <div class="row no-gutters">
       <div class="col-6 my-4" v-for="feature in features" :key="feature.icon">
