@@ -4,7 +4,7 @@ console.log(config)
 export default {
   mode: 'universal',
   server: {
-    port: process.env.PORT
+    port: config.port
   },
   /*
    ** Headers of the page
