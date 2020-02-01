@@ -103,7 +103,7 @@ export default {
   },
   methods : {
     contentDuration(content) {
-      if (!isNaN(+content.duration)) {
+      if (!isNaN(+content.duration) && content.contentable == 'lecture') {
         return content.duration
       }
       
