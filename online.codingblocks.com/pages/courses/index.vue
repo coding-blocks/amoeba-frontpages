@@ -68,6 +68,9 @@ export default {
   tasks(t, { timeout }) {
     return {
       search: t(function *() {
+        if (this.searchQuery === '') {
+          yield timeout(1000)
+        }
         const res = yield this.$axios.get('/courses', {
           params: {
             exclude: `ratings,instructors.*`,
@@ -84,7 +87,7 @@ export default {
           }
         })
 
-        this.courses = this.$jsonApiStore.sync(res.data)
+        this.courses = yield this.$jsonApiStore.sync(res.data)
       })
         .flow('restart', { delay: 500 })
         .runWith('searchQuery')
