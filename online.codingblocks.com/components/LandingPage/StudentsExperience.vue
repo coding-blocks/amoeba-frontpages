@@ -28,7 +28,10 @@
           <div class="my-5 font-normal review-body">
             {{review.body}}
           </div>
-          <div class="extra-bold">Placed at {{review.company}}</div>
+          <div class="extra-bold v-align-ma">
+            <span> Placed at </span>
+            <img class="company-logo ml-2" :src="review.companyLogo" :alt="review.company">
+          </div>
         </div>
       </div>
     </div>
@@ -39,6 +42,9 @@
 .review-body {
   height: 80px;
   overflow: auto
+}
+.company-logo {
+  height: 30px;
 }
 </style>
 <script>
@@ -56,19 +62,22 @@ export default {
         course: 'Android Development Course',
         body: `Coding Blocks helped in gaining enough experience to get internships at giants like Google and Rubrik.`,
         company: 'Google',
-        img: `https://minio.codingblocks.com/codingblocks-assets/1536154281747.jpeg`
+        img: `https://minio.codingblocks.com/codingblocks-assets/1536154281747.jpeg`,
+        companyLogo: 'https://minio.codingblocks.com/amoeba/google.svg'
       }, {
         name: 'Sidharth Bansal',
         course: 'Web Development',
         body: `Hii I am Sidharth Bansal from Delhi technology university. I have done competitive boot camp from coding blocks. This gave me a great exposure to problem solving mindset.`,
         company: 'Amazon',
-        img: `https://minio.codingblocks.com/codingblocks-assets/1537792831355.jpeg`
+        img: `https://minio.codingblocks.com/codingblocks-assets/1537792831355.jpeg`,
+        companyLogo: 'https://minio.codingblocks.com/amoeba/amazon.svg'
       }, {
         name: 'Samarth Jain',
         course: 'Competitive Programming',
         body: `My journey in the world of Competitive Programming started with the Bootcamp at Coding Blocks, which turned out to be a changing point in my life. The immense amount of knowledge I got during the course did not only develop my interest but also made me pursue this field later. A special thanks to Shubham bhaiya, Mayank bhaiya and Prateek bhaiya for being the guiding lights in my journey and always motivating us to follow our passion!`,
         company: 'Uber',
-        img: `https://minio.codingblocks.com/codingblocks-assets/1538401462569.jpeg`
+        img: `https://minio.codingblocks.com/codingblocks-assets/1538401462569.jpeg`,
+        companyLogo: 'https://minio.codingblocks.com/amoeba/uber.png'
       }]
     }
   }

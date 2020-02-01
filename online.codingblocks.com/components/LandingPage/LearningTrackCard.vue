@@ -14,10 +14,7 @@
         >Newly Launched</div>
 
         <div class="white normal font-sm">
-          We understand that sometimes you need more than one course to achieve your learning goals.
-          We're here to help. Tracks arrange courses on a topic in sequenc, saving you the effort of
-          going through our courses to find out which ones fit well together, and in what order. Our
-          tracks are carefully vetted and arranged to maximize your learning experience.
+          Our expert instructors believe that systematically designed paths can help you to master your skills & achieve your career goals. We've got your back! Learning Tracks are carefully crafted with a step by step guide that saves you the effort to find out which course fits you well, and in what sequence to maximize your learning experience.
           <br />
           <br />Happy learning!
         </div>

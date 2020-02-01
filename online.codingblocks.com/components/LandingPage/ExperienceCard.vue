@@ -40,7 +40,7 @@
         <div class="divider-h bg-white d-md-none d-block mb-5"></div>
 
         <div class="white col-12 col-md-5">
-          <h4 class="bold mb-5">For Laterals</h4>
+          <h4 class="bold mb-5">For Professionals</h4>
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
               <img src="../../../images/video-white.svg" alt="Bag" />

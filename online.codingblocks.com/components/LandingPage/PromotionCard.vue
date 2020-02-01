@@ -14,7 +14,14 @@
             <br />We will provide you with an ecosystem of Mentor, TAs, lectures, assignments and many more to ensure you learn
             right things at right pace.
           </div>
-          <a class="button-solid button-white blue" href="https://www.youtube.com/channel/UCICWIYEx2mo4wYZzLwJ7wVw" target="_blank">Join Now</a>
+          <a class="button-solid button-white blue v-align-ma mr-3" href="https://cb.lk/ytw" target="_blank">
+            <img src="https://minio.codingblocks.com/amoeba/51cec09c-ecbe-4055-882c-712157a65e46.svg" class="s-30x30 mr-1">
+            <span>Subscribe</span>
+          </a>
+          <a class="button-solid button-white blue  v-align-ma" href="https://cb.lk/tgw" target="_blank">
+            <img src="https://minio.codingblocks.com/amoeba/telegram.svg" class="s-30x30 mr-1">
+            <span>Join Us</span>
+          </a>
         </div>
         <div class="col-md-7 col-12 mt-md-0 mt-5">
           <div class="row align-items-center mb-5">

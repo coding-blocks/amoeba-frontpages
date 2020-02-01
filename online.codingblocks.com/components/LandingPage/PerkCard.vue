@@ -54,8 +54,8 @@
             </div>
             <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center justify-content-center t-align-c">
               <div>
-                <div class="bold gradient-text-hi-purple" style="font-size: 2rem;">100+</div>
-                <div class="normal font-mds mt-1">Years of Teaching</div>
+                <div class="bold gradient-text-hi-purple" style="font-size: 2rem;">1000+</div>
+                <div class="normal font-mds mt-1">Projects Built</div>
               </div>
             </div>
           </div>
