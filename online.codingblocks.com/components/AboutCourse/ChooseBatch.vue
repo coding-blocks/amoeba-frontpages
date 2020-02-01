@@ -10,10 +10,17 @@
     <div class="divider-h my-4"></div>
     <div class="d-flex justify-content-between mb-4">
       <div>
-        <span class="bold gradient-text-orange font-xl">₹ 9499</span>
-        <span class="font-sm bold grey pl-lg-3 pl-1">
+        <span class="bold gradient-text-orange font-xl">
+          <span v-if="selectedRun.price > 0">
+            ₹ {{ selectedRun.price }}
+          </span>
+          <span v-else>
+            Free
+          </span>
+        </span>
+        <span class="font-sm bold grey pl-lg-3 pl-1" v-if="+selectedRun.mrp > +selectedRun.price">
           ₹
-          <del>12999</del>
+          <del>{{ selectedRun.mrp }}</del>
         </span>
       </div>
       <div class="gradient-text-orange">Enrollment ends {{ selectedRunEnrollmentEnd }}</div>
