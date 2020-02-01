@@ -1,9 +1,10 @@
 const config = require('./config.json')[process.env.NODE_ENV]
 
+console.log(config)
 export default {
   mode: 'universal',
   server: {
-    port: config.port
+    port: process.env.PORT
   },
   /*
    ** Headers of the page
