@@ -19,6 +19,7 @@
           <input class="col-12 input-text form-field--control my-2" type="text" name="contact" placeholder="Contact Number" v-model="mobile">
         </div>
         <div class="t-align-c">
+          <p class="red mb-3" v-if="submissionError">{{submissionError}}</p>
           <button class="button-solid button-orange light" @click="sendLeadInfoTask.run()" :disabled="sendLeadInfoTask.isActive" >Send Details</button>
         </div>
       </div>
@@ -39,14 +40,15 @@ export default {
     return {
       name: null,
       mobile: null,
-      alreadySubmitted: false
+      alreadySubmitted: false,
+      submissionError: null
     }
   },
   tasks (t) {
     return {
       sendLeadInfoTask: t(function * () {
         const response = yield this.$axios.post('/hubspot/lead', {
-            data: {
+          data: {
             name: this.name,
             mobile: this.mobile,
             course: this.courseTitle,
@@ -56,7 +58,13 @@ export default {
             pageName: "Web: Course - " + this.courseTitle 
           }
         })
-        this.alreadySubmitted = true
+        .then(() => {
+          this.alreadySubmitted = true
+          this.submissionError = null
+        })
+        .catch(err => {
+          this.submissionError = err.response.data.message
+        })
       })
     }
   }
