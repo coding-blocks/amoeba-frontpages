@@ -21,8 +21,17 @@
           <br />
           <br />Happy learning!
         </div>
+        <TrackCards class="mt-5" />
       </div>
     </div>
   </div>
 </template>
+<script>
+import TrackCards from '~/components/LandingPage/trackCards'
+export default {
+  components: {
+    TrackCards
+  }
+}
+</script>
 

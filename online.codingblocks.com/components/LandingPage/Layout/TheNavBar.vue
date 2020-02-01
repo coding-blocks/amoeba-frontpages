@@ -55,6 +55,24 @@
         <img src="https://minio.codingblocks.com/amoeba/wrong-close.png" alt="#" class="mr-4 hamburger-nav__cross pointer" >
       </div>
       <div class="divider-h"></div>
+      <div class="d-flex align-items-center my-4 pl-4" v-if="session.isAuthenticated">
+        <div>
+          <div class="img-ring s-80x80">
+            <img class="round img"
+              :src="user.photo"
+              :alt="user.firstname">
+          </div>
+        </div>
+        <div class="pl-4">
+          <div class="extra-bold gradient-text">{{user.firstname}} {{user.lastname}}</div>
+          <div class="bold card-sm"><a href="https://account.codingblocks.com/users/me" target="_blank" class="orange">View Profile</a></div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4" v-else>
+        <a href="/app/" class="button-solid button-orange px-5">
+          Login
+        </a>
+      </div>
       
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">

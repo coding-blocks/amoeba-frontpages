@@ -5,6 +5,7 @@
       </div>
     <CompanyCard class="position-relative" />
     <div class="my-auto">
+      <TrackCard class="mb-5" />
       <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
           <div class="col-md-8 col-6">
@@ -25,8 +26,6 @@
         </div>
       </div>
       <MentorCard />
-      <TrackCard />
-      <TrackCards />
       <SuccessQuote />
     </div>
     <ExprienceCard />
@@ -54,7 +53,6 @@
 import Info from '~/components/LandingPage/InfoCard'
 import CompanyCard from '~/components/LandingPage/CompanyCard'
 import TrackCard from '~/components/LandingPage/LearningTrackCard'
-import TrackCards from '~/components/LandingPage/trackCards'
 import ExprienceCard from '~/components/LandingPage/ExperienceCard'
 import Perkcard from '~/components/LandingPage/PerkCard'
 import SuccessQuote from '~/components/LandingPage/SuccessQuote'
@@ -71,7 +69,6 @@ export default {
     Info,
     CompanyCard,
     TrackCard,
-    TrackCards,
     ExprienceCard,
     Perkcard,
     SuccessQuote,
