@@ -32,32 +32,38 @@
 
         <template v-slot:content>
           <div class="p-30p py-0">
-            <div
-              class="row no-gutters justify-content-between my-4"
-              v-for="content in section.contents"
-              :key="content.id"
-            >
-              <a href="#" class="col-6 col-md-7 d-flex align-items-center">
-                <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
-                <span class="font-normal">{{ content.title }}</span>
-              </a>
-              <div class="col-2 col-md-1 t-align-c">
-                <a href="#" 
-                  class="card-md font-normal orange d-inline-block"
-                  v-if="isFree"
-                  >
-                  Preview
+            <div v-if="section.contents.length">
+              <div
+                class="row no-gutters justify-content-between my-4"
+                v-for="content in section.contents"
+                :key="content.id"
+              >
+                <a href="#" class="col-6 col-md-7 d-flex align-items-center">
+                  <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
+                  <span class="font-normal">{{ content.title }}</span>
                 </a>
-                <a href="#" 
-                  class="card-md font-normal d-inline-block"
-                  v-else
-                  >
-                  <i class="fas fa-lock fa-md"></i>
-                </a>
-
-                
+                <div class="col-2 col-md-1 t-align-c">
+                  <a href="#" 
+                    class="card-md font-normal orange d-inline-block"
+                    v-if="isFree"
+                    >
+                    Preview
+                  </a>
+                  <a href="#" 
+                    class="card-md font-normal d-inline-block"
+                    v-else
+                    >
+                    <i class="fas fa-lock fa-md"></i>
+                  </a>
+                </div>
+                <div class="col-2 col-md-1 card-md font-normal t-align-r">{{ contentDuration(content) | formatContentDuration}}</div>
               </div>
-              <div class="col-2 col-md-1 card-md font-normal t-align-r">{{ contentDuration(content) | formatContentDuration}}</div>
+            </div>
+            <div class="row no-gutters align-items-center py-4" v-else>
+              <img src="https://minio.codingblocks.com/amoeba/content-orange.svg" alt="Content">
+              <span class="gradient-text-orange ml-3">
+                Content will be added soon. Stay tuned!
+              </span>
             </div>
           </div>
         </template>
