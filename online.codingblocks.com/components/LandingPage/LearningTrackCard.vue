@@ -7,11 +7,8 @@
           <h2
             class="gradient-text-orange bold font-lg ml-3 flex-1"
           >Introducing: Learning tracks</h2>
+          <img src="https://minio.codingblocks.com/amoeba/new-orange.svg" class="s-70x70 float-right" />
         </div>
-        <div
-          class="white button-dashed button-white d-none d-md-block"
-          style="position: absolute; right: 3rem; top:2rem;"
-        >Newly Launched</div>
 
         <div class="white normal font-sm">
           Our expert instructors believe that systematically designed paths can help you to master your skills & achieve your career goals. We've got your back! Learning Tracks are carefully crafted with a step by step guide that saves you the effort to find out which course fits you well, and in what sequence to maximize your learning experience.
