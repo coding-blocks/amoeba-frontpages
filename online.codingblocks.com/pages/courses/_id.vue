@@ -2,9 +2,9 @@
   <div class="container mt-5">
         <ul class="breadcrumbs mb-4">    
           <li>
-              <a href="/app/classroom">
+              <nuxt-link to="/courses">
                 Buy Courses
-              </a>
+              </nuxt-link>
           </li>
           <li>    
             {{course.title}}

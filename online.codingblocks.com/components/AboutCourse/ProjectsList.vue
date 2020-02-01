@@ -4,7 +4,7 @@
       Loading....
     </template>
     <template v-slot="{ value }">
-      <div class="border-card">
+      <div class="border-card" v-if="value.length">
         <h5 class="bold font-md">Projects</h5>
         <div class="divider-h my-4"></div>
         
@@ -25,7 +25,6 @@
                 {{project.description}}
               </div>
             </div>
-           
           </div>
         </div>
       </div>
@@ -59,16 +58,19 @@ export default {
   tasks(t, {timeout}) {
     return {
       fetchProjects: t(function * () {
-        const response = yield this.$axios.get('projects', {
-          params: {
-            filter: {
-              id: {
-                $in: this.projectIds
+        if (this.projectIds.length) {
+          const response = yield this.$axios.get('projects', {
+            params: {
+              filter: {
+                id: {
+                  $in: this.projectIds
+                }
               }
             }
-          }
-        })
-        return this.$jsonApiStore.sync(response.data)
+          })
+          return this.$jsonApiStore.sync(response.data)
+        }
+        return []
       })
     }
   }
@@ -77,11 +79,10 @@ export default {
 
 <style scoped>
 .border-card {
-  max-height: 320px;
   overflow: hidden;
 }
 .border-bottom-list {
-  height: 280px;
+  height: 230px;
   overflow: auto;
 }
 </style>
