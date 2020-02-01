@@ -26,7 +26,7 @@
       </div>
       <MentorCard />
       <TrackCard />
-      <CourseCard />
+      <TrackCards />
       <SuccessQuote />
     </div>
     <ExprienceCard />
@@ -54,7 +54,7 @@
 import Info from '~/components/LandingPage/InfoCard'
 import CompanyCard from '~/components/LandingPage/CompanyCard'
 import TrackCard from '~/components/LandingPage/LearningTrackCard'
-import CourseCard from '~/components/LandingPage/courseCard'
+import TrackCards from '~/components/LandingPage/trackCards'
 import ExprienceCard from '~/components/LandingPage/ExperienceCard'
 import Perkcard from '~/components/LandingPage/PerkCard'
 import SuccessQuote from '~/components/LandingPage/SuccessQuote'
@@ -71,7 +71,7 @@ export default {
     Info,
     CompanyCard,
     TrackCard,
-    CourseCard,
+    TrackCards,
     ExprienceCard,
     Perkcard,
     SuccessQuote,
