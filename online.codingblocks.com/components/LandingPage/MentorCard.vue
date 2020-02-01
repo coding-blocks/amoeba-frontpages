@@ -8,7 +8,7 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Arnav Gupta</h4>
-            <div class="normal mt-2">Web Development Mentor</div>
+            <div class="normal mt-2">Android and Web Development </div>
           </div>
         </div>
       </div>
@@ -19,29 +19,29 @@
           </div>
           <div class="p-4">
             <h4 class="bold gradient-text-orange">Prateek Narang</h4>
-            <div class="normal mt-2">C++ and Data Science Mentor</div>
+            <div class="normal mt-2">Algorithms and Machine Learning</div>
           </div>
         </div>
       </div>
       <div class="col-8 col-md-5 col-lg-3">
         <div class="border-card p-0 mentor-card">
           <div class="bg-grey head overflow-hidden">
-            <img src="https://minio.codingblocks.com/amoeba/anuj-min.jpg" alt="Anuj Garg">
+            <img src="https://minio.codingblocks.com/amoeba/sanket-min.jpg" alt="Anuj Garg">
           </div>
           <div class="p-4">
-            <h4 class="bold gradient-text-orange">Anuj Garg</h4>
-            <div class="normal mt-2">Java Mentor</div>
+            <h4 class="bold gradient-text-orange">Sanket Singh</h4>
+            <div class="normal mt-2">Data Structures and Algorithms</div>
           </div>
         </div>
       </div>
       <div class="col-8 col-md-5 col-lg-3">
         <div class="border-card p-0 mentor-card">
           <div class="bg-grey head overflow-hidden">
-            <img src="https://minio.codingblocks.com/amoeba/kartik-min.jpg" alt="Kartik Mathur">
+            <img src="https://minio.codingblocks.com/amoeba/jatin-min.jpg" alt="Kartik Mathur">
           </div>
           <div class="p-4">
-            <h4 class="bold gradient-text-orange">Kartik Mathur</h4>
-            <div class="normal mt-2">C++ Mentor</div>
+            <h4 class="bold gradient-text-orange">Jatin Katyal</h4>
+            <div class="normal mt-2">Python and Web Development</div>
           </div>
         </div>
       </div>

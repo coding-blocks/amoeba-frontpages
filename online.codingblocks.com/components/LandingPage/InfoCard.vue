@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="mt-5">
-      <div class="row" style="z-index: 1">
-        <div class="col-md-5">
+      <div class="row" >
+        <div class="col-md-5" style="z-index: 1">
           <div class="gradient-text-orange mb-2 font-lg bold">Uplift your career with us!</div>
           <div class="font-md mb-5">We will help you build skills &amp; land your dream job</div>
           <div class="grey mb-3">Let's get to know your preferences first</div>
@@ -47,7 +47,7 @@
             </button>
           </div>
         </div>
-        <img class="home-img" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset />
+        <img class="home-img d-phone-none" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset />
       </div>
     </div>
   </div>
