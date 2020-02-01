@@ -68,9 +68,6 @@ export default {
   tasks(t, { timeout }) {
     return {
       search: t(function *() {
-        if (this.searchQuery === '') {
-          yield timeout(1000)
-        }
         const res = yield this.$axios.get('/courses', {
           params: {
             exclude: `ratings,instructors.*`,
