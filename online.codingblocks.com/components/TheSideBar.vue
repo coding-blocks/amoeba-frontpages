@@ -11,10 +11,10 @@
         </a>
       </div>
       <div class="col-2 col-md-12">
-        <a href="#buy" class="nav-element py-4 px-2 active">
+        <nuxt-link to="/courses" class="nav-element py-4 px-2 active">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/buy_grey.svg"/>
           <h6 class="pt-2 d-none d-md-block font-sm">Buy Courses</h6>
-        </a>
+        </nuxt-link>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/tracks" class="nav-element py-4 px-2">
