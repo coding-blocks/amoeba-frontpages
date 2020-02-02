@@ -7,7 +7,7 @@
           <h2
             class="gradient-text-orange bold font-lg ml-3 flex-1"
           >Introducing: Learning tracks</h2>
-          <img src="https://minio.codingblocks.com/amoeba/newer.svg" class="s-70x70 float-right" />
+          <img src="https://minio.codingblocks.com/amoeba/new-sticker-3.svg" class="s-70x70 float-right" />
         </div>
 
         <div class="white normal font-sm">
