@@ -60,7 +60,7 @@
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" v-on:click.native="log($event, 'Explore')" class="button-solid button-orange">Explore</nuxt-link>
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
         <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="log($event, 'FreeTrial')">Try it for Free!</a>
@@ -111,9 +111,9 @@ export default {
     RatingStars
   },
   methods: {
-    log: function(event, title) {
-      this.$gtm.pushEvent({ event: title})
-    }
+    // log: function(event, title) {
+    //   this.$gtm.pushEvent({ event: title})
+    // }
   }
 }
 </script>

@@ -17,7 +17,7 @@
             <div class="card-md">
               <button @click="clearCart">X Remove Product</button>
             </div>
-            <a href="https://dukaan.codingblocks.xyz">
+            <a href="https://dukaan.codingblocks.com">
               <button class="button-solid">Checkout</button>
             </a>
           </div>
