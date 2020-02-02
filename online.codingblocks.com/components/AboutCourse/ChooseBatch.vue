@@ -22,7 +22,7 @@
       <a
         class="button-solid button-orange flex-1 mr-4 font-sm"
         target="_blank"
-        :href="`${dukaanPublicUrl}/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
+        :href="`https://dukaan.codingblocks.com/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
         v-on:click="log($event, 'BuyNow')"
       >Buy Now</a>
       <a
