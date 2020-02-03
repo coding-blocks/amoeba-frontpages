@@ -9,7 +9,7 @@
             coding culture amongst school and college students.
             <br />
             <br />You will be connected to like minded people with
-            pursing coding interests, helping each other out.
+            pursuing coding interests, helping each other out.
             <br />
             <br />We will provide you with an ecosystem of Mentor, TAs, lectures, assignments and many more to ensure you learn
             right things at right pace.
