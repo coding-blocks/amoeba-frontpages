@@ -100,7 +100,7 @@
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
-                  <h6 class="bold">Hiring Referrals from our aluminis</h6>
+                  <h6 class="bold">Hiring Referrals from our alumni</h6>
                 </div>
               </div>
             </div>

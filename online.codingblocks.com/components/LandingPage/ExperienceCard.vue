@@ -31,7 +31,7 @@
 
             <div class="normal flex-1 font-sm">
               Hiring Referrals in tech giants from our world wide
-              alumini network
+              alumni network
             </div>
           </div>
         </div>
