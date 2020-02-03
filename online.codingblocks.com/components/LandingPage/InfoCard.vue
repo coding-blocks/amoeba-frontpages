@@ -43,11 +43,12 @@
                 src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/arrow_right_orange.svg"
                 alt
                 class="ml-1"
+                loading="lazy"
               />
             </button>
           </div>
         </div>
-        <img class="home-img d-phone-none" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset />
+        <img class="home-img d-phone-none" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset loading="lazy" />
       </div>
     </div>
   </div>

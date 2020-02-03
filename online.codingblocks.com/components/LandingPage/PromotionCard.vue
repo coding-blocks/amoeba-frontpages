@@ -15,11 +15,11 @@
             right things at right pace.
           </div>
           <a class="button-solid button-white blue v-align-ma mr-3" href="https://cb.lk/ytw" target="_blank">
-            <img src="https://minio.codingblocks.com/amoeba/51cec09c-ecbe-4055-882c-712157a65e46.svg" class="s-30x30 mr-1">
+            <img src="https://minio.codingblocks.com/amoeba/51cec09c-ecbe-4055-882c-712157a65e46.svg" class="s-30x30 mr-1" loading="lazy">
             <span>Subscribe</span>
           </a>
           <a class="button-solid button-white blue  v-align-ma" href="https://cb.lk/tgw" target="_blank">
-            <img src="https://minio.codingblocks.com/amoeba/telegram.svg" class="s-30x30 mr-1">
+            <img src="https://minio.codingblocks.com/amoeba/telegram.svg" class="s-30x30 mr-1" loading="lazy">
             <span>Join Us</span>
           </a>
         </div>
@@ -32,6 +32,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/g-so-c-icon-192-copy.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
@@ -46,6 +47,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/5.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
@@ -62,6 +64,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/2.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
@@ -76,6 +79,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/4-501.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
@@ -92,6 +96,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/6.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">
@@ -106,6 +111,7 @@
                     style="height: 50px;"
                     src="https://minio.codingblocks.com/landing-pages/3.svg"
                     alt="Icon"
+                    loading="lazy"
                   />
                 </div>
                 <div class="flex-1 mt-sm-0 mt-3">

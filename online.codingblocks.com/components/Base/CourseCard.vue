@@ -4,7 +4,7 @@
       <div class="head pt-4"
         :style="`background-image: url('${course['cover-image']}')`"
       >
-        <img class="card-badge" :src="course['badge-url']" v-if="course['badge-url']">
+        <img class="card-badge" :src="course['badge-url']" v-if="course['badge-url']" loading="lazy">
         <!-- <img class="back-img back-img-course" loading="lazy" :src="course['cover-image']"> -->
         <div class="t-align-r">
           <span class="font-lg" 
@@ -29,6 +29,7 @@
             style="border-radius: 50%;"
             :src="course.logo"
             alt="logo"
+            loading="lazy"
           />
         </div>
       </div>
@@ -41,6 +42,7 @@
               :alt="'photo of' + instructor.name"
               v-for="instructor in visibleInstructors"
               :key="instructor.id"
+              loading="lazy"
             />
            
           </div>

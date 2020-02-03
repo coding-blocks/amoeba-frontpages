@@ -5,7 +5,7 @@
         <div class="border-card p-4 h-100 white bg-transparent">
           <div class="row no-gutters mb-2">
             <div class="pr-4">
-              <img :src="track.logo" :alt="track.slug" style="height: 75px;" class="round course-info-card-logo" />
+              <img :src="track.logo" :alt="track.slug" style="height: 75px;" class="round course-info-card-logo" loading="lazy" />
             </div>
             <div class="flex-1 font-mds">
               <strong class="gradient-text-orange">{{ (track.professions.length ? track.professions[0].title : '')}}</strong>

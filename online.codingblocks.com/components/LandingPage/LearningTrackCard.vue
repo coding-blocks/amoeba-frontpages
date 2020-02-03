@@ -3,11 +3,11 @@
     <div class="container">
       <div class="border-card p-5 bg-gradient-black-lr" style="position: relative;">
         <div class="d-flex align-items-center mb-5">
-          <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/track_icon.svg" alt />
+          <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/track_icon.svg" alt loading="lazy" />
           <h2
             class="gradient-text-orange bold font-lg ml-3 flex-1"
           >Introducing: Learning tracks</h2>
-          <img src="https://minio.codingblocks.com/amoeba/new-sticker-3.svg" class="s-70x70 float-right" />
+          <img src="https://minio.codingblocks.com/amoeba/new-sticker-3.svg" class="s-70x70 float-right" loading="lazy" />
         </div>
 
         <div class="white normal font-sm">

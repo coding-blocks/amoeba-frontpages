@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/learning.svg" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/learning.svg" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Comprehensive Learning</h5>
           <div class="font-normal">
             Experienced, engaging instructors take you
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/mentorsupport.svg" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/mentorsupport.svg" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Prioritized Doubt Support</h5>
           <div class="font-normal">
             Our online programming courses online are a
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/webinar.png" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/webinar.png" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Live Webinars for Doubt Clearing</h5>
           <div
             class="font-normal"
@@ -37,7 +37,7 @@
       </div>
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/revisit.svg" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/revisit.svg" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Revisit and Revise</h5>
           <div class="font-normal">
             Study the course contents at your own pace.
@@ -48,7 +48,7 @@
       </div>
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/certificate.svg" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/certificate.svg" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Evaluation and Certification</h5>
           <div class="font-normal">
             Get instructor-signed certificate with our seal to accredit your achievement after the course completion
@@ -58,7 +58,7 @@
       </div>
       <div class="col-md-4 col-6 mb-5">
         <div class="border-card p-lg-5 p-4 h-100">
-          <img src="https://minio.codingblocks.com/landing-pages/interview.svg" alt="contests" class="s-100x100 mb-3" />
+          <img src="https://minio.codingblocks.com/landing-pages/interview.svg" alt="contests" class="s-100x100 mb-3" loading="lazy" />
           <h5 class="bold mb-3">Get Hired</h5>
           <div class="font-normal">
             Get instructor-signed certificate with our seal to accredit your achievement after the course completion
