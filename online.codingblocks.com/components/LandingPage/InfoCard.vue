@@ -48,7 +48,11 @@
             </button>
           </div>
         </div>
-        <img class="home-img d-phone-none" src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset loading="lazy" />
+        <video class="home-img d-phone-none" autoplay loop muted playsinline>
+          <source  src="https://minio.codingblocks.com/amoeba/online-girl-big.webm" type="video/webm" />
+          <source  src="https://minio.codingblocks.com/amoeba/online-girl-big.mp4" type="video/mp4" />
+          <img src="https://minio.codingblocks.com/amoeba/girl-big-min.gif" srcset loading="lazy" />
+        </video>
       </div>
     </div>
   </div>
