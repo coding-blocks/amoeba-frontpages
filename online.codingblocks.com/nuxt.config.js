@@ -73,6 +73,9 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     ['@nuxtjs/google-tag-manager', { id: config.gtm, dev: process.env.NODE_ENV == 'development' }],
+    ['@nuxtjs/google-gtag', {
+      id: 'UA-83327907-12'
+    }]
   ],
   /*
    ** Axios module configuration
