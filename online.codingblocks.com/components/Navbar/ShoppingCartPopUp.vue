@@ -18,7 +18,7 @@
               <button @click="clearCart">X Remove Product</button>
             </div>
             <a href="https://dukaan.codingblocks.com">
-              <button class="button-solid">Checkout</button>
+              <button class="button-solid button-orange">Checkout</button>
             </a>
           </div>
         </div>
