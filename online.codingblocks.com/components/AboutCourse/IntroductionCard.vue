@@ -59,11 +59,11 @@
             <div>Hindi, English</div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
+          <!-- <div class="col-6 col-md-3">
             <div class="info-item">
             <div>Course Duration </div>
             <div>6 Months</div>
-          </div>
+          </div> -->
           </div>
           
         </div>
