@@ -87,7 +87,11 @@ export default {
   },
   methods: {
     log: function(event, title) {
-      this.$gtm.pushEvent({ event: title })
+      try {
+        this.$gtm.pushEvent({ event: title })
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
 }

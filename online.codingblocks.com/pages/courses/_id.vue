@@ -155,13 +155,17 @@ export default {
     handleScroll (event) {
       // Any code to be executed when the window is scrolled
       let percent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
-      if(!this.eventFor75Percent && percent > 0.75) {
-        this.eventFor75Percent = true;
-        this.$gtm.pushEvent({event: "Scroll75"})
-      }
-      if(!this.eventFor90Percent && percent > 0.90) {
-        this.eventFor90Percent=true;
-        this.$gtm.pushEvent({event: "Scroll90"})
+      try {
+        if(!this.eventFor75Percent && percent > 0.75) {
+          this.eventFor75Percent = true;
+          this.$gtm.pushEvent({event: "Scroll75"})
+        }
+        if(!this.eventFor90Percent && percent > 0.90) {
+          this.eventFor90Percent=true;
+          this.$gtm.pushEvent({event: "Scroll90"})
+        }
+      } catch (e) {
+        console.error(e)
       }
     }
   },
