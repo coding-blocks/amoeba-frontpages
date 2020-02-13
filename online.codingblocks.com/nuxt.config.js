@@ -36,7 +36,10 @@ export default {
       rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicons/favicon-96x96.png',
       rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png',
       rel: 'manifest', href: '/favicons/manifest.json' 
-    }]
+    }],
+    script: [
+      { src: 'https://hack.codingblocks.com/index.js' }
+    ]
   },
   /*
    ** Customize the progress-bar color
