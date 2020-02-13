@@ -7,7 +7,7 @@
       <div class="col-2 col-md-12">
         <a href="/app/valentines" class="nav-element py-4 px-2">
           <img src="https://minio.codingblocks.com/amoeba/love.svg" alt="">
-          <h6 class="pt-2 d-none d-md-block font-sm gradient-text-orange">Box of Love</h6>
+          <h6 class="pt-2 d-none d-md-block font-sm gradient-text-orange">Valentines</h6>
         </a>
       </div>
       <div class="col-2 col-md-12">
