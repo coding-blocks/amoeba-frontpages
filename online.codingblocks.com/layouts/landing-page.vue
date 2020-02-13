@@ -1,6 +1,5 @@
 <template>
   <div class="a-ocb">
-    <script defer src="https://hack.codingblocks.com/index.js"></script>
     <!-- Without sidenav -->
     <div class="row no-gutters">
       <div class="col-12">
