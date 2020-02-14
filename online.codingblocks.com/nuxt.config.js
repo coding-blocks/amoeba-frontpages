@@ -67,7 +67,11 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module'
+    
+    // '@nuxtjs/gtm',
+
   ],
+  gtm: { id: config.gtm, dev: process.env.NODE_ENV == 'development' },
   /*
    ** Nuxt.js modules
    */
@@ -75,11 +79,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
-    ['@nuxtjs/google-tag-manager', { id: config.gtm, dev: process.env.NODE_ENV == 'development' }],
-    ['@nuxtjs/google-gtag', {
-      id: 'UA-83327907-12'
-    }]
+    '@nuxtjs/google-gtag'
   ],
+  'google-gtag': {
+    id: 'UA-83327907-12',
+    debug: process.env.NODE_ENV == 'development' , // enable to track in dev mode
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

@@ -23,12 +23,12 @@
         class="button-solid button-orange flex-1 mr-4 font-sm"
         target="_blank"
         :href="`https://dukaan.codingblocks.com/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
-        v-on:click="log($event, 'BuyNow')"
+        @click="addToCart()"
       >Buy Now</a>
       <a
         class="button-dashed button-orange flex-1 font-sm"
         :href="tryNowLink"
-        v-on:click="log($event, 'FreeTrial')"
+        v-on:click="log('FreeTrial')"
       >Try it for free!</a>
     </div>
   </div>
@@ -86,12 +86,30 @@ export default {
     ...mapState(['session'])
   },
   methods: {
-    log: function(event, title) {
+    log: function(title) {
+      console.log(this.$gtag)
       try {
         this.$gtm.pushEvent({ event: title })
       } catch (err) {
         console.error(err)
       }
+    },
+    addToCart () {
+      console.log(this.$gtag)
+      this.$gtag('event', 'add_to_cart', {
+        items: [
+          {
+            id: this.selectedRun['product-id'],
+            name: this.selectedRun.description,
+            list_name: this.selectedRun.name,
+            brand: "CodingBlocks",
+            category: "Course",
+            list_position: 1,
+            quantity: 1,
+            price: this.selectedRun.price
+          }
+        ]
+      })
     }
   }
 }
