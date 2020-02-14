@@ -85,6 +85,17 @@
           <i class="fas fa-shopping-cart fa-lg pr-4"></i>
         </a>
       </div>
+
+      <div class="d-flex justify-content-center mt-4">
+        <a href="/logout" class="button-solid button-orange px-5">
+          Logout
+        </a>
+      </div>
+
+      <a class="px-4 mt-4 py-4 font-mds red d-block bg-light-red" href="/app/valentines">
+        Valentines Special❤️
+      </a>
+
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
           <div class="card-md extra-bold orange">Courses</div>
@@ -198,4 +209,7 @@ export default {
     position: absolute;
     width: 375px;
   }
+  .bg-light-red {
+  background: rgba(255,0,0,0.1)
+}
 </style>

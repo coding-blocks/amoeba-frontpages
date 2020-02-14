@@ -32,6 +32,9 @@
       <div class="col-lg-9 col-4">
         <div class="row mx-0 align-items-center h-100 justify-content-end d-md-flex d-none">
           <div class="d-lg-inline-flex d-none align-items-center hover-orange">
+             <a href="/app/valentines" class="px-3">
+              <h6 class="normal">Valentines ❤️</h6>
+            </a>
             <a href="/app/tracks" class="px-3">
               <h6 class="normal">Learning Tracks</h6>
             </a>
@@ -73,6 +76,10 @@
           Login
         </a>
       </div>
+
+      <a class="px-4 mt-4 py-4 font-mds red d-block bg-light-red" href="/app/valentines">
+        Valentines Special❤️
+      </a>
       
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
@@ -256,12 +263,15 @@ export default {
     }
   },
   
-}
+} 
 </script>
 
 <style scoped>
 .c-topnav {
   width: 92vw;
   padding: 0 3%;
+}
+.bg-light-red {
+  background: rgba(255,0,0,0.1)
 }
 </style>
