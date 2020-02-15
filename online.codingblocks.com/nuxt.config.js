@@ -38,7 +38,8 @@ export default {
       rel: 'manifest', href: '/favicons/manifest.json' 
     }],
     script: [
-      { src: 'https://hack.codingblocks.com/index.js' }
+      { src: 'https://hack.codingblocks.com/index.js' },
+      { src: 'https://unpkg.com/@coding-blocks/web-components@0.0.4/dist/index.js'}
     ]
   },
   /*
