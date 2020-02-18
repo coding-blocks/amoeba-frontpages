@@ -3,7 +3,7 @@
     <div class="font-md bold mb-3">Choose Batch</div>
     <div class="select-container mb-3">
       <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
-        <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
+        <option v-for="run in runs" :key="run.id" :value="run.id">{{run | formatRunName}}</option>
       </select>
     </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
@@ -36,6 +36,7 @@
 
 <script>
 import { formatTimestamp } from '~/utils/date'
+import { format } from 'date-fns'
 import { mapState } from 'vuex'
 import config from '~/config.json'
 
@@ -110,6 +111,11 @@ export default {
           }
         ]
       })
+    }
+  },
+  filters: {
+    formatRunName (run) {
+      return format(new Date(run.start*1000), "MMM yyyy")
     }
   }
 }
