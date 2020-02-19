@@ -31,6 +31,9 @@ export default {
 body {
   padding-top: 0px !important;
 }
+.a-ocb {
+  margin-bottom: 0rem;
+}
 </style>
 
 
