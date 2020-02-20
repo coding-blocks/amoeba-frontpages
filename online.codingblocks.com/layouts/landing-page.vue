@@ -1,7 +1,7 @@
 <template>
   <div class="a-ocb">
     <!-- Without sidenav -->
-    <promotion-banner />
+    <!-- <promotion-banner /> -->
     <div class="row no-gutters">
       <div class="col-12">
         <TheNavbarTop class="ml-0 w-100" />
