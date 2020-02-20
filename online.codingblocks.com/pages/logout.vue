@@ -24,8 +24,8 @@ export default {
       path: '/',
       domain: window.location.host
     })      
-    localStorage.remove("ember_simple_auth-session")
-    localStorage.remove("redirectionPath")
+    localStorage.removeItem("ember_simple_auth-session")
+    localStorage.removeItem("redirectionPath")
 
     // window.localStorage.clear()
     setTimeout(() => {
