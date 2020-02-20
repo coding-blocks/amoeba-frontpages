@@ -7,37 +7,37 @@
       <div class="col-2 col-md-12">
         <a href="/app/valentines" class="nav-element py-4 px-2">
           <img src="https://minio.codingblocks.com/amoeba/love.svg" alt="">
-          <h6 class="pt-2 d-none d-md-block font-sm gradient-text-orange">Valentines</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md gradient-text-orange">Valentines</div>
         </a>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/dashboard" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/dashboard_grey.svg"/>
-          <h6 class="pt-2 d-none d-md-block font-sm">Dashboard</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md">Dashboard</div>
         </a>
       </div>
       <div class="col-2 col-md-12">
         <nuxt-link to="/courses" class="nav-element py-4 px-2 active">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/buy_grey.svg"/>
-          <h6 class="pt-2 d-none d-md-block font-sm">Buy Courses</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md">Buy Courses</div>
         </nuxt-link>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/tracks" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/tracks_grey.svg"/>
-          <h6 class="pt-2 d-none d-md-block font-sm">Tracks</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md">Tracks</div>
         </a>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/classroom" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/mycourses_grey.svg"/>
-          <h6 class="pt-2 d-none d-md-block font-sm">My Courses</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md">My Courses</div>
         </a>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/jobs" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/job_grey.svg"/>
-          <h6 class="pt-2 d-none d-md-block font-sm">Hiring Blocks</h6>
+          <div class="pt-2 d-none d-md-block font-sm card-md">Hiring Blocks</div>
         </a>
       </div>
     </div>
