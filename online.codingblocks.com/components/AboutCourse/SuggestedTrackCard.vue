@@ -19,7 +19,7 @@
                   <h6 class="bold">{{courses[0].title}}</h6>
                   <div class="mt-1">
                     <div>
-                      <RatingStars :value="courses[0].rating" class="inline"/>
+                      <RatingStars :value="courses[0].rating" class="d-inline-block"/>
                       <span class="card-md">
                         <strong>{{courses[0].rating}}/5.0, </strong>
                         {{courses[0]["review-count"]}} Ratings
@@ -40,7 +40,7 @@
                   <h6 class="bold">{{courses[1].title}}</h6>
                   <div class="mt-1">
                     <div>
-                      <RatingStars :value="courses[1].rating" class="inline"/>
+                      <RatingStars :value="courses[1].rating" class="d-inline-block"/>
                       <span class="card-md">
                         <strong>{{courses[1].rating}}/5.0, </strong>
                         {{courses[1]["review-count"]}} Ratings
@@ -108,9 +108,6 @@ export default {
 <style scoped>
   .capital {
     text-transform : capitalize;
-  }
-  .inline {
-    display: inline-block;
   }
 
 
