@@ -91,7 +91,6 @@ export default {
     goToTrack() {
       const a = document.createElement('a')
       a.href = `${window.location.href}app/tracks?status=${this.selectedStatus}&professionId=${this.selectedProfessionId}`
-      a.target = '_blank'
       a.click()
     }
   },
