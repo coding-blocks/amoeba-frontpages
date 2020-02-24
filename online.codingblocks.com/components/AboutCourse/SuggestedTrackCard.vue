@@ -1,5 +1,6 @@
 <template>
-  <div class="row no-wgutters mt-4">
+  <div class="row mt-4">
+    <div class="col-12">
       <div class="border-card bg-gradient-purple white">
         <div class="side-tag">
           <div class="card-sm light" style="letter-spacing: 0.2rem;">THIS COURSE IS A PART OF</div>
@@ -10,7 +11,7 @@
 
           <VAsync :task="fetchTrackCourses">
             <template v-slot="{value:courses}">
-              <div class="row no-gutters align-items-center my-4">
+              <nuxt-link :to="`/courses/${courses[0].slug}`"  class="row no-gutters align-items-center my-4">
                 <div class="col-lg-3 col-md-12 col-2">
                   <img :src="courses[0].logo" class="pr-3"
                     style="max-width: 60px !important;">
@@ -28,10 +29,10 @@
                   </div>
                 </div>
 
-              </div>
+              </nuxt-link>
               <div class="divider-h"></div>
 
-              <div class="row no-gutters align-items-center my-4">
+              <nuxt-link :to="`/courses/${courses[1].slug}`" class="row no-gutters align-items-center my-4">
                 <div class="col-lg-3 col-md-12 col-2">
                   <img :src="courses[1].logo" class="pr-3"
                     style="max-width: 60px !important;">
@@ -49,7 +50,7 @@
                   </div>
                 </div>
 
-              </div>
+              </nuxt-link>
             </template>
           </VAsync>
           
@@ -62,6 +63,7 @@
           </a>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
