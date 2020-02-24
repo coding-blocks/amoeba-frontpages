@@ -23,6 +23,7 @@
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :course-id="course.id" :runs="availableRuns" />
         <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
+        <SuggestedTrackCard :track="course['suggested-track']" :curCourseId="course.id"/>
       </div>
     </div>
     <div class="row">
@@ -70,6 +71,7 @@ import WildcraftCard from '~/components/AboutCourse/WildcraftCard.vue'
 import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
+import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -119,7 +121,8 @@ export default {
     CourseFeatures,
     LeadGenerationCard,
     StudentsExperience,
-    VAsync
+    VAsync,
+    SuggestedTrackCard
   },
   computed: {
     projectIds() {
