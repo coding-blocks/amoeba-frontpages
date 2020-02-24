@@ -11,7 +11,7 @@
           </div>
 
 
-        <nuxt-link :to="`/courses/${courses[0].slug}`"  class="row no-gutters align-items-center my-4">
+        <nuxt-link :to="`/courses/${courses[0].slug}`"  class="row no-gutters align-items-center my-4 white">
           <div class="col-lg-3 col-md-12 col-2">
             <img :src="courses[0].logo" class="pr-3"
               style="max-width: 60px !important;">
@@ -32,7 +32,7 @@
 
         <div class="divider-h"></div>
 
-        <nuxt-link :to="`/courses/${courses[1].slug}`" class="row no-gutters align-items-center my-4">
+        <nuxt-link :to="`/courses/${courses[1].slug}`" class="row no-gutters align-items-center my-4 white">
           <div class="col-lg-3 col-md-12 col-2">
             <img :src="courses[1].logo" class="pr-3"
               style="max-width: 60px !important;">
