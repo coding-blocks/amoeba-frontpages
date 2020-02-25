@@ -82,9 +82,6 @@
           Logout
         </nuxt-link>
       </div>
-      <a class="px-4 mt-4 py-4 font-mds red d-block bg-light-red" href="/app/valentines">
-        Valentines Special❤️
-      </a>
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
           <div class="card-md extra-bold orange">Courses</div>
