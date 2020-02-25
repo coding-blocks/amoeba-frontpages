@@ -26,11 +26,11 @@
       <div class="col-8 col-md-5 col-lg-3">
         <div class="border-card p-0 mentor-card">
           <div class="bg-grey head overflow-hidden">
-            <img src="https://minio.codingblocks.com/amoeba/sanket-min.webp" alt="Sanket Singh">
+            <img src="https://minio.codingblocks.com/img/pulkit-min.webp" alt="Pulkit Aggarwal">
           </div>
           <div class="p-4">
-            <h4 class="bold gradient-text-orange">Sanket Singh</h4>
-            <div class="normal mt-2">Data Structures and Algorithms</div>
+            <h4 class="bold gradient-text-orange">Pulkit Aggarwal</h4>
+            <div class="normal mt-2">Android</div>
           </div>
         </div>
       </div>
