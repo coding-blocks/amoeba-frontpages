@@ -100,38 +100,40 @@
             <h5 class="mb-lg-5 mb-4 orange">Contact Us</h5>
             <div class="font-sm light row no-gutters">
               <div class="col-12">
-                <div class="extra-bold gradient-text-orange my-2">Technical Support</div>
+                  <div class="extra-bold gradient-text-orange my-2">Technical Support</div>
                 <a
                   href="mailto:support@codingblocks.com"
                   class="my-2 white font-xs"
                 >support@codingblocks.com</a>
                 <br />
+                <a href="tel:18002744504" class="my-2 white font-sm">1800 274 4504</a>
               </div>
               <div class="mt-4 col-12">
                 <div class="extra-bold gradient-text-orange my-2">Online Courses Enquiry</div>
-                <a
+                 <a
                   href="mailto:admissions@codingblocks.com"
                   class="my-2 white font-xs"
                 >admissions@codingblocks.com</a>
-                <a href="tel:+18002744504" class="my-2 white font-sm">+1800 274 4504</a>
+              
+                <a href="tel:1800 274 4504" class="my-2 white font-sm">1800 274 4504</a>
               </div>
               <div class="mt-5 col-12 d-flex">
-                <a href="#" class="grey">
+                <a href="https://cb.lk/twon" class="grey">
                   <i class="fab fa-twitter fa-lg px-2"></i>
                 </a>
-                <a href="#" class="grey">
+                <a href="https://cb.lk/fbon" class="grey">
                   <i class="fab fa-facebook-f fa-lg px-2"></i>
                 </a>
-                <a href="#" class="grey">
+                <a href="https://cb.lk/inon" class="grey">
                   <i class="fab fa-instagram fa-lg px-2"></i>
                 </a>
-                <a href="#" class="grey">
+                <a href="https://cb.lk/lion" class="grey">
                   <i class="fab fa-linkedin-in fa-lg px-2"></i>
                 </a>
-                <a href="#" class="grey">
+                <a href="https://cb.lk/yton" class="grey">
                   <i class="fab fa-youtube fa-lg px-2"></i>
                 </a>
-                <a href="#" class="grey">
+                <a href="https://cb.lk/ghon" class="grey">
                   <i class="fab fa-github fa-lg px-2"></i>
                 </a>
               </div>
