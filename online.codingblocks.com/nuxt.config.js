@@ -31,12 +31,14 @@ export default {
       rel: 'apple-touch-icon', sizes: '144x144', href: '/favicons/apple-icon-144x144.png',
       rel: 'apple-touch-icon', sizes: '152x152', href: '/favicons/apple-icon-152x152.png',
       rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-icon-180x180.png',
-      rel: 'icon', type: 'image/png', sizes: '192x192',  hre: '/favicons/android-icon-192x192.png',
+      rel: 'icon', type: 'image/png', sizes: '192x192', hre: '/favicons/android-icon-192x192.png',
       rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png',
       rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicons/favicon-96x96.png',
       rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png',
-      rel: 'manifest', href: '/favicons/manifest.json' 
-    }],
+      rel: 'manifest', href: '/favicons/manifest.json',
+    },
+      { rel: 'stylesheet', type: "text/css", href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' }
+    ],
     script: [
       { src: 'https://hack.codingblocks.com/index.js' },
       { src: 'https://unpkg.com/@coding-blocks/web-components@0.0.4/dist/index.js' },
