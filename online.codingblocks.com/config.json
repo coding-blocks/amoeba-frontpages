@@ -9,7 +9,8 @@
     "dukaan": {
       "url": "https://dukaan.codingblocks.xyz"
     },
-    "gtm": "GTM-KJC7DH3"
+    "gtm": "GTM-WQGT6VZ",
+    "port": 8081
   },
   "staging": {
     "axios": {
@@ -36,7 +37,7 @@
     "dukaan": {
       "url": "https://dukaan.codingblocks.com"
     },
-    "gtm": "GTM-TWLQ78",
+    "gtm": "GTM-TWLQ78S",
     "port": 8082
   }
 }

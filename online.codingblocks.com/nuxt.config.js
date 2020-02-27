@@ -36,7 +36,12 @@ export default {
       rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicons/favicon-96x96.png',
       rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png',
       rel: 'manifest', href: '/favicons/manifest.json' 
-    }]
+    }],
+    script: [
+      { src: 'https://hack.codingblocks.com/index.js' },
+      { src: 'https://unpkg.com/@coding-blocks/web-components@0.0.4/dist/index.js' },
+      { src: 'https://code.jivosite.com/widget.js', 'data-jv-id': 'ASYGLZQ6UC' }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -64,7 +69,11 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module'
+    
+    // '@nuxtjs/gtm',
+
   ],
+  gtm: { id: config.gtm, dev: process.env.NODE_ENV == 'development' },
   /*
    ** Nuxt.js modules
    */
@@ -72,8 +81,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
-    ['@nuxtjs/google-tag-manager', { id: config.gtm, dev: process.env.NODE_ENV == 'development' }],
+    '@nuxtjs/google-gtag'
   ],
+  'google-gtag': {
+    id: 'UA-83327907-12',
+    debug: process.env.NODE_ENV == 'development' , // enable to track in dev mode
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

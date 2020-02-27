@@ -8,8 +8,8 @@
             <div class="flex-1">
               <h6>{{item.productName}}</h6>
               <div class="d-flex align-items-end">
-                <h4>Rs {{item.final_price}}</h4> 
-                <strike class="grey ml-2 card-md">Rs {{item.list_price}}</strike>
+                <h4>Rs {{+item.final_price/100}}</h4> 
+                <strike class="grey ml-2 card-md">Rs {{+item.list_price/100}}</strike>
               </div>
             </div>
           </div>
@@ -18,7 +18,7 @@
               <button @click="clearCart">X Remove Product</button>
             </div>
             <a href="https://dukaan.codingblocks.com">
-              <button class="button-solid">Checkout</button>
+              <button class="button-solid button-orange">Checkout</button>
             </a>
           </div>
         </div>

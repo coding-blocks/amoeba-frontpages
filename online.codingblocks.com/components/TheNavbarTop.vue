@@ -77,13 +77,10 @@
         <img src="https://minio.codingblocks.com/motley/wrong_g.png" alt="Close" class="mr-4 hamburger-nav__cross pointer" @click="toggleHamburger">
       </div>
       <div class="divider-h"></div>
-      <div class="hover-orange d-flex justify-content-end mt-3">
-        <a href="#">
-          <i class="far fa-bell fa-lg pr-4"></i>
-        </a>
-        <a href="#">
-          <i class="fas fa-shopping-cart fa-lg pr-4"></i>
-        </a>
+      <div class="d-flex justify-content-center mt-4">
+        <nuxt-link to="/logout" class="button-solid button-orange px-5" v-if="user">
+          Logout
+        </nuxt-link>
       </div>
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
@@ -91,37 +88,152 @@
           <a href="#" class="orange"><i class="fas fa-angle-up fa-lg"></i></a>
         </div>
         <div class="my-4 pl-4">
-          <div class="hamburger-nav__menu-element active">
+          <div class="hamburger-nav__menu-element" :class="{active: mobileSelectedTab === 'classroom'}" @click="mobileSelectedTab = 'classroom'">
             <div class="card-md extra-bold">Classroom Courses</div>
             <div class="card-sm light"><a href="#" class="orange">Explore All</a></div>
           </div>
-          <div class="pl-4">
+          <div class="pl-4" v-if="mobileSelectedTab === 'classroom'">
             <div class="mt-4">
-              <div class="card-sm light extra-bold">Beginner Courses</div>
-              <div class="card-sm light">C++ For Beginners</div>
-              <div class="card-sm light">JAVA For Beginners</div>
-              <div class="card-sm light">Python App Development</div>
+              <div class="light extra-bold">Beginner Courses</div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/c-plus-plus-for-beginners.html">
+                  C++ For Beginners
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/java-for-beginners.html">
+                  Java For Beginners
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/python-app-dev.html">
+                  Python App Development
+                </a>
+              </div>
             </div>
             <div class="mt-3">
-              <div class="card-sm light extra-bold">Development Courses</div>
-              <div class="card-sm light">Android App Dev</div>
-              <div class="card-sm light">Python Django</div>
-              <div class="card-sm light">Unity Game Development</div>
-              <div class="card-sm light">Full Stack Web Dev</div>
+              <div class="light extra-bold">Development Courses</div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/android-app-development-using-kotlin-and-java.html">
+                  Android App Dev
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/web-development-nodejs.html">
+                  Full Stack Web Dev
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/web-development-django.html">
+                  Python Django
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/unity-game-development.html">
+                  Unity Game Development
+                </a>
+              </div>
             </div>
             <div class="mt-3">
-              <div class="card-sm light extra-bold">Advanced Courses</div>
-              <div class="card-sm light">Algo++</div>
-              <div class="card-sm light">Algo.JAVA</div>
-              <div class="card-sm light">Competitive Programming</div>
-              <div class="card-sm light">Machine Learning</div>
+              <div class="light extra-bold">Advanced Courses</div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/android-app-development-using-kotlin-and-java.html">
+                  Algo++
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/web-development-nodejs.html">
+                  Algo.JAVA
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/web-development-django.html">
+                  Competitive Programming
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://codingblocks.com/classroom-courses/unity-game-development.html">
+                  Machine Learning
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div class="my-4 pl-4">
-          <div class="hamburger-nav__menu-element">
+          <div class="hamburger-nav__menu-element" :class="{active: mobileSelectedTab === 'online'}" @click="mobileSelectedTab = 'online'">
             <div class="card-md extra-bold">Online Courses</div>
             <div class="card-sm light"><a href="#" class="orange">Explore All</a></div>
+          </div>
+          <div class="pl-4" v-if="mobileSelectedTab === 'online'">
+            <div class="mt-4">
+              <div class="light extra-bold">Beginner Courses</div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/c-plus-plus-online-course-for-beginners">
+                  C++ Master Course | Launchpad
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/complete-java-course-online">
+                  Java Master Course | Crux
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/python-for-beginners-developers">
+                  Python For Developers
+                </a>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="light extra-bold">Advanced Courses</div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/python-django">
+                  Web Dev with Python-Django
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/coding-interview-preparation-online">
+                  Interview Prep Bootcamp
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/data-structures-and-algorithms-online-course-java-algo">
+                  Algo.Java Online
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/android-app-training-online">
+                  Android App Development Online
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/telegram-chatbot-python-online">
+                  Build Chatbots in Python
+                </a>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="light extra-bold">Expert Courses</div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/competitive-programming-course-online">
+                  Competitive Programming Online
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/coding-interview-preparation-course-online-c-plus-plus">
+                  Interview Preparation - C++
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/machine-learning-course-online">
+                  Machine Learning Master Course
+                </a>
+              </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/coding-interview-preparation-course-online-java">
+                  Interview Preparation - Java
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-md light mt-5 mb-4">Products</div>
@@ -150,7 +262,8 @@ export default {
     return {
       hamburgerCollapsed: true,
       shoppingCartCollapsed: true,
-      notificationCollapsed: true
+      notificationCollapsed: true,
+      mobileSelectedTab: 'classroom'
     }
   },
   components: {
@@ -198,4 +311,7 @@ export default {
     position: absolute;
     width: 375px;
   }
+  .bg-light-red {
+  background: rgba(255,0,0,0.1)
+}
 </style>

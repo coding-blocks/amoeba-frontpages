@@ -1,6 +1,5 @@
 <template>
   <div class="a-ocb">
-    <script defer src="https://hack.codingblocks.com/index.js"></script>
 
     <TheNavbarTop />
     <TheSideBar />

@@ -32,6 +32,7 @@
       <div class="col-lg-9 col-4">
         <div class="row mx-0 align-items-center h-100 justify-content-end d-md-flex d-none">
           <div class="d-lg-inline-flex d-none align-items-center hover-orange">
+            
             <a href="/app/tracks" class="px-3">
               <h6 class="normal">Learning Tracks</h6>
             </a>
@@ -73,84 +74,14 @@
           Login
         </a>
       </div>
+
       
       <div class="mt-5 px-4 overflow-y-auto no-scrollbar">
         <div class="d-flex justify-content-between">
           <div class="card-md extra-bold orange">Courses</div>
           <a href="#" class="orange"><i class="fas fa-angle-up fa-lg"></i></a>
         </div>
-        <div class="my-4 pl-4">
-          <div class="hamburger-nav__menu-element" :class="{active: mobileSelectedTab === 'classroom'}" @click="mobileSelectedTab = 'classroom'">
-            <div class="card-md extra-bold">Classroom Courses</div>
-            <div class="card-sm light"><a href="#" class="orange">Explore All</a></div>
-          </div>
-          <div class="pl-4" v-if="mobileSelectedTab === 'classroom'">
-            <div class="mt-4">
-              <div class="light extra-bold">Beginner Courses</div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/c-plus-plus-for-beginners.html">
-                  C++ For Beginners
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/java-for-beginners.html">
-                  Java For Beginners
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/python-app-dev.html">
-                  Python App Development
-                </a>
-              </div>
-            </div>
-            <div class="mt-3">
-              <div class="light extra-bold">Development Courses</div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/android-app-development-using-kotlin-and-java.html">
-                  Android App Dev
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/web-development-nodejs.html">
-                  Full Stack Web Dev
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/web-development-django.html">
-                  Python Django
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/unity-game-development.html">
-                  Unity Game Development
-                </a>
-              </div>
-            </div>
-            <div class="mt-3">
-              <div class="light extra-bold">Advanced Courses</div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/android-app-development-using-kotlin-and-java.html">
-                  Algo++
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/web-development-nodejs.html">
-                  Algo.JAVA
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/web-development-django.html">
-                  Competitive Programming
-                </a>
-              </div>
-              <div class="light">
-                <a href="https://codingblocks.com/classroom-courses/unity-game-development.html">
-                  Machine Learning
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <div class="my-4 pl-4">
           <div class="hamburger-nav__menu-element" :class="{active: mobileSelectedTab === 'online'}" @click="mobileSelectedTab = 'online'">
             <div class="card-md extra-bold">Online Courses</div>
@@ -246,7 +177,7 @@ export default {
   data () {
     return {
       hamburgerOpen: false,
-      mobileSelectedTab: 'classroom'
+      mobileSelectedTab: 'online'
     }
   },
   computed: {
@@ -256,12 +187,15 @@ export default {
     }
   },
   
-}
+} 
 </script>
 
 <style scoped>
 .c-topnav {
   width: 92vw;
   padding: 0 3%;
+}
+.bg-light-red {
+  background: rgba(255,0,0,0.1)
 }
 </style>

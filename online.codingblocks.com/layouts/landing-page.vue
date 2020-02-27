@@ -1,7 +1,7 @@
 <template>
   <div class="a-ocb">
-    <script defer src="https://hack.codingblocks.com/index.js"></script>
     <!-- Without sidenav -->
+    <!-- <promotion-banner /> -->
     <div class="row no-gutters">
       <div class="col-12">
         <TheNavbarTop class="ml-0 w-100" />
@@ -16,6 +16,8 @@
 <script>
 import TheNavbarTop from '~/components/LandingPage/Layout/TheNavBar.vue'
 import TheFooter from '~/components/TheFooter.vue'
+import config from '~/config.json';
+
 
 export default {
   components: {
@@ -28,6 +30,9 @@ export default {
 <style>
 body {
   padding-top: 0px !important;
+}
+.a-ocb {
+  margin-bottom: 0rem;
 }
 </style>
 

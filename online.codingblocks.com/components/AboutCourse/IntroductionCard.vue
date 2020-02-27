@@ -56,14 +56,14 @@
           <div class="col-6 col-md-3">
             <div class="info-item">
             <div>Course Language</div>
-            <div>Hindi, English</div>
+            <div> {{course.language || 'English and Hindi'}} </div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
+          <!-- <div class="col-6 col-md-3">
             <div class="info-item">
             <div>Course Duration </div>
             <div>6 Months</div>
-          </div>
+          </div> -->
           </div>
           
         </div>

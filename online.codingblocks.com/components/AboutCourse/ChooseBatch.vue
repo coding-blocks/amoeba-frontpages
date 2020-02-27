@@ -3,7 +3,7 @@
     <div class="font-md bold mb-3">Choose Batch</div>
     <div class="select-container mb-3">
       <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
-        <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
+        <option v-for="run in runs" :key="run.id" :value="run.id">{{run | formatRunName}}</option>
       </select>
     </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
@@ -23,12 +23,12 @@
         class="button-solid button-orange flex-1 mr-4 font-sm"
         target="_blank"
         :href="`https://dukaan.codingblocks.com/buy?productId=${selectedRun['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
-        v-on:click="log($event, 'BuyNow')"
+        @click="addToCart()"
       >Buy Now</a>
       <a
         class="button-dashed button-orange flex-1 font-sm"
         :href="tryNowLink"
-        v-on:click="log($event, 'FreeTrial')"
+        v-on:click="log('FreeTrial')"
       >Try it for free!</a>
     </div>
   </div>
@@ -36,6 +36,7 @@
 
 <script>
 import { formatTimestamp } from '~/utils/date'
+import { format } from 'date-fns'
 import { mapState } from 'vuex'
 import config from '~/config.json'
 
@@ -86,8 +87,35 @@ export default {
     ...mapState(['session'])
   },
   methods: {
-    log: function(event, title) {
-      this.$gtm.pushEvent({ event: title })
+    log: function(title) {
+      console.log(this.$gtag)
+      try {
+        this.$gtm.pushEvent({ event: title })
+      } catch (err) {
+        console.error(err)
+      }
+    },
+    addToCart () {
+      console.log(this.$gtag)
+      this.$gtag('event', 'add_to_cart', {
+        items: [
+          {
+            id: this.selectedRun['product-id'],
+            name: this.selectedRun.description,
+            list_name: this.selectedRun.name,
+            brand: "CodingBlocks",
+            category: "Course",
+            list_position: 1,
+            quantity: 1,
+            price: this.selectedRun.price
+          }
+        ]
+      })
+    }
+  },
+  filters: {
+    formatRunName (run) {
+      return format(new Date(run.start*1000), "MMM yyyy")
     }
   }
 }

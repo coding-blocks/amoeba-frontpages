@@ -11,6 +11,8 @@ div {
 </style>
 
 <script>
+import config from '~/config.json';
+
 export default {
   async asyncData ({ $axios }) {
     await $axios.get(`/jwt/logout`).catch(err => {
@@ -22,10 +24,15 @@ export default {
       path: '/',
       domain: window.location.host
     })      
-    window.localStorage.clear()
+    localStorage.removeItem("ember_simple_auth-session")
+    localStorage.removeItem("redirectionPath")
+
+    // window.localStorage.clear()
     setTimeout(() => {
-      window.location.href = '/'
-    })
+          console.log("redirecting")
+
+      window.location.href = 'https://account.codingblocks.com/logout?redirect=' + config[process.env.NODE_ENV].publicUrl
+    }, 0)
   }
 }
 </script>
