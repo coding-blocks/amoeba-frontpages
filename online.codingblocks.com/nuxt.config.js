@@ -72,7 +72,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module'
     
-    // '@nuxtjs/gtm',
+    '@nuxtjs/gtm',
 
   ],
   gtm: { id: config.gtm, dev: process.env.NODE_ENV == 'development' },
