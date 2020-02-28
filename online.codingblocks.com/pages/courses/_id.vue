@@ -29,9 +29,9 @@
     <div class="row">
       <div class="col-md-8 mt-5">
         <!-- Course Rating -->
-        <VAsync :task="fetchRatingStats">
+        <VAsync :task="fetchReviewStats">
           <template v-slot="{ value }">
-            <CourseRatingStats class="border-card" :stats="value" />
+            <CourseRatingStats v-bind="value" />
           </template>
         </VAsync>
 
@@ -47,7 +47,6 @@
     </div>
 
 
-    <RatingCarousel :courseId="course.id"/>
 
 
     <div class="row mt-5">
@@ -77,7 +76,6 @@ import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
-import RatingCarousel from '~/components/AboutCourse/RatingCarousel.vue'
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -129,7 +127,6 @@ export default {
     StudentsExperience,
     VAsync,
     SuggestedTrackCard,
-    RatingCarousel
   },
   computed: {
     projectIds() {
@@ -153,11 +150,15 @@ export default {
   },
   tasks(t, { timeout }) {
     return {
-      fetchRatingStats: t(function*() {
+      fetchReviewStats: t(function*() {
         const { data: ratingStats } = yield this.$axios.get(
           `courses/${this.course.id}/rating`
         )
-        return ratingStats
+        const response = yield this.$axios.get(
+            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=3`
+        )
+        const reviews = this.$jsonApiStore.sync(response.data)        
+        return {ratingStats,reviews}
       })
     }
   },
