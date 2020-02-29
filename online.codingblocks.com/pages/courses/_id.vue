@@ -29,9 +29,9 @@
     <div class="row">
       <div class="col-md-8 mt-5">
         <!-- Course Rating -->
-        <VAsync :task="fetchRatingStats">
+        <VAsync :task="fetchReviewStats">
           <template v-slot="{ value }">
-            <CourseRatingStats class="border-card" :stats="value" />
+            <CourseRatingStats v-bind="value" />
           </template>
         </VAsync>
 
@@ -45,6 +45,10 @@
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
       </div>
     </div>
+
+
+
+
     <div class="row mt-5">
       <MentorsCard class="col-md-8" :instructors="course.instructors" />
       <LeadGenerationCard :course-title="course.title" class="col-md-4" />
@@ -122,7 +126,7 @@ export default {
     LeadGenerationCard,
     StudentsExperience,
     VAsync,
-    SuggestedTrackCard
+    SuggestedTrackCard,
   },
   computed: {
     projectIds() {
@@ -146,11 +150,15 @@ export default {
   },
   tasks(t, { timeout }) {
     return {
-      fetchRatingStats: t(function*() {
+      fetchReviewStats: t(function*() {
         const { data: ratingStats } = yield this.$axios.get(
           `courses/${this.course.id}/rating`
         )
-        return ratingStats
+        const response = yield this.$axios.get(
+            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=3`
+        )
+        const reviews = this.$jsonApiStore.sync(response.data)        
+        return {ratingStats,reviews}
       })
     }
   },
