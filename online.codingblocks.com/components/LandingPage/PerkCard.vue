@@ -9,7 +9,7 @@
             </div>
             <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center justify-content-center t-align-c">
               <div>
-                <div class="bold gradient-text-hi-orange" style="font-size: 2rem;">4500+</div>
+                <div class="bold gradient-text-hi-orange" style="font-size: 2rem;">5000+</div>
                 <div class="normal font-mds mt-1">Students Placed</div>
               </div>
             </div>
@@ -24,7 +24,7 @@
             </div>
             <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center justify-content-center t-align-c">
               <div>
-                <div class="bold gradient-text-hi-pink" style="font-size: 2rem;">12000+</div>
+                <div class="bold gradient-text-hi-pink" style="font-size: 2rem;">25000+</div>
                 <div class="normal font-mds mt-1">Students Taught</div>
               </div>
             </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center justify-content-center t-align-c">
               <div>
-                <div class="bold gradient-text-hi-purple" style="font-size: 2rem;">1000+</div>
+                <div class="bold gradient-text-hi-purple" style="font-size: 2rem;">5000+</div>
                 <div class="normal font-mds mt-1">Projects Built</div>
               </div>
             </div>
