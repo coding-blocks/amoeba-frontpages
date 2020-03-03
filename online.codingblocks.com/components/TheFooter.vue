@@ -136,13 +136,13 @@
               </div>
               <div class="my-3">
                 <a
-                  href=""
+                  href="/courses/c-plus-plus-class-twelfth-boards"
                   class="white"
                 >C++ For Class XII</a>
               </div>
               <div class="my-3">
                 <a
-                  href=""
+                  href="/courses/class-twelfth-java-practicals"
                   class="white"
                 >Java For Class XII</a>
               </div>
@@ -253,6 +253,12 @@
                   href="/courses/competitive-programming-course-online"
                   class="white"
                 >Competitive Programming</a>
+              </div>
+              <div class="my-3">
+                <a
+                  href="/courses/deep-learning-and-neural-networks"
+                  class="white"
+                >Deep Learning</a>
               </div>
             </div>
           </div>
