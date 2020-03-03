@@ -8,6 +8,7 @@ export const topRunForCourse = (course) => {
     (run) =>
       run['enrollment-start'] < now &&
       run['enrollment-end'] > now &&
+      run.status === 'published' &&
       !run.unlisted
   )
 
