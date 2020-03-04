@@ -156,14 +156,33 @@
                   Interview Preparation - Java
                 </a>
               </div>
+              <div class="light">
+                <a href="https://online.codingblocks.com/courses/data-science-online-course-python">
+                  Data Science
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="card-md light mt-5 mb-4">Products</div>
-        <div class="card-md light my-4">Resources</div>
-        <div class="card-md light my-4">Campus Ambassadors</div>
-        <div class="card-md light my-4">About Us</div>
-        <div class="card-md light my-4">Contact Us</div>
+        <div class="card-md light my-4">
+          <a href="https://codingblocks.com/resources">
+            Resources
+          </a>
+        </div>
+        <div class="card-md light my-4">
+          <a href="https://codingblocks.com/campus-ambassador-program.html" target="blank">
+            Campus Ambassadors
+          </a></div>
+        <div class="card-md light my-4">
+          <a href="https://codingblocks.com/about" target="blank">
+            About Us
+          </a>
+        </div>
+        <div class="card-md light my-4">
+          <a href="https://codingblocks.com/centres" target="blank">
+            Contact Us
+          </a>
+        </div>
       </div>
     </div>
   </div>
