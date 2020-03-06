@@ -24,7 +24,7 @@
               </div> 
             </div>
             <div class="col-1">
-              <img src="http://minio.codingblocks.com/amoeba/accordion-up.svg" class="float-right accordion-icon" :class="!expanded && 'down'">
+              <img src="https://minio.codingblocks.com/amoeba/accordion-up.svg" class="float-right accordion-icon" :class="!expanded && 'down'">
               <!-- <FaIcon :icon="expanded ? 'angle-up' : 'angle-down'" class="fa-lg" /> -->
             </div>
           </div>
