@@ -47,33 +47,9 @@
               </div>
               <div class="my-3">
                 <a
-                  href="https://codingblocks.com/brochure.html"
-                  class="white"
-                >Download Brochure</a>
-              </div>
-              <div class="my-3">
-                <a
-                  href="https://codingblocks.com/signup/workshop.html"
-                  class="white"
-                >Request a Workshop</a>
-              </div>
-              <div class="my-3">
-                <a
                   href="https://codingblocks.com/success-stories/"
                   class="white"
                 >Wall Of Fame</a>
-              </div>
-              <div class="my-3">
-                <a
-                  href="https://codingblocks.com/newsletter/"
-                  class="white"
-                >Newsletters</a>
-              </div>
-              <div class="my-3">
-                <a
-                  href="https://codingblocks.com/events/"
-                  class="white"
-                >Events</a>
               </div>
               <div class="my-3">
                 <a
@@ -262,26 +238,40 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="row mt-5 justify-content-between ">
           <div class="col-lg-2 col-md-3 col-6 word-wrap mt-md-0 mt-5">
             <h5 class="mb-lg-5 mb-4 orange">Contact Us</h5>
             <div class="font-sm light row no-gutters">
-              <div class="col-12">
+            </div>
+          </div>
+          <div class="font-sm light row no-gutters">
+              <div class="col">
                 <a
                   href="mailto:admissions@codingblocks.com"
                   class="my-2 white font-xs"
                 >admissions@codingblocks.com</a>  
                 <br />
                 <a href="tel:1800 274 4504" class="my-2 white font-sm">1800 274 4504</a>
-              
-                  <div class="extra-bold gradient-text-orange my-2">Technical Support</div>
-                <a
-                  href="mailto:support@codingblocks.com"
-                  class="my-2 white font-xs"
-                >support@codingblocks.com</a>
-                <br />
-                <a href="tel:18002744504" class="my-2 white font-sm">1800 274 4504</a>
               </div>
+          </div>
+          <div class="col"></div>
 
+          <div class="col-lg-2 col-md-3 col-6 justify-content-between word-wrap mt-md-0 mt-5">
+            <h5 class="mb-lg-5 mb-4 orange">Technical Support</h5>
+            <div class="font-sm light row no-gutters">  
+            </div>
+          </div>
+          <div class="font-sm light row no-gutters">
+              <div class="col">
+                <a
+                  href="mailto:admissions@codingblocks.com"
+                  class="my-2 white font-xs"
+                >admissions@codingblocks.com</a>  
+                <br />
+                <a href="tel:9643339747" class="my-2 white font-sm">9643 339 747</a>
+              </div>
               <div class="mt-5 col-12 d-flex">
                 <a href="https://cb.lk/twon" class="grey">
                   <i class="fab fa-twitter fa-lg px-2"></i>
@@ -302,7 +292,6 @@
                   <i class="fab fa-github fa-lg px-2"></i>
                 </a>
               </div>
-            </div>
           </div>
         </div>
       </div>
