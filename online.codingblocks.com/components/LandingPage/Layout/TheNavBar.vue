@@ -11,6 +11,10 @@
   </div> -->
    <div>
     <div class="row no-gutters justify-content-between px-md-5 px-4 py-4">
+      <div class="col-12">
+        <promotion-banner>
+        </promotion-banner>
+      </div>
       <div class="col-xl-2 col-lg-3 col-md-5 col-sm-6 col-9">
         <div class="row no-gutters align-items-center">
           <div class="d-lg-none">
@@ -208,7 +212,7 @@ export default {
   
 } 
 </script>
-
+Vue.loadScript(""https://unpkg.com/@coding-blocks/web-components@0.0.4/dist/index.js")
 <style scoped>
 .c-topnav {
   width: 92vw;
