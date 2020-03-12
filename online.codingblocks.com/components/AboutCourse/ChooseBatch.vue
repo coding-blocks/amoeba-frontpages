@@ -28,7 +28,7 @@
       <a
         class="button-dashed button-orange flex-1 font-sm"
         :href="tryNowLink"
-        v-on:click="log('FreeTrial')"
+        @click.prevent="log('FreeTrial')"
       >Try it for free!</a>
     </div>
   </div>
@@ -89,8 +89,23 @@ export default {
   methods: {
     log: function(title) {
       console.log(this.$gtag)
+      debugger;
       try {
-        this.$gtm.pushEvent({ event: title })
+      //  this.$gtm.pushEvent({ event: title })
+      this.$gtag('event', 'view_event', {
+        items: [
+          {
+            id: this.selectedRun['product-id'],
+            name: this.selectedRun.description,
+            list_name: this.selectedRun.name,
+            brand: "CodingBlocks",
+            category: "Course",
+            list_position: 1,
+            quantity: 1,
+            price: this.selectedRun.price
+          }
+        ]
+      })
       } catch (err) {
         console.error(err)
       }

@@ -132,7 +132,7 @@
                 <a
                   href="/courses/python-for-beginners-developers"
                   class="white"
-                >Pyhton For Developers</a>
+                >Python For Developers</a>
               </div>
               <div class="my-3">
                 <a
