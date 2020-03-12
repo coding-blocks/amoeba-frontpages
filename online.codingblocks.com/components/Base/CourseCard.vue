@@ -122,18 +122,13 @@ export default {
     // log: function(event, title) {
       // this.$gtm.pushEvent({ event: title})
     // },
-    log: function(title) {
-      console.log("hello")
-      console.log(this.$gtag)
-    },
     explore () {
-    debugger;
       this.$gtag('event', 'view_item', {
         items: [
           {
             id: this.courseId,
             name: this.courseName,
-            list_name: "Search Results",
+            list_name: "Course View",
             brand: "CodingBlocks",
             category: "Exploring Course",
             list_position: 1,
