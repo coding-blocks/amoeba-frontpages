@@ -254,7 +254,7 @@
           </div>
   
           <div class="col-6 d-flex align-items-center">
-            <h5 class="orange mr-4">Contact Us</h5>
+            <h5 class="orange mr-4">Technical Support</h5>
             <div class="font-sm light d-inline-block">
               <span class="">
                 <a href="mailto:admissions@codingblocks.com" class="my-2 white font-xs">support@codingblocks.com</a> 
