@@ -240,89 +240,94 @@
           </div>
         </div>
 
-        <div class="row mt-5 justify-content-between ">
-          <div class="col-lg-2 col-md-3 col-6 word-wrap mt-md-0 mt-5">
-            <h5 class="mb-lg-5 mb-4 orange">Contact Us</h5>
-            <div class="font-sm light row no-gutters">
-            </div>
-          </div>
-          <div class="font-sm light row no-gutters">
-              <div class="col">
-                <a
-                  href="mailto:admissions@codingblocks.com"
-                  class="my-2 white font-xs"
-                >admissions@codingblocks.com</a>  
-                <br />
-                <a href="tel:1800 274 4504" class="my-2 white font-sm">1800 274 4504</a>
-              </div>
-          </div>
-          <div class="col"></div>
+        <div class="row mt-5 justify-content-between align-items-center">
 
-          <div class="col-lg-2 col-md-3 col-6 justify-content-between word-wrap mt-md-0 mt-5">
-            <h5 class="mb-lg-5 mb-4 orange">Technical Support</h5>
-            <div class="font-sm light row no-gutters">  
+          <div class="col-6 d-flex align-items-center">
+            <h5 class="orange mr-4">Contact Us</h5>
+            <div class="font-sm light d-inline-block">
+              <span class="">
+                <a href="mailto:admissions@codingblocks.com" class="my-2 white font-xs">admissions@codingblocks.com</a> 
+                <br> 
+                <a href="tel:18002744504" class="my-2 white font-sm">1800 274 4504</a>
+              </span>
             </div>
           </div>
-          <div class="font-sm light row no-gutters">
-              <div class="col">
-                <a
-                  href="mailto:admissions@codingblocks.com"
-                  class="my-2 white font-xs"
-                >admissions@codingblocks.com</a>  
-                <br />
-                <a href="tel:9643339747" class="my-2 white font-sm">9643 339 747</a>
-              </div>
-              <div class="mt-5 col-12 d-flex">
-                <a href="https://cb.lk/twon" class="grey">
-                  <i class="fab fa-twitter fa-lg px-2"></i>
-                </a>
-                <a href="https://cb.lk/fbon" class="grey">
-                  <i class="fab fa-facebook-f fa-lg px-2"></i>
-                </a>
-                <a href="https://cb.lk/inon" class="grey">
-                  <i class="fab fa-instagram fa-lg px-2"></i>
-                </a>
-                <a href="https://cb.lk/lion" class="grey">
-                  <i class="fab fa-linkedin-in fa-lg px-2"></i>
-                </a>
-                <a href="https://cb.lk/yton" class="grey">
-                  <i class="fab fa-youtube fa-lg px-2"></i>
-                </a>
-                <a href="https://cb.lk/ghon" class="grey">
-                  <i class="fab fa-github fa-lg px-2"></i>
-                </a>
-              </div>
+  
+          <div class="col-6 d-flex align-items-center">
+            <h5 class="orange mr-4">Contact Us</h5>
+            <div class="font-sm light d-inline-block">
+              <span class="">
+                <a href="mailto:admissions@codingblocks.com" class="my-2 white font-xs">support@codingblocks.com</a> 
+                <br> 
+                <a href="tel:9643339797" class="my-2 white font-sm">964 333 9797</a>
+              </span>
+            </div>
           </div>
+          
         </div>
       </div>
     </div>
     <div class="bg-black-grey py-4 white font-sm landing-page__footer">
-      <div class="d-md-flex d-none">
-        <div class="li-left">
-          <ul class="divided-list">
+      <div class="row no-gutters justify-content-between align-items-center">
+        <div>
+          <div class="mb-3">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
+          <ul class="divided-list my-0">
             <li class="pr-3">
-              <a href="https://codingblocks.com/privacypolicy.html" class="white">Policy</a>
+              <a
+                href="https://codingblocks.com/privacypolicy.html"
+                class="white"
+                >Policy</a
+              >
             </li>
             <li class="pl-3">
-              <a href="https://codingblocks.com/tos.html" class="white">Terms of Service</a>
+              <a href="https://codingblocks.com/tos.html" class="white"
+                >Terms of Service</a
+              >
             </li>
           </ul>
         </div>
-        <div class="li-right">
-          <div>Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
+        <div>
+          <a href="https://cb.lk/twon" class="grey">
+            <i class="fab fa-twitter fa-lg px-2"></i>
+          </a>
+          <a href="https://cb.lk/fbon" class="grey">
+            <i class="fab fa-facebook-f fa-lg px-2"></i>
+          </a>
+          <a href="https://cb.lk/inon" class="grey">
+            <i class="fab fa-instagram fa-lg px-2"></i>
+          </a>
+          <a href="https://cb.lk/lion" class="grey">
+            <i class="fab fa-linkedin-in fa-lg px-2"></i>
+          </a>
+          <a href="https://cb.lk/yton" class="grey">
+            <i class="fab fa-youtube fa-lg px-2"></i>
+          </a>
+          <a href="https://cb.lk/ghon" class="grey">
+            <i class="fab fa-github fa-lg px-2"></i>
+          </a>
         </div>
       </div>
       <div class="t-align-c d-md-none d-block">
+        <div class="mb-3">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
         <ul class="divided-list d-block my-0">
           <li class="pr-3">
-            <a href="https://codingblocks.com/privacypolicy.html" class="white">Policy</a>
+            <a href="https://codingblocks.com/privacypolicy.html" class="white"
+              >Policy</a
+            >
           </li>
           <li class="pl-3">
-            <a href="https://codingblocks.com/tos.html" class="white">Terms of Service</a>
+            <a href="https://codingblocks.com/tos.html" class="white"
+              >Terms of Service</a
+            >
           </li>
         </ul>
-        <div class="mt-2">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
       </div>
     </div>
   </footer>
 </template>
+
+<style scoped>
+.footer-col > h5:first-child {
+  height: 42px;
+}
+</style>
