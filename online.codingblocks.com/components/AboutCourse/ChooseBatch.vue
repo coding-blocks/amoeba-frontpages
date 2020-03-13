@@ -88,10 +88,7 @@ export default {
   },
   methods: {
     log: function(title) {
-      console.log(this.$gtag)
-      debugger;
       try {
-      //  this.$gtm.pushEvent({ event: title })
       this.$gtag('event', 'view_event', {
         items: [
           {
@@ -111,7 +108,6 @@ export default {
       }
     },
     addToCart () {
-      console.log(this.$gtag)
       this.$gtag('event', 'add_to_cart', {
         items: [
           {
