@@ -62,10 +62,10 @@
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange" @click.native="explore()">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
-        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="log($event, 'FreeTrial')">Try it for Free!</a>
+        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="log('FreeTrial')">Try it for Free!</a>
       </div>
     </div>
   </div>
@@ -107,15 +107,36 @@ export default {
     },
     startDateString () {
       return formatTimestamp(this.topRun.start)
+    },
+    courseId(){
+      return `${this.course.id}`
+    },
+    courseName(){
+      return `${this.course.name}`
     }
   },
   components: {
     RatingStars
   },
   methods: {
-    // log: function(event, title) {
-    //   this.$gtm.pushEvent({ event: title})
-    // }
+    log: function(title) {
+      this.$gtm.pushEvent({ event: title})
+    },
+    explore () {
+      this.$gtag('event', 'view_item', {
+        items: [
+          {
+            id: this.courseId,
+            name: this.courseName,
+            list_name: "Course View",
+            brand: "CodingBlocks",
+            category: "Exploring Course",
+            list_position: 1,
+            price: '0'
+          }
+        ]
+      })
+    }
   }
 }
 </script>
