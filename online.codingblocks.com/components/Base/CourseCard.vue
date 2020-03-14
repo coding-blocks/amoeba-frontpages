@@ -62,10 +62,10 @@
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange" @click.native="explore()">Explore</nuxt-link>
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange" @click.native="explore('Explore Course')">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
-        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="log('FreeTrial')">Try it for Free!</a>
+        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>
       </div>
     </div>
   </div>
@@ -119,10 +119,10 @@ export default {
     RatingStars
   },
   methods: {
-    log: function(title) {
-      this.$gtm.pushEvent({ event: title})
-    },
-    explore () {
+     // log: function(event, title) {
+      // this.$gtm.pushEvent({ event: title})
+    // },
+    explore(title) {
       this.$gtag('event', 'view_item', {
         items: [
           {
@@ -130,7 +130,7 @@ export default {
             name: this.courseName,
             list_name: "Course View",
             brand: "CodingBlocks",
-            category: "Exploring Course",
+            category: title,
             list_position: 1,
             price: '0'
           }

@@ -28,7 +28,7 @@
       <a
         class="button-dashed button-orange flex-1 font-sm"
         :href="tryNowLink"
-        @click.prevent="log('FreeTrial')"
+        @click.native="log('FreeTrial')"
       >Try it for free!</a>
     </div>
   </div>
