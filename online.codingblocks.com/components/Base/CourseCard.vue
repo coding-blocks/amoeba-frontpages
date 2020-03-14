@@ -123,7 +123,6 @@ export default {
       // this.$gtm.pushEvent({ event: title})
     // },
     explore(title) {
-    debugger;
       this.$gtag('event', 'view_item', {
         items: [
           {
