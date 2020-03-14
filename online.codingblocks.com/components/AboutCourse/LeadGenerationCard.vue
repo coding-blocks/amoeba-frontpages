@@ -17,6 +17,7 @@
         <div class="my-3">
           <input class="col-12 input-text form-field--control my-2" type="text" name="name" placeholder="Name" v-model="name">
           <input class="col-12 input-text form-field--control my-2" type="text" name="contact" placeholder="Contact Number" v-model="mobile">
+          <input class="col-12 input-text form-field--control my-2" type="text" name="email" placeholder="Email" v-model="email">
         </div>
         <div class="t-align-c">
           <p class="red mb-3" v-if="submissionError">{{submissionError}}</p>
@@ -40,6 +41,7 @@ export default {
     return {
       name: null,
       mobile: null,
+      email: null,
       alreadySubmitted: false,
       submissionError: null
     }
@@ -51,6 +53,7 @@ export default {
           data: {
             name: this.name,
             mobile: this.mobile,
+            email: this.email,
             course: this.courseTitle,
           },
           meta: {
