@@ -259,7 +259,7 @@
               <span class="">
                 <a href="mailto:admissions@codingblocks.com" class="my-2 white font-xs">support@codingblocks.com</a> 
                 <br> 
-                <a href="tel:9643339797" class="my-2 white font-sm">964 333 9797</a>
+                <a href="tel:+919643339747" class="my-2 white font-sm">964 333 9747</a>
               </span>
             </div>
           </div>
