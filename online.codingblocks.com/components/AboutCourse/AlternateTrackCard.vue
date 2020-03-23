@@ -44,4 +44,11 @@ export default {
       padding: 0 2%;
     }
   }
+  .tracks-logo {
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 50px;
+    border: 1.5px solid #fff;
+    position: relative;
+  }
 </style>
