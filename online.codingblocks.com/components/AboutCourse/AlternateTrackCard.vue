@@ -12,7 +12,7 @@
                     
                     <div class="bold font-md orange">
                       <span class="v-align-ma">
-                      <FaIcon icon='exclamation-triangle' class="mr-2 s-20x20" />
+                      <FaIcon icon='lightbulb' class="mr-2 s-20x20" />
                       </span>
                       <span> Try out the {{track.name}} track instead </span>
                     </div>
