@@ -21,9 +21,11 @@
                 </div>
               </div>
               <div class="col-md-3 my-auto t-align-md-r t-align-c pt-md-0 pt-4">
-                <button class="button-solid button-orange">
+                <a 
+                  :href="`/app/tracks/${track.id}`"
+                  class="button-solid button-orange">
                   Explore Track
-                </button>
+                </a>
               </div>
             </div>
           </div>
