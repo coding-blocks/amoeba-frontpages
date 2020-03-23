@@ -13,9 +13,11 @@
                 </div>
             </div>
             <div class="col-3 t-align-r">
-              <button class="button-solid button-orange">
+              <a
+              :href="`/app/tracks/${track.id}`"
+              class="button-solid button-orange">
                 Explore Track
-              </button>
+              </a>
             </div>
           </div>
         </div>
