@@ -18,12 +18,12 @@
       <div class="col-6 offset-1 d-md-block d-none">
         <ul>
           <li class="top-nav-option px-3 d-none d-md-block">
-            <a href="#classroom-courses">
+            <a href="https://codingblocks.com/classroom-courses/">
               <h6>Classroom Courses</h6>
             </a>
           </li>
           <li class="top-nav-option px-3 d-none d-md-block">
-            <a href="#hacker-blocks">
+            <a href="https://hack.codingblocks.com/">
               <h6>HackerBlocks</h6>
             </a>
           </li>
