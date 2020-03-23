@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="container mt-5">
         <ul class="breadcrumbs mb-4">    
           <li>
@@ -10,7 +11,11 @@
             {{course.title}}
           </li>
         </ul>
+  </div>
+
+  <AlternateTrackCard :track="course['alternate-track']" v-if="course['alternate-track']" />
     <!-- First Half -> IntroCard IntroVideo Summary Choose Batch Course Tags -->
+   <div class="container mt-5">
     <div class="row first-half">
       <IntroductionCard class="col-md-8 order-1" :course="course" />
       <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
@@ -58,6 +63,7 @@
     <!-- Fin. -->
     <div class="my-5"></div>
   </div>
+</div>
 </template>
 
 <script>
@@ -76,6 +82,8 @@ import CourseFeatures from '~/components/AboutCourse/CourseFeatures.vue'
 import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
+import AlternateTrackCard from '~/components/AboutCourse/AlternateTrackCard.vue'
+
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -127,6 +135,7 @@ export default {
     StudentsExperience,
     VAsync,
     SuggestedTrackCard,
+    AlternateTrackCard
   },
   computed: {
     projectIds() {
