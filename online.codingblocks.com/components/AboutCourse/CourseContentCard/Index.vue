@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .border-card {
-  max-height: 600px;
+  max-height: 1111px;
   overflow: auto;
 }
 

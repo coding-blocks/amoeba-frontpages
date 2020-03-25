@@ -1,7 +1,7 @@
 <template>
 <VAsync :task="fetchTrackCourses">
   <template v-slot="{value:courses}">
-    <div class="row mt-4">
+    <div class="row mb-5">
       <div class="col-12">
         <div class="border-card bg-gradient-purple white">
           <div class="side-tag">

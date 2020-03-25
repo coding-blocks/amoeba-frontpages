@@ -28,7 +28,6 @@
       <div class="col-md-4 mt-5 order-2">
         <ChooseBatch :course-id="course.id" :runs="availableRuns" />
         <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
-        <SuggestedTrackCard :track="course['suggested-track']" :curCourseId="course.id"/>
       </div>
     </div>
     <div class="row">
@@ -45,6 +44,7 @@
       </div>
 
       <div class="col-md-4 mt-5">
+        <SuggestedTrackCard :track="course['suggested-track']" :curCourseId="course.id"/>
         <ProjectsList class="projects" :project-ids="projectIds" />
         <WildcraftCard class="mt-4" />
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
@@ -217,10 +217,9 @@ export default {
 }
 
 .course-content {
-  max-height: 600px;
+  /* max-height: 600px; */
   overflow: hidden;
 }
-
 
 
 .course-summary {
