@@ -62,7 +62,7 @@
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange" @click.native="explore('Explore Course')">Explore</nuxt-link>
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
         <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>

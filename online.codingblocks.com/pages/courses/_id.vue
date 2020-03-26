@@ -194,6 +194,19 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
     }
   },
+  mounted () {
+    this.$gtag('event', 'view_item', {
+      items: [{
+        id: this.course.id,
+        name: this.course.title,
+        list_name: "Course View",
+        brand: "CodingBlocks",
+        category: 'course_view',
+        list_position: 1,
+        price: '0'
+      }]
+    })
+  },
   destroyed () {
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.handleScroll);
