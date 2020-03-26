@@ -212,7 +212,6 @@ export default {
   
 } 
 </script>
-Vue.loadScript(""https://unpkg.com/@coding-blocks/web-components@0.0.4/dist/index.js")
 <style scoped>
 .c-topnav {
   width: 92vw;
