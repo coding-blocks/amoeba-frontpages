@@ -55,7 +55,7 @@
           <div class="col-lg-8 col-6">
             <div>
               <span class="bold gradient-text-orange font-sm">{{price > 0 ? '&#x20b9;' + price : 'Free' }} </span>
-              <span class="card-md bold grey pl-lg-3 pl-1">
+              <span class="card-md bold grey pl-lg-3 pl-1" v-if="showMrp">
                 &#x20b9;
                 <del>{{mrp}}</del>
               </span>
@@ -113,6 +113,9 @@ export default {
     },
     courseName(){
       return `${this.course.name}`
+    },
+    showMrp () {
+      return !(this.topRun && (this.topRun.mrp == this.topRun.price))
     }
   },
   components: {
