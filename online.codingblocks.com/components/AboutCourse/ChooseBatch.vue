@@ -3,7 +3,7 @@
     <div class="font-md bold mb-3">Choose Batch</div>
     <div class="select-container mb-3">
       <select name="batch" class="rounded-select pl-3" v-model="selectedRunId">
-        <option v-for="run in runs" :key="run.id" :value="run.id">{{run | formatRunName}}</option>
+        <option v-for="run in runs" :key="run.id" :value="run.id">{{run.name}}</option>
       </select>
     </div>
     <div class="grey card-md">Batch Starts {{ selectedRunStart }}</div>
