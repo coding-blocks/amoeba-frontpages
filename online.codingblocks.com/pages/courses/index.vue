@@ -11,12 +11,18 @@
           class="bg-light-grey"
           placeholder="What do you want to learn?"
           type="text"
+          @keyup="({target}) => this.search.run(target.value)"
           v-model="searchQuery"
         />
       </div>
     </div>
-    <div class="row a-ocb">
-      <CourseCard :course="course" v-for="course in courses" :key="course.id" />
+    <div class="row a-ocb courses-list">
+      <div class="w-100 h-100" v-show="!this.isSearching">
+        <CourseCard :course="course" v-for="course in courses" :key="course.id"/>
+      </div>
+      <div class="mx-auto my-auto" v-show="this.isSearching">
+        <img src="https://minio.codingblocks.com/amoeba/online-loader.gif" alt="loading..." />  
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +60,11 @@ export default {
       searchQuery: null
     }
   },
-
+  computed: {
+    isSearching () {
+      return this.search.isActive
+    }
+  },
   jsonld() {
     return jsonSchemaForAllCourses(this.courses)
   },
@@ -67,14 +77,16 @@ export default {
   },
   tasks(t, { timeout }) {
     return {
-      search: t(function *() {
+      search: t(function *(query) {
+        yield timeout(1000)
+        // this.searchQuery = query
         const res = yield this.$axios.get('/courses', {
           params: {
             exclude: `ratings,instructors.*`,
             include: `instructors,runs`,
             filter: {
               title: {
-                $iLike: `%${this.searchQuery}%`
+                $iLike: `%${query}%`
               },
               unlisted: false
             },
@@ -86,8 +98,7 @@ export default {
 
         this.courses = yield this.$jsonApiStore.sync(res.data)
       })
-        .flow('restart', { delay: 500 })
-        .runWith('searchQuery')
+      .flow('restart', { delay: 500 })
     }
   }
 }
@@ -102,5 +113,8 @@ input {
   width: 95%;
   height: 100%;
   margin: auto;
+}
+.courses-list {
+  min-height: 62vh;
 }
 </style>
