@@ -1,60 +1,58 @@
 <template>
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="border-card bg-gradient-purple white">
-        <div class="side-tag">
-          <div class="card-sm light" style="letter-spacing: 0.2rem;">THIS COURSE IS A PART OF</div>
-          <h4 class="bold gradient-text-yellow capital">{{track.name}} track</h4>
-          <div class="normal"> Other courses in this track</div>
-        </div>
+<VAsync :task="fetchTrackCourses">
+  <template v-slot="{value:courses}">
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="border-card bg-gradient-purple white">
+          <div class="side-tag">
+            <div class="card-sm light" style="letter-spacing: 0.2rem;">THIS COURSE IS A PART OF</div>
+            <h4 class="bold gradient-text-yellow capital">{{track.name}} track</h4>
+            <div class="normal"> Other courses in this track</div>
+          </div>
 
 
-          <VAsync :task="fetchTrackCourses">
-            <template v-slot="{value:courses}">
-              <nuxt-link :to="`/courses/${courses[0].slug}`"  class="row no-gutters align-items-center my-4">
-                <div class="col-lg-3 col-md-12 col-2">
-                  <img :src="courses[0].logo" class="pr-3"
-                    style="max-width: 60px !important;">
-                </div>
-                <div class="flex-1">
-                  <h6 class="bold">{{courses[0].title}}</h6>
-                  <div class="mt-1">
-                    <div>
-                      <RatingStars :value="courses[0].rating" class="d-inline-block"/>
-                      <span class="card-md">
-                        <strong>{{courses[0].rating}}/5.0, </strong>
-                        {{courses[0]["review-count"]}} Ratings
-                      </span>
-                    </div>
-                  </div>
-                </div>
+        <nuxt-link :to="`/courses/${courses[0].slug}`"  class="row no-gutters align-items-center my-4 white">
+          <div class="col-lg-3 col-md-12 col-2">
+            <img :src="courses[0].logo" class="pr-3"
+              style="max-width: 60px !important;">
+          </div>
+          <div class="flex-1">
+            <h6 class="bold">{{courses[0].title}}</h6>
+            <div class="mt-1">
+              <div>
+                <RatingStars :value="courses[0].rating" class="d-inline-block"/>
+                <span class="card-md">
+                  <strong>{{courses[0].rating}}/5.0, </strong>
+                  {{courses[0]["review-count"]}} Ratings
+                </span>
+              </div>
+            </div>
+          </div>
+        </nuxt-link>
 
-              </nuxt-link>
-              <div class="divider-h"></div>
+        <div class="divider-h"></div>
 
-              <nuxt-link :to="`/courses/${courses[1].slug}`" class="row no-gutters align-items-center my-4">
-                <div class="col-lg-3 col-md-12 col-2">
-                  <img :src="courses[1].logo" class="pr-3"
-                    style="max-width: 60px !important;">
-                </div>
-                <div class="flex-1">
-                  <h6 class="bold">{{courses[1].title}}</h6>
-                  <div class="mt-1">
-                    <div>
-                      <RatingStars :value="courses[1].rating" class="d-inline-block"/>
-                      <span class="card-md">
-                        <strong>{{courses[1].rating}}/5.0, </strong>
-                        {{courses[1]["review-count"]}} Ratings
-                      </span>
-                    </div>
-                  </div>
-                </div>
+        <nuxt-link :to="`/courses/${courses[1].slug}`" class="row no-gutters align-items-center my-4 white">
+          <div class="col-lg-3 col-md-12 col-2">
+            <img :src="courses[1].logo" class="pr-3"
+              style="max-width: 60px !important;">
+          </div>
+          <div class="flex-1">
+            <h6 class="bold">{{courses[1].title}}</h6>
+            <div class="mt-1">
+              <div>
+                <RatingStars :value="courses[1].rating" class="d-inline-block"/>
+                <span class="card-md">
+                  <strong>{{courses[1].rating}}/5.0, </strong>
+                  {{courses[1]["review-count"]}} Ratings
+                </span>
+              </div>
+            </div>
+          </div>
 
-              </nuxt-link>
-            </template>
-          </VAsync>
-          
-          
+        </nuxt-link>
+            
+            
 
         <div class="mt-5">
           <a :href="trackLink" class="gradient-text-yellow v-align-ma">
@@ -62,9 +60,11 @@
             <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/arrow_right_orange.svg" class="ml-2">
           </a>
         </div>
+        </div>
       </div>
     </div>
-  </div>
+  </template>
+</VAsync>
 </template>
 
 <script>
