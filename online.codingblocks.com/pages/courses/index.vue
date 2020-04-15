@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="row a-ocb courses-list">
-      <div class="w-100 h-100 d-flex flex-wrap" v-show="!this.isSearching">
+      <div class="w-100 h-100 d-flex flex-wrap" v-if="!this.isSearching">
         <CourseCard :course="course" v-for="course in courses" :key="course.id"/>
       </div>
       <div class="mx-auto my-auto" v-show="this.isSearching">
@@ -62,6 +62,7 @@ export default {
   },
   computed: {
     isSearching () {
+      console.log(this.search.isActive)
       return this.search.isActive
     }
   },
