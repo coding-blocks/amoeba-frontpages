@@ -5,8 +5,8 @@ COMMAND14="cd ~/frontends/amoeba-frontpages-prod/online.codingblocks.com && \
 	git pull && \
     ulimit -S -n 65000 && \
     nvm use && \
-  yarn && yarn build:prod && \
-  nvm use 8 && \
+  yarn install --frozen-lockfile && yarn build:prod && \
+  nvm use 12 && \
   NODE_ENV=production pm2 restart amoeba-frontpages-production
 	"
 

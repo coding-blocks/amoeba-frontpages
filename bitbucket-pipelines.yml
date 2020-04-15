@@ -9,7 +9,7 @@ pipelines:
           deployment: production
           script: 
             - cd online.codingblocks.com
-            - yarn install
+            - yarn install --frozen-lockfile
             - yarn build:prod
             - ls
             - ../deploy-production.sh
@@ -21,7 +21,7 @@ pipelines:
           deployment: staging
           script: 
             - cd online.codingblocks.com
-            - yarn install
+            - yarn install --frozen-lockfile
             - yarn build
             - ls
             - ../deploy-staging.sh
