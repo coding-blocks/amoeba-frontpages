@@ -78,8 +78,8 @@ export default {
   tasks(t, { timeout }) {
     return {
       search: t(function *(query) {
-        yield timeout(1000)
-        // this.searchQuery = query
+        this.$nuxt.$loading.start()
+        yield timeout(500)
         const res = yield this.$axios.get('/courses', {
           params: {
             exclude: `ratings,instructors.*`,
@@ -97,6 +97,7 @@ export default {
         })
 
         this.courses = yield this.$jsonApiStore.sync(res.data)
+        this.$nuxt.$loading.finish()
       })
       .flow('restart', { delay: 500 })
     }
