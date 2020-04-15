@@ -54,10 +54,9 @@
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="col-lg-8 col-6">
             <div>
-              <span class="bold gradient-text-orange font-sm">{{price > 0 ? '&#x20b9;' + price : 'Free' }} </span>
-              <span class="card-md bold grey pl-lg-3 pl-1" v-if="showMrp">
-                &#x20b9;
-                <del>{{mrp}}</del>
+              <span class="bold gradient-text-orange font-sm">{{price > 0 ? `₹${price}` : 'Free' }} </span>
+              <span class="card-md bold grey pl-lg-3 pl-1" v-show="showMrp">
+                ₹<del>{{mrp}}</del>
               </span>
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
