@@ -19,9 +19,12 @@
                   Free
                 </div>
               </div>
-              <div class="mt-1 dark-grey word-spaced">
+              <div class="mt-1 dark-grey word-spaced" v-if="section.contents.length">
                 {{ section.contents.length }} Items | Duration : {{sectionDuration | formatContentDuration}}
-              </div> 
+              </div>
+              <div class="mt-1 dark-grey word-spaced" v-else>
+                Coming Soon!
+              </div>
             </div>
             <div class="col-1">
               <img src="https://minio.codingblocks.com/amoeba/accordion-up.svg" class="float-right accordion-icon" :class="!expanded && 'down'">
