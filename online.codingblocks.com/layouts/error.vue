@@ -1,5 +1,5 @@
 <template>
-  <component :is="errorComponent" />
+  <component :is="errorComponent" :error="error" />
 </template>
 <script>    
 export default {
