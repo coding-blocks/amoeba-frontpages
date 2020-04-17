@@ -94,12 +94,18 @@ import { metaForCourse } from '~/utils/seo'
 
 export default {
   mixins: [sidebarLayoutMixin],
-  async asyncData({ params, $axios, app }) {
-    const res = await $axios.get(`/courses/${params.id}`)
-    const course = app.$jsonApiStore.sync(res.data)
-    return {
-      course
+  async asyncData({ params,error, $axios, app }) {
+    try{
+      const res = await $axios.get(`/courses/${params.id}`)
+      const course = app.$jsonApiStore.sync(res.data)
+      return {
+        course
+      }
     }
+    catch(e){
+      error({ statusCode: 404, message: 'Course not found' })
+    }
+    
   },
   data() {
     return {
