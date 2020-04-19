@@ -42,9 +42,9 @@ export const jsonSchemaForCourse = (course) => {
         course['active-runs'].length > 0
           ? formatTimestamp(
               course['active-runs'][0]['enrollment-end'],
-              'yyyy-mm-dd'
+              'YYYY-MM-DD'
             )
-          : formatTimestamp(Date.now() / 1000, 'yyyy-mm-dd'),
+          : formatTimestamp(Date.now() / 1000, 'YYYY-MM-DD'),
       price: course.runs.length && course.runs.reduce((acc, curr) =>
         acc.price < curr.price ? acc : curr
       ).price,
@@ -107,14 +107,15 @@ export const metaForCourse = (course) => {
     },
     { hid: 10, itemprop: 'name', content: course.subtitle },
     { hid: 11, itemprop: 'description', content: course['seo-meta'] },
-    { hid: 12, itemprop: 'image', content: course.logo }
+    { hid: 12, itemprop: 'image', content: course.logo },
+    { hid: 13, property: 'og:type', content: 'website' },
   ]
 }
 
 export const metaForAllCourses = () => {
   return [
     {
-      hid: 1,
+      hid: 'description',
       type: 'description',
       content:
         'Coding Blocks is the best online programming and software training Institute offer online certification courses in Jave, C++, Android, NodeJs, Data structure, Machine learning, Interview preparation and more.'
@@ -147,7 +148,7 @@ export const metaForAllCourses = () => {
     {
       hid: 9,
       property: 'og:url',
-      content: 'https://online.codingblocks.com/'
+      content: 'https://online.codingblocks.com/courses'
     },
     {
       hid: 10,
@@ -166,7 +167,5 @@ export const metaForAllCourses = () => {
       content:
         'https://minio.codingblocks.com/amoeba/OnlineLogo2020_LIGHT_logofull.png'
     }
-
-
   ]
 }
