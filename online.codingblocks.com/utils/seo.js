@@ -88,7 +88,7 @@ export const jsonSchemaForAllCourses = (courses) => {
 
 export const metaForCourse = (course) => {
   return [
-    { hid: 1, type: 'description', content: course['seo-meta'] },
+    { hid: 'description', type: 'description', content: course['seo-meta'] },
     { hid: 2, type: 'title', content: course.subtitle },
     { hid: 3, type: 'twitter:card', content: 'summary' },
     { hid: 4, type: 'twitter:site', content: '@CodingBlocksIn' },
@@ -103,7 +103,7 @@ export const metaForCourse = (course) => {
     {
       hid: 9,
       property: 'og:url',
-      content: 'https://online.codingblocks.com/'
+      content: `https://online.codingblocks.com/courses/${course.slug}`
     },
     { hid: 10, itemprop: 'name', content: course.subtitle },
     { hid: 11, itemprop: 'description', content: course['seo-meta'] },
