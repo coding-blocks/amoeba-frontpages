@@ -42,9 +42,9 @@ export const jsonSchemaForCourse = (course) => {
         course['active-runs'].length > 0
           ? formatTimestamp(
               course['active-runs'][0]['enrollment-end'],
-              'yyyy-MM-DD'
+              'yyyy-MM-dd'
             )
-          : formatTimestamp(Date.now() / 1000, 'yyyy-MM-DD'),
+          : formatTimestamp(Date.now() / 1000, 'yyyy-MM-dd'),
       price: course.runs.length && course.runs.reduce((acc, curr) =>
         acc.price < curr.price ? acc : curr
       ).price,
