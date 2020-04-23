@@ -50,7 +50,7 @@ if (process.client) {
   var infiniteScroll = require('vue-infinite-scroll')
 }
 
-const fetchCourses = (axios, query = '', offset = 9, limit = 9) => {
+const fetchCourses = (axios, query = '', offset = 0, limit = 9) => {
   return axios.get('/courses', {
       params: {
         exclude: `ratings,instructors.*,jobs`,
