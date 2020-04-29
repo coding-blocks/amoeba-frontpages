@@ -1,7 +1,7 @@
 <template>
   <div class="row no-gutters a-ocb">
     <div class="col-md-12 col-10">
-      <div class="border-card px-0 py-5">
+      <div class="border-card px-0 pb-0">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
           <h5 class="bold">Choose Batch</h5>
           <a href="#" class="bold gradient-text-orange mr-3 v-align-ma">
@@ -9,7 +9,7 @@
             Compare
           </a>
         </div>
-        <div class="tab-nav-underline px-4 mb-4">
+        <div class="tab-nav-underline px-4">
             <div class="tab mr-xl-5 mr-lg-4 mr-md-2 mr-5"
                 v-for="month in months"
                 :key="month"
@@ -19,15 +19,16 @@
                   {{month}}
             </div>
         </div>
-        <RunRow
-            v-for="(run, index) in runsForSelectedMonth"
-            :run="run"
-            :index="index"
-            :courseId="courseId"
-            :key="run.id"
-            >
-        </RunRow>
-
+        <transition-group name="fade" tag="div">
+          <RunRow
+              v-for="(run, index) in runsForSelectedMonth"
+              :run="run"
+              :index="index"
+              :courseId="courseId"
+              :key="run.id"
+              >
+          </RunRow>
+        </transition-group>
       </div>
     </div>
   </div>
@@ -35,6 +36,7 @@
 
 <script>
 import { formatTimestamp, formatMonthFromTimestamp } from '~/utils/date'
+import { byTier } from '~/utils/run'
 import { format } from 'date-fns'
 import { mapState } from 'vuex'
 import config from '~/config.json'
@@ -64,7 +66,7 @@ export default {
     },
     runsForSelectedMonth () {
       const { selectedMonth } = this
-      return this.runs.filter(r => formatMonthFromTimestamp(r.start) === selectedMonth)
+      return this.runs.filter(r => formatMonthFromTimestamp(r.start) === selectedMonth).sort(byTier)
     }
   },
   components: {
@@ -82,4 +84,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.fade-enter-active{
+  transition: all 250ms;
+}
+.fade-enter {
+  opacity: 0;
+}
+</style>
 

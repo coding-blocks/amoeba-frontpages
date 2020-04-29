@@ -1,20 +1,46 @@
 <template>
     <div>
-      <div v-if="run.tier === 'LITE'">
-          <LiteTier :run="run" :courseId="courseId" />
-      </div>
-      <div class="divider-h"></div>
-
-      <div v-if="!run.tier || run.tier === 'PREMIUM'">
-          <PremiumTier :run="run" :courseId="courseId" />
-          <div class="divider-h"></div>
-      </div>
-      <div v-if="run.tier === 'LIVE'">
-          <LiveTier :run="run" :courseId="courseId" />
-          <div class="divider-h"></div>
-      </div>
-      <div v-if="run.tier === 'CLASSROOM'">
-          <ClassroomTier :run="run" :courseId="courseId" />
+      <div class="hover-indicator p-4">
+        <VAccordion>
+          <template v-slot:head="{ onToggle, expanded }">
+            <div class="pointer row no-gutters justify-content-between align-items-center" @click="onToggle">
+                <div class="v-align-ma">
+                    <img :src="iconUrl" class="mr-1">
+                    <h4 class="tier-name gradient-text-orange d-inline-block">{{tier}}</h4>
+                    <img class="ml-1 accordion-icon" :class="{ up: expanded }" src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/gradient-down.png">
+                </div>
+                <div class="d-lg-block d-md-none d-block flex-1 card-md dark-grey ml-2 t-align-r">
+                    Batch starting {{run.start | formatTimestamp}}
+                </div>
+            </div>
+            <div class="divider-h mt-4 mb-3"></div>
+          </template>
+          <template v-slot:content>
+            <RunRowFeatures :tier="tier" />
+          </template>
+        </VAccordion>
+        
+        <div class="row no-gutters justify-content-between align-items-center">
+            <div class="flex-1 pr-1">
+                <div>
+                    <h5 class="bold d-inline-block mr-2">&#8377; {{run.price}}</h5>
+                    <span class="extra-bold dark-grey d-xl-inline d-md-block d-inline mt-xl-0 mt-md-2 mt-0">
+                      <del>&#8377;
+                            {{run.mrp}}
+                            </del></span>
+                </div>
+                <div class="card-md mt-1 dark-grey">Enrollment ends {{run.end | formatTimestamp}}</div>
+            </div>
+            <div>
+              <a
+              class="buy-now-button button-dashed button-orange"
+              target="_blank"
+              :href="`https://dukaan.codingblocks.com/buy?productId=${run['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
+              @click="addToCart()">
+                Buy Now
+              </a>
+            </div>
+        </div>
       </div>
     </div>
 </template>
@@ -24,10 +50,9 @@ import { formatTimestamp } from '~/utils/date'
 import { format } from 'date-fns'
 import { mapState } from 'vuex'
 import config from '~/config.json'
-import LiteTier from './LiteTier.vue'
-import LiveTier from './LiveTier.vue'
-import PremiumTier from './PremiumTier.vue'
-import ClassroomTier from './ClassroomTier.vue'
+import { iconForTier, featuresForRunTier } from '~/utils/run'
+import RunRowFeatures from './RunRowFeatures'
+import VAccordion from '~/components/Base/VAccordion'
 
 export default {
   name: 'RunRow',
@@ -41,12 +66,62 @@ export default {
        required: true
     }
   },
+  computed: {
+    runStartString () {
+      return formatTimestamp(this.run.start)
+    },
+    user() {
+      return this.session?.user
+    },
+    iconUrl () {
+      return iconForTier(this.run.tier)
+    },
+    tier () {
+      return this.run.tier || 'PREMIUM'
+    },
+    ...mapState(['session']),
+  },
   components: {
-    LiteTier,
-    LiveTier,
-    PremiumTier,
-    ClassroomTier
+    RunRowFeatures,
+    VAccordion
+  },
+  methods: {
+    addToCart () {
+      this.$gtag('event', 'add_to_cart', {
+        items: [
+          {
+            id: this.selectedRun['product-id'],
+            name: this.selectedRun.description,
+            list_name: this.selectedRun.name,
+            brand: "CodingBlocks",
+            category: "Course",
+            list_position: 1,
+            quantity: 1,
+            price: this.selectedRun.price
+          }
+        ]
+      })
+    }
+  },
+  filters: {
+    formatTimestamp () {
+      return formatTimestamp(...arguments)
+    }
   }
 }
 </script>
 
+<style scoped>
+.accordion-icon {
+  transition: all 0.3s;
+}
+.accordion-icon.up{
+  transform: rotate(180deg)
+}
+.tier-name {
+  letter-spacing: 1px;
+}
+.buy-now-button {
+  letter-spacing: 0.5px;
+}
+</style>
