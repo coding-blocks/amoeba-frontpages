@@ -1,5 +1,5 @@
 COMMAND14="cd ~/frontends/amoeba-frontpages-staging/online.codingblocks.com && \
-	git checkout master && \
+	git checkout development && \
 	git fetch --all --prune && \
 	git reset --hard origin/master && \
 	git pull && \
