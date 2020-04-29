@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseBatch :course-id="course.id" :runs="availableRuns" />
+        <ChooseRunTier courseId="course.id" :runs="availableRuns"/>
         <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
       </div>
     </div>
@@ -83,6 +83,7 @@ import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
 import AlternateTrackCard from '~/components/AboutCourse/AlternateTrackCard.vue'
+import ChooseRunTier from '~/components/AboutCourse/ChooseRunTier.vue'
 
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
@@ -141,7 +142,8 @@ export default {
     StudentsExperience,
     VAsync,
     SuggestedTrackCard,
-    AlternateTrackCard
+    AlternateTrackCard,
+    ChooseRunTier
   },
   computed: {
     projectIds() {
