@@ -4,7 +4,7 @@
       <div class="border-card px-0 py-5">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
           <h5 class="bold">Choose Batch</h5>
-          <a class="bold gradient-text-orange mr-3 v-align-ma" @click="showModal = true">
+          <a href="" class="bold gradient-text-orange mr-3 v-align-ma" v-on:click.prevent.stop="showModal = true">
             <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/compare.png" class="mr-1">
             Compare
           </a>

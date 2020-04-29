@@ -12,9 +12,9 @@
 
             <div class="modal-footer">
                 <slot name="footer">
-                <a
+                <a href
                     class="button-dashed button-orange"
-                    @click="$emit('close')">
+                    v-on:click.prevent.stop="$emit('close')">
                     OKAY
                 </a>
                 </slot>
