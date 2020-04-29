@@ -4,7 +4,7 @@
       <div class="border-card px-0 pb-0">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
           <h5 class="bold">Choose Batch</h5>
-          <a href="#" class="bold gradient-text-orange mr-3 v-align-ma">
+          <a href="" class="bold gradient-text-orange mr-3 v-align-ma" v-on:click.prevent.stop="showModal = true">
             <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/compare.png" class="mr-1">
             Compare
           </a>
@@ -19,6 +19,11 @@
                   {{month}}
             </div>
         </div>
+
+        <Modal v-if="showModal" @close="showModal = false">
+          <TierComparison slot="body"/>
+        </Modal>
+
         <transition-group name="fade" tag="div">
           <RunRow
               v-for="(run, index) in runsForSelectedMonth"
@@ -41,7 +46,8 @@ import { format } from 'date-fns'
 import { mapState } from 'vuex'
 import config from '~/config.json'
 import RunRow from './RunRow.vue'
-
+import Modal from '../Modal.vue'
+import TierComparison from '../TierComparison.vue'
 export default {
   name: 'ChooseRunTier',
   props: {
@@ -56,6 +62,7 @@ export default {
   },
   data() {
     return {
+      showModal: false,
       selectedMonth: formatMonthFromTimestamp(this.runs[0].start),
     }
   },
@@ -70,7 +77,9 @@ export default {
     }
   },
   components: {
-    RunRow
+    RunRow,
+    Modal,
+    TierComparison
   },
   methods: {
     changeSelectedMonth(month) {
