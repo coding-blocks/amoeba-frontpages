@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseRunTier courseId="course.id" :runs="availableRuns"/>
-        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
+        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -231,11 +231,11 @@ export default {
   }
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {  */ /* uncomment this to have "Choose batch" as 2nd widget on mobile */
   .first-half > * {
     order: unset;
   }
-}
+/* } */
 
 .course-content {
   /* max-height: 600px; */

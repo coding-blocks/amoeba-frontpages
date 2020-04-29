@@ -1,6 +1,6 @@
 <template>
   <div class="row no-gutters a-ocb">
-    <div class="col-md-12 col-10">
+    <div class="col-12">
       <div class="border-card px-0 pb-0">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
           <h5 class="bold">Choose Batch</h5>
