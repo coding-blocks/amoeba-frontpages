@@ -6,7 +6,7 @@ COMMAND14="cd ~/frontends/amoeba-frontpages-staging/online.codingblocks.com && \
     ulimit -S -n 65000 && \
     nvm use && \
   yarn && yarn build && \
-  nvm use 8 && \
+  nvm use 12 && \
   NODE_ENV=production pm2 restart amoeba-frontpages-staging
 	"
 
