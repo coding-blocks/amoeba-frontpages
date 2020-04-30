@@ -21,7 +21,12 @@
         </div>
 
         <Modal v-if="showModal" @close="showModal = false">
-          <TierComparison slot="body"/>
+          <div slot="body">
+            <TierComparison />
+            <div class="d-md-none t-align-c mt-2" @click="showModal = false">
+              <button class="button-dashed button-orange">Go Back</button>
+            </div>
+          </div>
         </Modal>
 
         <transition-group name="fade" tag="div">
