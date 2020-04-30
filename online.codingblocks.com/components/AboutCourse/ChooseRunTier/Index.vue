@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      showModal: false,
+      showModal: !!this.$route.query.compare,
       selectedMonth: formatMonthFromTimestamp(this.runs[0].start),
     }
   },
