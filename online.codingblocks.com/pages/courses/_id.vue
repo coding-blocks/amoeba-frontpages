@@ -26,8 +26,8 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseBatch :course-id="course.id" :runs="availableRuns" />
-        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!tags.length" />
+        <ChooseRunTier courseId="course.id" :runs="availableRuns"/>
+        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -83,6 +83,7 @@ import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
 import AlternateTrackCard from '~/components/AboutCourse/AlternateTrackCard.vue'
+import ChooseRunTier from '~/components/AboutCourse/ChooseRunTier/Index.vue'
 
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
@@ -141,7 +142,8 @@ export default {
     StudentsExperience,
     VAsync,
     SuggestedTrackCard,
-    AlternateTrackCard
+    AlternateTrackCard,
+    ChooseRunTier
   },
   computed: {
     projectIds() {
@@ -229,11 +231,11 @@ export default {
   }
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {  */ /* uncomment this to have "Choose batch" as 2nd widget on mobile */
   .first-half > * {
     order: unset;
   }
-}
+/* } */
 
 .course-content {
   /* max-height: 600px; */
@@ -276,5 +278,4 @@ export default {
   left: 0px;
   background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg') no-repeat;
 }
-
 </style>

@@ -14,13 +14,11 @@
 </template>
 
 <script>
-import VAccordion from '~/components/Base/VAccordion'
 import SectionAccordion from '~/components/AboutCourse/CourseContentCard/SectionAccordion.vue'
 export default {
   name: 'CourseContentCard',
 
   components: {
-    VAccordion,
     SectionAccordion
   },
   props: {

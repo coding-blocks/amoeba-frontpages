@@ -1,20 +1,19 @@
+const propEq = (key, val) => obj => obj[key] === val
+
 export const topRunForCourse = (course) => {
   let runs = course['active-runs']
-  if (!runs || !runs.length) runs = course.runs
+  if (!runs || !runs.length)
+    runs = course.runs
+  
+  runs = Array.from(runs) // ensure we don't modify runs here to keep things deterministic
+  
+  const runsSortedByStart = runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
 
-  const now = +new Date() / 1000.0
+  const latestPremium = runsSortedByStart.find(propEq('tier', 'PREMIUM'))
+  const latestLive = runsSortedByStart.find(propEq('tier', 'LIVE'))
+  const cheapest = runsSortedByStart.reduce((acc, run) => run.price < acc.price ? run : acc)
 
-  const currentRuns = runs.filter(
-    (run) =>
-      run['enrollment-start'] < now &&
-      run['enrollment-end'] > now &&
-      run.status === 'published' &&
-      !run.unlisted
-  )
-
-  const byPrice = (l) => l.price
-
-  return currentRuns.sort(byPrice)[0] || runs.sort(byPrice)[0]
+  return latestPremium || latestLive || cheapest
 }
 
 export const textForDifficulty = (difficulty) =>

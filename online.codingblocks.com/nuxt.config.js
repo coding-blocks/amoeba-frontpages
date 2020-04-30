@@ -5,7 +5,7 @@ export default {
   mode: 'universal',
   server: {
     port: config.port
-  },
+},
   /*
    ** Headers of the page
    */
