@@ -1,6 +1,6 @@
 <template>
 <div class="a-ocb">
-    <div class="border-card">
+    <div class="p-4">
         <div class="horizontal-scrolling-table">
             <table class="comparison-table w-100">
                 <thead>
@@ -154,10 +154,10 @@
     </div>
 </div>
 </template>
-<style>
-table {
-   overflow-y:auto;
-   height:500px;
-   display:block;
+
+
+<style scoped>
+.horizontal-scrolling-table {
+  overflow-x: unset;
 }
 </style>

@@ -36,6 +36,10 @@
         </transition-group>
       </div>
     </div>
+
+    <link rel="preload" href="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick.png" as="image">
+    <link rel="preload" href="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/red-cross.png" as="image">
+
   </div>
 </template>
 

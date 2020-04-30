@@ -2,23 +2,10 @@
 <transition name="Modal">
 <div class="modal-mask"  @click="$emit('close')">
     <div class="modal-wrapper">
-        <div class="modal-container">
-
-            <div class="modal-body">
-                <slot name="body">
+        <div class="modal-container" @click.stop="">
+              <slot name="body" >
                 default body
-                </slot>
-            </div>
-
-            <div class="modal-footer">
-                <slot name="footer">
-                <a href
-                    class="button-dashed button-orange"
-                    v-on:click.prevent.stop="$emit('close')">
-                    OKAY
-                </a>
-                </slot>
-            </div>
+              </slot>
         </div>
     </div>
 </div>
@@ -46,12 +33,22 @@
 
 .modal-container {
   width: 80%;
+  /* max-width: ; */
   margin: 0px auto;
-  padding: 10px 30px;
+  overflow: auto;
+  /* padding: 10px 30px; */
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+@media(max-width: 576px) {
+  .modal-container {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .modal-header h3 {

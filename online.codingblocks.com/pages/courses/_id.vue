@@ -278,5 +278,4 @@ export default {
   left: 0px;
   background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg') no-repeat;
 }
-
 </style>

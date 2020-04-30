@@ -10,7 +10,7 @@
     </div>
   </div> -->
    <div>
-    <promotion-banner />
+    <!-- <promotion-banner /> -->
     <div class="row no-gutters justify-content-between px-md-5 px-4 py-4">
       <div class="col-12">
         
