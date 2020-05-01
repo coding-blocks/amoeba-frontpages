@@ -1,14 +1,4 @@
 <template>
-  <!-- <div class="container-fluid c-topnav py-3" id="TheNavbarTop">
-    <div class="d-flex justify-content-between align-items-center ">
-      <div class="d-flex nav-items">
-        <div>Learning Tracks</div>
-        <div>Explore Courses</div>
-        <div>Hiring Blocks</div>
-      </div>
-      <button class="button-solid button-orange">Get Started</button>
-    </div>
-  </div> -->
    <div>
     <promotion-banner />
     <div class="row no-gutters justify-content-between px-md-5 px-4 py-4">

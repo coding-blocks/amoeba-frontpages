@@ -242,7 +242,7 @@
 
         <div class="row mt-5 justify-content-between align-items-center">
 
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-md-6 d-flex align-items-center">
             <h5 class="orange mr-4">Contact Us</h5>
             <div class="font-sm light d-inline-block">
               <span class="">
@@ -253,7 +253,7 @@
             </div>
           </div>
   
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-md-6 d-flex align-items-center">
             <h5 class="orange mr-4">Technical Support</h5>
             <div class="font-sm light d-inline-block">
               <span class="">
