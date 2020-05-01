@@ -21,6 +21,8 @@ export const freeTrialRunForCourse = (course) => {
   if (!runs || !runs.length)
     runs = course.runs
   
+  runs = Array.from(runs) // ensure we don't modify runs here to keep things deterministic
+
   const runsSortedByStart = runs.sort((r1, r2) => r1.start - r2.start)
   
   const earliestLite = runsSortedByStart.find(propEq('tier', 'LITE'))
