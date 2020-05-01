@@ -1,7 +1,7 @@
 COMMAND14="cd ~/frontends/amoeba-frontpages-staging/online.codingblocks.com && \
 	git checkout development && \
 	git fetch --all --prune && \
-	git reset --hard origin/master && \
+	git reset --hard origin/development && \
 	git pull && \
     ulimit -S -n 65000 && \
     nvm use && \
