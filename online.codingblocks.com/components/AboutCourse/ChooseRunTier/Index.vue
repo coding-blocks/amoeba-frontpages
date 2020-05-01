@@ -1,19 +1,5 @@
 <template>
   <div class="row no-gutters a-ocb">
-    <div class="col-12 mb-5">
-      <div class="border-card border-orange">
-        <div class="row justify-content-between align-items-center px-4">
-          <div>
-            <h5 class="bold">Take Free Trial</h5>
-            <div>Preview this course for free</div>
-          </div>
-          <div>
-            <a @click.native="log('FreeTrial')" :href="tryNowLink" class="button-solid button-orange free-trial-button">Try it for free!</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="col-12">
       <div class="border-card px-0 pb-0">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
@@ -71,7 +57,6 @@ import config from '~/config.json'
 import RunRow from './RunRow.vue'
 import Modal from '../Modal.vue'
 import TierComparison from '../TierComparison.vue'
- 
 export default {
   name: 'ChooseRunTier',
   props: {
@@ -81,10 +66,6 @@ export default {
     },
     courseId: {
       type: Number,
-      required: true
-    },
-    trialRun: {
-      type: Object,
       required: true
     }
   },
@@ -102,10 +83,7 @@ export default {
     runsForSelectedMonth () {
       const { selectedMonth } = this
       return this.runs.filter(r => formatMonthFromTimestamp(r.start) === selectedMonth).sort(byTier)
-    },
-    tryNowLink() {
-      return `/app/classroom/course/${this.courseId}/run/${this.trialRun.id}`
-    },
+    }
   },
   components: {
     RunRow,
@@ -116,30 +94,10 @@ export default {
     changeSelectedMonth(month) {
       this.selectedMonth = month
     },
-    log: function(title) {
-      try {
-      this.$gtag('event', 'view_event', {
-        items: [
-          {
-            id: this.trialRun['product-id'],
-            name: this.trialRun.description,
-            list_name: this.trialRun.name,
-            brand: "CodingBlocks",
-            category: "Course",
-            list_position: 1,
-            quantity: 1,
-            price: this.trialRun.price
-          }
-        ]
-      })
-      } catch (err) {
-        console.error(err)
+    filters: {
+      formatRunName (run) {
+        return format(new Date(run.start*1000), "MMM yyyy")
       }
-    }
-  },
-  filters: {
-    formatRunName (run) {
-      return format(new Date(run.start*1000), "MMM yyyy")
     }
   }
 }
@@ -151,13 +109,6 @@ export default {
 }
 .fade-enter {
   opacity: 0;
-}
-.border-orange {
-  border: 1px solid #F2734C;
-}
-.free-trial-button {
-  letter-spacing: 0.5px;
-  font-weight: normal;
 }
 </style>
 
