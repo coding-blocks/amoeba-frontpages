@@ -29,7 +29,7 @@
                             {{run.mrp}}
                             </del></span>
                 </div>
-                <div class="card-md mt-1 dark-grey">Enrollment ends {{run.end | formatTimestamp}}</div>
+                <div class="card-md mt-1 dark-grey">Enrollment ends {{run['enrollment-end'] | formatTimestamp}}</div>
             </div>
             <div>
               <a
