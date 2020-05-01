@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseRunTier courseId="course.id" :runs="availableRuns"/>
+        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns"/>
         <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
@@ -90,7 +90,7 @@ import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
 import VAsync from '~/components/Base/VAsync.vue'
 import { jsonSchemaForCourse } from '~/utils/seo'
-import { topRunForCourse } from '~/utils/course'
+import { topRunForCourse, freeTrialRunForCourse } from '~/utils/course'
 import { metaForCourse } from '~/utils/seo'
 
 export default {
@@ -151,6 +151,9 @@ export default {
     },
     topRun() {
       return topRunForCourse(this.course)
+    },
+    freeTrialRun () {
+      return freeTrialRunForCourse(this.course)
     },
     availableRuns() {
       return (this.course['active-runs'] || []).sort(
