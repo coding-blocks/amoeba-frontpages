@@ -5,13 +5,16 @@
         Student Feedback
 
         <div id="app" class="orange" style="float: right;">
-          <button type="button" class="btn" @click="showModal">
+          <button type="button" class="btn" v-on:click.prevent.stop="showModal = true">
             View all reviews
           </button>
-            <modal :ratingStats="ratingStats" :reviews="reviews" v-show="isModalVisible" @close="closeModal" />
+
+
         </div>
       </div>
-
+      <Modal v-if="showModal" @close="showModal = false">
+        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" slot="body"/>
+      </Modal>
       <div class="row no-gutters align-items-center mb-3">
         <div class="col-lg-7">
           <div class="row no-gutters align-items-center">
@@ -69,7 +72,8 @@
 
 <script>
 import RatingStars from './RatingStars.vue'
-import modal from './ReviewModal.vue'
+import DetailedReviews from './ReviewModal.vue'
+import Modal from './Modal.vue'
 
 // import Swal from 'sweetalert2'
 
@@ -87,19 +91,12 @@ export default {
   },
   components: {
     RatingStars,
-    modal,
+    DetailedReviews,
+    Modal
   },
   data() {
     return {
-      isModalVisible: false
-    }
-  },
-  methods: {
-    showModal() {
-      this.isModalVisible = true
-    },
-    closeModal() {
-      this.isModalVisible = false
+      showModal: false
     }
   },
   computed: {
