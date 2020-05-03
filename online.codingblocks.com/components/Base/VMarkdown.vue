@@ -19,6 +19,8 @@ export default {
 <style>
 .markdown-body table {
   padding: 0;
+  display: block;
+  overflow-x: auto;
 }
 .markdown-body table tr {
   border-top: 1px solid #cccccc;
