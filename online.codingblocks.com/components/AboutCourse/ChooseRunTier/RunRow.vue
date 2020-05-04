@@ -94,14 +94,14 @@ export default {
       this.$gtag('event', 'add_to_cart', {
         items: [
           {
-            id: this.selectedRun['product-id'],
-            name: this.selectedRun.description,
-            list_name: this.selectedRun.name,
+            id: this.run['product-id'],
+            name: this.run.description,
+            list_name: this.run.name,
             brand: "CodingBlocks",
             category: "Course",
             list_position: 1,
             quantity: 1,
-            price: this.selectedRun.price
+            price: this.run.price
           }
         ]
       })
