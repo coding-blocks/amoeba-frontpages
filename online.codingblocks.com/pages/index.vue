@@ -8,15 +8,17 @@
       <TrackCard class="mb-5" />
       <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
-          <div class="col-md-8 col-6">
-            <h4 class="bold">Learn from instructor led online courses</h4>
-          </div>
-          <div>
-            <nuxt-link to="/courses" class="button-dashed button-orange">Browse Courses</nuxt-link>
-          </div>
+          <!-- <div class="col-md-8 col-6"> -->
+            <h4 class="bold mx-auto">Learn from instructor led online courses</h4>
+          <!-- </div> -->
         </div>
         <div class="row">
           <ClassRoomCard :course="course" v-for="course in courses" :key="course.id" />
+        </div>
+        <div class="row mt-4 mb-5">
+          <div class="mx-auto">
+            <nuxt-link to="/courses" class="button-dashed button-orange font-mds ">Browse all Courses</nuxt-link>
+          </div>
         </div>
       </div>
 
@@ -109,3 +111,16 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+.font-normal {
+  font-weight: normal;
+}
+</style>
+
+<style>
+h4.bold, strong {
+  letter-spacing: 1px;
+}
+</style>

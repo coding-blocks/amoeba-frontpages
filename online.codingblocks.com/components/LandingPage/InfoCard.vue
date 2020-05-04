@@ -37,6 +37,7 @@
                 </div>
               </div>
             </div>
+            <div>
             <button class="button-dashed button-orange mt-4 v-align-ma" @click="goToTrack">
               Continue
               <img
@@ -46,6 +47,10 @@
                 loading="lazy"
               />
             </button>
+            <span class="ml-2 spaced">
+              or <nuxt-link class="orange" to="/courses"> browse all courses </nuxt-link>
+            </span>
+            </div>
           </div>
         </div>
         <video class="home-img d-phone-none" autoplay loop muted playsinline>
@@ -111,5 +116,8 @@ export default {
 <style scoped>
 .status-button {
   height: 40px;
+}
+.spaced {
+  letter-spacing: 0.4px;
 }
 </style>
