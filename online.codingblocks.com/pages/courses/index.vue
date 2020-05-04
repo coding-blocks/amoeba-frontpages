@@ -16,9 +16,12 @@
         />
       </div>
     </div>
+    <div class="border-bottom-list" v-show="!searchQuery.trim()" >
+      <FeaturedTagExplore :featuredTag='featuredTag' v-for="featuredTag in featuredTags" :key="`feature_${featuredTag.id}`" />
+    </div>
     <div
       class="row a-ocb courses-list"
-      v-infinite-scroll="() => this.loadMore.run()"
+      v-infinite-scroll="() => loadMore.run()"
       infinite-scroll-disabled="disabledInfiniteScroll"
       infinite-scroll-distance="10"
     >
@@ -29,19 +32,22 @@
           :key="course.id"
         />
       </div>
-      <div class="mx-auto my-auto" v-show="this.isSearching">
+      <div v-show="!courses.length" class="font-md mx-auto ">No Results Found</div>
+      <div class="mx-auto my-auto" v-show="isSearching">
         <img
           src="https://minio.codingblocks.com/amoeba/online-loader.gif"
           alt="loading..."
         />
       </div>
+
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
 
 import CourseCard from '~/components/Base/CourseCard.vue'
+import FeaturedTagExplore from '~/components/Base/FeaturedTagExplore.vue'
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 import { jsonSchemaForAllCourses } from '~/utils/seo'
 import { metaForAllCourses } from '~/utils/seo'
@@ -72,7 +78,8 @@ const fetchCourses = (axios, query = '', offset = 0, limit = 9) => {
 export default {
   mixins: [sidebarLayoutMixin],
   components: {
-    CourseCard
+    CourseCard,
+    FeaturedTagExplore
   },
   directives: {
     infiniteScroll
@@ -80,11 +87,15 @@ export default {
   async asyncData({ $axios, app }) {
     const res = await fetchCourses($axios)
     const courses = app.$jsonApiStore.sync(res.data)
-    return { courses }
+
+    const featuredTagsRes = await $axios.get('featured_tags/courses')
+    const featuredTags = app.$jsonApiStore.sync(featuredTagsRes.data)
+    return { courses, featuredTags }
   },
   data() {
     return {
       courses: [],
+      featuredTags: [],
       offset: 0,
       limit: 9,
       searchQuery: '',
@@ -97,7 +108,7 @@ export default {
     },
     disabledInfiniteScroll () {
       return !this.courses.length || this.isSearching || this.infiniteScrollDisabled
-    }
+    },
   },
   jsonld() {
     return jsonSchemaForAllCourses(this.courses)
