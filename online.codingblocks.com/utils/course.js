@@ -1,9 +1,14 @@
 const propEq = (key, val) => obj => obj[key] === val
 
 export const topRunForCourse = (course) => {
-  let runs = course['active-runs']
-  if (!runs || !runs.length)
-    runs = course.runs
+  const activeRuns = course['active-runs']
+  const allRuns = course.runs
+
+  let runs = activeRuns && activeRuns.length ? activeRuns : allRuns
+  
+  if (!runs.length) {
+    return (void 0)
+  }
   
   runs = Array.from(runs) // ensure we don't modify runs here to keep things deterministic
   
@@ -17,9 +22,14 @@ export const topRunForCourse = (course) => {
 }
 
 export const freeTrialRunForCourse = (course) => {
-  let runs = course['active-runs']
-  if (!runs || !runs.length)
-    runs = course.runs
+  const activeRuns = course['active-runs']
+  const allRuns = course.runs
+
+  let runs = activeRuns && activeRuns.length ? activeRuns : allRuns
+  
+  if (!runs.length) {
+    return (void 0)
+  }
   
   runs = Array.from(runs) // ensure we don't modify runs here to keep things deterministic
 
