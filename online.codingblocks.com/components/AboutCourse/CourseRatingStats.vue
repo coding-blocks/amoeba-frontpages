@@ -53,7 +53,7 @@
         <div class="col-lg-5 pl-lg-4 mt-lg-0 mt-5">
           <div
             class="row no-gutters align-items-center mb-3"
-            v-for="review in reviews"
+            v-for="(review , index) in reviews " v-if="index <= 2"
             :key="review.id"
           >
             <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo" />
