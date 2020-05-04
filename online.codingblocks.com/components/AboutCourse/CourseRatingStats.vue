@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="border-card">
       <div class="font-md bold mb-5">
-        Student Feedback {{curCourseId}}
+        Student Feedback
 
         <div id="app" class="orange" style="float: right;">
           <button type="button" class="btn" v-on:click.prevent.stop="showModal = true">
