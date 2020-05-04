@@ -15,7 +15,9 @@
         </div>
     </header>
 
-    <section class="modal-body" id="modalDescription">
+    <section class="modal-body" id="modalDescription" v-infinite-scroll="() => this.loadMore.run()"
+      infinite-scroll-disabled="disabledInfiniteScroll"
+      infinite-scroll-distance="10">
       <slot name="body">
         <div
           class="row no-gutters align-items-center mb-3"
@@ -44,8 +46,15 @@
 <script>
 import RatingStars from './RatingStars.vue'
 
+  if (process.client) {
+    var infiniteScroll = require('vue-infinite-scroll')
+  }
+
 export default {
   name: 'DetailedReviews',
+  directives: {
+    infiniteScroll
+  },
   props: {
     ratingStats: {
       type: Object,
@@ -54,6 +63,9 @@ export default {
     reviews: {
       type: Object,
       required: true
+    },
+    curCourseId: {
+      type: Number
     }
   },
   components: {
@@ -62,12 +74,36 @@ export default {
   data() {
     return {
       offset: 0,
-      limit: 9
+      limit: 6,
+      infiniteScrollDisabled: false
     }
   },
-  methods: {
-    close() {
-      this.$emit('close')
+  computed: {
+    isSearching () {
+      return this.loadMore.isActive
+    },
+    disabledInfiniteScroll () {
+      return !this.reviews.length || this.isSearching || this.infiniteScrollDisabled
+    }
+  },
+  tasks(t, { timeout }) {
+    return {
+      loadMore: t(function *() {
+        debugger;
+        this.$nuxt.$loading.start()
+        this.infiniteScrollDisabled = true
+        this.offset += 5
+        const res = yield this.$axios.get(
+            `ratings/course/45`, { params: { page: { limit: 5 , offset: 5}  } } )
+        const newreviews = yield this.$jsonApiStore.sync(res.data)
+        if (reviews.length) {
+          this.reviews = [...this.reviews , ...newreviews]
+          this.infiniteScrollDisabled = false
+        }
+        else
+        this.infiniteScrollDisabled = true // no new courses to load
+        this.$nuxt.$loading.finish()
+      })
     }
   }
 }
@@ -76,4 +112,5 @@ export default {
 .float{
   float: right;
 }
+
 </style>

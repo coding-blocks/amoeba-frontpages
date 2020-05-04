@@ -2,7 +2,7 @@
   <div class="row no-gutters">
     <div class="border-card">
       <div class="font-md bold mb-5">
-        Student Feedback
+        Student Feedback {{curCourseId}}
 
         <div id="app" class="orange" style="float: right;">
           <button type="button" class="btn" v-on:click.prevent.stop="showModal = true">
@@ -13,7 +13,7 @@
         </div>
       </div>
       <Modal v-if="showModal" @close="showModal = false">
-        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" slot="body"/>
+        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" :curCourseId="curCourseId" slot="body"/>
       </Modal>
       <div class="row no-gutters align-items-center mb-3">
         <div class="col-lg-7">
@@ -87,6 +87,9 @@ export default {
     reviews: {
       type: Object,
       required: true
+    },
+    curCourseId: {
+      type: Number
     }
   },
   components: {
