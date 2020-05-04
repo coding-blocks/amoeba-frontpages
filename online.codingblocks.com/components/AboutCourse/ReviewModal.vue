@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       offset: 0,
-      limit: 6,
+      limit: 3,
       infiniteScrollDisabled: false
     }
   },
@@ -92,11 +92,12 @@ export default {
         debugger;
         this.$nuxt.$loading.start()
         this.infiniteScrollDisabled = true
-        this.offset += 5
         const res = yield this.$axios.get(
-            `ratings/course/45`, { params: { page: { limit: 5 , offset: 5}  } } )
+            `ratings/course/45`, { params: { page: { limit: this.limit , offset: this.offset}  } } )
+        this.offset += 5
+
         const newreviews = yield this.$jsonApiStore.sync(res.data)
-        if (reviews.length) {
+        if (newreviews.length) {
           this.reviews = [...this.reviews , ...newreviews]
           this.infiniteScrollDisabled = false
         }
