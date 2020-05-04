@@ -53,6 +53,7 @@
         </div>
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="col-lg-8 col-6">
+            <div>Starting from</div>
             <div>
               <span class="bold gradient-text-orange font-sm">{{price > 0 ? `₹${price}` : 'Free' }} </span>
               <span class="card-md bold grey pl-lg-3 pl-1" v-show="showMrp">
