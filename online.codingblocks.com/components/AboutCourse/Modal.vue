@@ -21,8 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  overflow-y: auto;
+  background-color: rgba(51, 51, 51, 0.9);
   display: table;
   transition: opacity 0.3s ease;
 }
@@ -35,7 +34,6 @@
 .modal-container {
   width: 80%;
   /* max-width: ; */
-  max-height: 500px; 
   margin: 0px auto;
   overflow: auto;
   /* padding: 10px 30px; */

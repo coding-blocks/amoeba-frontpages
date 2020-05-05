@@ -4,11 +4,10 @@
       <div class="font-md bold mb-5">
         Student Feedback
 
-        <div id="app" class="orange" style="float: right;">
-          <button type="button" class="btn" v-on:click.prevent.stop="showModal = true">
+        <div class="orange detailed_review_button" >
+          <button type="button" class="btn" @click.prevent.stop="showModal = true">
             View all reviews
           </button>
-
 
         </div>
       </div>
@@ -72,7 +71,7 @@
 
 <script>
 import RatingStars from './RatingStars.vue'
-import DetailedReviews from './ReviewModal.vue'
+import DetailedReviews from './DetailedReviews.vue'
 import Modal from './Modal.vue'
 
 // import Swal from 'sweetalert2'
@@ -126,5 +125,8 @@ export default {
 <style scoped>
 .capital{
   text-transform: capitalize;
+}
+.detailed_review_button{
+  float: right;
 }
 </style>

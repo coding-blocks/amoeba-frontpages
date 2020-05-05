@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <div class="mymodal">
     <header class="modal-header" id="modalTitle">
         <div>
-        <h2>Customer Reviews</h2>
-              <div class="font-sm float">{{ ratingStats.count }} Ratings</div>
-              <div class="float mx-2">
+        <h2 class = "float-left" >Customer Reviews</h2>
+        <div class="float-right">
+              <div class="font-md float-right">{{ ratingStats.count }} Ratings</div>
+              <div class="float-right mx-2">
                 <RatingStars
                   pos-rating-class="mr-3"
                   neg-rating-class="d-none"
                   :value="ratingStats.rating"
                 />
               </div>
-              <div class="bold float">{{ ratingStats.rating }} / 5.0</div>
+              <div class="bold font-md float-right">{{ ratingStats.rating }} / 5.0</div>
+              </div>
         </div>
     </header>
 
@@ -21,7 +23,7 @@
       <slot name="body">
         <div
           class="row no-gutters align-items-center mb-3"
-          v-for="review in reviews"
+          v-for="review in modalReviews"
           :key="review.id"
         >
           <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo" />
@@ -75,7 +77,8 @@ export default {
     return {
       offset: 0,
       limit: 5,
-      infiniteScrollDisabled: false
+      infiniteScrollDisabled: false,
+      modalReviews: this.reviews
     }
   },
   computed: {
@@ -83,7 +86,7 @@ export default {
       return this.loadMore.isActive
     },
     disabledInfiniteScroll () {
-      return !this.reviews.length || this.isSearching || this.infiniteScrollDisabled
+      return !this.modalReviews.length || this.isSearching || this.infiniteScrollDisabled
     }
   },
   tasks(t, { timeout }) {
@@ -98,7 +101,7 @@ export default {
 
         const newreviews = yield this.$jsonApiStore.sync(res.data)
         if (newreviews.length) {
-          this.reviews = [...this.reviews , ...newreviews]
+          this.modalReviews = [...this.modalReviews , ...newreviews]
           this.infiniteScrollDisabled = false
         }
         else
@@ -110,8 +113,14 @@ export default {
 }
 </script>
 <style>
-.float{
+.float-right{
   float: right;
 }
-
+.float-left{
+  float: left;
+}
+.mymodal{
+    height: 500px;
+    overflow: auto;
+}
 </style>
