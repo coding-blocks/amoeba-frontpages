@@ -17,7 +17,7 @@
         </div>
         <div class="row mt-4 mb-5">
           <div class="mx-auto">
-            <nuxt-link to="/courses" class="button-dashed button-orange font-mds ">Browse all Courses</nuxt-link>
+            <nuxt-link to="/courses" class="button-solid button-orange font-mds ">Browse all Courses</nuxt-link>
           </div>
         </div>
       </div>
