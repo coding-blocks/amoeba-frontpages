@@ -74,8 +74,6 @@ import RatingStars from './RatingStars.vue'
 import DetailedReviews from './DetailedReviews.vue'
 import Modal from './Modal.vue'
 
-// import Swal from 'sweetalert2'
-
 export default {
   name: 'CourseRatingStats',
   props: {
@@ -111,14 +109,6 @@ export default {
         }))
     }
   }
-  //  tasks (t) {
-  //   return {
-  //   viewDetailedReviews: t(function * () {
-  //   Swal.fire({
-  //    })
-  //   })
-  //  }
-  // }
 }
 </script>
 
