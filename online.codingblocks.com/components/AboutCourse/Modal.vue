@@ -32,7 +32,7 @@
 }
 
 .modal-container {
-  width: 60%;
+  width: 70%;
   /* max-width: ; */
   margin: 0px auto;
   overflow: auto;

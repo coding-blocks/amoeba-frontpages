@@ -12,7 +12,7 @@
         </div>
       </div>
       <Modal v-if="showModal" @close="showModal = false">
-        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" :curCourseId="curCourseId" slot="body"/>
+        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" :curCourseId="curCourseId" :courseName="courseName" slot="body"/>
       </Modal>
       <div class="row no-gutters align-items-center mb-3">
         <div class="col-lg-7">
@@ -87,6 +87,9 @@ export default {
     },
     curCourseId: {
       type: Number
+    },
+    courseName:{
+      type: String
     }
   },
   components: {

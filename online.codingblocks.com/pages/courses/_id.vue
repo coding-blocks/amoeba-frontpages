@@ -35,7 +35,7 @@
         <!-- Course Rating -->
         <VAsync :task="fetchReviewStats">
           <template v-slot="{ value }">
-            <CourseRatingStats v-bind="value" :curCourseId="course.id" />
+            <CourseRatingStats v-bind="value" :curCourseId="course.id" :courseName="course.title" />
           </template>
         </VAsync>
 
