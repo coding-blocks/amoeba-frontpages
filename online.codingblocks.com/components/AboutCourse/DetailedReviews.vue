@@ -1,10 +1,10 @@
 <template>
   <div class="mymodal">
     <header class="modal-header" id="modalTitle">
-        <div>
+        <div class="mt-3 mb-3 ml-3 mr-3">
         <h2 class = "float-left" >Customer Reviews</h2>
         <div class="float-right">
-              <div class="font-md float-right">{{ ratingStats.count }} Ratings</div>
+              <div class="bold font-sm float-right">{{ ratingStats.count }} Ratings</div>
               <div class="float-right mx-2">
                 <RatingStars
                   pos-rating-class="mr-3"
@@ -12,34 +12,34 @@
                   :value="ratingStats.rating"
                 />
               </div>
-              <div class="bold font-md float-right">{{ ratingStats.rating }} / 5.0</div>
+              <div class="bold font-lg float-right mr-2">{{ ratingStats.rating }} / 5.0</div>
               </div>
         </div>
     </header>
 
-    <section class="modal-body" id="modalDescription" v-infinite-scroll="() => this.loadMore.run()"
+    <section class="mt-4 ml-5 mr-3" id="modalDescription" v-infinite-scroll="() => this.loadMore.run()"
       infinite-scroll-disabled="disabledInfiniteScroll"
       infinite-scroll-distance="10">
-      <slot name="body">
+      <slot class="ml-3 mt-2" name="body">
         <div
           class="row no-gutters align-items-center mb-3"
           v-for="review in modalReviews"
           :key="review.id"
         >
-          <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo" />
-          <div class="col-8">
+          <div><img class="s-50x50 br-50 bg-grey mr-4 user_image" :src="review.user.photo" /></div>
+          <div class="col-10">
             <div class="card-md bold capital">
-              {{ review.user.firstname }} {{ review.user.lastname }} 
+              <h3>{{ review.user.firstname }} {{ review.user.lastname }}</h3>
             </div>
-              <div class="">
+              <div class="mt-1">
                 <RatingStars
-                  pos-rating-class="mr-3"
+                  pos-rating-class="mr-2"
                   neg-rating-class="d-none"
                   :value="review.value"
                 />
-              </div>
-            <div class="text-ellipses card-md">{{ review.heading }}</div>
+            </div>
           </div>
+          <div class="col-12"><p class="font-md mb-1 mt-2">{{ review.heading }}</p></div>
         </div>
       </slot>
     </section>
@@ -122,5 +122,9 @@ export default {
 .mymodal{
     height: 500px;
     overflow: auto;
+}
+.user_image{
+  height: 68px;
+  width: 68px;
 }
 </style>
