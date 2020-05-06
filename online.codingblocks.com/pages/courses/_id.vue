@@ -83,7 +83,7 @@ import LeadGenerationCard from '~/components/AboutCourse/LeadGenerationCard.vue'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
 import AlternateTrackCard from '~/components/AboutCourse/AlternateTrackCard.vue'
-
+import ChooseRunTier from '~/components/AboutCourse/ChooseRunTier/Index.vue'
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -141,7 +141,8 @@ export default {
     StudentsExperience,
     VAsync,
     SuggestedTrackCard,
-    AlternateTrackCard
+    AlternateTrackCard,
+    ChooseRunTier
   },
   computed: {
     projectIds() {
