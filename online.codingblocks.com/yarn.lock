@@ -725,10 +725,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@coding-blocks/motley@0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-0.8.1.tgz#6ccc2b1744e88953199bf6b05aeb7710f0bd4143"
-  integrity sha512-QgB0As1oYXqaHAI6xPWE3v6hrWLi+PhJUHd4Sl0RmWeGTGoXs6ggAFN0UZMZpjw1o+g324VdUUoCYfnJWR4WXQ==
+"@coding-blocks/motley@0.8.6":
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-0.8.6.tgz#81454e2c8ddc1b008b67f522a2e6b87b132fed1a"
+  integrity sha512-bF2vnFqkXbcWmhFCQCb5Ppof55kOsQ4GO3le3m3arNfasXqoGDQ39uSTNWujhOGYj494OwR9S4wzEniHoEB86Q==
   dependencies:
     build "^0.1.4"
     run "^1.4.0"

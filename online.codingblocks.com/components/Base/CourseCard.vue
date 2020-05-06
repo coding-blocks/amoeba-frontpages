@@ -53,6 +53,7 @@
         </div>
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="col-lg-8 col-6">
+            <div>Starting from</div>
             <div>
               <span class="bold gradient-text-orange font-sm">{{price > 0 ? `₹${price}` : 'Free' }} </span>
               <span class="card-md bold grey pl-lg-3 pl-1" v-show="showMrp">
@@ -73,7 +74,7 @@
 <script>
 import RatingStars from '~/components/AboutCourse/RatingStars'
 import { formatTimestamp } from '~/utils/date'
-import { topRunForCourse, textForDifficulty } from '~/utils/course';
+import { topRunForCourse, textForDifficulty, freeTrialRunForCourse } from '~/utils/course';
 
 export default {
   name: 'CourseCard',
@@ -92,17 +93,20 @@ export default {
     topRun () {
       return topRunForCourse(this.course)
     },
+    freeTrialRun () {
+      return freeTrialRunForCourse(this.course)
+    },
     price () {
-      return this.topRun ? this.topRun.price : 9999
+      return this.freeTrialRun ? this.freeTrialRun.price : 9999
     },
     mrp () {
-      return this.topRun ? this.topRun.mrp : ''
+      return this.freeTrialRun ? this.freeTrialRun.mrp : ''
     },
     difficultyText () {
       return textForDifficulty(this.course.difficulty)
     },
     tryNowLink () {
-      return `/app/classroom/course/${this.course.id}/run/${this.topRun.id}`
+      return `/app/classroom/course/${this.course.id}/run/${this.freeTrialRun.id}`
     },
     startDateString () {
       return formatTimestamp(this.topRun.start)
@@ -114,7 +118,7 @@ export default {
       return `${this.course.name}`
     },
     showMrp () {
-      return !(this.topRun && (this.topRun.mrp == this.topRun.price))
+      return !(this.freeTrialRun && (this.freeTrialRun.mrp == this.freeTrialRun.price))
     }
   },
   components: {

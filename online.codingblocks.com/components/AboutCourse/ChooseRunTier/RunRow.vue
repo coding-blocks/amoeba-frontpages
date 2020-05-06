@@ -29,7 +29,7 @@
                             {{run.mrp}}
                             </del></span>
                 </div>
-                <div class="card-md mt-1 dark-grey">Enrollment ends {{run.end | formatTimestamp}}</div>
+                <div class="card-md mt-1 dark-grey">Valid for {{validityInMonths}} Months</div>
             </div>
             <div>
               <a
@@ -79,6 +79,10 @@ export default {
     tier () {
       return this.run.tier || 'PREMIUM'
     },
+    validityInMonths () {
+      const { start, end } = this.run 
+      return Math.round((end - start) / (60 * 60 * 24 * 30))
+    },
     ...mapState(['session']),
   },
   components: {
@@ -90,14 +94,14 @@ export default {
       this.$gtag('event', 'add_to_cart', {
         items: [
           {
-            id: this.selectedRun['product-id'],
-            name: this.selectedRun.description,
-            list_name: this.selectedRun.name,
+            id: this.run['product-id'],
+            name: this.run.description,
+            list_name: this.run.name,
             brand: "CodingBlocks",
             category: "Course",
             list_position: 1,
             quantity: 1,
-            price: this.selectedRun.price
+            price: this.run.price
           }
         ]
       })
