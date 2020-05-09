@@ -3,10 +3,10 @@
     <template v-slot:head="{ onToggle, expanded }">
       <div v-show="featuredTag.tag.courses.length">
         <div class="row mb-4">
-        <h4 class="font-lg col-10 capitalise">{{featuredTag.name}} ({{featuredTag.tag.courses.length}})</h4>
-        <div class="my-auto font-normal font-md orange underline col-2" @click="onToggle" v-show="expandedCourses.length">{{expanded? 'Hide':'View All'}}</div>
+          <h4 class="font-lgs col-10 capitalise">{{featuredTag.name}} ({{featuredTag.tag.courses.length}})</h4>
+          <div class="my-auto font-lgs orange underline col-2 t-align-r pointer" @click="onToggle" v-show="expandedCourses.length">{{expanded? 'Hide':'View All'}}</div>
         </div>
-        <div class="w-100 h-100 row">
+        <div class="h-100 row">
             <CourseCard
               :course="course"
               v-for="course in collapsedCourses"

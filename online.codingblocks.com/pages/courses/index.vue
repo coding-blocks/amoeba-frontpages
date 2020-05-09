@@ -16,9 +16,13 @@
         />
       </div>
     </div>
-    <div class="border-bottom-list" v-show="!searchQuery.trim()" >
+    <div class="border-bottom-list" v-show="!searchQuery.trim()" > 
       <FeaturedTagExplore :featuredTag='featuredTag' v-for="featuredTag in featuredTags" :key="`feature_${featuredTag.id}`" />
     </div>
+    <div class="divider-h my-4"></div>
+     <div class="row mb-4">
+          <h4 class="font-lgs col-10 capitalise">Other Courses</h4>
+        </div>
     <div
       class="row a-ocb courses-list"
       v-infinite-scroll="() => loadMore.run()"
