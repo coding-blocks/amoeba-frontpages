@@ -88,14 +88,15 @@ export default {
     const res = await fetchCourses($axios)
     const courses = app.$jsonApiStore.sync(res.data)
 
-    const featuredTagsRes = await $axios.get('featured_tags/courses')
-    const featuredTags = app.$jsonApiStore.sync(featuredTagsRes.data)
-    return { courses, featuredTags }
+    const featuredTagsPayload = await $axios.get('featured_tags/courses')
+    // const featuredTags = app.$jsonApiStore.sync(featuredTagsRes.data) // calling this server sides fails, see computed property
+    return { courses, featuredTagsPayload: featuredTagsPayload.data }
   },
   data() {
     return {
       courses: [],
-      featuredTags: [],
+      featuredTagsPayload: {},
+      // featuredTags: [], // using this server sides fails, see computed property
       offset: 0,
       limit: 9,
       searchQuery: '',
@@ -109,11 +110,14 @@ export default {
     disabledInfiniteScroll () {
       return !this.courses.length || this.isSearching || this.infiniteScrollDisabled
     },
+    featuredTags () {
+      // somehow calling this server side fails; need to debug why
+      return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload) : []
+    }
   },
   jsonld() {
     return jsonSchemaForAllCourses(this.courses)
   },
-
   head() {
     return {
       title: 'Coding Blocks Online | All Courses',
