@@ -116,7 +116,7 @@ export default {
     },
     featuredTags () {
       // somehow calling this server side fails; need to debug why
-      return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload) : []
+      return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload).sort((a,b)=>a.order - b.order) : []
     }
   },
   jsonld() {
