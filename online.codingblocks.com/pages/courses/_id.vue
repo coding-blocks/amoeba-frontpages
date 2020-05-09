@@ -44,7 +44,7 @@
       </div>
 
       <div class="col-md-4 mt-5">
-        <SuggestedTrackCard :track="course['suggested-track']" :curCourseId="course.id"/>
+        <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
         <ProjectsList class="projects" :project-ids="projectIds" />
         <WildcraftCard class="mt-4" />
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
