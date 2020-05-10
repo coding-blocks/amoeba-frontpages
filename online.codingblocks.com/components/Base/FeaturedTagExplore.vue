@@ -16,7 +16,7 @@
       </div>
     </template>
     <template v-slot:content >
-      <div class="w-100 h-100 row">
+      <div class="h-100 row">
             <CourseCard
               :course="course"
               v-for="course in expandedCourses"
