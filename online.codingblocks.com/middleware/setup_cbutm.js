@@ -21,9 +21,6 @@ export default async function ({ route, app: { $cookies } }) {
       ...old_cbutm,
       ...new_cbutm
     }))
-
-    console.log(qp, old_cbutm, new_cbutm)
-
     $cookies.set('_cbutm', _cbutm, {
       path: '/',
       encode: Indentity,
