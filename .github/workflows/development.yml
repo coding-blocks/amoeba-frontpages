@@ -18,10 +18,11 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Build App
+    - name: Use Node
       uses: actions/setup-node@v1
       with:
         node-version: 12
+    - name: Build App
       run: |
         cd online.codingblocks.com
         yarn install --frozen-lockfile
