@@ -1,7 +1,7 @@
 <template>
   <div class="mymodal">
     <div class="border-card p-md-5 p-4">
-      <header class="modal-header border-none" id="modalTitle">
+      <header class="modal-header border-none p-0" id="modalTitle">
         <div
           class="row no-gutters justify-content-between align-items-center mb-5 pb-4"
         >
