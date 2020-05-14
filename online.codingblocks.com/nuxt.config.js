@@ -103,7 +103,7 @@ export default {
   **
   */
   router: {
-    middleware: ['auth', 'redirectLoggedInHome']
+    middleware: ['setup_cbutm', 'auth', 'redirectLoggedInHome']
   },
   /*
    ** Build configuration

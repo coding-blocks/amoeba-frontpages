@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-light-grey mx--5">
+    <div class="bg-light-grey" :class="session.isAuthenticated && 'mx--5'">
         <div class="container my-4 py-5">
           <div :class="session.isAuthenticated && 'mx-md-4 mx-lg-5'">
             <div class="row">

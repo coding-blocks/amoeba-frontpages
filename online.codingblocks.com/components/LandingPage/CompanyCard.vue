@@ -11,7 +11,7 @@
         </div>
         <div class="col-12 col-md-8 mt-md-0 mt-3">
           <div>
-            <img src="../../../images/company-strip.svg" alt loading="lazy" />
+            <img src="/images/company-strip.svg" alt loading="lazy" />
           </div>
         </div>
       </div>

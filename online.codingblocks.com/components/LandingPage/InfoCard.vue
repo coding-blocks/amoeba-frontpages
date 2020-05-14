@@ -37,15 +37,18 @@
                 </div>
               </div>
             </div>
+            <div>
             <button class="button-dashed button-orange mt-4 v-align-ma" @click="goToTrack">
               Continue
-              <img
-                src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/arrow_right_orange.svg"
-                alt
-                class="ml-1"
-                loading="lazy"
-              />
+              
             </button>
+            <span class="ml-2 spaced">
+              or 
+              <nuxt-link class="orange underline font-sm" to="/courses"> 
+                browse all courses <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/arrow_right_orange.svg" alt loading="lazy"/>
+              </nuxt-link>
+            </span>
+            </div>
           </div>
         </div>
         <video class="home-img d-phone-none" autoplay loop muted playsinline>
@@ -111,5 +114,11 @@ export default {
 <style scoped>
 .status-button {
   height: 40px;
+}
+.spaced {
+  letter-spacing: 0.4px;
+}
+.underline {
+  text-decoration: underline;
 }
 </style>

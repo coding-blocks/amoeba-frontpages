@@ -50,7 +50,7 @@
         <div class="border-card p-0">
           <div class="row no-gutters">
             <div class="p-4 col-md-12 col-4 d-flex justify-content-center ">
-              <img style="height: 50px;" src="../../../images/rocket.svg" loading="lazy" />
+              <img style="height: 50px;" src="/images/rocket.svg" loading="lazy" />
             </div>
             <div class="p-4 bg-grey col-md-12 col-8 d-flex align-items-center justify-content-center t-align-c">
               <div>
