@@ -1,5 +1,7 @@
 # online.codingblocks.com
 
+![CI](https://github.com/coding-blocks/amoeba-frontpages/workflows/CI/badge.svg?branch=master)
+
 > nuxt app for serving online.codingblocks.com public page. To be used with [Online Frontend Server](https://github.com/coding-blocks/codingblocks.online.server)
 
 ## Build Setup
