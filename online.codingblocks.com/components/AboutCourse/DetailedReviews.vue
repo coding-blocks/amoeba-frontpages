@@ -42,7 +42,7 @@
             <div class="row no-gutters justify-content-between align-items-center">
               <div class="col-sm-6 col-12">
                 <div class="row no-gutters align-items-center">
-                  <img class="round s-70x70 mr-4 bg-gradient-orange" :src="review.user.photo" />
+                  <img class="round s-70x70 mr-4 bg-gradient-orange" :src="review.user.photo | ensureAvatar" />
                   <div class="flex-1">
                     <h5 class="bold">{{ review.user.firstname }} {{ review.user.lastname }}</h5>
                     <div class="mt-1">
@@ -121,12 +121,12 @@ export default {
   tasks(t, { timeout }) {
     return {
       loadMore: t(function*() {
-        debugger
         this.$nuxt.$loading.start()
         this.infiniteScrollDisabled = true
-        const res = yield this.$axios.get(
-          `ratings/course/${this.curCourseId}`,
-          { params: { page: { limit: this.limit, offset: this.offset } } }
+        const res = yield this.$axios.get(`ratings/course/${this.curCourseId}`,{ 
+          params: { 
+            page: { limit: this.limit, offset: this.offset } } 
+          }
         )
         this.offset += 5
 
@@ -134,9 +134,15 @@ export default {
         if (newreviews.length) {
           this.modalReviews = [...this.modalReviews, ...newreviews]
           this.infiniteScrollDisabled = false
-        } else this.infiniteScrollDisabled = true // no new courses to load
+        } else this.infiniteScrollDisabled = true // no new reviews to load
         this.$nuxt.$loading.finish()
       })
+    }
+  },
+  filters: {
+    ensureAvatar (img) {
+      const random  = Math.floor(Math.random()*20) + 1
+      return img || `https://minio.codingblocks.com/img/avatar-${random}.svg`
     }
   }
 }

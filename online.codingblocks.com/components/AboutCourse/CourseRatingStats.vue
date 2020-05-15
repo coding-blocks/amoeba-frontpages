@@ -4,7 +4,7 @@
       <div class="font-md bold mb-5">
         Student Feedback
 
-        <div class="orange detailed_review_button" >
+        <div class="orange detailed_review_button font-sm">
           <button type="button" class="btn" @click.prevent.stop="showModal = true">
             View all reviews
           </button>
@@ -12,7 +12,12 @@
         </div>
       </div>
       <Modal v-if="showModal" @close="showModal = false">
-        <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" :curCourseId="curCourseId" :courseName="courseName" slot="body"/>
+        <div slot="body">
+          <DetailedReviews :ratingStats="ratingStats" :reviews="reviews" :curCourseId="curCourseId" :courseName="courseName"/>
+          <div class="d-md-none t-align-c mt-2" @click="showModal = false">
+            <button class="button-dashed button-orange">Go Back</button>
+          </div>
+        </div>
       </Modal>
       <div class="row no-gutters align-items-center mb-3">
         <div class="col-lg-7">
@@ -119,7 +124,10 @@ export default {
 .capital{
   text-transform: capitalize;
 }
-.detailed_review_button{
+.detailed_review_button {
   float: right;
+}
+.detailed_review_button > button:hover {
+  text-decoration: underline;
 }
 </style>
