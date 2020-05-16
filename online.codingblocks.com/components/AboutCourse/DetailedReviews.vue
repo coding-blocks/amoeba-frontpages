@@ -56,7 +56,7 @@
                 </div>
               </div>
               <div class="mt-sm-0 mt-2">
-                <img src="/images/company.png" alt />
+                <img src="/img/company.png" alt />
               </div>
             </div>
             <div class="mt-4">{{ review.heading }}</div>

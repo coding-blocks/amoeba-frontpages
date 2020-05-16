@@ -5,7 +5,7 @@
         <div class="row no-gutters align-items-center">
           <div class="col-lg-2 col-12">
             <img
-              src="https://codingblocks.com/assets/images/cb/cb_tshirt_logo.png"
+              src="https://codingblocks.com/assets/img/cb/cb_tshirt_logo.png"
               alt="logo"
               class="landing-page__footer__logo"
             />
