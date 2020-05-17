@@ -56,4 +56,25 @@ export default {
   .bg-transparent {
     background: transparent
   }
+  .c-card-carousel::-webkit-scrollbar {
+    display: block;
+    width: 10px;
+}
+.c-card-carousel::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #767676e0;
+  border-radius: 10px;
+}
+.c-card-carousel::-webkit-scrollbar-thumb {
+ background: #f87a36; 
+  border-radius: 10px;
+}
+.c-card-carousel::-webkit-scrollbar-thumb:hover {
+  background: #ed5d44; 
+}
+@media(min-width: 760px){
+  .c-card-carousel{
+    padding-bottom: 1.8rem;
+  }
+}
+
 </style>
