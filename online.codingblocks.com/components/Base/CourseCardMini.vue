@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="`/courses/${course.slug}`" class="col-lg-4 col-md-5 col-12">
-    <div class="br-10 overflow-hidden">
+    <div class="br-10 overflow-hidden m-2">
       <div class="row head no-gutters justify-content-between align-items-center bg-gradient-pink py-3 px-lg-5 px-4"
         :style="`background-image: url('${course['cover-image']}')`"
       >
