@@ -11,6 +11,11 @@ export const mutations = {
       state.user = user
       state.isAuthenticated = true
     }
+
+    if(state.user.photo==""){
+    	state.user.photo="./default-pic.png"
+    }
+
   },
   setToken(state, token) {
     state.token = token
