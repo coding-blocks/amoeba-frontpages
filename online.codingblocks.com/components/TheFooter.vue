@@ -268,10 +268,10 @@
       </div>
     </div>
     <div class="bg-black-grey py-4 white font-sm landing-page__footer">
-      <div class="row no-gutters justify-content-between align-items-center">
+      <div class="mb-4 row no-gutters justify-content-between align-items-center">
         <div>
-          <div class="mb-3">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
-          <ul class="divided-list my-0">
+          <div class="mb-4">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
+          <ul class="my-4 divided-list my-0">
             <li class="pr-3">
               <a
                 href="https://codingblocks.com/privacypolicy.html"
