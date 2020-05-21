@@ -9,7 +9,7 @@
           <h5 class="bold mt-1 text-ellipses">{{courseTitleMini}}</h5>
 
           <RatingStars class="row no-gutters align-items-center mt-2 rating-stars-small" :value="Math.round(+this.course.rating)">
-            <div class="flex-1 card-md ml-1 d-sm-flex d-none">
+            <div class="flex-1 card-md d-sm-flex d-none">
               <strong>{{this.course.rating}}/5,</strong>
               {{this.course['review-count']}} ratings
             </div>
