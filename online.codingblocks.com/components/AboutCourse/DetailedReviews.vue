@@ -100,7 +100,7 @@ export default {
   },
   data() {
     return {
-      offset: 0,
+      offset: 5,
       limit: 5,
       infiniteScrollDisabled: false,
       modalReviews: this.reviews

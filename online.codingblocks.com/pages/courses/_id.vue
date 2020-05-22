@@ -174,7 +174,7 @@ export default {
           `courses/${this.course.id}/rating`
         )
         const response = yield this.$axios.get(
-            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=7`
+            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=5`
         )
         const reviews = this.$jsonApiStore.sync(response.data)        
         return {ratingStats,reviews}
