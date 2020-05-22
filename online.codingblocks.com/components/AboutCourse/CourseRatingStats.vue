@@ -24,7 +24,7 @@
         </div>
         <div class="col-lg-5 pl-lg-4 mt-lg-0 mt-5">
           <div class="row no-gutters align-items-center mb-3" v-for="review in reviews" :key="review.id" > 
-            <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo" >
+            <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo | ensureAvatar" >
             <div class="col-8">
               <div class="card-md bold capital">{{review.user.firstname}} {{review.user.lastname}} </div>
               <div class="text-ellipses card-md">{{review.heading}}</div>
@@ -62,7 +62,13 @@ export default {
           stars: +key + 1
         }))
     }
-  }  
+  },
+  filters: {
+    ensureAvatar (img) {
+      const random  = Math.floor(Math.random()*36) + 1
+      return img || `https://minio.codingblocks.com/img/avatar-${random}.svg`
+    }
+  }
 }
 
 </script>
