@@ -39,5 +39,19 @@
     },
     "gtm": "GTM-TWLQ78S",
     "port": 8082
+  },
+  "oss": {
+    "axios": {
+      "host": "api-online-public.codingblocks.xyz",
+      "port": 443,
+      "https": true,
+      "prefix": "/api/v2/"      
+    },
+    "publicUrl": "http://test.online",
+    "dukaan": {
+      "url": "https://dukaan.codingblocks.xyz"
+    },
+    "gtm": "GTM-WQGT6VZ",
+    "port": 8081
   }
 }

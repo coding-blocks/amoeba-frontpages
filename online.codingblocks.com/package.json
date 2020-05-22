@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.4",
-    "@coding-blocks/motley": "0.8.4",
+    "@coding-blocks/motley": "0.8.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.8",

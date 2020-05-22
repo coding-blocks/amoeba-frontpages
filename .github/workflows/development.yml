@@ -1,0 +1,47 @@
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request 
+# events but only for the master branch
+on:
+  push:
+    branches: [ development ]
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Use Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Build App
+      run: |
+        cd online.codingblocks.com
+        yarn install --frozen-lockfile
+        yarn build:prod
+      
+    - name: Deploy to staging
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.PRIVATE_KEY }}
+        script: | 
+          cd ~/frontends/amoeba-frontpages-staging/online.codingblocks.com && \
+          git checkout development && \
+          git fetch --all --prune && \
+          git reset --hard origin/development && \
+          git pull && \
+            ulimit -S -n 65000 && \
+            nvm use && \
+          yarn && yarn build:staging && \
+          nvm use 12 && \
+          NODE_ENV=staging pm2 restart amoeba-frontpages-staging
