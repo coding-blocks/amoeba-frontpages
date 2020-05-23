@@ -11,6 +11,9 @@ export const mutations = {
       state.user = user
       state.isAuthenticated = true
     }
+    if (state.user.photo="") {
+    	state.user.photo="https://online.codingblocks.com/assets/default.png";
+    }
   },
   setToken(state, token) {
     state.token = token
