@@ -4,7 +4,7 @@
       <div class="font-md bold mb-5">
         Student Feedback
 
-        <div class="orange detailed_review_button font-sm">
+        <div class="orange detailed_review_button font-sm" v-if="reviews.length > 2 ">
           <button type="button" class="btn" @click.prevent.stop="showModal = true">
             View all reviews
           </button>
