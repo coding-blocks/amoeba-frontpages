@@ -5,6 +5,10 @@ name: CI
 on:
   push:
     branches: [ development ]
+  pull_request:
+    branches: [ development ]
+
+   
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,7 +26,21 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
+    
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+      
+    - uses: actions/cache@v1
+      id: yarn-cache
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn- 
+    
     - name: Build App
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: |
         cd online.codingblocks.com
         yarn install --frozen-lockfile
