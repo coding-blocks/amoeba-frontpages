@@ -307,21 +307,6 @@
           </a>
         </div>
       </div>
-      <div class="t-align-c d-md-none d-block">
-        <div class="mb-3">Copyright 2020 - Coding Blocks Pvt. Ltd.</div>
-        <ul class="divided-list d-block my-0">
-          <li class="pr-3">
-            <a href="https://codingblocks.com/privacypolicy.html" class="white"
-              >Policy</a
-            >
-          </li>
-          <li class="pl-3">
-            <a href="https://codingblocks.com/tos.html" class="white"
-              >Terms of Service</a
-            >
-          </li>
-        </ul>
-      </div>
     </div>
   </footer>
 </template>
