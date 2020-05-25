@@ -4,7 +4,7 @@
     <div class="row no-gutters">
       <div class="col-6 my-4" v-for="feature in features" :key="feature.icon">
         <img :src="feature.icon" alt class="mb-3" style="max-width: 60px !important;" />
-        <div class="font-sm">
+        <div class="font-sm" style="text-align: center;">
           {{feature.text}}
         </div>
       </div>
