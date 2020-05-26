@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns"/>
-        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!!tags.length" />
+        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -164,7 +164,8 @@ export default {
       return Array.isArray(sections) ? sections.map((s) => +s.id) : []
     },
     tags() {
-      return this.course.tags || []
+      const tags =  this.course.tags || []
+      return tags.filter((t, ind) => ind < 10)
     }
   },
   tasks(t, { timeout }) {
