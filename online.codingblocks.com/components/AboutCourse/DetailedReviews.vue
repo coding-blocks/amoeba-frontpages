@@ -141,7 +141,7 @@ export default {
   },
   filters: {
     ensureAvatar (img) {
-      const random  = Math.floor(Math.random()*20) + 1
+      const random  = Math.floor(Math.random()*36) + 1
       return img || `https://minio.codingblocks.com/img/avatar-${random}.svg`
     }
   }
