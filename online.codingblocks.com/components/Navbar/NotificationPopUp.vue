@@ -8,7 +8,7 @@
               <div class="notify-type col-2 pt-3 justify-content-center align-items-center">
                 <div class="notify-icon">
                   <span class="notify-dot new"></span>
-                  <img src="/images/announcement.svg" alt="">
+                  <img src="/img/announcement.svg" alt="">
                 </div>
               </div>
               <div class="notify-text col-10">

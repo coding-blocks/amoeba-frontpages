@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns"/>
-        <CourseTags class="d-block d-sm-none" :tags="tags" v-if="!!tags.length" />
+        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
     <div class="row">
@@ -35,7 +35,7 @@
         <!-- Course Rating -->
         <VAsync :task="fetchReviewStats">
           <template v-slot="{ value }">
-            <CourseRatingStats v-bind="value" />
+            <CourseRatingStats v-bind="value" :curCourseId="course.id" :courseName="course.title" />
           </template>
         </VAsync>
 
@@ -84,7 +84,6 @@ import StudentsExperience from '~/components/LandingPage/StudentsExperience.vue'
 import SuggestedTrackCard from '~/components/AboutCourse/SuggestedTrackCard.vue'
 import AlternateTrackCard from '~/components/AboutCourse/AlternateTrackCard.vue'
 import ChooseRunTier from '~/components/AboutCourse/ChooseRunTier/Index.vue'
-
 
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
@@ -165,7 +164,8 @@ export default {
       return Array.isArray(sections) ? sections.map((s) => +s.id) : []
     },
     tags() {
-      return this.course.tags || []
+      const tags =  this.course.tags || []
+      return tags.filter((t, ind) => ind < 10)
     }
   },
   tasks(t, { timeout }) {
@@ -175,7 +175,7 @@ export default {
           `courses/${this.course.id}/rating`
         )
         const response = yield this.$axios.get(
-            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=3`
+            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=5`
         )
         const reviews = this.$jsonApiStore.sync(response.data)        
         return {ratingStats,reviews}
@@ -234,11 +234,11 @@ export default {
   }
 }
 
-/* @media (min-width: 576px) {  */ /* uncomment this to have "Choose batch" as 2nd widget on mobile */
+@media (min-width: 576px) {
   .first-half > * {
     order: unset;
   }
-/* } */
+}
 
 .course-content {
   /* max-height: 600px; */
@@ -281,4 +281,5 @@ export default {
   left: 0px;
   background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg') no-repeat;
 }
+
 </style>

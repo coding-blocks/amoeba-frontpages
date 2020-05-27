@@ -6,7 +6,7 @@
           <h4 class="bold mb-5">For Freshers</h4>
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/suitcase-white.svg" alt="Bag" loading="lazy" />
+              <img src="/img/suitcase-white.svg" alt="Bag" loading="lazy" />
             </div>
             <div class="normal flex-1 font-sm">
               Internship and job opportunities for big companies
@@ -16,7 +16,7 @@
 
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/rocket-white.svg" alt="rocket" loading="lazy" />
+              <img src="/img/rocket-white.svg" alt="rocket" loading="lazy" />
             </div>
             <div class="normal flex-1 font-sm">
               Courses to build a strong foundation for you to become
@@ -26,7 +26,7 @@
 
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/man-plus.svg" alt="Bag" loading="lazy" />
+              <img src="/img/man-plus.svg" alt="Bag" loading="lazy" />
             </div>
 
             <div class="normal flex-1 font-sm">
@@ -43,7 +43,7 @@
           <h4 class="bold mb-5">For Professionals</h4>
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/video-white.svg" alt="Bag" loading="lazy" />
+              <img src="/img/video-white.svg" alt="Bag" loading="lazy" />
             </div>
             <div class="normal flex-1 font-sm">
               Expert level courses to quickly learn and implement new
@@ -53,7 +53,7 @@
 
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/rocket-white.svg" alt="Bag" loading="lazy" />
+              <img src="/img/rocket-white.svg" alt="Bag" loading="lazy" />
             </div>
             <div class="normal flex-1 font-sm">
               Opportunity to learn advanced concepts of computer programming
@@ -63,7 +63,7 @@
 
           <div class="d-flex align-items-center mb-5">
             <div class="pr-5">
-              <img src="/images/salary-card.svg" alt="Bag" loading="lazy" />
+              <img src="/img/salary-card.svg" alt="Bag" loading="lazy" />
             </div>
 
             <div class="normal flex-1 font-sm">High Salary Increments when you switch to your next job.</div>
