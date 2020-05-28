@@ -43,7 +43,7 @@
               >
                 <a href="#" class="col-6 col-md-7 d-flex align-items-center">
                   <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
-                  <span class="font-normal">{{ content.title }}</span>
+                  <VMarkdown :markdown="content.title" />
                 </a>
                 <div class="col-2 col-md-1 t-align-c">
                   <a href="#" 
@@ -78,6 +78,8 @@
 <script>
 import VAsync from '~/components/Base/VAsync'
 import VAccordion from '~/components/Base/VAccordion'
+import VMarkdown from '~/components/Base/VMarkdown.vue'
+
 
 import { formatContentDuration } from '~/utils/course'
 
@@ -85,7 +87,8 @@ export default {
   name: 'SectionAccordion',
   components: {
     VAsync,
-    VAccordion
+    VAccordion,
+    VMarkdown
   },
   props: {
     sectionId: {
