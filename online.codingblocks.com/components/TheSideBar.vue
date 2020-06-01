@@ -1,8 +1,8 @@
 <template>
   <div class="c-sidenav bottom-nav col-md-1 col-12">
-    <div class="logo pb-4 pt-4 d-md-block d-none">
+    <a class="logo pb-4 pt-4 d-md-block d-none" href="/">
       <img src="https://minio.codingblocks.com/amoeba/OnlineLogo2020.svg" alt="Logo" class="s-50x50" />
-    </div>
+    </a>
     <div class="row all-center">
       <div class="col-2 col-md-12">
         <a href="/app/dashboard" class="nav-element py-4 px-2">
