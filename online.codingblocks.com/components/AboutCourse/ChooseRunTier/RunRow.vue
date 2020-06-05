@@ -35,7 +35,7 @@
               <a
               class="buy-now-button button-dashed button-orange"
               target="_blank"
-              :href="`https://dukaan.codingblocks.com/buy?productId=${run['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
+              :href="`${dukaanPublicUrl}/buy?productId=${run['product-id']}&` + (user && `oneauthId=${user['oneauth-id']}`)"
               @click="addToCart()">
                 Buy Now
               </a>
@@ -82,6 +82,9 @@ export default {
     validityInMonths () {
       const { start, end } = this.run 
       return Math.round((end - start) / (60 * 60 * 24 * 30))
+    },
+    dukaanPublicUrl() {
+      return config[process.env.NODE_ENV].dukaan.url
     },
     ...mapState(['session']),
   },

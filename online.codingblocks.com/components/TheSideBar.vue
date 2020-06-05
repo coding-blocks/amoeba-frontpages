@@ -5,6 +5,12 @@
     </div>
     <div class="row all-center">
       <div class="col-2 col-md-12">
+        <a href="/app/spin-n-win" class="nav-element py-4 px-2">
+          <img src="https://minio.codingblocks.com/img/spin-side-icon.svg" alt="spin-n-win">
+          <div class="pt-2 d-none d-md-block font-sm card-md gradient-text-orange">Spin n Win</div>
+        </a>
+      </div>
+      <div class="col-2 col-md-12">
         <a href="/app/dashboard" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/dashboard_grey.svg"/>
           <div class="pt-2 d-none d-md-block font-sm card-md">Dashboard</div>
