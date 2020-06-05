@@ -84,6 +84,7 @@ export default {
       return Math.round((end - start) / (60 * 60 * 24 * 30))
     },
     dukaanPublicUrl() {
+      console.log(config, config[process.env.NODE_ENV])
       return config[process.env.NODE_ENV].dukaan.url
     },
     ...mapState(['session']),
