@@ -80,6 +80,9 @@ export default {
 
   ],
   gtm: { id: config.gtm, dev: process.env.NODE_ENV == 'development' },
+  env: {
+    environment: process.env.NODE_ENV
+  },
   /*
    ** Nuxt.js modules
    */

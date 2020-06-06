@@ -17,7 +17,7 @@
           <!-- <div class="card-sms">Beginner</div> -->
           <div class="course-card__difficulty card-sm"> {{ difficultyText }} </div>
         </div>
-        <h5 class="bold">{{course.title}}</h5>
+        <h5 class="bold twoLine">{{course.title}}</h5>
           <RatingStars class="mt-2" :value="Math.round(+this.course.rating)">
             <span class="card-md font-normal ml-2"> {{this.course.rating}}/5, {{this.course['review-count']}} ratings</span>
           </RatingStars>
@@ -166,6 +166,9 @@ export default {
   border-radius: 50%;
 }
 
+.twoLine{
+  height: 42px;
+}
 /* .course-card {
 
 } */
