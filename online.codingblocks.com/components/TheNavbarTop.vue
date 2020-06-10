@@ -31,6 +31,12 @@
       </div>
       <div class="align-items-center">
         <ul class="right-nav d-md-flex d-none">
+          <li class="top-nav-option px-3 v-align-ma" v-show="walletAmount !== null">
+            <a :href="dukaanPublicUrl">
+              <img class="s-20x20" src="https://minio.codingblocks.com/img/wallet-outline.svg" alt=""> 
+              <span class="ml-1 bold">₹ {{walletAmount}}</span>
+            </a>
+          </li>
           <li class="top-nav-option px-3">
             <a href="#" @click="toggleNotification" v-on-clickaway="closeNotification">
               <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/notification.svg" />
@@ -263,12 +269,17 @@ export default {
       hamburgerCollapsed: true,
       shoppingCartCollapsed: true,
       notificationCollapsed: true,
-      mobileSelectedTab: 'classroom'
+      mobileSelectedTab: 'classroom',
+      walletAmount: null
     }
   },
   components: {
     ShoppingCartPopUp,
     NotificationPopUp
+  },
+  async created () {
+    const { data: { wallet_amount } }  = await this.$axios.get('/users/me/wallet')
+    this.walletAmount = Math.floor(wallet_amount/100)
   },
   methods: {
     isClickFromPopup(e) {
@@ -292,7 +303,7 @@ export default {
     },
     toggleHamburger () {
       this.hamburgerCollapsed = !this.hamburgerCollapsed
-    }
+    },
   },
   computed: {
     ...mapState(['session']),
@@ -301,6 +312,9 @@ export default {
     },
     logoutUrl() {
       return `https://account.codingblocks.com/logout?redirect=${config[process.env.NODE_ENV].publicUrl}/logout`
+    },
+    dukaanPublicUrl() {
+      return config[process.env.environment].dukaan.url
     }
   }
 }
