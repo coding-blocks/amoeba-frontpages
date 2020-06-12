@@ -60,7 +60,7 @@
             v-for="(review , index) in reviews " v-if="index <= 2"
             :key="review.id"
           >
-            <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo" />
+            <img class="s-40x40 br-25 bg-grey mr-2" :src="review.user.photo | ensureAvatar" />
             <div class="col-8">
               <div class="card-md bold capital">
                 {{ review.user.firstname }} {{ review.user.lastname }}
@@ -115,6 +115,12 @@ export default {
           ratio: stats[key] / count,
           stars: +key + 1
         }))
+    }
+  },
+  filters: {
+    ensureAvatar (img) {
+      const random  = Math.floor(Math.random()*36) + 1
+      return img || `https://minio.codingblocks.com/img/avatar-${random}.svg`
     }
   }
 }
