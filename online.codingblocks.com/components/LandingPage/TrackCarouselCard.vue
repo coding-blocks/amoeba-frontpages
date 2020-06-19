@@ -5,7 +5,7 @@
         <img :src="track.logo" :alt="track.slug" class="s-70x70 track-card__head__logo float-right" loading="lazy">
         <div class="flex-col align-items-start w-100">
           <h4 class="extra-bold font-md mb-1 w-100">{{ track.name }}</h4>
-          <span class="semi-bold font-xs">{{ track.courses.length }}Courses</span>
+          <span class="semi-bold font-xs">{{ track.courses.length }} Courses</span>
         </div>
       </div>
       <div class="justify-content-end align-items-center p-15">
