@@ -7,10 +7,6 @@
             <h4 class="global-font-heading-color normal font-xl">Introducing</h4>
             <h2 class="global-font-heading-color extra-bold font-mdxl">Learning Tracks</h2>
           </div>
-          <button class="button-orange button-dashed d-flex align-items-center help-button">
-            <img src="/img/chat.svg" alt="chat" loading="lazy" />
-            <span class="font-md ml-2">Need Help?</span>
-          </button>
         </div>
 
         <div class="dark-grey normal font-md line-height-29">
@@ -53,10 +49,5 @@ export default {
 }
 .line-height-29 {
   line-height: 29px;
-}
-.help-button {
-  height: 50px;
-  border-radius: 25px;
-  padding: 0px 25px;
 }
 </style>
