@@ -1,9 +1,9 @@
 <template>
   <div class="row no-gutters a-ocb">
     <div class="col-12 mb-5">
-      <div class="border-card border-orange">
-        <div class="row justify-content-between align-items-center px-4">
-          <div>
+      <div class="border-card border-orange p-4">
+        <div class="row justify-content-between align-items-center no-gutters">
+          <div class="flex-1 pr-3">
             <h5 class="bold">Take Free Trial</h5>
             <div>Preview this course for free</div>
           </div>

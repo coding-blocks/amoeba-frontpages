@@ -4,7 +4,7 @@
       Loading....
     </template>
     <template v-slot="{ value }">
-      <div class="border-card" v-if="value.length">
+      <div class="border-card p-lg-5 p-4" v-if="value.length">
         <h5 class="bold font-md">Projects</h5>
         <div class="divider-h my-4"></div>
         

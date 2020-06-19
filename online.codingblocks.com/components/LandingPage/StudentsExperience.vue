@@ -14,7 +14,7 @@
 
     <div class="row mt-5">
       <div class="col-lg-4 col-md-6 pb-4" v-for="review in reviews" :key="review.name">
-        <div class="border-card p-5">
+        <div class="border-card p-lg-5 p-4">
           <img src="https://minio.codingblocks.com/landing-pages/group.svg" alt class="overlay-icon" loading="lazy" />
           <div class="d-flex align-items-center">
             <div class="bg-grey s-50x50 br-50 overflow-hidden">
