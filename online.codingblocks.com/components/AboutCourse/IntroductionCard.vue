@@ -2,7 +2,7 @@
   <div>
     <div class="position-relative">
       <div class="border-card white p-lg-5 p-4">
-        <img class="back-img" style="z-index: 0;" :src="course['cover-image']" alt />
+        <img class="back-img" :src="course['cover-image']" alt />
 
         <div class="row justify-content-between align-items-center no-gutters">
           <div class="flex-1 z-pos">
@@ -96,25 +96,9 @@ export default {
 </script>
 
 <style scoped>
-.card-mentor-image {
-  width: 10%;
-  max-width: 60px;
-}
-.course-info-row .info-item > div:first-child {
-  font-size: 0.9rem;
-  font-weight: lighter;
-  margin-bottom: 0.2rem;
-}
-.course-info-row .info-item {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-right: 1.5rem;
-}
 .back-img {
   top: 0;
   left: 0;
-}
-.position-relative {
-  position: relative;
+  z-index: 0;
 }
 </style>
