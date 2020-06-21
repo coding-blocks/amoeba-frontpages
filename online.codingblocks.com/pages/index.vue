@@ -1,8 +1,8 @@
 <template>
   <div>
-      <div class="my-auto p-md-4 position-relative home-banner">
-        <Info />
-      </div>
+    <div class="my-auto p-md-4 position-relative home-banner">
+      <Info />
+    </div>
     <CompanyCard class="position-relative" />
 
     <div class="my-auto">
