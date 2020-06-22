@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns"/>
+        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
         <CourseTags class="border-card p-lg-5 p-4 my-4" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>

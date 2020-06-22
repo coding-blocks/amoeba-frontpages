@@ -100,7 +100,7 @@ export default {
   background-image: url('https://minio.codingblocks.com/amoeba/ccaf84b6-63df-40f8-b4df-f64b8b9ecd9e.svg');
   background-size: 100%;
   background-size: cover;
-  background-position: bottom;
+  background-position: right;
 }
 
 .uppercase {
