@@ -1,6 +1,6 @@
 <template>
   <div class="row no-gutters">
-    <div class="border-card">
+    <div class="border-card p-lg-5 p-4">
       <div class="font-md bold mb-5">
         Student Feedback
 

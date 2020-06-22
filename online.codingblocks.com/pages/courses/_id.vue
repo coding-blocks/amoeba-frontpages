@@ -20,14 +20,14 @@
       <IntroductionCard class="col-md-8 order-1" :course="course" />
       <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
       <div class="col-md-8 mt-5 order-4">
-        <div class="border-card">
+        <div class="border-card p-lg-5 p-4">
           <h2 class="font-md">Summary</h2>
           <VMarkdown class="course-summary" :markdown="course.summary" />
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
         <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
-        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
+        <CourseTags class="border-card p-lg-5 p-4 my-4" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
     <div class="row">
