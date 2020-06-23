@@ -103,7 +103,7 @@ export default {
       // featuredTags: [], // using this server sides fails, see computed property
       offset: 0,
       limit: 9,
-      searchQuery: '',
+      searchQuery: this.$route.query.q != undefined ? this.$route.query.q : '',
       infiniteScrollDisabled: false
     }
   },
@@ -119,6 +119,10 @@ export default {
       return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload).sort((a,b)=>a.order - b.order) : []
     }
   },
+  mounted:function() {
+    if(this.searchQuery)
+      this.search.run(this.searchQuery);
+  },
   jsonld() {
     return jsonSchemaForAllCourses(this.courses)
   },
@@ -131,6 +135,7 @@ export default {
   tasks(t, { timeout }) {
     return {
       search: t(function *(query = '') {
+        this.$router.push({query: {q: query}})
         this.$nuxt.$loading.start()
         this.offset = 0 // reset pagination
         yield timeout(500)
