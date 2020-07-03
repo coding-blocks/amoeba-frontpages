@@ -103,7 +103,7 @@ export default {
       // featuredTags: [], // using this server sides fails, see computed property
       offset: 0,
       limit: 9,
-      searchQuery: this.$route.query.q != undefined ? this.$route.query.q : '',
+      searchQuery: this.$route.query.q || '',
       infiniteScrollDisabled: false
     }
   },
@@ -119,7 +119,7 @@ export default {
       return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload).sort((a,b)=>a.order - b.order) : []
     }
   },
-  mounted:function() {
+  mounted() {
     if(this.searchQuery)
       this.search.run(this.searchQuery);
   },
