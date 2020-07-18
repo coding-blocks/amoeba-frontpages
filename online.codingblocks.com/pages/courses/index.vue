@@ -43,7 +43,6 @@
           alt="loading..."
         />
       </div>
-
     </div>
     </div>
 </template>

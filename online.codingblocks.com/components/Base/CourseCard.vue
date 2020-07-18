@@ -65,7 +65,18 @@
           <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
         </div>
         <div class="divider-h my-4"></div>
-        <a :href="tryNowLink" class="orange t-align-c d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>
+        <div class="d-flex justify-content-between">
+        <a :href="tryNowLink" class="orange t-align-l d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>
+        <a href="" class="orange t-align-r d-block card-md font-normal" v-on:click.prevent.stop="showModal = true">Take eligibility Test</a>
+        </div>
+        <Modal v-if="showModal" @close="showModal = false">
+          <div slot="body">
+              <Quiz/>
+            <div class="d-md-none t-align-c mt-2" @click="showModal = false">
+              <button class="button-dashed button-orange">Go Back</button>
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   </div>
@@ -75,13 +86,15 @@
 import RatingStars from '~/components/AboutCourse/RatingStars'
 import { formatTimestamp } from '~/utils/date'
 import { topRunForCourse, textForDifficulty, freeTrialRunForCourse } from '~/utils/course';
-
+import Modal from '~/components/AboutCourse/Modal.vue'
+import Quiz from '~/components/Base/EligibilityTest/Quiz.vue'
 export default {
   name: 'CourseCard',
   props: {
     course: {
       type: Object
-    }
+    },
+    showModal: false
   },
   computed: {
     visibleInstructors() {
@@ -122,7 +135,9 @@ export default {
     }
   },
   components: {
-    RatingStars
+    RatingStars,
+    Modal,
+    Quiz
   },
   methods: {
      // log: function(event, title) {
