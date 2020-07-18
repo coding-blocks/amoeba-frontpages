@@ -69,9 +69,9 @@
         <a :href="tryNowLink" class="orange t-align-l d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>
         <a href="" class="orange t-align-r d-block card-md font-normal" v-on:click.prevent.stop="showModal = true">Take eligibility Test</a>
         </div>
-        <Modal v-if="showModal" @close="showModal = false">
+        <Modal v-if="showModal">
           <div slot="body">
-              <Quiz/>
+              <Quiz :course="course" />
             <div class="d-md-none t-align-c mt-2" @click="showModal = false">
               <button class="button-dashed button-orange">Go Back</button>
             </div>
