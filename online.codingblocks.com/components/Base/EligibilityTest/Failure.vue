@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-12 mt-5">
+    <div class="col-lg-12">
         <div class="br-10 overflow-hidden border">
             <div class="bg-gradient-dpink px-md-5 px-4 py-5 position-relative"
                  style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
@@ -13,8 +13,8 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white p-md-5 p-4">
-                <div class="row no-gutters align-items-center justify-content-between pb-5 mb-sm-5 mb-4 border-bottom">
+            <div class="bg-white p-md-3 p-3">
+                <div class="row no-gutters align-items-center justify-content-between pb-3 mb-sm-5 mb-2 border-bottom">
                     <div class="flex-1 pr-4">
                         <div class="row no-gutters align-items-center">
                             <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/cross_solid.svg">
@@ -31,7 +31,7 @@
                                 <div class="font-md">Questions</div>
                             </li>
                             <li class="px-sm-5 px-4">
-                                <div class="font-mdxl pink bold mb-2">03</div>
+                              <div class="font-mdxl pink bold mb-2">{{result.correctAnswers}}</div>
                                 <div class="font-md">Correct</div>
                             </li>
                         </ul>
@@ -41,7 +41,7 @@
                     <div>
                         <ul class="divided-list mx-auto" style="width: fit-content;">
                             <li class="px-sm-5 px-4">
-                                <div class="font-mdxl pink bold mb-2">10</div>
+                              <div class="font-mdxl pink bold mb-2">{{wrongAnswers}}</div>
                                 <div class="font-md">Questions</div>
                             </li>
                             <li class="px-sm-5 px-4">
@@ -53,79 +53,11 @@
                 </div>
                 <div class="mb-5">
                     <div class="font-mds med-grey">BASED ON YOUR TEST RESULTS</div>
-                    <div class="font-mds mt-1 bold">We recommend you these courses instead!</div>
+                    <div class="font-mds mt-1 bold">We recommend you this course instead!</div>
                 </div>
 
                 <div class="row c-card-carousel">
-                    <div class="col-xl-5 col-sm-8 col-10">
-                        <div class="br-10 overflow-hidden">
-                            <div class="row no-gutters justify-content-between align-items-center bg-gradient-pink py-4 px-lg-5 px-4">
-                                <div class="flex-1 pr-4 white" style="max-width: calc(100% - 75px);">
-                                    <div class="card-xs chars-spaced">BEGINNERS COURSE</div>
-                                    <h5 class="bold mt-1 text-ellipses">Android App Dev.</h5>
-                                    <div class="row no-gutters align-items-center mt-2">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/neg-rating-small.svg" class="mr-1">
-                                        <div class="flex-1 card-md ml-1 d-sm-flex d-none">
-                                            <strong>4.8/5.0,</strong>
-                                            &nbsp;435&nbsp;ratings
-                                        </div>
-                                        <div class="col-12 card-md mt-2 d-sm-none">
-                                            <strong>4.8/5.0,</strong>
-                                            &nbsp;435&nbsp;ratings
-                                        </div>
-                                    </div>
-                                    <div class="divider-h my-4 bg-med-grey"></div>
-                                    <div class="card-sm bold">Starting from</div>
-                                    <div class="v-align-ma">
-                                        <span class="mr-sm-4 mr-2 font-lg bold">&#8377;&nbsp;3499</span>
-                                        <span class="font-sm bold med-grey"><del>&#8377;&nbsp;12999</del></span>
-                                    </div>
-                                </div>
-                                <div class="s-70x70 round border p-2 all-center border-2 border-white bg-inherit">
-                                    <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/android.svg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-sm-8 col-10">
-                        <div class="br-10 overflow-hidden">
-                            <div class="row no-gutters justify-content-between align-items-center bg-gradient-pink py-4 px-lg-5 px-4">
-                                <div class="flex-1 pr-4 white" style="max-width: calc(100% - 75px);">
-                                    <div class="card-xs chars-spaced">BEGINNERS COURSE</div>
-                                    <h5 class="bold mt-1 text-ellipses">Android App Dev.</h5>
-                                    <div class="row no-gutters align-items-center mt-2">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
-                                        <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/neg-rating-small.svg" class="mr-1">
-                                        <div class="flex-1 card-md ml-1 d-sm-flex d-none">
-                                            <strong>4.8/5.0,</strong>
-                                            &nbsp;435&nbsp;ratings
-                                        </div>
-                                        <div class="col-12 card-md mt-2 d-sm-none">
-                                            <strong>4.8/5.0,</strong>
-                                            &nbsp;435&nbsp;ratings
-                                        </div>
-                                    </div>
-                                    <div class="divider-h my-4 bg-med-grey"></div>
-                                    <div class="card-sm bold">Starting from</div>
-                                    <div class="v-align-ma">
-                                        <span class="mr-sm-4 mr-2 font-lg bold">&#8377;&nbsp;3499</span>
-                                        <span class="font-sm bold med-grey"><del>&#8377;&nbsp;12999</del></span>
-                                    </div>
-                                </div>
-                                <div class="s-70x70 round border p-2 all-center border-2 border-white bg-inherit">
-                                    <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/android.svg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 col-sm-8 col-10">
+                    <div class="col-xl-8 col-sm-8 col-10">
                         <div class="br-10 overflow-hidden">
                             <div class="row no-gutters justify-content-between align-items-center bg-gradient-pink py-4 px-lg-5 px-4">
                                 <div class="flex-1 pr-4 white" style="max-width: calc(100% - 75px);">
@@ -164,3 +96,13 @@
         </div>
     </div>
 </template>
+
+<script>
+  export default {
+    name: 'Failure',
+    props: {
+      result: Object,
+      recommendedCourse: Object
+    }
+  }
+</script>

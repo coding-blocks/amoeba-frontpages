@@ -1,131 +1,134 @@
 <template>
   <div class="col-lg-12 p-3">
-    <div v-if="!isActive">
+    <div v-if="!isActive && !isCompleted">
       <Start v-on:click="startQuiz()" />
     </div>
-    <!-- <div
-      v-if="isActive"
-    >
-      <div v-if="score() >= 7">
-        <Success />
+    <div
+      v-if="isCompleted"
+      >
+      <div v-if="result.score >= course['eligibility-quiz-threshold']">
+        <Success :course=course  :result=result />
       </div>
-      <div v-if="score() < 7">
-        <Failure />
+      <div v-if="result.score < course['eligibility-quiz-threshold']">
+        <Failure :course=course :result=result />
       </div>
-    </div> -->
+    </div>
     <div v-if="isActive">
-      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" />
+      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" :userResponses="userResponses"/>
     </div>
   </div>
 </template>
 <script>
-import Success from '~/components/Base/EligibilityTest/Success.vue'
-import Start from '~/components/Base/EligibilityTest/Start.vue'
-import Failure from '~/components/Base/EligibilityTest/Failure.vue'
-import Question from './Question'
-import Vue from 'vue'
-export default {
-  name: 'Quiz',
-  props: {
-    course: {
-      type: Object,
-      required: true
-    }
-  },
-  mounted () {
-    this.loadQuizForCourse.run()
-  },
-  data () {
-    return {
-      userResponses: Array(10).fill(null),
-      total: 10,
-      currentQuestionId: null,
-      isActive: false,
-      quiz: null
-    }
-  },
-  computed: {
-    randomQuestions () {
-      const self = this
-      return (function *() {
-        for (let questionId of self.quiz.questions.map(q => q.id)) {
-          yield questionId
-        }
-      })()
-    }
-  },
-  components: {
-    Success,
-    Failure,
-    Start,
-    Question
-  },
-  methods: {
-    restart: function() {
-      this.questionIndex = 0
-      this.userResponses = Array(this.quiz.questions.length).fill(null)
-    },
-    selectOption: function(index) {
-      if (this.userResponses[this.questionIndex] !== null) {
-        return
+  import Success from './Success'
+  import Start from './Start'
+  import Failure from './Failure'
+  import Question from './Question'
+  import Vue from 'vue'
+  export default {
+    name: 'Quiz',
+    props: {
+      course: {
+        type: Object,
+        required: true
       }
-      Vue.set(this.userResponses, this.questionIndex, index)
     },
-    next () {
-      this.currentQuestionId = this.randomQuestions.next().value
+    mounted () {
+      this.loadQuizForCourse.run()
     },
-    score: function() {
-      var score = 0
-      for (let i = 0; i < this.userResponses.length; i++) {
+    data () {
+      return {
+        userResponses: Array(),
+        total: 10,
+        currentQuestionId: null,
+        isActive: false,
+        isCompleted: false,
+        quiz: null,
+        result: null
+      }
+    },
+    computed: {
+      randomQuestions () {
+        const self = this
+        return (function *() {
+          for (let questionId of self.quiz.questions.map(q => q.id)) {
+            yield questionId
+          }
+        })()
+      }
+    },
+    components: {
+      Success,
+      Failure,
+      Start,
+      Question
+    },
+    methods: {
+      restart: function() {
+        this.questionIndex = 0
+        this.userResponses = Array(this.quiz.questions.length).fill(null)
+      },
+      async next () {
+        const temp = this.randomQuestions.next().value
+        if (!temp) {
+          this.result = await this.calculateScore()
+          this.currentQuestionId = ''
+          this.isCompleted = true
+          this.isActive = false
+        } else {
+          this.currentQuestionId = temp
+        }
+      },
+      async calculateScore() {
+          const completeResult = (await this.$axios.post('/eligibility_quiz_submissions', {submission: this.userResponses, eligibilityQuizId: this.quiz.id, courseId: this.course.id})).data
+
+          const correctAnswers = (completeResult.questions.filter((q) => q.score !== 0)).length
+          const wrongAnswers = (completeResult.questions.filter((q) => q.score === 0)).length
+
+          return {
+            score: completeResult.score,
+            correctAnswers,
+            wrongAnswers
+          }
+      },
+      afterSelectClass: function(index) {
+        const responses = this.quiz.questions[this.questionIndex].responses
+        const userResponses = this.userResponses
+        const questionIndex = this.questionIndex
+        const correctResponse = responses.filter((r) => r.correct)[0]
+
         if (
-          typeof this.quiz.questions[i].responses[this.userResponses[i]] !==
-            'undefined' &&
-          this.quiz.questions[i].responses[this.userResponses[i]].correct
+          responses[userResponses[questionIndex]] &&
+          !responses[userResponses[questionIndex]].correct &&
+          index == userResponses[questionIndex]
         ) {
-          score = score + 1
+          return 'bg-red white'
+        } else if (
+          index == responses.indexOf(correctResponse) &&
+          userResponses[questionIndex] !== null
+        ) {
+          return 'bg-green white'
+        } else {
+          return ''
         }
-      }
-      return score
-    },
-    afterSelectClass: function(index) {
-      const responses = this.quiz.questions[this.questionIndex].responses
-      const userResponses = this.userResponses
-      const questionIndex = this.questionIndex
-      const correctResponse = responses.filter((r) => r.correct)[0]
-
-      if (
-        responses[userResponses[questionIndex]] &&
-        !responses[userResponses[questionIndex]].correct &&
-        index == userResponses[questionIndex]
-      ) {
-        return 'bg-red white'
-      } else if (
-        index == responses.indexOf(correctResponse) &&
-        userResponses[questionIndex] !== null
-      ) {
-        return 'bg-green white'
-      } else {
-        return ''
+      },
+      startQuiz: function() {
+        this.isActive = true
+        this.currentQuestionId = this.randomQuestions.next().value
       }
     },
-    startQuiz: function() {
-      this.isActive = true
-      this.currentQuestionId = this.randomQuestions.next().value
-    }
-  },
-  filters: {
-    charIndex: function(i) {
-      return String.fromCharCode(97 + i)
-    }
-  },
+    filters: {
+      charIndex: function(i) {
+        return String.fromCharCode(97 + i)
+      }
+    },
 
-  tasks (t) {
-    return {
-      loadQuizForCourse:  t(function *() {
-        const response = yield this.$axios.get(`/quizzes/${this.course['eligibility-quiz-id']}`)
-        this.quiz = this.$jsonApiStore.sync(response.data)
-      })
+    tasks (t) {
+      return {
+        loadQuizForCourse:  t(function *() {
+          const response = yield this.$axios.get(`/quizzes/${this.course['eligibility-quiz-id']}`)
+          this.quiz = this.$jsonApiStore.sync(response.data)
+        })
+      }
     }
   }
-}
 </script>

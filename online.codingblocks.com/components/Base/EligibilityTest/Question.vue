@@ -43,9 +43,8 @@ export default {
       type: String,
       required: true
     },
-    userResponses: Array,
-    questionIndex: Number,
-    switchToNextQuestion: Function
+    switchToNextQuestion: Function,
+    userResponses: Array
   },
   components: {
     Choice,
@@ -61,7 +60,6 @@ export default {
     afterSelectClass(choiceId) {
       if (!this.submissionResponse)
         return ''
-        
       const {correctlyAnswered, incorrectlyAnswered } = this.submissionResponse
       if (correctlyAnswered.includes(choiceId)) {
         return 'bg-green white'
@@ -92,15 +90,16 @@ export default {
         return this.$jsonApiStore.sync(response.data)
       }).runWith('questionId'),
       submitQuestion: t(function *(questionId, choiceId) {
-        if (this.submissionResponse) 
-          return (void 0)
-        
+        console.log(this.submissionResponse, '*********', choiceId)
+        // if (this.submissionResponse)
+        //   return (void 0)
+
         const { data } = yield this.$axios.post(`/questions/${questionId}/submit?showAnswers=true`, {
           markedChoices: [choiceId]
         })
 
         this.submissionResponse = data
-
+        this.userResponses.push({id: questionId, markedChoices:[choiceId]})
         window.setTimeout(this.switchToNextQuestion, 1000)
       })
     }
