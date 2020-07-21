@@ -52,19 +52,49 @@
           </div>
         </div>
         <div class="t-align-c">
-          <button class="button-dashed button-orange">Take free trial</button>
-          <button class="button-solid button-orange ml-4">Buy this course</button>
+
+          <a :href="tryNowLink" class="button-dashed button-orange" v-on:click="explore('Free Trial')">Try it for Free!</a>
+
+          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange ml-4">Buy this course</nuxt-link>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { freeTrialRunForCourse } from '~/utils/course';
+
 export default {
   name: 'Success',
   props: {
     result: Object,
     course: Object
+  },
+  computed: {
+    freeTrialRun () {
+      return freeTrialRunForCourse(this.course)
+    },
+    tryNowLink () {
+      return `/app/classroom/course/${this.course.id}/run/${this.freeTrialRun.id}`
+    },
+  },
+  methods: {
+    explore(title) {
+      this.$gtag('event', 'view_item', {
+        items: [
+          {
+            id: this.courseId,
+            name: this.courseName,
+            list_name: "Course View",
+            brand: "CodingBlocks",
+            category: title,
+            list_position: 1,
+            price: '0'
+          }
+        ]
+      })
+    }
   }
 }
 </script>
