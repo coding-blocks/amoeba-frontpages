@@ -9,7 +9,7 @@
         <div class="row no-gutters align-items-center justify-content-between mb-2">
           <div class="flex-1 pr-4">
             <div class="font-md bold">
-              {{ question.description }}  {{ question.id }} {{questionId}}
+              {{ question.description }}
             </div>
           </div>
           <div class="s-60x60 border b-pink all-center round">
@@ -20,14 +20,25 @@
           </div>
         </div>
 
-        <Choice 
-          :choice="choice" 
-          :index="index" 
-          v-for="(choice, index) in question.choices" 
+        <Choice
+          :choice="choice"
+          :index="index"
+          v-for="(choice, index) in question.choices"
           :onSelect="(choiceId) => submitQuestion.run(question.id, choiceId)"
           :submissionResponse="submissionResponse"
           :key="choice.id" />
+
+          <div class="row no-gutters justify-content-between align-items-center mt-5">
+              <div class="col-sm-8 col-6">
+                  <div class="med-grey font-sm"> {{questionsRemaining}} Questions Remaining</div>
+                  <div class="mt-4">
+                      <progress value="currentIndex" max="total"></progress>
+                  </div>
+              </div>
+          </div>
+
       </template>
+
     </VAsync>
   </div>
 </template>
@@ -44,7 +55,9 @@ export default {
       required: true
     },
     switchToNextQuestion: Function,
-    userResponses: Array
+    userResponses: Array,
+     total: Number,
+     currentIndex: Number
   },
   components: {
     Choice,
@@ -76,6 +89,9 @@ export default {
     },
     isIncorrectlyAnswered () {
       return !this.isCorrectlyAnswered
+    },
+    questionsRemaining () {
+      return this.total - this.currentIndex
     }
   },
   tasks (t) {
@@ -90,7 +106,6 @@ export default {
         return this.$jsonApiStore.sync(response.data)
       }).runWith('questionId'),
       submitQuestion: t(function *(questionId, choiceId) {
-        console.log(this.submissionResponse, '*********', choiceId)
         // if (this.submissionResponse)
         //   return (void 0)
 

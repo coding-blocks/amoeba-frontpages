@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-if="isActive">
-      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" :userResponses="userResponses"/>
+      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" :userResponses="userResponses" :total="totalQuestions" :currentIndex="currentIndex"/>
     </div>
   </div>
 </template>
@@ -38,22 +38,25 @@
     data () {
       return {
         userResponses: Array(),
-        total: 10,
         currentQuestionId: null,
         isActive: false,
         isCompleted: false,
         quiz: null,
-        result: null
+        result: null,
+        currentIndex: 0
       }
     },
     computed: {
       randomQuestions () {
         const self = this
         return (function *() {
-          for (let questionId of self.quiz.questions.map(q => q.id)) {
-            yield questionId
+          for (let [index, questionId] of self.quiz.questions.map(q => q.id).entries()) {
+            yield [index, questionId]
           }
         })()
+      },
+      totalQuestions() {
+        return this.quiz.questions.length
       }
     },
     components: {
@@ -68,14 +71,14 @@
         this.userResponses = Array(this.quiz.questions.length).fill(null)
       },
       async next () {
-        const temp = this.randomQuestions.next().value
-        if (!temp) {
+        const [index, questionId] = this.randomQuestions.next().value || [null, '']
+        if (!questionId) {
           this.result = await this.calculateScore()
-          this.currentQuestionId = ''
           this.isCompleted = true
           this.isActive = false
         } else {
-          this.currentQuestionId = temp
+          this.currentQuestionId = questionId
+          this.currentIndex = index
         }
       },
       async calculateScore() {
@@ -113,7 +116,8 @@
       },
       startQuiz: function() {
         this.isActive = true
-        this.currentQuestionId = this.randomQuestions.next().value
+        const [index, questionId] = this.randomQuestions.next().value
+        this.currentQuestionId = questionId
       }
     },
     filters: {
