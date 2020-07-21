@@ -9,7 +9,7 @@
                     </div>
                     <div class="flex-1 pl-4">
                         <div style="font-size: 2rem;">Skill Assessment Report</div>
-                        <div class="mt-1 bold" style="font-size: 2rem;">Frontend Development</div>
+                        <div class="mt-1 bold" style="font-size: 2rem;">{{course.title}}</div>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div>
                         <ul class="divided-list mx-auto" style="width: fit-content;">
                             <li class="px-sm-5 px-4">
-                              <div class="font-mdxl pink bold mb-2">{{wrongAnswers}}</div>
+                              <div class="font-mdxl pink bold mb-2">{{result.wrongAnswers}}</div>
                                 <div class="font-md">Questions</div>
                             </li>
                             <li class="px-sm-5 px-4">
@@ -62,7 +62,7 @@
                             <div class="row no-gutters justify-content-between align-items-center bg-gradient-pink py-4 px-lg-5 px-4">
                                 <div class="flex-1 pr-4 white" style="max-width: calc(100% - 75px);">
                                     <div class="card-xs chars-spaced">BEGINNERS COURSE</div>
-                                    <h5 class="bold mt-1 text-ellipses">Android App Dev.</h5>
+                                    <h5 class="bold mt-1">{{recommendedCourse.title}}</h5>
                                     <div class="row no-gutters align-items-center mt-2">
                                         <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
                                         <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
@@ -70,19 +70,19 @@
                                         <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/pos-rating-small.svg" class="mr-1">
                                         <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/neg-rating-small.svg" class="mr-1">
                                         <div class="flex-1 card-md ml-1 d-sm-flex d-none">
-                                            <strong>4.8/5.0,</strong>
+                                          <strong>{{recommendedCourse.rating}}/5.0,</strong>
                                             &nbsp;435&nbsp;ratings
                                         </div>
                                         <div class="col-12 card-md mt-2 d-sm-none">
                                             <strong>4.8/5.0,</strong>
-                                            &nbsp;435&nbsp;ratings
+                                            &nbsp;{{recommendedCourse.review_count}}&nbsp;ratings
                                         </div>
                                     </div>
                                     <div class="divider-h my-4 bg-med-grey"></div>
                                     <div class="card-sm bold">Starting from</div>
                                     <div class="v-align-ma">
-                                        <span class="mr-sm-4 mr-2 font-lg bold">&#8377;&nbsp;3499</span>
-                                        <span class="font-sm bold med-grey"><del>&#8377;&nbsp;12999</del></span>
+                                      <span class="mr-sm-4 mr-2 font-lg bold">&#8377;&nbsp;{{price}}</span>
+                                      <span class="font-sm bold med-grey"><del>&#8377;&nbsp;{{mrp}}</del></span>
                                     </div>
                                 </div>
                                 <div class="s-70x70 round border p-2 all-center border-2 border-white bg-inherit">
@@ -102,7 +102,41 @@
     name: 'Failure',
     props: {
       result: Object,
-      recommendedCourse: Object
+      course: Object
+    },
+    data() {
+      return {
+        recommendedCourse: {
+          title: '',
+          rating: 0,
+          review_count:0,
+          runs: [{price:0, mrp:0}]
+        }
+      }
+    },
+    mounted() {
+      this.loadRecommendedCourse.run()
+    },
+    tasks (t) {
+      return {
+        loadRecommendedCourse:  t(function *() {
+          const response = yield this.$axios.get(`/courses/${this.course['prerequisite-course-id']}`, {
+            params: {
+              exclude: `instructors.*,jobs,runs`
+            }
+          })
+          this.recommendedCourse = this.$jsonApiStore.sync(response.data)
+        })
+      }
+    },
+    computed: {
+      price () {
+        return this.recommendedCourse.runs[0].price
+      },
+
+      mrp () {
+        return this.recommendedCourse.runs[0].mrp
+      }
     }
   }
 </script>
