@@ -179,6 +179,11 @@
         </div>
       </div>
     </div>
+     <button
+        class="scroll-top status-button button-orange font-sm mr-3 button-solid"
+        @click="scrollToTop">
+        Scroll To Top
+      </button>
   </div>
 </template>
 
@@ -191,6 +196,18 @@ export default {
     return {
       hamburgerOpen: false,
       mobileSelectedTab: 'online'
+    }
+  },
+  methods: {
+     scrollToTop () {
+      const el = this.$el.getElementsByClassName('no-gutters')[0]
+
+      if (el) {
+        el.scrollIntoView({
+          block: 'start',
+          behavior: 'smooth'
+        })
+      }
     }
   },
   computed: {
@@ -209,5 +226,12 @@ export default {
 }
 .bg-light-red {
   background: rgba(255,0,0,0.1)
+}
+.scroll-top {
+  position: fixed;
+  right: 35rem;
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+  z-index: 100;
 }
 </style>
