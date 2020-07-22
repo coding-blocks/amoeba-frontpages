@@ -264,6 +264,8 @@
             </div>
           </div>
           
+          <a class="center-block bg-dark button-orange button-solid position-fixed top-icon" href="#top">Top</a>
+
         </div>
       </div>
     </div>
@@ -329,5 +331,9 @@
 <style scoped>
 .footer-col > h5:first-child {
   height: 42px;
+}
+.top-icon {
+  right: 50%;
+  bottom: 1%;
 }
 </style>
