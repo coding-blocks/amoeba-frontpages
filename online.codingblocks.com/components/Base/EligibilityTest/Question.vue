@@ -106,8 +106,8 @@ export default {
         return this.$jsonApiStore.sync(response.data)
       }).runWith('questionId'),
       submitQuestion: t(function *(questionId, choiceId) {
-        // if (this.submissionResponse)
-        //   return (void 0)
+        if (this.userResponses.find((p) => p.id === questionId))
+          return (void 0)
 
         const { data } = yield this.$axios.post(`/questions/${questionId}/submit?showAnswers=true`, {
           markedChoices: [choiceId]
