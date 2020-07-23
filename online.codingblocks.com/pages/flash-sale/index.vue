@@ -1,10 +1,16 @@
 <template>
-  <div class="br-25">
-    <h1>Flash Flash !</h1>  
+  <div class="container">
+    <div class="p-5">
+      <HeroBanner />
+    </div>
   </div>
 </template>
 <script>
+import HeroBanner from '~/components/FlashSale/HeroBanner'
+
 export default {
-  
+  components: {
+    HeroBanner
+  }
 }
 </script>
