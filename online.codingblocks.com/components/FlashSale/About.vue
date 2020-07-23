@@ -18,23 +18,29 @@
     </div>
     <div class="col-md-5">
       <h2 class="pb-4 bold">HURRY UP!</h2>
-      <div class="d-flex align-items-center mb-5">
-        <div class="time-panel t-align-c py-3">
 
-          <div class="value">04</div>
-          <div class="font-xl">Days</div>
-        </div>
-        <div class="font-xl px-3"> : </div>
-        <div class="time-panel t-align-c py-3">
-          <div class="value">08</div>
-          <div class="font-xl">hourse</div>
-        </div>
-        <div class="font-xl px-3"> : </div>
-        <div class="time-panel t-align-c py-3">
-          <div class="value">04</div>
-          <div class="font-xl">Days</div>
-        </div>
-      </div>
+      <client-only>
+        <VueCountdown :time="time">
+          <template slot-scope="props">
+            <div class="d-flex align-items-center mb-5">
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{props.days}} </div>
+                <div class="font-xl">Days</div>
+              </div>
+              <div class="font-xl px-3"> : </div>
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{props.hours}}</div>
+                <div class="font-xl">Hours</div>
+              </div>
+              <div class="font-xl px-3"> : </div>
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{ props.minutes }} </div>
+                <div class="font-xl">Mins</div>
+              </div>
+            </div>
+          </template>
+        </VueCountdown>
+      </client-only>
 
       <h2 class="py-4 bold">COUPON CODE</h2>
 
@@ -46,7 +52,22 @@
 </template>
 
 <script>
+import VueCountdown from '@chenfengyuan/vue-countdown';
+
 export default {
+  components: {
+    VueCountdown
+  },
+  data () {
+    return {
+      countdownTo: 1595972860
+    }
+  },
+  computed: {
+    time () {
+      return (this.countdownTo - (Date.now()/1000))*1000
+    }
+  }
 }
 </script>
 
@@ -62,6 +83,7 @@ h2  {
 }
 p {
   font-size: 26px;
+  text-align: justify;
 }
 .time-panel {
   background-color: #333;
