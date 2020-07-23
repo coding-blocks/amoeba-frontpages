@@ -57,5 +57,6 @@ export default {
     font-size: 4.688rem;
     font-weight: bolder;
     border-left: #ffffff solid 7px;
+    text-shadow: 4px 1px rgba(255, 255, 255, 0.5);
   }
 </style>
