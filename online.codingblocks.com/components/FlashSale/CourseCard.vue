@@ -29,7 +29,7 @@
             Batch starting {{premiumRun.start | formatDate}}
           </div>
           <div class="mt-4">
-            <button class="button button-dashed button-orange">Buy Now</button>
+            <a href="#" target="_blank" class="button button-dashed button-orange">Buy Now</a>
           </div>
         </div>
         <div class="vertical-divider"></div>
@@ -46,7 +46,7 @@
             Batch starting {{liteRun.start | formatDate}}
           </div>
           <div class="mt-4">
-            <button class="button button-dashed button-orange">Buy Now</button>
+            <a href="#" target="_blank" class="button button-dashed button-orange">Buy Now</a>
           </div>
         </div>
       </div>
