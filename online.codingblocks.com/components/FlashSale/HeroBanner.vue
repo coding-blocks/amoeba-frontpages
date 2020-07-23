@@ -1,5 +1,5 @@
 <template>
-  <div class="background br-25">
+  <div class="background br-10">
     <div class="overlay p-5">
       <div class="row">
         <div class="d-flex justify-content-center col-12 col-md-6">

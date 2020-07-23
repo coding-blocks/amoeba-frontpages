@@ -725,6 +725,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@chenfengyuan/vue-countdown@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@chenfengyuan/vue-countdown/-/vue-countdown-1.1.5.tgz#33c1fe68bd28496cb70dda8eed6ecc874a6dc386"
+  integrity sha512-BB0taTfJzxsXFUPioREWLKpMDdHOoD8EiSW6lhB3yCdJh3I7jiNQzC8Hw5dPxoPNgZekeEPMQwsdPkjQPyxIeA==
+
 "@coding-blocks/motley@0.8.8":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-0.8.8.tgz#3b3e725eb7133ed345be7719b336dc864c5aebfa"
