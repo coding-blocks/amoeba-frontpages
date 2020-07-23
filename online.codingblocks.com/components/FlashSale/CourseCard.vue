@@ -4,8 +4,8 @@
       <div class="white">
         <div class="font-xs">Advanced Course</div>
         <div class="font-mdxl bold">{{course.title}}</div>
-        <RatingStars class="mt-2" :value="5">
-          <span class="card-md font-normal ml-2"> 5/5, 5 ratings</span>
+        <RatingStars class="mt-2" :value="Math.round(+this.course.rating)">
+          <span class="card-md font-normal ml-2"> {{this.course.rating}}/5, {{this.course['review-count']}} ratings </span>
         </RatingStars>
       </div>
       <div>
@@ -22,11 +22,11 @@
             <div class="font-lg gradient-text-orange extra-bold">PREMIUM</div>
           </div>
           <div class="mt-4">
-            <span class="font-xl bold mr-2">₹ 12,999</span>
-            <strike class="font-mds extra-bold grey">₹ 12,999</strike>
+            <span class="font-xl bold mr-2">₹ {{premiumRun.price | formatPrice}}</span>
+            <strike class="font-mds extra-bold grey" v-show="premiumRun.mrp && premiumRun.price < premiumRun.mrp" > {{premiumRun.mrp}} </strike>
           </div>
           <div class="batch-text mt-1 grey">
-            Batch starting 15 April ’20
+            Batch starting {{premiumRun.start | formatDate}}
           </div>
           <div class="mt-4">
             <button class="button button-dashed button-orange">Buy Now</button>
@@ -39,11 +39,11 @@
             <div class="font-lg extra-bold">LITE</div>
           </div>
           <div class="mt-4">
-            <span class="font-xl bold mr-2">₹ 12,999</span>
-            <strike class="font-mds extra-bold grey">₹ 12,999</strike>
+            <span class="font-xl bold mr-2">₹ {{liteRun.price | formatPrice}}</span>
+            <strike class="font-mds extra-bold grey" v-show="liteRun.mrp && liteRun.price < liteRun.mrp" > {{liteRun.mrp}} </strike>
           </div>
           <div class="batch-text mt-1 grey">
-            Batch starting 15 April ’20
+            Batch starting {{liteRun.start | formatDate}}
           </div>
           <div class="mt-4">
             <button class="button button-dashed button-orange">Buy Now</button>
@@ -55,7 +55,10 @@
 </template>
 <script>
 import RatingStars from '~/components/AboutCourse/RatingStars'
+import { formatTimestamp } from '~/utils/date'
 import { iconForTier, featuresForRunTier } from '~/utils/run'
+
+const propEq = (key, val) => obj => obj[key] === val
 
 export default {
   components: {
@@ -72,8 +75,25 @@ export default {
     },
     iconLite() {
       return iconForTier('LITE')
+    },
+    premiumRun () {
+      const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
+      return runsSortedByStart.find(propEq('tier', 'PREMIUM'))
+    },
+    liteRun () {
+      const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
+      return runsSortedByStart.find(propEq('tier', 'LITE'))
     }
-  }  
+  },
+  filters: {
+    formatDate (ms) {
+      return formatTimestamp(ms)
+    },
+    formatPrice (price) {
+      const last = String(price).slice(-3)
+      return String(price).split('').reverse().reduce((acc, val, ind) => [ ...(ind%3 ? [val] : [val, ','])   , ...acc]).join('')
+    }
+  }
 }
 </script>
 <style scoped>
