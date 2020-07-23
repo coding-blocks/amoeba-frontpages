@@ -278,8 +278,12 @@ export default {
     NotificationPopUp
   },
   async created () {
-    const { data: { wallet_amount } }  = await this.$axios.get('/users/me/wallet')
-    this.walletAmount = Math.floor(wallet_amount/100)
+    try {
+      const { data: { wallet_amount } }  = await this.$axios.get('/users/me/wallet')
+      this.walletAmount = Math.floor(wallet_amount/100)
+    } catch (err) {
+      console.log(err)
+    }
   },
   methods: {
     isClickFromPopup(e) {

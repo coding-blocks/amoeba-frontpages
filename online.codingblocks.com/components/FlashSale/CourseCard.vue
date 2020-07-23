@@ -14,7 +14,7 @@
     <div class="p-4">
       <ul class="divided-list">
         <li class="w-50 px-4">
-          <div class="v-align-ma">
+          <div class="d-flex align-items-center">
             <img :src="iconUrl" class="mr-1" />
             <div class="font-lg gradient-text-orange extra-bold">PREMIUM</div>
           </div>
