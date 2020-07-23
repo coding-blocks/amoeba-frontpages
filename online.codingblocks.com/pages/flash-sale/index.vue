@@ -4,8 +4,8 @@
       <HeroBanner />
       <About class="mt-5" />
       <div class="row mt-5">
-        <div class="col-12 col-lg-6">
-          <CourseCard />
+        <div class="col-lg-6" v-for="course in courses" :key="course.id">
+          <CourseCard :course="course"  />
         </div>
       </div>
     </div>
@@ -40,8 +40,8 @@ export default {
         include: 'instructors,runs',
         exclude: 'ratings,instructors.*,feedbacks,runs.*',
         filter: {
-          recommended: true,
-          unlisted: false,
+          // recommended: true,
+          // unlisted: false,
           id: {
             $in: courseIds
           }

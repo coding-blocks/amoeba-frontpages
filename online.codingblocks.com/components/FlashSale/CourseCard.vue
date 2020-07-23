@@ -1,16 +1,16 @@
 <template>
   <div class="border-card p-0">
-    <div class="d-flex align-items-center justify-content-between br-15 p-4" style="background-image: url(https://minio.codingblocks.com/amoeba/a0c2d06d-4aef-40d9-baac-328876d5290e.svg);">
+    <div class="d-flex align-items-center justify-content-between br-15 p-4" :style="`background-image: url('${course['cover-image']}')`">
       <div class="white">
         <div class="font-xs">Advanced Course</div>
-        <div class="font-mdxl bold">Competitive Prog.</div>
+        <div class="font-mdxl bold">{{course.title}}</div>
         <RatingStars class="mt-2" :value="5">
           <span class="card-md font-normal ml-2"> 5/5, 5 ratings</span>
         </RatingStars>
       </div>
       <div>
         <div class="header__course-logo">
-          <img src="https://minio.codingblocks.com/amoeba/0c0428ce-b68a-4b69-a984-7cacb3f50dcc.svg" alt="">
+          <img :src="course.logo" alt="">
         </div>
       </div>
     </div>
@@ -60,6 +60,11 @@ import { iconForTier, featuresForRunTier } from '~/utils/run'
 export default {
   components: {
     RatingStars
+  },
+  props: {
+    course: {
+      type: Object
+    }
   },
   computed: {
     iconPremium() {
