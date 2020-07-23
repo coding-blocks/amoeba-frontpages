@@ -15,14 +15,35 @@
       <ul class="divided-list">
         <li class="w-50 px-4">
           <div class="d-flex align-items-center">
-            <img :src="iconUrl" class="mr-1" />
+            <img :src="iconPremium" class="mr-1" />
             <div class="font-lg gradient-text-orange extra-bold">PREMIUM</div>
           </div>
-          <div class="list-data">Hello</div>
+          <div class="mt-4">
+            <span class="font-xl bold mr-2">₹ 12,999</span>
+            <strike class="font-mds extra-bold grey">₹ 12,999</strike>
+          </div>
+          <div class="batch-text mt-1 grey">
+            Batch starting 15 April ’20
+          </div>
+          <div class="mt-4">
+            <button class="button button-dashed button-orange">Buy Now</button>
+          </div>
         </li>
         <li class="w-50 px-4">
-          <div class="list-heading">Hello</div>
-          <div class="list-data">Hello</div>
+          <div class="d-flex align-items-center">
+            <img :src="iconLite" class="mr-1" />
+            <div class="font-lg extra-bold">LITE</div>
+          </div>
+          <div class="mt-4">
+            <span class="font-xl bold mr-2">₹ 12,999</span>
+            <strike class="font-mds extra-bold grey">₹ 12,999</strike>
+          </div>
+          <div class="batch-text mt-1 grey">
+            Batch starting 15 April ’20
+          </div>
+          <div class="mt-4">
+            <button class="button button-dashed button-orange">Buy Now</button>
+          </div>
         </li>
       </ul>
     </div>
@@ -33,8 +54,11 @@ import { iconForTier, featuresForRunTier } from '~/utils/run'
 
 export default {
   computed: {
-    iconUrl() {
+    iconPremium() {
       return iconForTier('PREMIUM')
+    },
+    iconLite() {
+      return iconForTier('LITE')
     }
   }  
 }
@@ -44,5 +68,8 @@ export default {
     height: 70px;
     width: 70px;
     border-radius: 50%;
+  }
+  .batch-text {
+    font-size: 0.625remm;
   }
 </style>
