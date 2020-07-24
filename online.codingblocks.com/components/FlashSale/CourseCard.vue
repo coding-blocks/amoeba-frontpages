@@ -29,7 +29,11 @@
             Batch starting {{premiumRun.start | formatDate}}
           </div>
           <div class="mt-4">
-            <a href="#" target="_blank" class="button button-dashed button-orange">Buy Now</a>
+            <a 
+            target="_blank" 
+            class="button button-dashed button-orange"
+            :href="`https://dukaan.codingblocks.com/buy?productId=${premiumRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=GETPLACED`"
+            >Buy Now</a>
           </div>
         </div>
         <div class="vertical-divider"></div>
@@ -46,7 +50,11 @@
             Batch starting {{liteRun.start | formatDate}}
           </div>
           <div class="mt-4">
-            <a href="#" target="_blank" class="button button-dashed button-orange">Buy Now</a>
+            <a 
+              target="_blank"
+              class="button button-dashed button-orange"
+              :href="`https://dukaan.codingblocks.com/buy?productId=${liteRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=GETPLACED`"
+            >Buy Now</a>
           </div>
         </div>
       </div>

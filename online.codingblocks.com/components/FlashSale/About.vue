@@ -71,7 +71,7 @@
       <h2 class="py-4 bold">COUPON CODE</h2>
 
       <div class="coupon-code">
-        GET PLACED
+        GETPLACED
       </div>
     </div>
   </div>
