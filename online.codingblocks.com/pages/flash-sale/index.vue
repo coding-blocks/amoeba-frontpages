@@ -38,7 +38,7 @@ export default {
     const {data: coursesPayload} = await $axios.get(`/courses`, {
       params: {
         include: 'instructors,runs',
-        exclude: 'ratings,instructors.*,feedbacks,runs.*',
+        exclude: 'ratings,instructors.*,feedbacks,runs.*,tags',
         filter: {
           // recommended: true,
           // unlisted: false,

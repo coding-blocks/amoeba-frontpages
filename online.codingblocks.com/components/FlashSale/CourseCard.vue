@@ -90,8 +90,10 @@ export default {
       return runsSortedByStart.find(propEq('tier', 'PREMIUM'))
     },
     liteRun () {
-      const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
-      return runsSortedByStart.find(propEq('tier', 'LITE'))
+      // the line below fucks shit up; don't sort
+      // const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
+      // console.log(this.course.runs.find(propEq('tier', 'LITE')) )
+      return this.course.runs.find(propEq('tier', 'LITE')) 
     },
     difficultyText () {
       return textForDifficulty(this.course.difficulty)
