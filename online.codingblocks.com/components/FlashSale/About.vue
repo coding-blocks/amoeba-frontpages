@@ -94,10 +94,10 @@ export default {
   computed: {
     time () {
       const countdownTo = this.hasStarted ? this.saleEnds : this.saleStarts
-      return (countdownTo - (this.now/1000))*1000 
+      return (countdownTo - (Date.now()/1000))*1000 
     },
     hasStarted () {
-      return this.now > this.saleStarts
+      return Date.now()/1000 > this.saleStarts
     }
   }
 }
