@@ -22,7 +22,7 @@
       </h2>
 
       <client-only>
-        <VueCountdown :time="time" v-if="hasStarted">
+        <!-- <VueCountdown :time="time" v-if="hasStarted">
           <template slot-scope="props">
             <div class="d-flex align-items-center mb-5">
               <div class="time-panel t-align-c py-3">
@@ -41,9 +41,9 @@
               </div>
             </div>
           </template>
-        </VueCountdown>
+        </VueCountdown> -->
 
-        <VueCountdown :time="time" v-if="!hasStarted">
+        <!-- <VueCountdown :time="time" v-if="!hasStarted">
           <template slot-scope="props">
             <div class="d-flex align-items-center mb-5">
               <div class="time-panel t-align-c py-3">
@@ -62,7 +62,7 @@
               </div>
             </div>
           </template>
-        </VueCountdown>
+        </VueCountdown> -->
 
 
 
@@ -78,11 +78,11 @@
 </template>
 
 <script>
-import VueCountdown from '@chenfengyuan/vue-countdown';
+// import VueCountdown from '@chenfengyuan/vue-countdown';
 
 export default {
   components: {
-    VueCountdown
+    // VueCountdown
   },
   data () {
     return {
