@@ -87,16 +87,17 @@ export default {
   data () {
     return {
       saleStarts: 1595601000,
-      saleEnds: 1595788199
+      saleEnds: 1595788199,
+      now: Date.now()/1000
     }
   },
   computed: {
     time () {
       const countdownTo = this.hasStarted ? this.saleEnds : this.saleStarts
-      return (countdownTo - (Date.now()/1000))*1000 
+      return (countdownTo - (this.now/1000))*1000 
     },
     hasStarted () {
-      return Date.now()/1000 > this.saleStarts
+      return this.now > this.saleStarts
     }
   }
 }
