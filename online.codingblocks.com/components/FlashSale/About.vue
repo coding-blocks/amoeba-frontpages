@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex bg-lightgrey px-4 py-5 justify-content-between br-10">
+  <div class="d-flex flex-wrap bg-lightgrey px-4 py-5 justify-content-between br-10">
     <div class="col-md-6">
       <h2 class="pb-4 bold">ABOUT SALE</h2>
       <div>
