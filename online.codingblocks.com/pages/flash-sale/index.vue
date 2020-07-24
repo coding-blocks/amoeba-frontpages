@@ -4,7 +4,7 @@
       <HeroBanner />
       <About class="mt-5" />
       <div class="row mt-5">
-        <div class="col-lg-6" v-for="course in courses" :key="course.id">
+        <div class="col-lg-6 my-3" v-for="course in courses" :key="course.id">
           <CourseCard :course="course"  />
         </div>
       </div>

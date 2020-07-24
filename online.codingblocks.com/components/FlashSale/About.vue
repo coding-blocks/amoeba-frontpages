@@ -17,10 +17,12 @@
       </div>
     </div>
     <div class="col-md-5">
-      <h2 class="pb-4 bold">HURRY UP!</h2>
+      <h2 class="pb-4 bold">
+        {{hasStarted ? 'HURRY UP!' : 'SALE STARTS IN'}}
+      </h2>
 
       <client-only>
-        <VueCountdown :time="time">
+        <VueCountdown :time="time" v-if="hasStarted">
           <template slot-scope="props">
             <div class="d-flex align-items-center mb-5">
               <div class="time-panel t-align-c py-3">
@@ -40,6 +42,30 @@
             </div>
           </template>
         </VueCountdown>
+
+        <VueCountdown :time="time" v-if="!hasStarted">
+          <template slot-scope="props">
+            <div class="d-flex align-items-center mb-5">
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{props.hours}} </div>
+                <div class="font-xl">Hours</div>
+              </div>
+              <div class="font-xl px-3"> : </div>
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{props.minutes}}</div>
+                <div class="font-xl">Mins</div>
+              </div>
+              <div class="font-xl px-3"> : </div>
+              <div class="time-panel t-align-c py-3">
+                <div class="value"> {{ props.seconds }} </div>
+                <div class="font-xl">Secs</div>
+              </div>
+            </div>
+          </template>
+        </VueCountdown>
+
+
+
       </client-only>
 
       <h2 class="py-4 bold">COUPON CODE</h2>
@@ -60,12 +86,17 @@ export default {
   },
   data () {
     return {
-      countdownTo: 1595972860
+      saleStarts: 1595601000,
+      saleEnds: 1595788199
     }
   },
   computed: {
     time () {
-      return (this.countdownTo - (Date.now()/1000))*1000
+      const countdownTo = this.hasStarted ? this.saleEnds : this.saleStarts
+      return (countdownTo - (Date.now()/1000))*1000 
+    },
+    hasStarted () {
+      return Date.now()/1000 > this.saleStarts
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="border-card p-0">
-    <div class="d-flex align-items-center justify-content-between br-15 p-4" :style="`background-image: url('${course['cover-image']}')`">
+  <div class="border-card p-0 h-100">
+    <div class="d-flex align-items-center justify-content-between br-15 p-4 card-bg" :style="`background-image: url('${course['cover-image']}')`">
       <div class="white">
-        <div class="font-xs">Advanced Course</div>
+        <div class="font-xs">{{difficultyText}} Course</div>
         <div class="font-mdxl bold">{{course.title}}</div>
         <RatingStars class="mt-2" :value="Math.round(+this.course.rating)">
           <span class="card-md font-normal ml-2"> {{this.course.rating}}/5, {{this.course['review-count']}} ratings </span>
@@ -57,6 +57,7 @@
 import RatingStars from '~/components/AboutCourse/RatingStars'
 import { formatTimestamp } from '~/utils/date'
 import { iconForTier, featuresForRunTier } from '~/utils/run'
+import { textForDifficulty } from '~/utils/course'
 
 const propEq = (key, val) => obj => obj[key] === val
 
@@ -83,7 +84,10 @@ export default {
     liteRun () {
       const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
       return runsSortedByStart.find(propEq('tier', 'LITE'))
-    }
+    },
+    difficultyText () {
+      return textForDifficulty(this.course.difficulty)
+    },
   },
   filters: {
     formatDate (ms) {
@@ -108,5 +112,9 @@ export default {
   }
   .batch-text {
     font-size: 0.625remm;
+  }
+  .card-bg {
+    background-size: cover;
+    background-position: center;
   }
 </style>
