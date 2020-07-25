@@ -73,6 +73,7 @@
       async next () {
         const [index, questionId] = this.randomQuestions.next().value || [null, '']
         if (!questionId) {
+          // quiz has ended; no questions left
           this.result = await this.calculateScore()
           this.isCompleted = true
           this.isActive = false

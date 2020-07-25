@@ -4,8 +4,8 @@
       Skill Assessment Test: Frontend Developement
     </div>
 
-    <VAsync :task="fetchQuestion" >
-      <template v-slot="{  value: question }">
+    <VAsync :task="fetchQuestion" :emberStyle="true" > 
+      <template v-slot="{ value: question }">
         <div class="row no-gutters align-items-center justify-content-between mb-2">
           <div class="flex-1 pr-4">
             <div class="font-md bold">
@@ -32,7 +32,7 @@
               <div class="col-sm-8 col-6">
                   <div class="med-grey font-sm"> {{questionsRemaining}} Questions Remaining</div>
                   <div class="mt-4">
-                      <progress value="currentIndex" max="total"></progress>
+                      <progress class="progress-orange" :value="currentIndex" :max="total"></progress>
                   </div>
               </div>
           </div>
@@ -65,8 +65,8 @@ export default {
   },
   data () {
     return {
-      question: null,
-      submissionResponse: null
+      oldQuestion: {},
+      submissionResponse: null,
     }
   },
   methods: {
@@ -103,7 +103,8 @@ export default {
           }
         })
 
-        return this.$jsonApiStore.sync(response.data)
+        this.oldQuestion = this.$jsonApiStore.sync(response.data)
+        return this.oldQuestion
       }).runWith('questionId'),
       submitQuestion: t(function *(questionId, choiceId) {
         if (this.userResponses.find((p) => p.id === questionId))
