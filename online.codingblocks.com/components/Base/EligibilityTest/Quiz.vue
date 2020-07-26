@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-if="isActive">
-      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" :userResponses="userResponses" :total="totalQuestions" :currentIndex="currentIndex"/>
+      <Question :questionId="currentQuestionId" :switchToNextQuestion="next" :userResponses="userResponses" :total="totalQuestions" :currentIndex="currentIndex" :quizDescription="quiz.description" />
     </div>
   </div>
 </template>

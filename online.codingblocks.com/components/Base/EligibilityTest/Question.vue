@@ -1,12 +1,12 @@
 <template>
   <div class="br-10 p-4">
     <div class="font-sm pb-4">
-      Skill Assessment Test: Frontend Developement
+        {{quizDescription}}
     </div>
 
     <VAsync :task="fetchQuestion" :emberStyle="true" > 
       <template v-slot="{ value: question }">
-        <div class="row no-gutters align-items-center justify-content-between mb-2">
+        <div class="row no-gutters align-items-center justify-content-between mb-2 mobile-timer">
           <div class="flex-1 pr-4 mb-4">
             <div class="font-md bold">
               {{ question.description }}
@@ -57,7 +57,8 @@ export default {
     switchToNextQuestion: Function,
     userResponses: Array,
      total: Number,
-     currentIndex: Number
+     currentIndex: Number,
+     quizDescription: String
   },
   components: {
     Choice,
@@ -137,3 +138,10 @@ export default {
   }
 }
 </script>
+<style>
+@media only screen and (max-width: 768px) {
+    .mobile-timer {
+        flex-direction: column-reverse;
+    }
+}
+</style>
