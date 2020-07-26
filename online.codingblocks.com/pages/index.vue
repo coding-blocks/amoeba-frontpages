@@ -99,7 +99,7 @@ export default {
     })
 
     const tag = $jsonApiStore.sync(tagsPayload)[0]
-    const courseIds = (tag.courses || []).map(c => c.id)
+    const courseIds = ((tag && tag.courses) || []).map(c => c.id)
 
     const {data: coursesPayload} = await $axios.get(`/courses`, {
       params: {
