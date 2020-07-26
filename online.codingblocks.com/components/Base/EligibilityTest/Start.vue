@@ -9,7 +9,7 @@
                     </div>
                     <div class="flex-1 pl-4">
                         <div style="font-size: 2rem;">Skill Assessment Test</div>
-                        <div class="mt-1 bold" style="font-size: 2rem;">Frontend Development</div>
+                        <div class="mt-1 bold" style="font-size: 2rem;">{{course.title}}</div>
                     </div>
                 </div>
             </div>
@@ -55,3 +55,11 @@
         </div>
     </div>
 </template>
+<script>
+  export default {
+    name: 'Start',
+    props: {
+      course: Object,
+    }
+  }
+</script>

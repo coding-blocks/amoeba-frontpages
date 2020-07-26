@@ -1,16 +1,16 @@
 <template>
   <div class="col-lg-12 p-3">
     <div v-if="!isActive && !isCompleted">
-      <Start v-on:click="startQuiz()" />
+      <Start v-on:click="startQuiz()" :course=course />
     </div>
     <div
       v-if="isCompleted"
       >
       <div v-if="result.score >= course['eligibility-quiz-threshold']">
-        <Success :course=course  :result=result />
+        <Success :course=course  :result=result :quizDescription="quiz.description" />
       </div>
       <div v-if="result.score < course['eligibility-quiz-threshold']">
-        <Failure :course=course :result=result />
+        <Failure :course=course :result=result :quizDescription="quiz.description" />
       </div>
     </div>
     <div v-if="isActive">
