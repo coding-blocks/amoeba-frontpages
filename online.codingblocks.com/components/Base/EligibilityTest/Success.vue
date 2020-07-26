@@ -8,8 +8,8 @@
             <img src="https://minio.codingblocks.com/amoeba/e2c13faa-f538-48d4-8ca1-88728a07c51a.svg">
           </div>
           <div class="flex-1 pl-4">
-            <div style="font-size: 2rem;">Skill Assessment Report</div>
-            <div class="mt-1 bold" style="font-size: 2rem;">Frontend Development</div>
+            <div style="font-size: 2rem;">{{quizDescription}}</div>
+            <div class="mt-1 bold" style="font-size: 2rem;">{{course.description}}</div>
           </div>
         </div>
       </div>
@@ -69,7 +69,8 @@ export default {
   name: 'Success',
   props: {
     result: Object,
-    course: Object
+    course: Object,
+    quizDescription: String
   },
   computed: {
     freeTrialRun () {
