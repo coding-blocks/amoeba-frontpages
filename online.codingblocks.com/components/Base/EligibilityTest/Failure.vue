@@ -58,6 +58,7 @@
 
                 <div class="row c-card-carousel">
                     <div class="col-xl-8 col-sm-8 col-10">
+                        <nuxt-link :to="`/courses/${recommendedCourse.slug}`">
                         <div class="br-10 overflow-hidden">
                             <div class="row no-gutters justify-content-between align-items-center bg-gradient-pink py-4 px-lg-5 px-4">
                                 <div class="flex-1 pr-4 white" style="max-width: calc(100% - 75px);">
@@ -90,6 +91,7 @@
                                 </div>
                             </div>
                         </div>
+                        </nuxt-link>
                     </div>
                 </div>
             </div>
