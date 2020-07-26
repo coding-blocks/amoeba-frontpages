@@ -1,20 +1,20 @@
 <template>
-  <div class="br-10 p-4 border">
-    <div class="font-sm mb-5 pb-5 border-bottom">
+  <div class="br-10 p-4">
+    <div class="font-sm pb-4">
       Skill Assessment Test: Frontend Developement
     </div>
 
     <VAsync :task="fetchQuestion" :emberStyle="true" > 
       <template v-slot="{ value: question }">
         <div class="row no-gutters align-items-center justify-content-between mb-2">
-          <div class="flex-1 pr-4">
+          <div class="flex-1 pr-4 mb-4">
             <div class="font-md bold">
               {{ question.description }}
             </div>
           </div>
           <div class="s-60x60 border b-pink all-center round">
             <div class="t-align-c pink">
-              <h2 class="bold">30</h2>
+              <h2 class="bold"> {{timer}} </h2>
               <div class="font-sm">SEC</div>
             </div>
           </div>
@@ -67,6 +67,9 @@ export default {
     return {
       oldQuestion: {},
       submissionResponse: null,
+      changeAt: Date.now() + (30*1000),
+      timerId: null,
+      timer: 0
     }
   },
   methods: {
@@ -81,6 +84,17 @@ export default {
       } else {
         return ''
       }
+    },
+    resetTimer () {
+      this.changeAt = Date.now() + (30 * 1000)
+      clearInterval(this.timerId)
+      this.timerId = setInterval(() => {
+        this.timer = Math.floor((this.changeAt - Date.now())/1000)
+        if (this.timer <= 0) {
+          clearInterval(this.timerId)
+          this.switchToNextQuestion()
+        }
+      })
     }
   },
   computed: {
@@ -104,6 +118,7 @@ export default {
         })
 
         this.oldQuestion = this.$jsonApiStore.sync(response.data)
+        this.resetTimer()
         return this.oldQuestion
       }).runWith('questionId'),
       submitQuestion: t(function *(questionId, choiceId) {

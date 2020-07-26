@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-12 mt-5">
-    <div class="br-10 overflow-hidden border">
+    <div class="br-10 overflow-hidden">
       <div class="bg-gradient-dpink px-md-5 px-4 py-5 position-relative"
            style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
         <div class="row no-gutters align-items-center white">
