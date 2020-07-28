@@ -6,13 +6,13 @@
 
     <VAsync :task="fetchQuestion" :emberStyle="true" > 
       <template v-slot="{ value: question }">
-        <div class="row no-gutters align-items-center justify-content-between mb-2 mobile-timer">
-          <div class="flex-1 pr-4 mb-4">
+        <div class="row no-gutters align-items-center justify-content-between mb-4 mobile-timer">
+          <div class="flex-1 pr-4">
             <div class="font-md bold">
-              {{ question.description }}
+              <VMarkdown :markdown="question.description"/>
             </div>
           </div>
-          <div class="s-60x60 border b-pink all-center round">
+          <div class="s-60x60 border b-pink round">
             <div class="t-align-c pink">
               <h2 class="bold"> {{timer}} </h2>
               <div class="font-sm">SEC</div>
@@ -46,6 +46,7 @@
 <script>
 import VAsync from '~/components/Base/VAsync'
 import Choice from './Choice'
+import VMarkdown from '~/components/Base/VMarkdown.vue'
 
 export default {
   name: 'Question',
@@ -62,7 +63,8 @@ export default {
   },
   components: {
     Choice,
-    VAsync
+    VAsync,
+    VMarkdown
   },
   data () {
     return {

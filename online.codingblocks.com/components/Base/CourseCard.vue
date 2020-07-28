@@ -66,10 +66,16 @@
         </div>
         <div class="divider-h my-4"></div>
         <div class="d-flex justify-content-between">
-        <a :href="tryNowLink" class="orange t-align-l d-block card-md font-normal" v-on:click="explore('Free Trial')">Try it for Free!</a>
-        <a href="" class="orange t-align-r d-block card-md font-normal" v-on:click.prevent.stop="showModal = true">Take eligibility Test</a>
+        <a :href="tryNowLink" class="orange t-align-l d-block card-md font-normal text-hoverable" v-on:click="explore('Free Trial')">Try it for Free!</a>
+        <a href="" 
+          class="orange t-align-r d-block card-md font-normal text-hoverable" 
+          @click.prevent.stop="showModal = true"
+          v-if="course['eligibility-quiz-id']"
+          >
+            <i class="fas fa-vial"></i> Take eligibility Test
+        </a>
         </div>
-        <Modal v-if="showModal" v-on:close="showModal=false">
+        <Modal v-show="showModal" @forceClose="showModal=false">
           <div slot="body">
               <Quiz :course="course" />
             <div class="d-md-none t-align-c mt-2" @click="showModal = false">
@@ -184,7 +190,8 @@ export default {
 .twoLine{
   height: 42px;
 }
-/* .course-card {
 
-} */
+.text-hoverable:hover {
+  text-decoration: underline;
+}
 </style>

@@ -1,11 +1,15 @@
 <template>
 <transition name="Modal">
-<div class="modal-mask"  @click="$emit('close')">
+<div class="modal-mask" @click="$emit('close')">
     <div class="modal-wrapper">
         <div class="modal-container" @click.stop="">
-              <slot name="body" >
-                default body
-              </slot>
+          <img src="https://minio.codingblocks.com/amoeba/close.svg" class="s-40x40 fa-window-close" @click="$emit('forceClose') && $emit('close')" />
+          <div class="modal-content">
+            <slot name="body" >
+               default body
+            </slot>
+          </div>
+         
         </div>
     </div>
 </div>
@@ -16,7 +20,7 @@
 
 .modal-mask {
   position: fixed;
-  z-index: 9998;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100%;
@@ -32,16 +36,35 @@
 }
 
 .modal-container {
+  position: relative;
   width: 70%;
-  /* max-width: ; */
-  margin: 0px auto;
-  overflow: auto;
-  /* padding: 10px 30px; */
+  /* min-height: 80%; */
+  /* height: 100%; */
+  /* max-height: 5000px;
+  height: auto; */
+  max-height: 100vh;
+  margin: 20px auto;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.fa-window-close {
+  position: absolute;
+  right: -0.8rem;
+  top: -1rem;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 @media(max-width: 576px) {
