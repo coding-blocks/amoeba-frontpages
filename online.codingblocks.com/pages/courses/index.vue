@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <div class="border-bottom-list" v-show="!searchQuery.trim()" > 
+    <div class="border-bottom-list" v-show="!searchQuery.trim()" >
       <FeaturedTagExplore :featuredTag='featuredTag' v-for="featuredTag in featuredTags" :key="`feature_${featuredTag.id}`" />
     </div>
     <div class="divider-h my-4"></div>
@@ -43,7 +43,6 @@
           alt="loading..."
         />
       </div>
-
     </div>
     </div>
 </template>
