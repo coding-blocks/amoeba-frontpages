@@ -41,7 +41,7 @@ export default {
     ],
     script: [
       { src: 'https://hack.codingblocks.com/index.js' },
-      { src: 'https://unpkg.com/@coding-blocks/web-components@0.0.9/dist/index.js' },
+      { src: 'https://unpkg.com/@coding-blocks/web-components@0.0.13/dist/index.js' },
       { src: 'https://code.jivosite.com/widget.js', 'data-jv-id': 'ASYGLZQ6UC', defer : true }
     ]
   },

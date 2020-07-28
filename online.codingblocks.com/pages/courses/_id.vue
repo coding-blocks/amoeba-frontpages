@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-md-4 mt-5 order-2">
-        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns"/>
+        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
         <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
       </div>
     </div>
@@ -46,7 +46,7 @@
       <div class="col-md-4 mt-5">
         <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
         <ProjectsList class="projects" :project-ids="projectIds" />
-        <WildcraftCard class="mt-4" />
+        <!-- <WildcraftCard class="mt-4" /> -->
         <CourseFeatures :features="course.coursefeatures" class="mt-4" />
       </div>
     </div>

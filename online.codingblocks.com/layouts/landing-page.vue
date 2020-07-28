@@ -35,6 +35,3 @@ body {
   margin-bottom: 0rem;
 }
 </style>
-
-
-

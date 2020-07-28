@@ -18,10 +18,12 @@
     "nuxt": "^2.0.0",
     "nuxt-jsonld": "^1.4.5",
     "vue-clickaway": "^2.2.2",
-    "vue-infinite-scroll": "^2.0.2"
+    "vue-infinite-scroll": "^2.0.2",
+    "vue-slick-carousel": "^1.0.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@chenfengyuan/vue-countdown": "^1.1.5",
     "@coding-blocks/motley": "0.8.8",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

@@ -1,8 +1,8 @@
 <template>
   <div>
-      <div class="my-auto p-md-4 position-relative home-banner">
-        <Info />
-      </div>
+    <div class="my-auto p-md-4 position-relative home-banner">
+      <Info />
+    </div>
     <CompanyCard class="position-relative" />
 
     <div class="my-auto">
@@ -99,7 +99,7 @@ export default {
     })
 
     const tag = $jsonApiStore.sync(tagsPayload)[0]
-    const courseIds = (tag.courses || []).map(c => c.id)
+    const courseIds = ((tag && tag.courses) || []).map(c => c.id)
 
     const {data: coursesPayload} = await $axios.get(`/courses`, {
       params: {

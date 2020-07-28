@@ -1,22 +1,21 @@
 <template>
-  <div class="mb-5">
-    <div class="container">
-      <div class="border-card p-5 bg-gradient-black-lr" style="position: relative;">
-        <div class="d-flex align-items-center mb-5">
-          <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/track_icon.svg" alt loading="lazy" />
-          <h2
-            class="gradient-text-orange bold font-lg ml-3 flex-1"
-          >Introducing: Learning tracks</h2>
-          <img src="https://minio.codingblocks.com/amoeba/new-sticker-3.svg" class="s-70x70 float-right" loading="lazy" />
+  <div class="mb-4 p-5 bg-light-grey learningTrackCards">
+    <div class="container learningTrack">
+      <div class="row justify-content-between mx-0" style="position: relative;">
+        <div class="d-flex flex-1 justify-content-between mb-5 ">
+          <div class="flex-col align-items-start">
+            <h4 class="global-font-heading-color normal font-xl">Introducing</h4>
+            <h2 class="global-font-heading-color extra-bold font-mdxl">Learning Tracks</h2>
+          </div>
         </div>
 
-        <div class="white normal font-sm">
-          Our expert instructors believe that systematically designed paths can help you to master your skills & achieve your career goals. We've got your back! Learning Tracks are carefully crafted with a step by step guide that saves you the effort to find out which course fits you well, and in what sequence to maximize your learning experience.
+        <div class="dark-grey normal font-md line-height-29">
+          Our expert instructors believe that systematically designed paths can help you to master your skills &amp; achieve your career goals. We've got your back! <span class="bold">Learning Tracks </span> are carefully crafted with a step by step guide that saves you the effort to find out which course fits you well, and in what sequence to maximize your learning experience.
           <br />
-          <br />Happy learning!
+          <span class="bold">Happy learning!</span>
         </div>
 
-        <TrackCards class="mt-5" />
+        <TrackCards />
       </div>
     </div>
   </div>
@@ -29,3 +28,26 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.learningTrack::before {
+  content: "";
+  background: #333333;
+  position: absolute;
+  left: 0rem;
+  height: 70px;
+  width: 10px;
+}
+.learningTrackCards::before {
+  background: url(/img/tagBackground.svg) no-repeat;
+  content: url(/img/newTag.svg);
+  position: relative;
+  top: -3.2rem;
+  left: calc(100% - 14rem);
+  padding: 9px 40px;
+  background-position-x: calc(60%);
+}
+.line-height-29 {
+  line-height: 29px;
+}
+</style>

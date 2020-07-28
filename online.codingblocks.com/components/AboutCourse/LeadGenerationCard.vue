@@ -7,7 +7,7 @@
       <div v-else>
         <div>
           <img class="s-25x25 v-align-m mr-3" src="https://minio.codingblocks.com/amoeba/doubt-lead-icon.svg" alt="flag">
-          <span class="gradient-text-orange font-md bold">Have any Doubts?</span>
+          <span class="gradient-text-orange font-md bold">Book a free Counseling Session</span>
         </div>
 
         <div class="divider-h my-3"></div>
@@ -18,6 +18,7 @@
           <input class="col-12 input-text form-field--control my-2" type="text" name="name" placeholder="Name" v-model="name">
           <input class="col-12 input-text form-field--control my-2" type="text" name="contact" placeholder="Contact Number" v-model="mobile">
           <input class="col-12 input-text form-field--control my-2" type="text" name="email" placeholder="Email" v-model="email">
+          <input class="col-12 input-textarea form-field--control my-2" type="textarea" name="doubt" placeholder="Doubt" v-model="doubt">
         </div>
         <div class="t-align-c">
           <p class="red mb-3" v-if="submissionError">{{submissionError}}</p>
@@ -54,6 +55,7 @@ export default {
             name: this.name,
             mobile: this.mobile,
             email: this.email,
+            doubt: this.doubt,
             course: this.courseTitle,
           },
           meta: {
