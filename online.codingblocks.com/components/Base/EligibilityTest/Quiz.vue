@@ -130,8 +130,11 @@
     tasks (t) {
       return {
         loadQuizForCourse:  t(function *() {
-          const response = yield this.$axios.get(`/quizzes/${this.course['eligibility-quiz-id']}`)
-          this.quiz = this.$jsonApiStore.sync(response.data)
+          const quizId = this.course['eligibility-quiz-id']
+          if (quizId) {
+            const response = yield this.$axios.get(`/quizzes/${quizId}`)
+            this.quiz = this.$jsonApiStore.sync(response.data)
+          }
         })
       }
     }
