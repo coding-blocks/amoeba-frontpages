@@ -179,11 +179,6 @@
         </div>
       </div>
     </div>
-     <button
-        :class="{ 'scroll-top-hidden': !showScrollToTop }"
-        class="scroll-top fas fa-arrow-alt-circle-up fa-lg px-2"
-        @click="scrollToTop">
-      </button>
   </div>
 </template>
 
@@ -195,41 +190,7 @@ export default {
   data () {
     return {
       hamburgerOpen: false,
-      mobileSelectedTab: 'online',
-      showScrollToTop: false,
-      lastScrollPosition: 0
-    }
-  },
-  methods: {
-     scrollToTop () {
-      const el = this.$el.getElementsByClassName('no-gutters')[0]
-
-      if (el) {
-        el.scrollIntoView({
-          block: 'start',
-          behavior: 'smooth'
-        })
-      }
-    },
-    onScroll () {
-      // Get the current scroll position
-      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-
-      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-      if (currentScrollPosition < 0) {
-        return
-      }
-
-      // Stop executing this function if the difference between
-      // current scroll position and last scroll position is less than some offset
-      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
-        return
-      }
-      // Here we determine whether we need to show or hide the scrollToTop button
-      this.showScrollToTop = currentScrollPosition > this.lastScrollPosition
-
-      // Set the current scroll position as the last scroll position
-      this.lastScrollPosition = currentScrollPosition
+      mobileSelectedTab: 'online'
     }
   },
   computed: {
@@ -238,12 +199,7 @@ export default {
       return this.session?.user
     }
   },
-  mounted() {
-    window.addEventListener('scroll', this.onScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
-  }
+  
 } 
 </script>
 <style scoped>
@@ -253,22 +209,5 @@ export default {
 }
 .bg-light-red {
   background: rgba(255,0,0,0.1)
-}
-.scroll-top {
-  position: fixed;
-  left: 10rem;
-  bottom: 3rem;
-  z-index: 100;
-  font-size: 60px;
-  color: red;
-  background: radial-gradient(white 56%, transparent 50%);
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.2s linear;
-}
-.scroll-top-hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.2s, opacity 0.2s linear;
 }
 </style>
