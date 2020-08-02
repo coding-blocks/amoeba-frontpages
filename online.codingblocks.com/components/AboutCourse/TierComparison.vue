@@ -104,7 +104,7 @@
           <td><img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick-med.svg"></td>
           <td><img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick-med.svg"></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>
             <div class="d-flex align-items-center">
               <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/c-6.png" class="mr-3">
@@ -115,7 +115,7 @@
           <td><img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick-med.svg"></td>
           <td><img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick-med.svg"></td>
           <td><img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/green-tick-med.svg"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>
             <div class="d-flex align-items-center">
