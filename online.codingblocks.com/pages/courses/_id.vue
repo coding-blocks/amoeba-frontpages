@@ -28,6 +28,7 @@
       <div class="col-md-4 mt-5 order-2">
         <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
         <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
+        <LeadGenerationCard :course-title="course.title" class="col-mt-4" />
       </div>
     </div>
     <div class="row">
@@ -56,7 +57,6 @@
 
     <div class="row mt-5">
       <MentorsCard class="col-md-8" :instructors="course.instructors" />
-      <LeadGenerationCard :course-title="course.title" class="col-md-4" />
     </div>
 
     <StudentsExperience :show-iframe="false" />
