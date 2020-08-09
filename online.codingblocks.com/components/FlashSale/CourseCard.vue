@@ -21,19 +21,21 @@
             <img :src="iconPremium" class="mr-1" />
             <div class="font-lg gradient-text-orange extra-bold">PREMIUM</div>
           </div>
-          <div class="mt-4">
-            <span class="font-xl bold mr-2">₹ {{premiumRun.price | formatPrice}}</span>
-            <strike class="font-mds extra-bold grey" v-show="premiumRun.mrp && premiumRun.price < premiumRun.mrp" > {{premiumRun.mrp}} </strike>
-          </div>
-          <div class="batch-text mt-1 grey">
-            Batch starting {{premiumRun.start | formatDate}}
-          </div>
-          <div class="mt-4">
-            <a 
-            target="_blank" 
-            class="button button-dashed button-orange"
-            :href="`https://dukaan.codingblocks.com/buy?productId=${premiumRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
-            >Buy Now</a>
+          <div v-for="premiumRun in premiumRuns" :key="premiumRun.id">
+            <div class="mt-4">
+              <span class="font-xl bold mr-2">₹ {{premiumRun.price | formatPrice}}</span>
+              <strike class="font-mds extra-bold grey" v-show="premiumRun.mrp && premiumRun.price < premiumRun.mrp" > {{premiumRun.mrp}} </strike>
+            </div>
+            <div class="batch-text mt-1 grey">
+              Batch starting {{premiumRun.start | formatDate}}
+            </div>
+            <div class="mt-4">
+              <a 
+              target="_blank" 
+              class="button button-dashed button-orange"
+              :href="`https://dukaan.codingblocks.com/buy?productId=${premiumRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
+              >Buy Now</a>
+            </div>
           </div>
         </div>
         <div class="vertical-divider"></div>
@@ -42,19 +44,21 @@
             <img :src="iconLite" class="mr-1" />
             <div class="font-lg extra-bold">LITE</div>
           </div>
-          <div class="mt-4">
-            <span class="font-xl bold mr-2">₹ {{liteRun.price | formatPrice}}</span>
-            <strike class="font-mds extra-bold grey" v-show="liteRun.mrp && liteRun.price < liteRun.mrp" > {{liteRun.mrp}} </strike>
-          </div>
-          <div class="batch-text mt-1 grey">
-            Batch starting {{liteRun.start | formatDate}}
-          </div>
-          <div class="mt-4">
-            <a 
-              target="_blank"
-              class="button button-dashed button-orange"
-              :href="`https://dukaan.codingblocks.com/buy?productId=${liteRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
-            >Buy Now</a>
+          <div v-for="liteRun in liteRuns" :key="liteRun.id">
+            <div class="mt-4">
+              <span class="font-xl bold mr-2">₹ {{liteRun.price | formatPrice}}</span>
+              <strike class="font-mds extra-bold grey" v-show="liteRun.mrp && liteRun.price < liteRun.mrp" > {{liteRun.mrp}} </strike>
+            </div>
+            <div class="batch-text mt-1 grey">
+              Batch starting {{liteRun.start | formatDate}}
+            </div>
+            <div class="mt-4">
+              <a 
+                target="_blank"
+                class="button button-dashed button-orange"
+                :href="`https://dukaan.codingblocks.com/buy?productId=${liteRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
+              >Buy Now</a>
+            </div>
           </div>
         </div>
       </div>
@@ -85,15 +89,15 @@ export default {
     iconLite() {
       return iconForTier('LITE')
     },
-    premiumRun () {
+    premiumRuns () {
       const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
-      return runsSortedByStart.find(propEq('tier', 'PREMIUM'))
+      return runsSortedByStart.filter(propEq('tier', 'PREMIUM'))
     },
-    liteRun () {
+    liteRuns () {
       // the line below fucks shit up; don't sort
       // const runsSortedByStart = this.course.runs.sort((r1, r2) => r2.start - r1.start) // sort in desc order of start
       // console.log(this.course.runs.find(propEq('tier', 'LITE')) )
-      return this.course.runs.find(propEq('tier', 'LITE')) 
+      return this.course.runs.filter(propEq('tier', 'LITE')) 
     },
     difficultyText () {
       return textForDifficulty(this.course.difficulty)
