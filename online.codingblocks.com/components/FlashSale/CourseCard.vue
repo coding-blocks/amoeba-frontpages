@@ -32,7 +32,7 @@
             <a 
             target="_blank" 
             class="button button-dashed button-orange"
-            :href="`https://dukaan.codingblocks.com/buy?productId=${premiumRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=GETPLACED`"
+            :href="`https://dukaan.codingblocks.com/buy?productId=${premiumRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
             >Buy Now</a>
           </div>
         </div>
@@ -53,7 +53,7 @@
             <a 
               target="_blank"
               class="button button-dashed button-orange"
-              :href="`https://dukaan.codingblocks.com/buy?productId=${liteRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=GETPLACED`"
+              :href="`https://dukaan.codingblocks.com/buy?productId=${liteRun['product-id']}&` + (user ? `oneauthId=${user['oneauth-id']}` : '') + `coupon=IN70`"
             >Buy Now</a>
           </div>
         </div>

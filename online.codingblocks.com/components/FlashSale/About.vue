@@ -71,7 +71,7 @@
       <h2 class="py-4 bold">COUPON CODE</h2>
 
       <div class="coupon-code">
-        GETPLACED
+        IN70
       </div>
     </div>
   </div>
@@ -86,8 +86,8 @@ export default {
   },
   data () {
     return {
-      saleStarts: 1595601000,
-      saleEnds: 1595788199,
+      saleStarts: 1596983400,
+      saleEnds: 1597084200,
       now: Date.now()/1000
     }
   },
