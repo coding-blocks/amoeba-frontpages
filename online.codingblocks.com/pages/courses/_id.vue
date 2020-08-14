@@ -39,7 +39,11 @@
             <CourseRatingStats v-bind="value" :curCourseId="course.id" :courseName="course.title" />
           </template>
         </VAsync>
-
+        <VAsync :task="fetchFaq">
+          <template v-slot="{ value }">
+            <Faq class="mt-5" v-bind="value" />
+          </template>
+        </VAsync>
         <!-- Sections Contents Accordion -->
         <CourseContentCard class="mt-5 course-content" :sectionIds="topRunSectionIds" />
       </div>
@@ -70,7 +74,7 @@
 import IntroductionCard from '~/components/AboutCourse/IntroductionCard.vue'
 import VMarkdown from '~/components/Base/VMarkdown.vue'
 import CourseRatingStats from '~/components/AboutCourse/CourseRatingStats.vue'
-
+import Faq from '~/components/AboutCourse/Faq.vue'
 import CourseContentCard from '~/components/AboutCourse/CourseContentCard/Index.vue'
 import ProjectsList from '~/components/AboutCourse/ProjectsList.vue'
 import MentorsCard from '~/components/AboutCourse/MentorsCard.vue'
@@ -142,7 +146,8 @@ export default {
     VAsync,
     SuggestedTrackCard,
     AlternateTrackCard,
-    ChooseRunTier
+    ChooseRunTier,
+    Faq
   },
   computed: {
     projectIds() {
@@ -179,6 +184,17 @@ export default {
         )
         const reviews = this.$jsonApiStore.sync(response.data)        
         return {ratingStats,reviews}
+      }),
+      fetchFaq: t(function*() {
+        const { data: faqs } = yield this.$axios.get(`/faqs`, {
+          params: {
+            filter: {
+              courseId: this.course.id
+            }
+          }
+        })
+        debugger;
+        return { faqs }
       })
     }
   },
