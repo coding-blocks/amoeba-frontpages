@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-12 p-3">
     <div v-if="!isActive && !isCompleted">
-      <Start v-on:click="startQuiz()" :course=course />
+      <Start v-on:click="startQuiz()" :course=course :canSubmit=canSubmit  :nextAttempt=nextAttempt />
     </div>
     <div
       v-if="isCompleted"
@@ -23,6 +23,7 @@
   import Start from './Start'
   import Failure from './Failure'
   import Question from './Question'
+  import { mapState } from 'vuex'
   import Vue from 'vue'
   export default {
     name: 'Quiz',
@@ -40,10 +41,12 @@
         userResponses: Array(),
         currentQuestionId: null,
         isActive: false,
+        canSubmit: true,
         isCompleted: false,
         quiz: null,
         result: null,
-        currentIndex: 0
+        currentIndex: 0,
+        nextAttempt: 0
       }
     },
     computed: {
@@ -57,7 +60,11 @@
       },
       totalQuestions() {
         return this.quiz.questions.length
-      }
+      },
+      user() {
+        return this.session?.user
+      },
+      ...mapState(['session'])
     },
     components: {
       Success,
@@ -83,15 +90,17 @@
         }
       },
       async calculateScore() {
-          const completeResult = (await this.$axios.post('/eligibility_quiz_submissions', {submission: this.userResponses, eligibilityQuizId: this.quiz.id, courseId: this.course.id})).data
+          const {quizResult, coupon}= (await this.$axios.post('/eligibility_quiz_submissions', {submission: this.userResponses, eligibilityQuizId: this.quiz.id, courseId: this.course.id})).data
 
-          const correctAnswers = (completeResult.questions.filter((q) => q.score !== 0)).length
-          const wrongAnswers = (completeResult.questions.filter((q) => q.score === 0)).length
+
+          const correctAnswers = (quizResult.questions.filter((q) => q.score !== 0)).length
+          const wrongAnswers = (quizResult.questions.filter((q) => q.score === 0)).length
 
           return {
-            score: completeResult.score,
+            score: quizResult.score,
             correctAnswers,
-            wrongAnswers
+            wrongAnswers,
+            coupon
           }
       },
       afterSelectClass: function(index) {
@@ -115,7 +124,18 @@
           return ''
         }
       },
-      startQuiz: function() {
+      startQuiz: async function() {
+        const response = (await this.$axios.post('/eligibility_quiz_submissions/canSubmit', { eligibilityQuizId: this.quiz.id,
+            courseId: this.course.id,
+            userId: this.user.id
+        })).data
+
+        if (!response.canSubmit) {
+            this.canSubmit = false
+            this.nextAttempt = response.nextAttempt
+            return
+        }
+
         this.isActive = true
         const [index, questionId] = this.randomQuestions.next().value
         this.currentQuestionId = questionId
