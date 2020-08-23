@@ -67,10 +67,11 @@
         <div class="divider-h my-4"></div>
         <div class="d-flex justify-content-between">
         <a :href="tryNowLink" class="orange t-align-l d-block card-md font-normal text-hoverable" v-on:click="explore('Free Trial')">Try it for Free!</a>
-        <a href="" 
+        <a
+          href="" 
           class="orange t-align-r d-block card-md font-normal text-hoverable" 
           @click.prevent.stop="showModal = true"
-          v-if="course['eligibility-quiz-id']"
+          v-if="user && course['eligibility-quiz-id']"
           >
             <i class="fas fa-vial"></i> Take eligibility Test
         </a>
@@ -92,6 +93,7 @@
 import RatingStars from '~/components/AboutCourse/RatingStars'
 import { formatTimestamp } from '~/utils/date'
 import { topRunForCourse, textForDifficulty, freeTrialRunForCourse } from '~/utils/course';
+import { mapState } from 'vuex'
 import Modal from '~/components/AboutCourse/Modal.vue'
 import Quiz from '~/components/Base/EligibilityTest/Quiz.vue'
 export default {
@@ -138,7 +140,11 @@ export default {
     },
     showMrp () {
       return !(this.freeTrialRun && (this.freeTrialRun.mrp == this.freeTrialRun.price))
-    }
+    },
+    user() {
+        return this.session?.user
+    },
+    ...mapState(['session'])
   },
   components: {
     RatingStars,
