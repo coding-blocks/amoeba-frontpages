@@ -48,7 +48,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="t-align-c">
+        <div
+            v-if="!canSubmit"
+            class="mb-3 border b-orange br-5 p-2 t-align-c mx-auto font-md bold d-flex justify-content-center">
+            You can retake the test after {{nextAttempt}} days.
+        </div>
+
+        <div class="t-align-c">
                     <button class="button-solid button-orange" v-on:click="$emit('click')">Start the assessment</button>
                 </div>
             </div>
@@ -60,6 +66,8 @@
     name: 'Start',
     props: {
       course: Object,
+      canSubmit: Boolean,
+      nextAttempt: Number
     }
   }
 </script>

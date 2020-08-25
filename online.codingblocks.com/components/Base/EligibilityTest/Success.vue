@@ -51,6 +51,18 @@
             </ul>
           </div>
         </div>
+        <div class="col-lg-8 col-md-12 col-8 col-sm-12 m-auto">
+            <div
+                v-if="result.coupon"
+                class="row no-gutters align-items-center justify-content-between py-3 px-lg-5 px-4">
+                <div class="flex-1 pr-3 orange card-sm">
+                    Apply this coupon and get {{result.coupon.percentage}}% discount
+                </div>
+                <input type="text" class="py-2 px-3 b-orange card-sm bold pointer dashed-border t-align-c copy-code" id="coupon-code" :value=result.coupon.code @click.prevent="copyCouponCode" readonly style="border: 1px dashed #f2734c !important;" title="Click To Copy">
+            </div>
+
+        </div>
+
         <div class="t-align-c">
 
           <a :href="tryNowLink" class="button-dashed button-orange" v-on:click="explore('Free Trial')">Try it for Free!</a>
@@ -95,7 +107,14 @@ export default {
           }
         ]
       })
-    }
+    },
+    copyCouponCode() {
+      const couponCodeContainer = document.querySelector('#coupon-code')
+      couponCodeContainer.select()
+      const successful = document.execCommand('copy')
+      window.getSelection().removeAllRanges()
+      return false
+    },
   }
 }
 </script>
