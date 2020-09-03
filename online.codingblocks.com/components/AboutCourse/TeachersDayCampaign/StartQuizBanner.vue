@@ -31,12 +31,11 @@
             </div>
           </div>
           <div class="d-md-block d-none">
-            <button 
+            <LoginRequiredButton 
               class="button-solid button-white dark-grey ml-5"
               @click="onClickPlay()"
-            >
-              Play Now
-            </button>
+              text="Play Now"
+            />
           </div>
         </div>
       </div>
@@ -44,11 +43,16 @@
   </div>
 </template>
 <script>
+import LoginRequiredButton from '~/components/Base/LoginRequiredButton'
+
 export default {
   methods: {
     onClickPlay() {
       this.$emit('playNow')
     }
+  },
+  components: {
+    LoginRequiredButton
   }
 }
 </script>
