@@ -17,7 +17,8 @@ import {
   faFileCode,
   faFileWord,
   faExclamationTriangle,
-  faLightbulb
+  faLightbulb,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 ;[
@@ -37,7 +38,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   faFileExcel,
   faFileCode,
   faFileWord,
-  faExclamationTriangle
+  faExclamationTriangle,
+  faCheck
 ].forEach((icon) => library.add(icon))
 
 Vue.component('FaIcon', FontAwesomeIcon)
