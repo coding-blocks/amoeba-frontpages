@@ -33,14 +33,14 @@
         </div>
       </div>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4" v-if="won">
       <div class="col-md-6">
         <CourseCardMini :course="course" />
       </div>
       <div class="col-md-6 d-flex flex-column align-items-center align-items-md-end">
         <div class="coupon-box p-2 white br-10">
           <div class="coupon-box-content font-mdxl p-3 br-10">
-            MENTOR70
+            {{coupon}}
           </div>
         </div>
         <div class="font-md mt-3">
@@ -74,6 +74,9 @@ export default {
     },
     won() {
       return this.quizAttempt['tbm-submission'].score === 40
+    },
+    coupon() {
+      return this.quizAttempt.meta.coupon.code
     }
   },
   components: {
