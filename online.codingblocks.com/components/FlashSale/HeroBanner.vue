@@ -11,13 +11,13 @@
         <div class="d-flex justify-content-center col-12 col-md-6 mt-4 mt-md-0">
           <div class="sale-card py-5">
             <div class="title px-5 mb-4">
-              Placement Preparation
+              Interview Preparation
             </div>
             <div class="text ml-5">
               FLAT
             </div>
             <div class="amount pl-5">
-              55%
+              70%
             </div>
             <div class="text ml-5">
               OFF

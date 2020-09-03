@@ -34,7 +34,7 @@ export default {
     // Java	25
     // FAANG	129
     // coding-interview-preparation-course-online-java  85
-    const courseIds = [17, 86, 44, 85, 129]
+    const courseIds = [85,44]
 
     const {data: coursesPayload} = await $axios.get(`/courses`, {
       params: {

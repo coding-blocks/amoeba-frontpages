@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-show="this.task.isActive">
+    <div v-show="showLoader">
       <slot name="loading"></slot>
     </div>
     <slot :value="value" v-if="showContent"></slot>
@@ -18,6 +18,9 @@ export default {
     autoFire: {
       type: Boolean,
       defaultValue: true
+    },
+    emberStyle: {
+      defaultValue: false
     }
   },
   mounted () {
@@ -26,10 +29,10 @@ export default {
   },
   computed: {
     showLoader () {
-      return this.task.isActive
+      return !this.emberStyle && this.task.isActive
     },
     showContent () {
-      return !this.task.isActive && this.task.lastResolved
+      return (this.task.lastResolved?.value && this.emberStyle) || (!this.task.isActive && this.task.lastResolved)
     },
     value () {
       return this.showContent && this.task.lastResolved.value
