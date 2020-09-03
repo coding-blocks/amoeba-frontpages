@@ -1,6 +1,6 @@
 <template>
   <div class="know-your-mentor">
-    <Header :instructor="{name: 'Jatin Katyal'}" />  
+    <Header :instructor="instructor" />  
     <div class="mt-4 pb-4 border-bottom">
       <div class="row">
         <div class="col-md-8 d-flex align-items-center t-align-c t-align-md-l justify-content-center justify-content-md-start">
@@ -66,6 +66,9 @@ export default {
     course: {
       type: Object,
       required: true
+    },
+    instructor: {
+      type: Object
     }
   },
   computed: {

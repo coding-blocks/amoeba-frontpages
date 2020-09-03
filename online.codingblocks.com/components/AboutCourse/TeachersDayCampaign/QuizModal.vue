@@ -5,6 +5,7 @@
         <Result 
           :quizAttempt="quizAttempt"
           :course="course"
+          :instructor="instructor"
         />
       </div>
       <div v-else-if="!isActive">
