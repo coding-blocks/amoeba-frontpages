@@ -32,6 +32,7 @@ import VAsync from '~/components/Base/VAsync.vue'
 import Question from '~/components/Base/EligibilityTest/Question.vue'
 import Start from './QuizModal/Start'
 import Result from './QuizModal/Result'
+import { shuffle } from '~/utils/array'
 
 export default {
   components: {
@@ -58,7 +59,8 @@ export default {
     randomQuestions () {
       const self = this
       return (function *() {
-        for (let [index, questionId] of self.quiz.questions.map(q => q.id).entries()) {
+        const questionIds = shuffle(self.quiz.questions.map(q => q.id))
+        for (let [index, questionId] of questionIds.entries()) {
           if (index > 3) {
             return null;
           }
