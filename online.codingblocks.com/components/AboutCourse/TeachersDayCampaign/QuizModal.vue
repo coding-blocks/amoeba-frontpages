@@ -6,6 +6,7 @@
           :quizAttempt="quizAttempt"
           :course="course"
           :instructor="instructor"
+          :onEnd="onEnd"
         />
       </div>
       <div v-else-if="!isActive">
@@ -35,6 +36,19 @@ import Result from './QuizModal/Result'
 import { shuffle } from '~/utils/array'
 
 export default {
+  props: {
+    course: {
+      type: Object,
+      required: true
+    },
+    instructorQuiz: {
+      type: Object,
+      required: true
+    },
+    onEnd: {
+      type: Function
+    }
+  },
   components: {
     VAsync,
     Start,
@@ -72,16 +86,6 @@ export default {
       // return this.quiz.questions.length
       return 4
     },
-  },
-  props: {
-    course: {
-      type: Object,
-      required: true
-    },
-    instructorQuiz: {
-      type: Object,
-      required: true
-    }
   },
   mounted() {
     this.fetchCurrentAttempt.run()

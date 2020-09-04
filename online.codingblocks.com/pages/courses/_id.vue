@@ -65,11 +65,12 @@
     <div class="my-5"></div>
   </div>
 
-  <Modal v-if="selectedInstructorQuiz" @forceClose="selectedInstructorQuiz = null">
+  <Modal v-if="selectedInstructorQuiz" @forceClose="closeQuizModal()">
     <div slot="body">
       <QuizModal 
         :course="course" 
-        :instructorQuiz="selectedInstructorQuiz"  
+        :instructorQuiz="selectedInstructorQuiz"
+        :onEnd="closeQuizModal"
       />
     </div>
   </Modal>
@@ -232,6 +233,9 @@ export default {
       } catch (e) {
         console.error(e)
       }
+    },
+    closeQuizModal() {
+      this.selectedInstructorQuiz = null
     }
   },
   created () {
