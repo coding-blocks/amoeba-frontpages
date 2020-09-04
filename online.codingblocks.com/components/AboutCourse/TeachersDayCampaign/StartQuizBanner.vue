@@ -30,7 +30,7 @@
             >
               Terms and Conditions
             </a>
-            <div class="d-md-none d-block">
+            <div class="d-md-none d-block mt-3">
               <LoginRequiredButton 
                 class="button-solid button-white dark-grey ml-5"
                 @click="onClickPlay()"
