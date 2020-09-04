@@ -84,6 +84,7 @@ export default {
       }
       
       const chooseBatchWidget = document.getElementById('choose-batch')
+      chooseBatchWidget.classList.remove('border-highlight')
       chooseBatchWidget.classList.add('border-highlight')
       chooseBatchWidget.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
