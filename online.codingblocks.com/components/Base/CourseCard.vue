@@ -62,7 +62,23 @@
             </div>
             <div class="card-md mt-1">Batches starting {{startDateString}}</div>
           </div>
-          <nuxt-link :to="`/courses/${course.slug}`" class="button-solid button-orange">Explore</nuxt-link>
+          <div class="col-lg-4 col-6">
+            <nuxt-link
+              v-if="this.fetchInstructorQuizTask.lastResolved && !!this.fetchInstructorQuizTask.lastResolved.value.data.length" 
+              :to="`/courses/${course.slug}`" 
+              class="button-solid bg-dark-grey animated-icon-button"
+            >
+              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/thunder-button.svg" class="mr-2">
+              Explore
+            </nuxt-link>
+            <nuxt-link
+              v-else
+              :to="`/courses/${course.slug}`"
+              class="button-solid button-orange"
+            >
+              Explore
+            </nuxt-link>
+          </div>
         </div>
         <div class="divider-h my-4"></div>
         <div class="d-flex justify-content-between">
@@ -104,7 +120,34 @@ export default {
     },
     showModal: false
   },
+  mounted() {
+    this.fetchInstructorQuizTask.run()
+  },
+  tasks(t) {
+    return {
+      fetchInstructorQuizTask: t(function *() {
+        const { data: payload } = yield this.$axios.get(`/instructor_quiz`, {
+          params: {
+            filter: {
+              instructorId: {
+                $in: this.course.instructors.map(instructor => instructor.id)
+              },
+            }
+          }
+        })
+
+        return payload
+      })
+    }
+  },
   computed: {
+    hasTeachersDayQuiz () {
+      if (this.course.instructors.includes(6)) {
+        console.log(this.course)
+        console.log(this.fetchInstructorQuizTask.lastResolved?.value.data)
+      }
+      return !!this.fetchInstructorQuizTask.lastResolved?.value.data.length
+    },
     visibleInstructors() {
       return this.course.instructors.slice(0, 2)
     },

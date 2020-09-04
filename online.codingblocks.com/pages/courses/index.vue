@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-5">
+    <CoursePageInfographic class="mb-5" />
     <div class="row mb-4">
       <div class="col-lg-4 col-md-6 col-12">
         <h3>Uplift your career with us</h3>
@@ -52,6 +53,7 @@
 import CourseCard from '~/components/Base/CourseCard.vue'
 import FeaturedTagExplore from '~/components/Base/FeaturedTagExplore.vue'
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
+import CoursePageInfographic from '~/components/AboutCourse/TeachersDayCampaign/CoursePageInfographic.vue'
 import { jsonSchemaForAllCourses } from '~/utils/seo'
 import { metaForAllCourses } from '~/utils/seo'
 
@@ -82,7 +84,8 @@ export default {
   mixins: [sidebarLayoutMixin],
   components: {
     CourseCard,
-    FeaturedTagExplore
+    FeaturedTagExplore,
+    CoursePageInfographic
   },
   directives: {
     infiniteScroll
