@@ -16,7 +16,6 @@
   <AlternateTrackCard :track="course['alternate-track']" v-if="course['alternate-track']" />
     <!-- First Half -> IntroCard IntroVideo Summary Choose Batch Course Tags -->
   <div class="container mt-5">
-    <StartQuizBanner v-if="!!instructorQuizzes.length" @playNow="onPlay()" class="mb-5" />
     <div class="row first-half">
       <IntroductionCard class="col-md-8 order-1" :course="course" />
       <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
@@ -64,16 +63,6 @@
     <!-- Fin. -->
     <div class="my-5"></div>
   </div>
-
-  <Modal v-if="selectedInstructorQuiz" @forceClose="closeQuizModal()">
-    <div slot="body">
-      <QuizModal 
-        :course="course" 
-        :instructorQuiz="selectedInstructorQuiz"
-        :onEnd="closeQuizModal"
-      />
-    </div>
-  </Modal>
 </div>
 </template>
 
@@ -104,9 +93,6 @@ import { jsonSchemaForCourse } from '~/utils/seo'
 import { topRunForCourse, freeTrialRunForCourse } from '~/utils/course'
 import { metaForCourse } from '~/utils/seo'
 
-import Modal from '~/components/AboutCourse/Modal.vue'
-import QuizModal from '~/components/AboutCourse/TeachersDayCampaign/QuizModal.vue'
-
 export default {
   mixins: [sidebarLayoutMixin],
   async asyncData({ params,error, $axios, app }) {
@@ -126,8 +112,6 @@ export default {
       course: {},
       eventFor75Percent: false,
       eventFor90Percent: false,
-      instructorQuizzes: [],
-      selectedInstructorQuiz: null
     }
   },
 
@@ -158,10 +142,7 @@ export default {
     VAsync,
     SuggestedTrackCard,
     AlternateTrackCard,
-    ChooseRunTier,
-    StartQuizBanner,
-    Modal,
-    QuizModal
+    ChooseRunTier
   },
   computed: {
     projectIds() {
@@ -233,9 +214,6 @@ export default {
       } catch (e) {
         console.error(e)
       }
-    },
-    closeQuizModal() {
-      this.selectedInstructorQuiz = null
     }
   },
   created () {
@@ -255,7 +233,6 @@ export default {
         price: '0'
       }]
     })
-    this.fetchInstructorQuizzesTask.run()
   },
   destroyed () {
     if (typeof window !== 'undefined') {
