@@ -730,10 +730,10 @@
   resolved "https://registry.yarnpkg.com/@chenfengyuan/vue-countdown/-/vue-countdown-1.1.5.tgz#33c1fe68bd28496cb70dda8eed6ecc874a6dc386"
   integrity sha512-BB0taTfJzxsXFUPioREWLKpMDdHOoD8EiSW6lhB3yCdJh3I7jiNQzC8Hw5dPxoPNgZekeEPMQwsdPkjQPyxIeA==
 
-"@coding-blocks/motley@2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-2.5.1.tgz#4ad65ace878e288771facdd6604251253091ef52"
-  integrity sha512-kQHpJezF9Fuh+7mDVzNhqOW4wPdi/cAblwvny+3BLhbx2oiQgBM/TgPLf5faXmIfyAA5QRen9u9dDY0uZWZduA==
+"@coding-blocks/motley@2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@coding-blocks/motley/-/motley-2.5.2.tgz#cb9961b23facdc982ec6b0ffaf79373318e16b40"
+  integrity sha512-hls5dXTmVy5KYmgN/yiV9SzgSZyS9Gc6g6e8bpiKTl6JbjaSK/xGAFPLrdPYurnim66Zu9sP5TlKmrqKNNAxOg==
   dependencies:
     build "^0.1.4"
     run "^1.4.0"
