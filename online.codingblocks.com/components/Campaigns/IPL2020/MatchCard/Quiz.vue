@@ -3,6 +3,8 @@
     <Question 
       v-if="currentQuestionId"
       :questionId="currentQuestionId"
+      :onAnswer="choiceId => answerQuestion(currentQuestionId, choiceId)"
+      :selectedChoiceId="quizSubmissionMap[currentQuestionId]"
     />
     <div
       class="horizontal-quiz-card__right-pane__navigation row no-gutters align-items-center justify-content-between">
@@ -13,7 +15,16 @@
       >
         ❮ PREV
       </button>
+      <button
+        v-if="submitEnabled"
+        class="button-solid button-blue"
+        :disabled="submitQuizTask.isActive"
+        @click="submitQuizTask.run()"
+      >
+        Submit
+      </button>
       <button 
+        v-else
         class="font-mds bold cricket-blue"
         :disabled="!nextEnabled"
         @click="next()" 
@@ -31,6 +42,9 @@ export default {
     match: {
       type: Object,
       required: true
+    },
+    onAfterSubmit: {
+      type: Function
     }
   },
   components: {
@@ -42,7 +56,8 @@ export default {
   data() {
     return {
       quiz: null,
-      currentQuestionIndex: null
+      currentQuestionIndex: null,
+      quizSubmissionMap: {}
     }
   },
   computed: {
@@ -57,9 +72,18 @@ export default {
     },
     nextEnabled() {
       return this.currentQuestionIndex < (this.totalQuestions - 1)
+    },
+    submitEnabled() {
+      return this.currentQuestionIndex === (this.totalQuestions - 1)
     }
   },
   methods: {
+    answerQuestion(questionId, choiceId) {
+      this.quizSubmissionMap = {
+        ...this.quizSubmissionMap,
+        [questionId]: choiceId
+      }
+    },
     next() {
       if (this.nextEnabled) {
         this.currentQuestionIndex = this.currentQuestionIndex + 1
@@ -80,12 +104,34 @@ export default {
           this.quiz = this.$jsonApiStore.sync(response.data)
           this.currentQuestionIndex = 0
         }
+      }),
+      submitQuizTask: t(function *() {
+        const submission = {
+          questions: Object.keys(this.quizSubmissionMap).map(questionId => ({
+            id: questionId,
+            markedChoices: [this.quizSubmissionMap[questionId]]
+          }))
+        }
+
+        const response = yield this.$axios.post(`/cricket_cup/matches/${this.match.id}/submit`, {
+          submission
+        })
+        const attempt = this.$jsonApiStore.sync(response.data)
+        
+        if (this.onAfterSubmit) {
+          this.onAfterSubmit(attempt)
+        }
+
+        return attempt
       })
     }
   }
 }
 </script>
 <style scoped>
+  .button-blue {
+    background: linear-gradient(90deg, #1C40DE 0%, #2167E3 100%);
+  }
   .cricket-blue {
     color: #1F4FE0;
   }

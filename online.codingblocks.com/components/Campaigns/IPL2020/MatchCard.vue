@@ -22,20 +22,33 @@
       </div>
       <client-only>
         <div class="horizontal-quiz-card__right-pane flex-1">
-          <Quiz :match="match" v-if="quizStarted" />
-          <Timer 
-            v-else 
-            :match="match" 
-            @start="onStart()"
-          />
+          <VAsync :task="fetchCurrentAttemptTask" :emberStyle="true">
+            <Result 
+              v-if="currentAttempt" 
+              :match="match" 
+              :attempt="currentAttempt"
+            />
+            <Quiz 
+              v-else-if="quizStarted" 
+              :match="match"
+              :onAfterSubmit="onAfterSubmit"
+            />
+            <Timer 
+              v-else 
+              :match="match" 
+              @start="onStart()"
+            />
+          </VAsync>
         </div>
       </client-only>
     </div>
   </div>
 </template>
 <script>
+import VAsync from '~/components/base/VAsync';
 import Timer from '~/components/Campaigns/IPL2020/MatchCard/Timer';
 import Quiz from '~/components/Campaigns/IPL2020/MatchCard/Quiz';
+import Result from '~/components/Campaigns/IPL2020/MatchCard/Result';
 
 export default {
   props: {
@@ -46,16 +59,34 @@ export default {
   },
   components: {
     Timer,
-    Quiz
+    Quiz,
+    Result,
+    VAsync
   },
   data() {
     return {
-      quizStarted: false
+      quizStarted: false,
+      currentAttempt: null
     }
   },
   methods: {
     onStart() {
       this.quizStarted = true
+    },
+    onAfterSubmit(attempt) {
+      this.currentAttempt = attempt
+    }
+  },
+  tasks(t) {
+    return {
+      fetchCurrentAttemptTask: t(function *() {
+        const response = yield this.$axios.get(`/cricket_cup/matches/${this.match.id}/currentAttempt`)
+        const currentAttempt = this.$jsonApiStore.sync(response.data)
+
+        this.currentAttempt = currentAttempt
+
+        return currentAttempt
+      })
     }
   }
 }
