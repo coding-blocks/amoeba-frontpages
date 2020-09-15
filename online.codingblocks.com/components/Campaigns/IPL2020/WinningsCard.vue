@@ -25,7 +25,7 @@
     </div>
     <Modal v-if="modalOpened" @close="modalOpened = false">
       <div slot="body">
-        Bleh !
+        <WinningsModal />
       </div>
     </Modal>
   </div>  
@@ -33,10 +33,12 @@
 <script>
 import { mapState } from 'vuex';
 import Modal from '~/components/AboutCourse/Modal.vue';
+import WinningsModal from './WinningsCard/WinningsModal.vue';
 
 export default {
   components: {
-    Modal
+    Modal,
+    WinningsModal
   },
   data() {
     return {

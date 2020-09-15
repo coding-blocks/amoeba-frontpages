@@ -13,6 +13,9 @@
         <WinningsCard />
         <RulesCard class="mt-4" />
       </div>
+      <div class="col-md-6">
+        <Leaderboard />
+      </div>
     </div>
   </div>
 </template>
@@ -21,13 +24,15 @@ import HeroBanner from '~/components/Campaigns/IPL2020/HeroBanner';
 import MatchCard from '~/components/Campaigns/IPL2020/MatchCard';
 import RulesCard from '~/components/Campaigns/IPL2020/RulesCard';
 import WinningsCard from '~/components/Campaigns/IPL2020/WinningsCard';
+import Leaderboard from '~/components/Campaigns/IPL2020/Leaderboard'
 
 export default {
   components: {
     HeroBanner,
     MatchCard,
     RulesCard,
-    WinningsCard
+    WinningsCard,
+    Leaderboard
   },
   data() {
     return {
