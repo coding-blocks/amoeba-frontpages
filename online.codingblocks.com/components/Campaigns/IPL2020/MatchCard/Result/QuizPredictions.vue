@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="font-md bold mb-4">
+      Your Predictions
+    </div>
     <div v-for="question in quiz.questions" :key="question.id">
       <Question 
         :questionId="question.id"

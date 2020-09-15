@@ -5,7 +5,7 @@
     </a>
     <div class="row all-center">
       <div class="col-2 col-md-12">
-        <nuxt-link to="/cricket-cup" class="nav-element py-4 px-2 active">
+        <nuxt-link to="/cricket-cup" class="nav-element py-4 px-2">
           <img src="https://minio.codingblocks.com/public/cricket-cup-logo.png"/>
           <div class="pt-2 d-none d-md-block font-sm card-md yellow">Cricket Cup</div>
         </nuxt-link>

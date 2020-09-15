@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div class="font-md bold">
-      Your Predictions
-    </div>
-    <div class="mt-4">
-      <QuizPredictions 
-        v-if="quiz"
-        :quiz="quiz"
-        :submission="submission"
-      />
-    </div>
+    <PredictionResult 
+      v-if="attempt.meta"
+      :attempt="attempt"
+    />    
+    <QuizPredictions 
+      v-else-if="quiz"
+      :quiz="quiz"
+      :submission="submission"
+    />
   </div>  
 </template>
 <script>
 import QuizPredictions from './Result/QuizPredictions.vue';
+import PredictionResult from './Result/PredictionResult.vue';
 
 export default {
   props: {
@@ -27,7 +27,8 @@ export default {
     }
   },
   components: {
-    QuizPredictions
+    QuizPredictions,
+    PredictionResult
   },
   mounted() {
     this.fetchQuizTask.run()
