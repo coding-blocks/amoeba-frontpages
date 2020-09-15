@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="font-mds med-grey">
+    <div class="font-mds med-grey t-align-c t-align-md-l">
       Time left to predict
     </div>
     <div class="mt-4">
       <VueCountdown :time="predictionEnd">
         <template slot-scope="props">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start">
             <div class="t-align-c py-3">
               <div class="font-mdxl bold"> {{props.days}} </div>
               <div class="font-mds">Days</div>

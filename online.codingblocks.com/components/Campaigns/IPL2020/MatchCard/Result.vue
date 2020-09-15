@@ -1,7 +1,7 @@
 <template>
   <div>
     <PredictionResult 
-      v-if="attempt.meta"
+      v-if="isSubmitted"
       :attempt="attempt"
     />    
     <QuizPredictions 
@@ -41,6 +41,9 @@ export default {
   computed: {
     submission() {
       return this.attempt['tbm-submission'].submission
+    },
+    isSubmitted() {
+      return this.attempt?.meta?.isSubmitted
     }
   },
   tasks(t) {

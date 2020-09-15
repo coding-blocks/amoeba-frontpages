@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "moment": "^2.28.0",
     "nuxt": "^2.0.0",
     "nuxt-jsonld": "^1.4.5",
     "vue-clickaway": "^2.2.2",

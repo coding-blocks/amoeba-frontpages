@@ -7,16 +7,27 @@
         :match="match"
       />
     </div>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <WinningsCard />
+        <RulesCard class="mt-4" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import HeroBanner from '~/components/Campaigns/IPL2020/HeroBanner';
 import MatchCard from '~/components/Campaigns/IPL2020/MatchCard';
+import RulesCard from '~/components/Campaigns/IPL2020/RulesCard';
+import WinningsCard from '~/components/Campaigns/IPL2020/WinningsCard';
 
 export default {
   components: {
     HeroBanner,
-    MatchCard
+    MatchCard,
+    RulesCard,
+    WinningsCard
   },
   data() {
     return {
