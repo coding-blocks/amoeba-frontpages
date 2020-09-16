@@ -46,7 +46,10 @@
         <div class="font-md mt-3">
           Coupon valid till <span class="bold">7th Sept, 11:59PM</span>
         </div>
-        <button class="mt-3 button-solid button-orange">
+        <button 
+          class="mt-3 button-solid button-orange"
+          @click="buyAction()"
+        >
           Buy this Course
         </button>
       </div>
@@ -69,6 +72,21 @@ export default {
     },
     instructor: {
       type: Object
+    },
+    onEnd: {
+      type: Function
+    }
+  },
+  methods: {
+    buyAction() {
+      if (this.onEnd) {
+        this.onEnd()
+      }
+      
+      const chooseBatchWidget = document.getElementById('choose-batch')
+      chooseBatchWidget.classList.remove('border-highlight')
+      chooseBatchWidget.classList.add('border-highlight')
+      chooseBatchWidget.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
   },
   computed: {

@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-12">
-      <div class="border-card px-0 pb-0">
+      <div class="border-card px-0 pb-0" id="choose-batch">
         <div class="row no-gutters justify-content-between align-items-center px-4 mb-4">
           <h5 class="bold">Choose Batch</h5>
           <a href="" class="bold gradient-text-orange mr-3 v-align-ma" v-on:click.prevent.stop="showModal = true">
@@ -158,6 +158,20 @@ export default {
 .free-trial-button {
   letter-spacing: 0.5px;
   font-weight: normal;
+}
+.border-highlight {
+  animation: glow 2s;
+}
+@keyframes glow {
+  0% { box-shadow: none}
+  50% { 
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(243,110,60,1);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(243,110,60,1);
+    box-shadow: 0px 0px 16px 0px rgba(243,110,60,1);
+  }
+  100% {
+    box-shadow: none
+  }
 }
 </style>
 

@@ -64,15 +64,6 @@
           </div>
           <div class="col-lg-4 col-6">
             <nuxt-link
-              v-if="this.fetchInstructorQuizTask.lastResolved && !!this.fetchInstructorQuizTask.lastResolved.value.data.length" 
-              :to="`/courses/${course.slug}`" 
-              class="button-solid bg-dark-grey animated-icon-button"
-            >
-              <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/thunder-button.svg" class="mr-2">
-              Explore
-            </nuxt-link>
-            <nuxt-link
-              v-else
               :to="`/courses/${course.slug}`"
               class="button-solid button-orange"
             >
@@ -119,9 +110,6 @@ export default {
       type: Object
     },
     showModal: false
-  },
-  mounted() {
-    this.fetchInstructorQuizTask.run()
   },
   tasks(t) {
     return {
