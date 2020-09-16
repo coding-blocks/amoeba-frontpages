@@ -6,160 +6,57 @@
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="flex-1 row no-gutters align-items-center">
             <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/wickets-blue.svg" class="mr-4">
-            <div class="font-md bold flex-1">DAILY WINNERS</div>
+            <div class="font-md bold flex-1">WINNERS</div>
           </div>
           <div class="bold font-mds">
-            456 Predictions
+            {{totalPredictions}} Predictions
           </div>
         </div>
       </div>
       <div class="py-5 px-xl-5 px-4 overflow-auto transparent-scroll"
         style="background: linear-gradient(90deg, #1C40DE 0%, #2167E3 100%); margin-top: -10px; max-height: 650px;">
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
-        <div class="row no-gutters align-items-center justify-content-between mb-5">
-          <div class="flex-1 pr-4">
-            <div class="row no-gutters justiify-content-between align-items-center">
-              <div class="s-50x50 round border border-2 b-white">
-                <img src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff">
-              </div>
-              <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
-                Siddharth Jain
-              </div>
-              <div class="col-12 mt-2 font-sm bold d-lg-none d-md-block d-sm-none d-block">
-                Siddharth Jain
-              </div>
-            </div>
-          </div>
-          <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
-            75% Discount
-          </div>
-        </div>
+        <VAsync :task="fetchLeaderboardTask">
+          <template v-slot="{ value: attempts }">
+            <LeaderboardRow 
+              v-for="attempt in attempts"
+              :key="attempt.id"
+              :attempt="attempt"
+            />
+          </template>
+        </VAsync>
       </div>
     </div>
   </div>  
 </template>
+<script>
+import LeaderboardRow from './Leaderboard/LeaderboardRow.vue';
+import VAsync from '~/components/Base/VAsync.vue';
+
+export default {
+  components: {
+    LeaderboardRow,
+    VAsync
+  },
+  data() {
+    return {
+      totalPredictions: 0
+    }
+  },
+  tasks(t) {
+    return {
+      fetchStatsTask: t(function *() {
+        const response = yield this.$axios.get('/criclet_cup/stats')
+        this.totalPredictions = response.data.totalPredictions
+
+        return response.data
+      }),
+      fetchLeaderboardTask: t(function *() {
+        const response = yield this.$axios.get('/cricket_cup/leaderboard')
+        const attempts = this.$jsonApiStore.sync(response.data)
+
+        return attempts
+      })
+    }
+  }
+}
+</script>
