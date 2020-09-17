@@ -37,6 +37,9 @@ export default {
     LeaderboardRow,
     VAsync
   },
+  mounted() {
+    this.fetchStatsTask.run()
+  },
   data() {
     return {
       totalPredictions: 0
