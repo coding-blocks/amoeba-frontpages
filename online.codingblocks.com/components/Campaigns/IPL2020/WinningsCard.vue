@@ -25,7 +25,7 @@
     </div>
     <Modal v-if="modalOpened" @close="modalOpened = false">
       <div slot="body">
-        <WinningsModal />
+        <WinningsModal :winnings=winnings />
       </div>
     </Modal>
   </div>  
@@ -42,15 +42,24 @@ export default {
   },
   data() {
     return {
-      modalOpened: false
+      modalOpened: false,
+      winnings: null,
     }
+  },
+  mounted () {
+      // Todo: remove hard coded campaignId
+    this.$axios
+      .post('/cricket_cup/matches/winnings', {campaignId: 1})
+      .then(response => {
+        this.winnings = response.data.winnings
+      })
   },
   computed: {
     ...mapState(['session']),
     user () {
       return this.session?.user
     }
-  }  
+  }
 }
 </script>
 <style scoped>
