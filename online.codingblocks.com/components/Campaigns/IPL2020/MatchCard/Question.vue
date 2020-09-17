@@ -25,8 +25,8 @@
   </div>
 </template>
 <script>
-import VMarkdown from '~/components/base/VMarkdown';
-import VAsync from '~/components/base/VAsync';
+import VMarkdown from '~/components/Base/VMarkdown';
+import VAsync from '~/components/Base/VAsync';
 
 export default {
   props: {

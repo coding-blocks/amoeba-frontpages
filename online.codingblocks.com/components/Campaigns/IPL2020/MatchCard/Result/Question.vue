@@ -7,7 +7,7 @@
   </VAsync>  
 </template>
 <script>
-import VAsync from '~/components/base/VAsync';
+import VAsync from '~/components/Base/VAsync';
 
 export default {
   props: {

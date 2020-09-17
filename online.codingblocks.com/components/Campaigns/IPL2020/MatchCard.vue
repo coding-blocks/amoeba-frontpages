@@ -57,7 +57,7 @@
 </template>
 <script>
 import moment from 'moment';
-import VAsync from '~/components/base/VAsync';
+import VAsync from '~/components/Base/VAsync';
 import Timer from '~/components/Campaigns/IPL2020/MatchCard/Timer';
 import Quiz from '~/components/Campaigns/IPL2020/MatchCard/Quiz';
 import Result from '~/components/Campaigns/IPL2020/MatchCard/Result';
