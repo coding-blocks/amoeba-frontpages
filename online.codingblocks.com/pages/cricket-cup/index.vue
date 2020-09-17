@@ -27,6 +27,7 @@ import WinningsCard from '~/components/Campaigns/IPL2020/WinningsCard';
 import Leaderboard from '~/components/Campaigns/IPL2020/Leaderboard'
 
 export default {
+  middleware: 'auth_required',
   components: {
     HeroBanner,
     MatchCard,
