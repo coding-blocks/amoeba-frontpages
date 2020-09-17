@@ -85,11 +85,12 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'Success',
   props: {
-    winnings: Object,
-    user: Object
+    winnings: Object
   },
   computed: {
     winningsCount() {
@@ -98,6 +99,12 @@ export default {
   },
   methods: {
     copyCouponCode() {}
+  },
+  computed: {
+    ...mapState(['session']),
+    user () {
+      return this.session?.user
+    }
   }
 }
 </script>
