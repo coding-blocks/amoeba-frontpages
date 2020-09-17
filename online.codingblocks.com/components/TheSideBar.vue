@@ -5,10 +5,10 @@
     </a>
     <div class="row all-center">
       <div class="col-2 col-md-12">
-        <a href="/app/spin-n-win" class="nav-element py-4 px-2">
-          <img src="https://minio.codingblocks.com/img/spin-side-icon.svg" alt="spin-n-win">
-          <div class="pt-2 d-none d-md-block font-sm card-md gradient-text-orange">Spin n Win</div>
-        </a>
+        <nuxt-link to="/cricket-cup" class="nav-element py-4 px-2">
+          <img src="https://minio.codingblocks.com/public/cricket-cup-logo.png"/>
+          <div class="pt-2 d-none d-md-block font-sm card-md yellow">Cricket Cup</div>
+        </nuxt-link>
       </div>
       <div class="col-2 col-md-12">
         <a href="/app/dashboard" class="nav-element py-4 px-2">
@@ -17,7 +17,7 @@
         </a>
       </div>
       <div class="col-2 col-md-12">
-        <nuxt-link to="/courses" class="nav-element py-4 px-2 active">
+        <nuxt-link to="/courses" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/buy_grey.svg"/>
           <div class="pt-2 d-none d-md-block font-sm card-md">Buy Courses</div>
         </nuxt-link>
