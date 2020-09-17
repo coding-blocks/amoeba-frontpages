@@ -17,7 +17,7 @@
       </button>
       <button
         v-if="submitEnabled"
-        class="button-solid button-blue"
+        class="button-solid button-blue white"
         :disabled="submitQuizTask.isActive"
         @click="submitQuizTask.run()"
       >
@@ -31,6 +31,9 @@
       >
         NEXT ❯
       </button>
+    </div>
+    <div class="t-align-c red" v-if="error">
+      {{error}}
     </div>
   </div>  
 </template>
@@ -57,7 +60,8 @@ export default {
     return {
       quiz: null,
       currentQuestionIndex: null,
-      quizSubmissionMap: {}
+      quizSubmissionMap: {},
+      error: null
     }
   },
   computed: {
@@ -106,6 +110,12 @@ export default {
         }
       }),
       submitQuizTask: t(function *() {
+        if (Object.keys(this.quizSubmissionMap).length !== 3) {
+          this.error = 'Attempt all the questions'
+          return;
+        }
+
+        this.error = null
         const submission = {
           questions: Object.keys(this.quizSubmissionMap).map(questionId => ({
             id: questionId,
