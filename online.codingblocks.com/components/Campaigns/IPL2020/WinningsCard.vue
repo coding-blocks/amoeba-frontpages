@@ -25,7 +25,7 @@
     </div>
     <Modal v-if="modalOpened" @close="modalOpened = false">
       <div slot="body">
-        <WinningsModal :winnings=winnings />
+        <WinningsModal :winnings=winnings :user=user />
       </div>
     </Modal>
   </div>  

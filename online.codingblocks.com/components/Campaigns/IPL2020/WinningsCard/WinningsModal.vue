@@ -7,7 +7,7 @@
         <div class="row no-gutters align-items-center justify-content-between">
           <div class="s-80x80 round border border-2 b-white">
             <img
-              src="https://minio.codingblocks.com/amoeba/a961f745-e3d1-4788-8057-1b27f72d42ff"
+              :src="user.photo"
             />
           </div>
           <div class="flex-1 t-align-c px-4">
@@ -88,7 +88,8 @@
 export default {
   name: 'Success',
   props: {
-    winnings: Object
+    winnings: Object,
+    user: Object
   },
   computed: {
     winningsCount() {
