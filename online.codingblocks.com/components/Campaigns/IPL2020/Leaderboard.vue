@@ -48,7 +48,7 @@ export default {
   tasks(t) {
     return {
       fetchStatsTask: t(function *() {
-        const response = yield this.$axios.get('/criclet_cup/stats')
+        const response = yield this.$axios.get('/cricket_cup/stats')
         this.totalPredictions = response.data.totalPredictions
 
         return response.data
