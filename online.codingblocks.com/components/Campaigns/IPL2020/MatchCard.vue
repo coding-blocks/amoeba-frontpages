@@ -97,7 +97,9 @@ export default {
   tasks(t) {
     return {
       fetchCurrentAttemptTask: t(function *() {
-        const response = yield this.$axios.get(`/cricket_cup/matches/${this.match.id}/currentAttempt`)
+
+        const response = yield this.$axios.get(`/cricket_cup/matches/${this.match.id}/currentAttempt`).catch((err) => console.log(err))
+
         const currentAttempt = this.$jsonApiStore.sync(response.data)
 
         this.currentAttempt = currentAttempt

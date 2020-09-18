@@ -7,7 +7,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center justify-content-center justify-content-md-start">
           <div class="br-50 image-ring s-70x70 mr-3">
-            <img 
+            <img v-if="user"
               class="round img"
               :src="user.photo"
               :alt="user.firstname"

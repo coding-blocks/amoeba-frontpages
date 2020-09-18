@@ -42,6 +42,7 @@
 </template>
 <script>
 import VueCountdown from '@chenfengyuan/vue-countdown';
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -57,7 +58,11 @@ export default {
     predictionEnd() {
       const predictionEnd = new Date(this.match['prediction-end'])
       return predictionEnd - Date.now()
-    }
+    },
+    // user() {
+    //     return this.session?.user
+    // },
+    // ...mapState(['session'])
   },
   data() {
     const predictionEnd = new Date(this.match['prediction-end'])
