@@ -35,7 +35,7 @@
         class="button-solid button-blue font-mds"
         @click="onStart()"
       >
-        Make Predictions
+        {{isAuthenticated ? 'Make Predictions' : 'Login to Predict'}}
       </button>
     </div>
   </div>  
@@ -59,10 +59,10 @@ export default {
       const predictionEnd = new Date(this.match['prediction-end'])
       return predictionEnd - Date.now()
     },
-    // user() {
-    //     return this.session?.user
-    // },
-    // ...mapState(['session'])
+    ...mapState(['session']),
+    isAuthenticated() {
+      return this.session?.isAuthenticated
+    }
   },
   data() {
     const predictionEnd = new Date(this.match['prediction-end'])
@@ -75,7 +75,11 @@ export default {
       this.enabled = false
     },
     onStart() {
-      this.$emit('start')
+      if (this.isAuthenticated) {
+        return this.$emit('start')
+      }
+
+      window.location = '/app/'
     }
   }
 }

@@ -10,8 +10,8 @@
 
     <div class="row mt-4">
       <div class="col-md-6">
-        <WinningsCard v-if="user"/>
-        <RulesCard class="mt-4" />
+        <WinningsCard v-if="user" class="mb-4"/>
+        <RulesCard />
       </div>
       <div class="col-md-6">
         <Leaderboard />
