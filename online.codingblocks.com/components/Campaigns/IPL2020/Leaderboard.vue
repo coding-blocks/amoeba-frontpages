@@ -17,7 +17,19 @@
         style="background: linear-gradient(90deg, #1C40DE 0%, #2167E3 100%); margin-top: -10px; max-height: 650px;">
         <VAsync :task="fetchLeaderboardTask">
           <template v-slot="{ value: attempts }">
+            <div
+              v-if="attempts.length === 0"
+              class="t-align-c py-5"
+            >
+              <div class="font-xl bold">
+                No Winners Yet!
+              </div>
+              <div class="mt-3">
+                Winners will be displayed once the match is over. Stay tuned!
+              </div>
+            </div>
             <LeaderboardRow 
+              v-else
               v-for="attempt in attempts"
               :key="attempt.id"
               :attempt="attempt"

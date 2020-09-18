@@ -47,9 +47,8 @@ export default {
     }
   },
   mounted () {
-      // Todo: remove hard coded campaignId
     this.$axios
-      .post('/cricket_cup/matches/winnings', {campaignId: 1})
+      .get('/cricket_cup/matches/winnings')
       .then(response => {
         this.winnings = response.data.winnings
       })
