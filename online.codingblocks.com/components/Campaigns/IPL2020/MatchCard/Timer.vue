@@ -4,7 +4,7 @@
       Time left to predict
     </div>
     <div class="mt-4">
-      <VueCountdown :time="predictionEnd">
+      <VueCountdown :time="predictionEnd" @end="onEnd()">
         <template slot-scope="props">
           <div class="d-flex align-items-center justify-content-center justify-content-md-start">
             <div class="t-align-c py-3">
