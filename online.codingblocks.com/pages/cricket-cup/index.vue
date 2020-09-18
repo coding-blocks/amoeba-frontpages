@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 import HeroBanner from '~/components/Campaigns/IPL2020/HeroBanner';
 import MatchCard from '~/components/Campaigns/IPL2020/MatchCard';
 import RulesCard from '~/components/Campaigns/IPL2020/RulesCard';
@@ -28,6 +29,7 @@ import Leaderboard from '~/components/Campaigns/IPL2020/Leaderboard'
 import { mapState } from 'vuex';
 
 export default {
+  mixins: [sidebarLayoutMixin],
   components: {
     HeroBanner,
     MatchCard,
