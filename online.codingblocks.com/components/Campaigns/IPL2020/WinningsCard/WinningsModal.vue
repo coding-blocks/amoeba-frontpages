@@ -36,12 +36,12 @@
               class="row no-gutters align-items-center justify-content-lg-start justify-content-md-center justify-content-sm-start justify-content-center"
             >
               <img
-                src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/csk.svg"
+                :src="attempt.meta.team1.logo"
                 style="max-width: 110px !important;"
               />
               <div class="font-mds bold mx-3">VS</div>
               <img
-                src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/mumbai_indians.svg"
+                :src="attempt.meta.team2.logo"
                 style="max-width: 110px !important;"
               />
             </div>
