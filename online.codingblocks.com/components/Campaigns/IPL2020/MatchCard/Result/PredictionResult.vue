@@ -43,10 +43,10 @@ export default {
   },
   computed: {
     correctAnswers() {
-      return this.attempt['tbm-submission'].submission.score / 10
+      return this.attempt['tbm-submission'].result.score / 10
     },
     totalQuestions() {
-      return this.attempt['tbm-submission'].submission.questions.length
+      return this.attempt['tbm-submission'].result.questions.length
     },
     won() {
       return this.attempt.meta.won
