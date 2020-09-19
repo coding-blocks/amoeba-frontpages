@@ -3,7 +3,7 @@
     <div class="flex-1 pr-4">
       <div class="row no-gutters justiify-content-between align-items-center">
         <div class="s-50x50 round border border-2 b-white">
-          <img :src="this.attempt.user.photo">
+          <img :src="attempt.user.photo">
         </div>
         <div class="flex-1 pl-3 font-sm bold d-lg-block d-md-none d-sm-block d-none">
           {{userName}}
