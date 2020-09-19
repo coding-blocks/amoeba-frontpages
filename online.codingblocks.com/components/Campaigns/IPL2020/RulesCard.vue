@@ -6,7 +6,7 @@
       <li> - Sign in to play the contest from 19th Sep 2020 to 09th Nov 2020. </li>
       <li> - For each match, make three predictions - guess the winning team, total number of wickets and total number of sixes in the match. </li>
       <li> - Coupons will be given based on number of correct predictions: <br>
-        3 Correct Predictions - 70% OFF <br>
+        3 Correct Predictions - 75% OFF <br>
         2 Correct Predictions - 55% OFF <br>
         1 Correct Predictions - 40% OFF <br>
         These coupons can be used to buy any online courses. </li>
