@@ -8,12 +8,13 @@
       <li> - Coupons will be given based on number of correct predictions: <br>
         3 Correct Predictions - 75% OFF <br>
         2 Correct Predictions - 55% OFF <br>
-        1 Correct Predictions - 40% OFF <br>
+        1 Correct Prediction - 40% OFF <br>
         These coupons can be used to buy any online courses. </li>
       <li> - Predictions once made cannot be changed or modified. </li>
       <li> - Final decision lies with Coding Blocks in case of any discrepancy.</li>
+      <li> - Courses purchased using IPL campaign coupon codes won't be refunded.</li>
     </ul>
 
-    <div class="med-grey font-sm">Play more, Predict More and Win More</div>
+    <div class="med-grey font-sm">Play more, Predict more and Win more</div>
   </div>  
 </template>
