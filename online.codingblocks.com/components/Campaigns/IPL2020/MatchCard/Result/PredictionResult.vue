@@ -53,7 +53,7 @@ export default {
       return this.attempt.meta.won
     },
     validTill() {
-      return moment(attempt.meta.coupon.valid_end).format('MM DD YYYY')
+      return moment(this.attempt.meta.coupon.valid_end).format('MM DD YYYY')
     }
   },
   components: {
