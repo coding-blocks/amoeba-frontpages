@@ -17,7 +17,7 @@
           :coupon="attempt.meta.coupon.code"
         />
       </div>
-      <div class="bold med-grey mt-3">Valid till {{attempt.meta.coupon.valid_end}}</div>
+      <div class="bold med-grey mt-3">Valid till {{validTill}}</div>
     </div>
     <div class="mt-4" v-else>
       <img 
@@ -33,6 +33,7 @@
 </template>
 <script>
 import CouponCode from './CouponCopy';
+import moment from 'moment';
 
 export default {
   props: {
@@ -50,6 +51,9 @@ export default {
     },
     won() {
       return this.attempt.meta.won
+    },
+    validTill() {
+      return moment(attempt.meta.coupon.valid_end).format('MM DD YYYY')
     }
   },
   components: {
