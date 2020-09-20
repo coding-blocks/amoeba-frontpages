@@ -11,7 +11,7 @@
         1 Correct Predictions - 40% OFF <br>
         These coupons can be used to buy any online courses. </li>
       <li> - Predictions once made cannot be changed or modified. </li>
-      <li> - Coding Blocks descision will be final in case of any discrepency.</li>
+      <li> - Final decision lies with Coding Blocks in case of any discrepancy.</li>
     </ul>
 
     <div class="med-grey font-sm">Play more, Predict More and Win More</div>
