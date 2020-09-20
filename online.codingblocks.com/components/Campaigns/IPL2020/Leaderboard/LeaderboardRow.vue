@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="border b-white dashed-border py-2 px-3 br-5 copy-code font-sm">
+    <div class="border b-white dashed-border py-2 px-3 br-5 font-sm">
       {{discount}}% Discount
     </div>
   </div>  

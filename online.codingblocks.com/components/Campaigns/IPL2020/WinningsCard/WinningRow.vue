@@ -30,7 +30,7 @@
         </div>
         <div
           @click="copyCouponCode"
-          class="py-2 px-3 br-5 copy-code font-sm"
+          class="py-2 px-3 br-5 font-sm"
           style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
         >
           {{ winning.meta.coupon.code }}
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div
-            class="py-2 px-3 br-5 copy-code font-sm"
+            class="py-2 px-3 br-5 font-sm"
             style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
           >
             {{ winning.meta.coupon.code }}

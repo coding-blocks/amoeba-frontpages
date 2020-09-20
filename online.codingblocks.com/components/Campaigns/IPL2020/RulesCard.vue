@@ -11,7 +11,8 @@
         1 Correct Predictions - 40% OFF <br>
         These coupons can be used to buy any online courses. </li>
       <li> - Predictions once made cannot be changed or modified. </li>
-      <li> - Coding Blocks descision will be final in case of any discrepency.</li>
+      <li> - Courses purchased using the coupon code won in Crickt Cup Campaign won't be refunded.</li>
+      <li> - Coding Blocks descision will be final in case of any discrepancy.</li>
     </ul>
 
     <div class="med-grey font-sm">Play more, Predict More and Win More</div>
