@@ -32,8 +32,8 @@ export default {
     },
     discount() {
       switch (this.attempt.meta.score) {
-        case 10: return 40
-        case 20: return 55
+        case 10: return 55
+        case 20: return 65
         case 30: return 75
         default: return 0
       }
