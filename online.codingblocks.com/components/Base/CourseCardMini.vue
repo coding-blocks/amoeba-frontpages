@@ -18,7 +18,7 @@
               {{this.course['review-count']}} ratings
             </div>
           </RatingStars>
-          <div class="divider-h my-3 bg-med-grey"></div>
+          <div class="divider-h my-3 bg-light-grey"></div>
           <div class="card-sm bold">Starting from</div>
           <div class="v-align-ma">
             <span class="mr-2 font-lg bold letter-spaced">
@@ -99,7 +99,7 @@ export default {
   padding-right: 31px;
   background-image: url('https://minio.codingblocks.com/amoeba/ccaf84b6-63df-40f8-b4df-f64b8b9ecd9e.svg');
   background-size: 100%;
-  background-size: cover;
+  background-size: auto;
   background-position: right;
 }
 

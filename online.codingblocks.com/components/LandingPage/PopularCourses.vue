@@ -16,7 +16,7 @@
       <CourseCardMini :course="course" v-for="course in courses" :key="course.id" />
     </div>
 
-    <div class="d-block d-sm-none t-align-c mt-5">
+    <div class="d-block t-align-c mt-5">
       <nuxt-link to="/courses" class="button-orange button-solid">Browse all Courses</nuxt-link>
     </div>
   </div>
