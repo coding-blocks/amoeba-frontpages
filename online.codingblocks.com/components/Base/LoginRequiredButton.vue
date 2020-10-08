@@ -20,7 +20,7 @@ export default {
       if (this.session.isAuthenticated) {
         this.$emit('click')
       } else {
-        localStorage.setItem('redirectionPath', window.location.href)
+        localStorage.setItem('redirectionPath', "absolute_path:" + window.location.href)
         window.location.href = '/app/login'
       }
     }
