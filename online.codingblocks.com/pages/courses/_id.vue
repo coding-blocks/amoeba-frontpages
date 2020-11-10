@@ -18,21 +18,17 @@
   <div class="container mt-5">
     <div class="row first-half">
       <IntroductionCard class="col-md-8 order-1" :course="course" />
+      
       <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
+      
+
       <div class="col-md-8 mt-5 order-4">
-        <div class="border-card">
+        
+        <div class="border-card my-4">
           <h2 class="font-md">Summary</h2>
           <VMarkdown class="course-summary" :markdown="course.summary" />
         </div>
-      </div>
-      <div class="col-md-4 mt-5 order-2">
-        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
-        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
-        <LeadGenerationCard :course-title="course.title" class="col-mt-4" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 mt-5">
+
         <!-- Course Rating -->
         <VAsync :task="fetchReviewStats">
           <template v-slot="{ value }">
@@ -42,9 +38,30 @@
 
         <!-- Sections Contents Accordion -->
         <CourseContentCard class="mt-5 course-content" :sectionIds="topRunSectionIds" />
+
+
+      </div>
+      
+      <div class="col-md-4 mt-5 order-2">
+        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
+        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
+        <LeadGenerationCard :course-title="course.title" class="col-mt-4" />
+
+        <div class="d-none d-md-block">
+          <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
+          <ProjectsList class="projects" :project-ids="projectIds" />
+          <!-- <WildcraftCard class="mt-4" /> -->
+          <CourseFeatures :features="course.coursefeatures" class="mt-4" />
+        </div>
       </div>
 
-      <div class="col-md-4 mt-5">
+    <!-- </div> -->
+    <!-- <div class="row"> -->
+      <!-- <div class="col-md-8 mt-5"> -->
+        
+      <!-- </div> -->
+
+      <div class="col-md-4 mt-5 order-5 d-md-none">
         <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
         <ProjectsList class="projects" :project-ids="projectIds" />
         <!-- <WildcraftCard class="mt-4" /> -->

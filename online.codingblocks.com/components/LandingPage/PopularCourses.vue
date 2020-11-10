@@ -8,15 +8,15 @@
           <div class="grey font-sm mt-1">Lookout for industry popular technologies right now</div>
         </div>
       </div>
-      <div class="d-none d-md-block">
+      <!-- <div class="d-none d-md-block">
         <nuxt-link to="/courses" class="button-orange button-solid">View all</nuxt-link>
-      </div>
+      </div> -->
     </div>
     <div class="row">
       <CourseCardMini :course="course" v-for="course in courses" :key="course.id" />
     </div>
 
-    <div class="d-block d-sm-none t-align-c mt-5">
+    <div class="d-block t-align-c mt-5">
       <nuxt-link to="/courses" class="button-orange button-solid">Browse all Courses</nuxt-link>
     </div>
   </div>
