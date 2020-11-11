@@ -20,7 +20,7 @@
         <div class="percentage">
           75% OFF
         </div>
-        <a href="#" class="button-white-pink mt-4">
+        <a href="/courses" class="button-white-pink mt-4">
           Browse all courses
         </a>
       </div>

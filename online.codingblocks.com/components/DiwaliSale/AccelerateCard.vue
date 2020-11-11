@@ -24,7 +24,7 @@
         <div class="percentage">
           50% OFF
         </div>
-        <a href="#" class="button-white-pink mt-4">
+        <a href="https://codingblocks.com/live-classes.html" class="button-white-pink mt-4">
           Browse all courses
         </a>
       </div>
