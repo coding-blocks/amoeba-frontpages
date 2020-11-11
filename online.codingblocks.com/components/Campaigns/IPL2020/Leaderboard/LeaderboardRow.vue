@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="border b-white dashed-border py-2 px-3 br-5 font-sm">
-      {{discount}}% Discount
+      {{attempt.meta.coupon.percentage}}% Discount
     </div>
   </div>  
 </template>
@@ -29,14 +29,6 @@ export default {
   computed: {
     userName() {
       return this.attempt.user.firstname + this.attempt.user.lastname
-    },
-    discount() {
-      switch (this.attempt.meta.score) {
-        case 10: return 55
-        case 20: return 65
-        case 30: return 75
-        default: return 0
-      }
     }
   }
 }
