@@ -7,14 +7,22 @@
           <div class="font-sm mt-3 yellow">Lite &amp; Premium Batches</div>
         </div>
         <!-- 10px of border plus 1.5rem of pl-4 -->
+        <div class="mt-5" style="padding-left: 2.125rem">
+          <div class="font-mds">Coupon Code</div>
+          <div class="d-flex mt-3">
+            <div class="dashed-border p-2 font-md bold br-10">
+              BFOL
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-6 d-flex flex-col justify-content-between align-items-center">
         <div class="percentage">
           75% OFF
         </div>
-        <a href="/courses" class="button-white-pink mt-4">
+        <nuxt-link to="/courses" class="button-white-pink mt-4">
           Browse all courses
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </div>
