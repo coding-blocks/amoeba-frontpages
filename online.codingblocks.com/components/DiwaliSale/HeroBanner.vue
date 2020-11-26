@@ -9,7 +9,7 @@
 
         <div class="d-flex flex-col align-items-md-start mt-5 pl-5">
           <div class="date-badge font-xl bold">
-            27th Nov 2020, 9 PM - 28th Nov 2020
+            27th Nov 2020 - 28th Nov 2020
           </div>
           <div class="font-xl mt-5">
             Get started with our Programming courses with upto <span class="bold">75% OFF</span>
