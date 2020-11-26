@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="d-flex col-md-6 py-3 px-3 justify-content-center">
+      <div class="d-flex col-md-6 p-0 justify-content-end">
         <img src="https://minio.codingblocks.com/public/black-friday.png" alt="Black Friday" height="437">
       </div>
     </div>

@@ -12,7 +12,7 @@
             Courses
           </div>
           <div class="font-sm mt-3 yellow">
-            Live Batches from 18th Nov
+            Live Batches
           </div>
         </div>
         <!-- 10px of border plus 1.5rem of pl-4 -->
