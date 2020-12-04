@@ -3,20 +3,33 @@
     <div class="row">
       <div class="col-6 d-flex flex-col justify-content-between align-items-start">
         <div class="pl-4 border-left-yellow">
-          <div class="title bold">
+          <div class="title bold d-flex align-items-center">
+            <img 
+              src="https://minio.codingblocks.com/public/accelerate.png" 
+              alt="Accelerate"
+              class="mr-2"
+            >
             Courses
           </div>
           <div class="font-sm mt-3 yellow">
-            Live Batches from 18th Nov
+            Live Batches
           </div>
         </div>
         <!-- 10px of border plus 1.5rem of pl-4 -->
+        <div class="mt-5" style="padding-left: 2.125rem">
+          <div class="font-mds">Coupon Code</div>
+          <div class="d-flex mt-3">
+            <div class="dashed-border p-2 font-md bold br-10">
+              BFLV50
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-6 d-flex flex-col justify-content-between align-items-center">
         <div class="percentage">
           50% OFF
         </div>
-        <a href="https://codingblocks.com/live-classes.html" class="button-white-pink mt-4">
+        <a href="https://codingblocks.com/live-classes.html" target="_blank" class="button-white-pink mt-4">
           Browse all courses
         </a>
       </div>
