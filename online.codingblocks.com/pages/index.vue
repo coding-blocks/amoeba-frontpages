@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="my-auto p-md-4 position-relative home-banner">
+    <div>
+      <LearningMonth />
+    </div>
+    <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
     </div>
     <CompanyCard class="position-relative" />
@@ -10,7 +13,7 @@
       <TrackCard class="mb-5" />
 
       <!-- OLD "Learn from instructor led online courses" -->
-      
+
       <!-- <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
             <h4 class="bold mx-auto">Learn from instructor led online courses</h4>
@@ -69,10 +72,12 @@ import FeatureCard from '~/components/LandingPage/FeatureCard'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience'
 import ClassRoomCard from '~/components/Base/CourseCard'
 import PopularCourses from '~/components/LandingPage/PopularCourses'
+import LearningMonth from "~/components/Banners/LearningMonth";
 
 export default {
   layout: 'landing-page',
   components: {
+    LearningMonth,
     Info,
     CompanyCard,
     TrackCard,
