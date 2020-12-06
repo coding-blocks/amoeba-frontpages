@@ -41,10 +41,11 @@
                 v-for="content in section.contents"
                 :key="content.id"
               >
-                <a href="#" class="col-6 col-md-7 d-flex align-items-center">
+                <a href="#" class="col-6 col-md-5 d-flex align-items-center">
                   <img :src="getIcon(content)" alt="Icon" class="s-20x20 mr-3" />
                   <VMarkdown :markdown="content.title" />
                 </a>
+                <span class="col-3 col-md-4 d-flex align-items-center">{{content.subtitle}}</span>
                 <div class="col-2 col-md-1 t-align-c">
                   <a href="#" 
                     class="card-md font-normal orange d-inline-block"
