@@ -1,92 +1,120 @@
 <template>
-<div>
-  <div class="container mt-5">
-        <ul class="breadcrumbs mb-4">    
-          <li>
-              <nuxt-link to="/courses">
-                Buy Courses
-              </nuxt-link>
-          </li>
-          <li>    
-            {{course.title}}
-          </li>
-        </ul>
-  </div>
+  <div>
+    <div>
+      <LearningMonthSmall />
+    </div>
 
-  <AlternateTrackCard :track="course['alternate-track']" v-if="course['alternate-track']" />
+    <div class="container mt-5">
+      <ul class="breadcrumbs mb-4">
+        <li>
+          <nuxt-link to="/courses">
+            Buy Courses
+          </nuxt-link>
+        </li>
+        <li>
+          {{ course.title }}
+        </li>
+      </ul>
+    </div>
+
+    <AlternateTrackCard
+      :track="course['alternate-track']"
+      v-if="course['alternate-track']"
+    />
     <!-- First Half -> IntroCard IntroVideo Summary Choose Batch Course Tags -->
-  <div class="container mt-5">
-    <div class="row first-half">
-      <IntroductionCard class="col-md-8 order-1" :course="course" />
-      
-      <IntroVideoPlayer class="col-md-4 order-3" :url="course['promo-video']" />
-      
+    <div class="container mt-5">
+      <div class="row first-half">
+        <IntroductionCard :course="course" class="col-md-8 order-1" />
 
-      <div class="col-md-8 mt-5 order-4">
-        
-        <div class="border-card my-4">
-          <h2 class="font-md">Summary</h2>
-          <VMarkdown class="course-summary" :markdown="course.summary" />
+        <IntroVideoPlayer
+          :url="course['promo-video']"
+          class="col-md-4 order-3"
+        />
+
+        <div class="col-md-8 mt-5 order-4">
+          <div class="border-card my-4">
+            <h2 class="font-md">Summary</h2>
+            <VMarkdown :markdown="course.summary" class="course-summary" />
+          </div>
+
+          <!-- Course Rating -->
+          <VAsync :task="fetchReviewStats">
+            <template v-slot="{ value }">
+              <CourseRatingStats
+                v-bind="value"
+                :curCourseId="course.id"
+                :courseName="course.title"
+              />
+            </template>
+          </VAsync>
+
+          <!-- Sections Contents Accordion -->
+          <CourseContentCard
+            :sectionIds="topRunSectionIds"
+            class="mt-5 course-content"
+          />
         </div>
 
-        <!-- Course Rating -->
-        <VAsync :task="fetchReviewStats">
-          <template v-slot="{ value }">
-            <CourseRatingStats v-bind="value" :curCourseId="course.id" :courseName="course.title" />
-          </template>
-        </VAsync>
+        <div class="col-md-4 mt-5 order-2">
+          <ChooseRunTier
+            :trialRun="freeTrialRun"
+            :courseId="course.id"
+            :runs="availableRuns"
+            v-if="availableRuns.length"
+          />
+          <CourseTags
+            :tags="tags"
+            v-if="!!tags.length"
+            class="border-card my-4"
+          />
+          <LeadGenerationCard :course-title="course.title" class="col-mt-4" />
 
-        <!-- Sections Contents Accordion -->
-        <CourseContentCard class="mt-5 course-content" :sectionIds="topRunSectionIds" />
+          <div class="d-none d-md-block">
+            <SuggestedTrackCard
+              v-if="course['suggested-track']"
+              :track="course['suggested-track']"
+              :curCourseId="course.id"
+            />
+            <ProjectsList :project-ids="projectIds" class="projects" />
+            <!-- <WildcraftCard class="mt-4" /> -->
+            <CourseFeatures :features="course.coursefeatures" class="mt-4" />
+          </div>
+        </div>
 
+        <!-- </div> -->
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-8 mt-5"> -->
 
-      </div>
-      
-      <div class="col-md-4 mt-5 order-2">
-        <ChooseRunTier :trialRun="freeTrialRun" :courseId="course.id" :runs="availableRuns" v-if="availableRuns.length"/>
-        <CourseTags class="border-card my-4" :tags="tags" v-if="!!tags.length" />
-        <LeadGenerationCard :course-title="course.title" class="col-mt-4" />
+        <!-- </div> -->
 
-        <div class="d-none d-md-block">
-          <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
-          <ProjectsList class="projects" :project-ids="projectIds" />
+        <div class="col-md-4 mt-5 order-5 d-md-none">
+          <SuggestedTrackCard
+            v-if="course['suggested-track']"
+            :track="course['suggested-track']"
+            :curCourseId="course.id"
+          />
+          <ProjectsList :project-ids="projectIds" class="projects" />
           <!-- <WildcraftCard class="mt-4" /> -->
           <CourseFeatures :features="course.coursefeatures" class="mt-4" />
         </div>
       </div>
 
-    <!-- </div> -->
-    <!-- <div class="row"> -->
-      <!-- <div class="col-md-8 mt-5"> -->
-        
-      <!-- </div> -->
-
-      <div class="col-md-4 mt-5 order-5 d-md-none">
-        <SuggestedTrackCard v-if="course['suggested-track']" :track="course['suggested-track']" :curCourseId="course.id"/>
-        <ProjectsList class="projects" :project-ids="projectIds" />
-        <!-- <WildcraftCard class="mt-4" /> -->
-        <CourseFeatures :features="course.coursefeatures" class="mt-4" />
+      <div class="row mt-5">
+        <MentorsCard :instructors="course.instructors" class="col-md-8" />
       </div>
+
+      <StudentsExperience :show-iframe="false" />
+      <!-- Fin. -->
+      <div class="my-5"></div>
     </div>
-
-
-
-
-    <div class="row mt-5">
-      <MentorsCard class="col-md-8" :instructors="course.instructors" />
-    </div>
-
-    <StudentsExperience :show-iframe="false" />
-    <!-- Fin. -->
-    <div class="my-5"></div>
   </div>
-</div>
 </template>
 
 <script>
 import IntroductionCard from '~/components/AboutCourse/IntroductionCard.vue'
 import VMarkdown from '~/components/Base/VMarkdown.vue'
 import CourseRatingStats from '~/components/AboutCourse/CourseRatingStats.vue'
+import LearningMonthSmall from '~/components/Banners/LearningMonthSmall'
 
 import CourseContentCard from '~/components/AboutCourse/CourseContentCard/Index.vue'
 import ProjectsList from '~/components/AboutCourse/ProjectsList.vue'
@@ -106,29 +134,71 @@ import StartQuizBanner from '~/components/AboutCourse/TeachersDayCampaign/StartQ
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 
 import VAsync from '~/components/Base/VAsync.vue'
-import { jsonSchemaForCourse } from '~/utils/seo'
+import { jsonSchemaForCourse, metaForCourse } from '~/utils/seo'
 import { topRunForCourse, freeTrialRunForCourse } from '~/utils/course'
-import { metaForCourse } from '~/utils/seo'
 
 export default {
+  components: {
+    IntroductionCard,
+    VMarkdown,
+    CourseContentCard,
+    ProjectsList,
+    CourseRatingStats,
+    MentorsCard,
+    IntroVideoPlayer,
+    ChooseBatch,
+    CourseTags,
+    LearningMonthSmall,
+    WildcraftCard,
+    CourseFeatures,
+    LeadGenerationCard,
+    StudentsExperience,
+    VAsync,
+    SuggestedTrackCard,
+    AlternateTrackCard,
+    ChooseRunTier
+  },
   mixins: [sidebarLayoutMixin],
-  async asyncData({ params,error, $axios, app }) {
-    try{
+  data() {
+    return {
+      course: {},
+      eventFor75Percent: false,
+      eventFor90Percent: false
+    }
+  },
+  computed: {
+    projectIds() {
+      return this.course.projects.map((x) => x.id)
+    },
+    topRun() {
+      return topRunForCourse(this.course)
+    },
+    freeTrialRun() {
+      return freeTrialRunForCourse(this.course)
+    },
+    availableRuns() {
+      return (this.course['active-runs'] || []).sort(
+        (run1, run2) => +run1.start - +run2.start
+      )
+    },
+    topRunSectionIds() {
+      const sections = this?.topRun?.sections
+      return Array.isArray(sections) ? sections.map((s) => +s.id) : []
+    },
+    tags() {
+      const tags = this.course.tags || []
+      return tags.filter((t, ind) => ind < 10)
+    }
+  },
+  async asyncData({ params, error, $axios, app }) {
+    try {
       const res = await $axios.get(`/courses/${params.id}`)
       const course = app.$jsonApiStore.sync(res.data)
       return {
         course
       }
-    } catch(e){
+    } catch (e) {
       error({ statusCode: 404, message: 'Course not found' })
-    }
-    
-  },
-  data() {
-    return {
-      course: {},
-      eventFor75Percent: false,
-      eventFor90Percent: false,
     }
   },
 
@@ -142,49 +212,6 @@ export default {
       meta: metaForCourse(this.course)
     }
   },
-  components: {
-    IntroductionCard,
-    VMarkdown,
-    CourseContentCard,
-    ProjectsList,
-    CourseRatingStats,
-    MentorsCard,
-    IntroVideoPlayer,
-    ChooseBatch,
-    CourseTags,
-    WildcraftCard,
-    CourseFeatures,
-    LeadGenerationCard,
-    StudentsExperience,
-    VAsync,
-    SuggestedTrackCard,
-    AlternateTrackCard,
-    ChooseRunTier
-  },
-  computed: {
-    projectIds() {
-      return this.course.projects.map((x) => x.id)
-    },
-    topRun() {
-      return topRunForCourse(this.course)
-    },
-    freeTrialRun () {
-      return freeTrialRunForCourse(this.course)
-    },
-    availableRuns() {
-      return (this.course['active-runs'] || []).sort(
-        (run1, run2) => +run1.start - +run2.start
-      )
-    },
-    topRunSectionIds() {
-      const sections = this?.topRun?.sections
-      return Array.isArray(sections) ? sections.map((s) => +s.id) : []
-    },
-    tags() {
-      const tags =  this.course.tags || []
-      return tags.filter((t, ind) => ind < 10)
-    }
-  },
   tasks(t, { timeout }) {
     return {
       fetchReviewStats: t(function*() {
@@ -192,68 +219,78 @@ export default {
           `courses/${this.course.id}/rating`
         )
         const response = yield this.$axios.get(
-            `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=5`
+          `ratings/course/${this.course.id}?page%5Boffset%5D=0&page%5Blimit%5D=5`
         )
-        const reviews = this.$jsonApiStore.sync(response.data)        
-        return {ratingStats,reviews}
+        const reviews = this.$jsonApiStore.sync(response.data)
+        return { ratingStats, reviews }
       }),
-      fetchInstructorQuizzesTask: t(function *() {
-        const { data: instructorQuizPayload } = yield this.$axios.get(`/instructor_quiz`, {
-          params: {
-            filter: {
-              instructorId: {
-                $in: this.course.instructors.map(instructor => instructor.id)
-              },
+      fetchInstructorQuizzesTask: t(function*() {
+        const { data: instructorQuizPayload } = yield this.$axios
+          .get(`/instructor_quiz`, {
+            params: {
+              filter: {
+                instructorId: {
+                  $in: this.course.instructors.map(
+                    (instructor) => instructor.id
+                  )
+                }
+              }
             }
-          }
-        }).catch(err => [])
-        this.instructorQuizzes = this.$jsonApiStore.sync(instructorQuizPayload);
+          })
+          .catch((err) => [])
+        this.instructorQuizzes = this.$jsonApiStore.sync(instructorQuizPayload)
       })
+    }
+  },
+  created() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.handleScroll)
+    }
+  },
+  mounted() {
+    this.$gtag('event', 'view_item', {
+      items: [
+        {
+          id: this.course.id,
+          name: this.course.title,
+          list_name: 'Course View',
+          brand: 'CodingBlocks',
+          category: 'course_view',
+          list_position: 1,
+          price: '0'
+        }
+      ]
+    })
+  },
+  destroyed() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.handleScroll)
     }
   },
   methods: {
     async onPlay() {
-      const randomInstructorQuiz = this.instructorQuizzes[Math.floor(Math.random() * this.instructorQuizzes.length)]
+      const randomInstructorQuiz = this.instructorQuizzes[
+        Math.floor(Math.random() * this.instructorQuizzes.length)
+      ]
       this.selectedInstructorQuiz = randomInstructorQuiz
     },
-    handleScroll (event) {
+    handleScroll(event) {
       // Any code to be executed when the window is scrolled
-      let percent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+      const percent =
+        window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight)
       try {
-        if(!this.eventFor75Percent && percent > 0.75) {
-          this.eventFor75Percent = true;
-          this.$gtm.pushEvent({event: "Scroll75"})
+        if (!this.eventFor75Percent && percent > 0.75) {
+          this.eventFor75Percent = true
+          this.$gtm.pushEvent({ event: 'Scroll75' })
         }
-        if(!this.eventFor90Percent && percent > 0.90) {
-          this.eventFor90Percent=true;
-          this.$gtm.pushEvent({event: "Scroll90"})
+        if (!this.eventFor90Percent && percent > 0.9) {
+          this.eventFor90Percent = true
+          this.$gtm.pushEvent({ event: 'Scroll90' })
         }
       } catch (e) {
         console.error(e)
       }
-    }
-  },
-  created () {
-    if(typeof window !== 'undefined') {
-    window.addEventListener('scroll', this.handleScroll);
-    }
-  },
-  mounted () {
-    this.$gtag('event', 'view_item', {
-      items: [{
-        id: this.course.id,
-        name: this.course.title,
-        list_name: "Course View",
-        brand: "CodingBlocks",
-        category: 'course_view',
-        list_position: 1,
-        price: '0'
-      }]
-    })
-  },
-  destroyed () {
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 }
@@ -278,16 +315,14 @@ export default {
   overflow: hidden;
 }
 
-
 .course-summary {
   line-height: 1.5rem;
-  text-align: justify
+  text-align: justify;
 }
 </style>
 
-
 <style>
-.course-summary h3{
+.course-summary h3 {
   font-size: 1.428rem;
   margin-top: 2rem;
 }
@@ -302,7 +337,6 @@ export default {
 
 .breadcrumbs > li:not(:first-child) {
   padding-left: 1rem !important;
-
 }
 
 .breadcrumbs > li:not(:first-child)::after {
@@ -312,7 +346,7 @@ export default {
   height: 10px;
   top: 2px;
   left: 0px;
-  background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg') no-repeat;
+  background: url('https://minio.codingblocks.com/amoeba/arrow-right-breadcrumb.svg')
+    no-repeat;
 }
-
 </style>
