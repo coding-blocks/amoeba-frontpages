@@ -8,24 +8,34 @@
 
       <div class="input-search d-flex col-lg-7 col-md-6 col-10 bg-light-grey">
         <input
+          @keyup="({ target }) => this.search.run(target.value)"
+          v-model="searchQuery"
           class="bg-light-grey"
           placeholder="What do you want to learn?"
           type="text"
-          @keyup="({target}) => this.search.run(target.value)"
-          v-model="searchQuery"
         />
       </div>
     </div>
-    <div class="border-bottom-list" v-show="!searchQuery.trim()" >
-      <FeaturedTagExplore :featuredTag='featuredTag' v-for="featuredTag in featuredTags" :key="`feature_${featuredTag.id}`" />
+    <div>
+      <LearningMonthSmall />
+    </div>
+    <div v-show="!searchQuery.trim()" class="border-bottom-list">
+      <FeaturedTagExplore
+        :featuredTag="featuredTag"
+        v-for="featuredTag in featuredTags"
+        :key="`feature_${featuredTag.id}`"
+      />
     </div>
     <div class="divider-h my-4"></div>
-     <div class="row mb-4">
-          <h4 class="font-lgs col-10 capitalise">Other Courses</h4>
-        </div>
+
+
+
+    <div class="row mb-4">
+      <h4 class="font-lgs col-10 capitalise">Other Courses</h4>
+    </div>
     <div
-      class="row a-ocb courses-list"
       v-infinite-scroll="() => loadMore.run()"
+      class="row a-ocb courses-list"
       infinite-scroll-disabled="disabledInfiniteScroll"
       infinite-scroll-distance="10"
     >
@@ -36,24 +46,25 @@
           :key="course.id"
         />
       </div>
-      <div v-show="!courses.length" class="font-md mx-auto ">No Results Found</div>
-      <div class="mx-auto my-auto" v-show="isSearching">
+      <div v-show="!courses.length" class="font-md mx-auto ">
+        No Results Found
+      </div>
+      <div v-show="isSearching" class="mx-auto my-auto">
         <img
           src="https://minio.codingblocks.com/amoeba/online-loader.gif"
           alt="loading..."
         />
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-
 import CourseCard from '~/components/Base/CourseCard.vue'
+import LearningMonthSmall from '~/components/Banners/LearningMonthSmall'
 import FeaturedTagExplore from '~/components/Base/FeaturedTagExplore.vue'
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
-import { jsonSchemaForAllCourses } from '~/utils/seo'
-import { metaForAllCourses } from '~/utils/seo'
+import { jsonSchemaForAllCourses, metaForAllCourses } from '~/utils/seo'
 
 if (process.client) {
   var infiniteScroll = require('vue-infinite-scroll')
@@ -61,40 +72,33 @@ if (process.client) {
 
 const fetchCourses = (axios, query = '', offset = 0, limit = 9) => {
   return axios.get('/courses', {
-      params: {
-        exclude: `ratings,instructors.*,jobs`,
-        include: `instructors,runs`,
-        filter: {
-          unlisted: false,
-          title: {
-            $iLike: `%${query}%`
-          }
-        },
-        page: {
-          limit,
-          offset
+    params: {
+      exclude: `ratings,instructors.*,jobs`,
+      include: `instructors,runs`,
+      filter: {
+        unlisted: false,
+        title: {
+          $iLike: `%${query}%`
         }
+      },
+      page: {
+        limit,
+        offset
       }
-    })
+    }
+  })
 }
 
 export default {
-  mixins: [sidebarLayoutMixin],
   components: {
     CourseCard,
+    LearningMonthSmall,
     FeaturedTagExplore
   },
   directives: {
     infiniteScroll
   },
-  async asyncData({ $axios, app }) {
-    const res = await fetchCourses($axios)
-    const courses = app.$jsonApiStore.sync(res.data)
-
-    const featuredTagsPayload = await $axios.get('featured_tags/courses')
-    // const featuredTags = app.$jsonApiStore.sync(featuredTagsRes.data) // calling this server sides fails, see computed property
-    return { courses, featuredTagsPayload: featuredTagsPayload.data }
-  },
+  mixins: [sidebarLayoutMixin],
   data() {
     return {
       courses: [],
@@ -107,20 +111,33 @@ export default {
     }
   },
   computed: {
-    isSearching () {
+    isSearching() {
       return this.loadMore.isActive
     },
-    disabledInfiniteScroll () {
-      return !this.courses.length || this.isSearching || this.infiniteScrollDisabled
+    disabledInfiniteScroll() {
+      return (
+        !this.courses.length || this.isSearching || this.infiniteScrollDisabled
+      )
     },
-    featuredTags () {
+    featuredTags() {
       // somehow calling this server side fails; need to debug why
-      return process.client ? this.$jsonApiStore.sync(this.featuredTagsPayload).sort((a,b)=>a.order - b.order) : []
+      return process.client
+        ? this.$jsonApiStore
+            .sync(this.featuredTagsPayload)
+            .sort((a, b) => a.order - b.order)
+        : []
     }
   },
+  async asyncData({ $axios, app }) {
+    const res = await fetchCourses($axios)
+    const courses = app.$jsonApiStore.sync(res.data)
+
+    const featuredTagsPayload = await $axios.get('featured_tags/courses')
+    // const featuredTags = app.$jsonApiStore.sync(featuredTagsRes.data) // calling this server sides fails, see computed property
+    return { courses, featuredTagsPayload: featuredTagsPayload.data }
+  },
   mounted() {
-    if(this.searchQuery)
-      this.search.run(this.searchQuery);
+    if (this.searchQuery) this.search.run(this.searchQuery)
   },
   jsonld() {
     return jsonSchemaForAllCourses(this.courses)
@@ -133,8 +150,8 @@ export default {
   },
   tasks(t, { timeout }) {
     return {
-      search: t(function *(query = '') {
-        this.$router.push({query: {q: query}})
+      search: t(function*(query = '') {
+        this.$router.push({ query: { q: query } })
         this.$nuxt.$loading.start()
         this.offset = 0 // reset pagination
         yield timeout(500)
@@ -146,20 +163,22 @@ export default {
         this.$nuxt.$loading.finish()
       }).flow('restart', { delay: 500 }),
 
-      loadMore: t(function *() {
+      loadMore: t(function*() {
         this.$nuxt.$loading.start()
         this.infiniteScrollDisabled = true
 
         this.offset += 9
-        const res = yield fetchCourses(this.$axios, this.searchQuery, this.offset)
+        const res = yield fetchCourses(
+          this.$axios,
+          this.searchQuery,
+          this.offset
+        )
 
         const newCourses = yield this.$jsonApiStore.sync(res.data)
         if (newCourses.length) {
-          this.courses = [...this.courses , ...newCourses]
+          this.courses = [...this.courses, ...newCourses]
           this.infiniteScrollDisabled = false
-        }
-        else
-          this.infiniteScrollDisabled = true // no new courses to load
+        } else this.infiniteScrollDisabled = true // no new courses to load
 
         this.$nuxt.$loading.finish()
       })
