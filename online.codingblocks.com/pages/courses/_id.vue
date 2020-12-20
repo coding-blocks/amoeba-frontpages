@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <LearningMonthSmall />
+      <IndexPagesSmall />
     </div>
 
     <div class="container mt-5">
@@ -114,7 +114,7 @@
 import IntroductionCard from '~/components/AboutCourse/IntroductionCard.vue'
 import VMarkdown from '~/components/Base/VMarkdown.vue'
 import CourseRatingStats from '~/components/AboutCourse/CourseRatingStats.vue'
-import LearningMonthSmall from '~/components/Banners/LearningMonthSmall'
+import IndexPagesSmall from '~/components/Banners/IndexPagesSmall'
 
 import CourseContentCard from '~/components/AboutCourse/CourseContentCard/Index.vue'
 import ProjectsList from '~/components/AboutCourse/ProjectsList.vue'
@@ -148,7 +148,7 @@ export default {
     IntroVideoPlayer,
     ChooseBatch,
     CourseTags,
-    LearningMonthSmall,
+    IndexPagesSmall,
     WildcraftCard,
     CourseFeatures,
     LeadGenerationCard,

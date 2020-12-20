@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <LearningMonth />
+      <HomePageLarge />
     </div>
     <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
@@ -72,12 +72,12 @@ import FeatureCard from '~/components/LandingPage/FeatureCard'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience'
 import ClassRoomCard from '~/components/Base/CourseCard'
 import PopularCourses from '~/components/LandingPage/PopularCourses'
-import LearningMonth from "~/components/Banners/LearningMonth";
+import HomePageLarge from '~/components/Banners/HomePageLarge'
 
 export default {
   layout: 'landing-page',
   components: {
-    LearningMonth,
+    HomePageLarge,
     Info,
     CompanyCard,
     TrackCard,
