@@ -17,7 +17,7 @@
       </div>
     </div>
     <div>
-      <LearningMonthSmall />
+      <IndexPagesSmall />
     </div>
     <div v-show="!searchQuery.trim()" class="border-bottom-list">
       <FeaturedTagExplore
@@ -61,7 +61,7 @@
 
 <script>
 import CourseCard from '~/components/Base/CourseCard.vue'
-import LearningMonthSmall from '~/components/Banners/LearningMonthSmall'
+import IndexPagesSmall from '~/components/Banners/IndexPagesSmall'
 import FeaturedTagExplore from '~/components/Base/FeaturedTagExplore.vue'
 import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
 import { jsonSchemaForAllCourses, metaForAllCourses } from '~/utils/seo'
@@ -92,7 +92,7 @@ const fetchCourses = (axios, query = '', offset = 0, limit = 9) => {
 export default {
   components: {
     CourseCard,
-    LearningMonthSmall,
+    IndexPagesSmall,
     FeaturedTagExplore
   },
   directives: {
