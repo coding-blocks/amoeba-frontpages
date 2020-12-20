@@ -1,8 +1,8 @@
 <template>
-  <div class="p-xl-5 p-4 ml-5">
+  <div class="p-xl-5 p-4 ml-1">
     <svg
-      width="1110"
-      height="409"
+      width="auto"
+      height="auto"
       viewBox="0 0 1110 409"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
