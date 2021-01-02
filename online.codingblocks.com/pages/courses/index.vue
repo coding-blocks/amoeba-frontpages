@@ -16,9 +16,9 @@
         />
       </div>
     </div>
-    <div>
-      <IndexPagesSmall />
-    </div>
+    <!--    <div>-->
+    <!--      <IndexPagesSmall />-->
+    <!--    </div>-->
     <div v-show="!searchQuery.trim()" class="border-bottom-list">
       <FeaturedTagExplore
         :featuredTag="featuredTag"
@@ -27,8 +27,6 @@
       />
     </div>
     <div class="divider-h my-4"></div>
-
-
 
     <div class="row mb-4">
       <h4 class="font-lgs col-10 capitalise">Other Courses</h4>
