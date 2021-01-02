@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
-      <HomePageLarge />
-    </div>
+    <!--    <div>-->
+    <!--      <HomePageLarge />-->
+    <!--    </div>-->
     <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
     </div>
@@ -53,7 +53,7 @@
 
 <style scoped>
 .home-banner {
-  background-color: #FBFDF9;
+  background-color: #fbfdf9;
 }
 </style>
 
@@ -93,20 +93,25 @@ export default {
     ClassRoomCard,
     PopularCourses
   },
+  data() {
+    return {
+      courses: []
+    }
+  },
   async asyncData({ $axios, app: { $jsonApiStore } }) {
-    const {data: tagsPayload} = await $axios.get(`/tags`, {
+    const { data: tagsPayload } = await $axios.get(`/tags`, {
       params: {
         filter: {
-          name: 'Popular',
+          name: 'Popular'
         },
         exclude: 'courses.*'
       }
     })
 
     const tag = $jsonApiStore.sync(tagsPayload)[0]
-    const courseIds = ((tag && tag.courses) || []).map(c => c.id)
+    const courseIds = ((tag && tag.courses) || []).map((c) => c.id)
 
-    const {data: coursesPayload} = await $axios.get(`/courses`, {
+    const { data: coursesPayload } = await $axios.get(`/courses`, {
       params: {
         include: 'instructors,runs',
         exclude: 'ratings,instructors.*,feedbacks,runs.*',
@@ -129,15 +134,9 @@ export default {
     return {
       courses
     }
-  },
-  data() {
-    return {
-      courses: []
-    }
   }
 }
 </script>
-
 
 <style scoped>
 .font-normal {
@@ -146,7 +145,8 @@ export default {
 </style>
 
 <style>
-h4.bold, strong {
+h4.bold,
+strong {
   letter-spacing: 0.5px;
 }
 </style>
