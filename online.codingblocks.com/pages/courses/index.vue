@@ -16,9 +16,9 @@
         />
       </div>
     </div>
-    <!--    <div>-->
-    <!--      <IndexPagesSmall />-->
-    <!--    </div>-->
+        <div>
+          <IndexPagesSmall />
+        </div>
     <div v-show="!searchQuery.trim()" class="border-bottom-list">
       <FeaturedTagExplore
         :featuredTag="featuredTag"
