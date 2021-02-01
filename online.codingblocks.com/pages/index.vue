@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
-      <HomePageLarge />
-    </div>
+<!--    <div>-->
+<!--      <HomePageLarge />-->
+<!--    </div>-->
     <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
     </div>
