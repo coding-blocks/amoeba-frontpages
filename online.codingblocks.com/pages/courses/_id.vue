@@ -1,8 +1,8 @@
 <template>
   <div>
-        <div>
+        <!-- <div>
           <IndexPagesSmall />
-        </div>
+        </div> -->
 
     <div class="container mt-5">
       <ul class="breadcrumbs mb-4">

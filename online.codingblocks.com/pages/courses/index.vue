@@ -17,7 +17,7 @@
       </div>
     </div>
         <div>
-          <IndexPagesSmall />
+          <!-- <IndexPagesSmall /> //small banner inside -->
         </div>
     <div v-show="!searchQuery.trim()" class="border-bottom-list">
       <FeaturedTagExplore
