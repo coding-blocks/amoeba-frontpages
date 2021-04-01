@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <HomePageLarge />
+      <!-- <HomePageLarge /> // banner on homepage --> 
     </div>
     <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
