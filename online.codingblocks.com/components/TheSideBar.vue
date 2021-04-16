@@ -5,6 +5,12 @@
     </a>
     <div class="row all-center">
       <div class="col-2 col-md-12">
+        <a href="/cricket-cup" class="nav-element py-4 px-2">
+          <img src="https://minio.codingblocks.com/public/cricket-cup-logo.png" alt="cricket cup">
+          <div class="pt-2 d-none d-md-block font-sm card-md yellow">Cricket Cup</div>
+        </a>
+      </div>
+      <div class="col-2 col-md-12">
         <a href="/app/dashboard" class="nav-element py-4 px-2">
           <img src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/dashboard_grey.svg"/>
           <div class="pt-2 d-none d-md-block font-sm card-md">Dashboard</div>
