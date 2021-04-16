@@ -7,7 +7,7 @@
       IPL Cricket Cup
     </div>
     <div class="mt-2 font-md">
-      19 Sept - 8 Nov
+       9 Apr - 30 May
     </div>
     <div class="predict-button mt-4 bold p-3">
       PREDICT N WIN!
