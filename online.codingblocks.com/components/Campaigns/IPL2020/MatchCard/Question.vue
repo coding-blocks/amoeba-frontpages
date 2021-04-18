@@ -2,6 +2,10 @@
   <div>
     <VAsync :task="fetchQuestionTask" :emberStyle="true">
       <template v-slot="{ value: question }">
+        <div v-if="!fetchQuestionTask.isActive">
+          Loading...
+        </div>
+        <div v-else>
           <div class="font-mds med-grey mb-5">
             <VMarkdown :markdown="question.description"/>
           </div>
@@ -20,8 +24,11 @@
               </label>
             </div>
           </div>
+        </div>
       </template>
     </VAsync>
+
+    <slot name="navigation" :value="fetchQuestionTask.isActive"></slot>
   </div>
 </template>
 <script>

@@ -5,33 +5,36 @@
       :questionId="currentQuestionId"
       :onAnswer="choiceId => answerQuestion(currentQuestionId, choiceId)"
       :selectedChoiceId="quizSubmissionMap[currentQuestionId]"
-    />
-    <div
-      class="horizontal-quiz-card__right-pane__navigation row no-gutters align-items-center justify-content-between">
-      <button 
-        class="font-mds bold cricket-blue"
-        :disabled="!prevEnabled"
-        @click="prev()"
-      >
-        ❮ PREV
-      </button>
-      <button
-        v-if="submitEnabled"
-        class="button-solid button-blue white"
-        :disabled="submitQuizTask.isActive"
-        @click="submitQuizTask.run()"
-      >
-        Submit
-      </button>
-      <button 
-        v-else
-        class="font-mds bold cricket-blue"
-        :disabled="!nextEnabled"
-        @click="next()" 
-      >
-        NEXT ❯
-      </button>
-    </div>
+    >
+      <template v-slot:navigation="{ value: isLoading }">
+        <div
+          class="horizontal-quiz-card__right-pane__navigation row no-gutters align-items-center justify-content-between">
+          <button 
+            class="font-mds bold cricket-blue"
+            :disabled="isLoading || !prevEnabled"
+            @click="prev()"
+          >
+            ❮ PREV
+          </button>
+          <button
+            v-if="submitEnabled"
+            class="button-solid button-blue white"
+            :disabled="isLoading || submitQuizTask.isActive"
+            @click="submitQuizTask.run()"
+          >
+            Submit
+          </button>
+          <button 
+            v-else
+            class="font-mds bold cricket-blue"
+            :disabled="isLoading || !nextEnabled"
+            @click="next()" 
+          >
+            NEXT ❯
+          </button>
+        </div>
+      </template>
+    </Question>
     <div class="t-align-c red" v-if="error">
       {{error}}
     </div>
