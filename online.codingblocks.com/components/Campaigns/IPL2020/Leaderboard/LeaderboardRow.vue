@@ -13,7 +13,13 @@
         </div>
       </div>
     </div>
-    <div class="border b-white dashed-border py-2 px-3 br-5 font-sm">
+    <div v-if="attempt.meta.reward" >
+      <div v-if="attempt.meta.isHattrickWin" class="white card-xs">Hattrick</div>
+      <div class="border b-white dashed-border py-2 px-3 br-5 card-sm">
+        {{attempt.meta.reward}}
+      </div>
+    </div>
+    <div v-else-if="attempt.meta.coupon" class="border b-white dashed-border py-2 px-3 br-5 font-sm">
       {{attempt.meta.coupon.percentage}}% Discount
     </div>
   </div>  
@@ -28,7 +34,7 @@ export default {
   },
   computed: {
     userName() {
-      return this.attempt.user.firstname + this.attempt.user.lastname
+      return this.attempt.user.firstname + " " + this.attempt.user.lastname
     }
   }
 }

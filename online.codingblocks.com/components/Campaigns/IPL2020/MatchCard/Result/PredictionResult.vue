@@ -10,14 +10,27 @@
       </div>
     </div>  
     <div class="mt-4" v-if="won">
-      <div class="font-md bold">Your Coupon Code</div>
-      <div class="font-mds med-grey mt-3">Get {{attempt.meta.coupon.percentage}}% Off on all online courses</div>
-      <div class="d-flex mt-3">
-        <CouponCode 
-          :coupon="attempt.meta.coupon.code"
-        />
+      <div v-if="attempt.meta.reward">
+        <h4 class="mb-4">Congratulations You Won</h4>
+        <div v-if="attempt.meta.isHattrickWin" class="font-mds red mt-3">You got a hattrick!</div>
+        <div class="coupon-card white p-2">
+          <div class="body p-3 t-align-c">
+            <div class="font-mds bold">
+              {{attempt.meta.reward}}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bold med-grey mt-3">Valid till {{validTill}}</div>
+      <div v-else-if="attempt.meta.coupon">
+        <h4>Your Coupon Code</h4>
+        <div class="font-mds med-grey mt-3">Get {{attempt.meta.coupon.percentage}}% Off on all online courses</div>
+        <div class="d-flex mt-3">
+          <CouponCode 
+            :coupon="attempt.meta.coupon.code"
+          />
+        </div>
+        <div class="bold med-grey mt-3">Valid till {{validTill}}</div>
+      </div>
     </div>
     <div class="mt-4" v-else>
       <img 
@@ -44,6 +57,7 @@ export default {
   },
   computed: {
     correctAnswers() {
+      console.log(this.attempt.id)
       return this.attempt['tbm-submission'].result.score / 10
     },
     totalQuestions() {
@@ -65,5 +79,13 @@ export default {
   .score {
     color: #1F4FE0;
     font-size: 2.25rem;
+  }
+  .coupon-card {
+    background: linear-gradient(90deg, #26A87C 0%, #55C25C 100%);
+    border-radius: 5px;
+  }
+  .coupon-card .body {
+    border: 1px dashed #FFFFFF;
+    border-radius: 5px;
   }
 </style>
