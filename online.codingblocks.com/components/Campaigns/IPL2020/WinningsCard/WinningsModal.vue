@@ -16,7 +16,7 @@
           <div class="flex-1 t-align-c px-4">
             <div class="font-mds">YOUR WINNINGS</div>
             <div class="mt-1 font-md extra-bold">
-              {{ winningsCount }} Coupons Won
+              {{ winningsCount }} Prizes Won
             </div>
           </div>
           <img

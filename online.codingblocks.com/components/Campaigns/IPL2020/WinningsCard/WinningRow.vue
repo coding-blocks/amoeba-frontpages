@@ -21,34 +21,56 @@
           />
         </div>
       </div>
-      <div class="t-align-r d-lg-block d-md-none d-sm-block d-none">
-        <div class="card-md med-grey">
-          Thursday, 19 Sept {{ winning.updated_at }}
+      <div v-if="winning.meta.reward">
+        <div class="t-align-r d-lg-block d-md-none d-sm-block d-none">
+          <div class="card-md med-grey">
+            {{ winning.updatedAt | moment("dddd, MMMM Do YYYY") }}
+          </div>
+          <div v-if="winning.meta.isHattrickWin" class="font-mds red mt-3">You got a hattrick!</div>
+          <div class="my-2 font-mds extra-bold border p-2 br-5" style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;">
+            {{winning.meta.reward}}
+          </div>
         </div>
-        <div class="my-2 font-mds extra-bold">
-          {{ winning.meta.coupon.percentage }}% OFF COUPON
-        </div>
-        <div
-          @click="copyCouponCode"
-          class="py-2 px-3 br-5 font-sm"
-          style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
-        >
-          {{ winning.meta.coupon.code }}
+        <div class="col-12 mt-4 d-lg-none d-md-block d-sm-none d-block">
+          <div class="card-md med-grey">
+            {{ winning.updatedAt | moment("dddd, MMMM Do YYYY") }}
+          </div>
+          <div v-if="winning.meta.isHattrickWin" class="font-mds red mt-3">You got a hattrick!</div>
+          <div class="my-2 font-mds extra-bold p-2 br-5" style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;">
+            {{winning.meta.reward}}
+          </div>
         </div>
       </div>
-      <div class="col-12 mt-4 d-lg-none d-md-block d-sm-none d-block">
-        <div class="row no-gutters justify-content-between align-items-center">
-          <div class="flex-1 pr-3">
-            <div class="card-md med-grey">Thursday, 19 Sept</div>
-            <div class="mt-2 font-mds extra-bold">
-              {{ winning.meta.coupon.percentage }}% OFF COUPON
-            </div>
+      <div v-else-if="winning.meta.coupon">
+        <div class="t-align-r d-lg-block d-md-none d-sm-block d-none">
+          <div class="card-md med-grey">
+            {{ winning.updatedAt | moment("dddd, MMMM Do YYYY") }}
+          </div>
+          <div class="my-2 font-mds extra-bold">
+            {{ winning.meta.coupon.percentage }}% OFF COUPON
           </div>
           <div
+            @click="copyCouponCode"
             class="py-2 px-3 br-5 font-sm"
             style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
           >
             {{ winning.meta.coupon.code }}
+          </div>
+        </div>
+        <div class="col-12 mt-4 d-lg-none d-md-block d-sm-none d-block">
+          <div class="row no-gutters justify-content-between align-items-center">
+            <div class="flex-1 pr-3">
+              <div class="card-md med-grey">{{ winning.updatedAt | moment("dddd, MMMM Do YYYY") }}</div>
+              <div class="mt-2 font-mds extra-bold">
+                {{ winning.meta.coupon.percentage }}% OFF COUPON
+              </div>
+            </div>
+            <div
+              class="py-2 px-3 br-5 font-sm"
+              style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
+            >
+              {{ winning.meta.coupon.code }}
+            </div>
           </div>
         </div>
       </div>
@@ -56,6 +78,7 @@
   </div>
 </template>
 <script>
+
 export default {
   props: {
     winning: {

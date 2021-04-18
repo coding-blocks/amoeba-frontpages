@@ -20,6 +20,7 @@
     "nuxt-jsonld": "^1.4.5",
     "vue-clickaway": "^2.2.2",
     "vue-infinite-scroll": "^2.0.2",
+    "vue-moment": "^4.1.0",
     "vue-slick-carousel": "^1.0.5"
   },
   "devDependencies": {

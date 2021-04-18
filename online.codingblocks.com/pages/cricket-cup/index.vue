@@ -8,6 +8,8 @@
       />
     </div>
 
+    <img class="br-10 my-5" src="https://minio.codingblocks.com/public/ipl-banner-2021.jpg" alt="">
+
     <div class="row mt-4">
       <div class="col-md-6">
         <WinningsCard v-if="user" class="mb-4"/>
