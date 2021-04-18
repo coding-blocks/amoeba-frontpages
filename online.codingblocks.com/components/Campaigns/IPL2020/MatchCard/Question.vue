@@ -2,7 +2,7 @@
   <div>
     <VAsync :task="fetchQuestionTask" :emberStyle="true">
       <template v-slot="{ value: question }">
-        <div v-if="!fetchQuestionTask.isActive">
+        <div v-if="fetchQuestionTask.isActive">
           Loading...
         </div>
         <div v-else>
