@@ -10,6 +10,8 @@
 
     <img class="br-10 my-5" src="https://minio.codingblocks.com/public/ipl-banner-2021.jpg" alt="">
 
+    <WinningStreak v-if="user" />
+
     <div class="row mt-4">
       <div class="col-md-6">
         <WinningsCard v-if="user" class="mb-4"/>
@@ -22,12 +24,13 @@
   </div>
 </template>
 <script>
-import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser'
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser';
 import HeroBanner from '~/components/Campaigns/IPL2020/HeroBanner';
 import MatchCard from '~/components/Campaigns/IPL2020/MatchCard';
 import RulesCard from '~/components/Campaigns/IPL2020/RulesCard';
 import WinningsCard from '~/components/Campaigns/IPL2020/WinningsCard';
-import Leaderboard from '~/components/Campaigns/IPL2020/Leaderboard'
+import Leaderboard from '~/components/Campaigns/IPL2020/Leaderboard';
+import WinningStreak from '~/components/Campaigns/IPL2020/WinningStreak';
 import { mapState } from 'vuex';
 
 export default {
@@ -37,7 +40,8 @@ export default {
     MatchCard,
     RulesCard,
     WinningsCard,
-    Leaderboard
+    Leaderboard,
+    WinningStreak
   },
   data() {
     return {
