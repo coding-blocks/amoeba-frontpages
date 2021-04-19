@@ -14,8 +14,8 @@
       </div>
     </div>
     <div v-if="attempt.meta.reward" >
-      <div v-if="attempt.meta.isHattrickWin" class="white card-xs">Hattrick</div>
-      <div class="border b-white dashed-border py-2 px-3 br-5 card-sm">
+      <div v-if="isHattrickWin" class="white card-md mb-1 bold t-align-r">Hattrick</div>
+      <div class="py-2 px-3 br-5 card-sm" v-bind:class="[isHattrickWin ? 'bg-gradient-dpink' : 'border b-white dashed-border']">
         {{attempt.meta.reward}}
       </div>
     </div>
@@ -35,6 +35,9 @@ export default {
   computed: {
     userName() {
       return this.attempt.user.firstname + " " + this.attempt.user.lastname
+    },
+    isHattrickWin() {
+      return !!this.attempt.meta["is-hattrick-win"]
     }
   }
 }

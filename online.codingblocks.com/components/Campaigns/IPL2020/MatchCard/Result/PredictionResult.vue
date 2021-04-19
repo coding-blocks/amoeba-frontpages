@@ -12,7 +12,7 @@
     <div class="mt-4" v-if="won">
       <div v-if="attempt.meta.reward">
         <h4 class="mb-4">Congratulations You Won</h4>
-        <div v-if="attempt.meta.isHattrickWin" class="font-mds red mt-3">You got a hattrick!</div>
+        <div v-if="isHattrickWin" class="font-mds red mt-3 mb-2">You got a hattrick!</div>
         <div class="coupon-card white p-2">
           <div class="body p-3 t-align-c">
             <div class="font-mds bold">
@@ -68,6 +68,9 @@ export default {
     },
     validTill() {
       return moment(this.attempt.meta.coupon.valid_end).format('MM DD YYYY')
+    },
+    isHattrickWin() {
+      return !!this.attempt.meta['is-hattrick-win']
     }
   },
   components: {
