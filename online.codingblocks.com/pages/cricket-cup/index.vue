@@ -8,7 +8,7 @@
       />
     </div>
 
-    <img class="br-10 my-5" src="https://minio.codingblocks.com/public/ipl-banner-2021.jpg" alt="">
+    <img class="br-10 my-5" src="https://minio.codingblocks.com/public/ipl-banner-goodies.jpg" alt="">
 
     <div class="row mt-4">
       <div class="col-md-6">
