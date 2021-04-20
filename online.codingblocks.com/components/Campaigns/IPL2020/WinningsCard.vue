@@ -19,7 +19,7 @@
           </div>
         </div>
         <div>
-          <div class="bold font-mds">Your Winnings</div>
+          <div class="bold font-mds py-2 px-3 br-5 card-sm border">Your Winnings</div>
         </div>
       </div>
     </div>
