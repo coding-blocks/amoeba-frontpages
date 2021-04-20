@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      streak: {},
+      streak: {streakCount: 0},
     }
   },
   mounted() {
