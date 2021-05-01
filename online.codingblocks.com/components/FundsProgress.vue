@@ -40,7 +40,7 @@ export default {
     return {
       setReliefAmount: t(function*() {
         const amount = this.amount
-        this.reliefAmount = yield amount / 100
+        this.reliefAmount = yield Math.round(amount / 100)
         // this.reliefAmount = 90000000 / 100
         if(amount >= 10000000) {
           this.reliefAmount = (amount / 10000000).toFixed(1)
