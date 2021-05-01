@@ -150,7 +150,7 @@ data-styled.g108[id="sc-1vtbhe-0"]{content:"MSTa-D,"}/*!sc*/
 @media (max-width:480px){.jGxDFt{height:300px;}}/*!sc*/
 data-styled.g109[id="sc-1vtbhe-1"]{content:"jGxDFt,"}/*!sc*/
 .caLWTk{margin:auto;height:100%;display:block;}/*!sc*/
-@media (max-width:480px){.caLWTk{display:none;}}/*!sc*/
+/* @media (max-width:480px){.caLWTk{display:none;}} */
 .dVseNc{margin:auto;height:100%;display:none;}/*!sc*/
 @media (max-width:480px){.dVseNc{display:block;}}/*!sc*/
 data-styled.g110[id="sc-1vtbhe-2"]{content:"caLWTk,dVseNc,"}/*!sc*/
@@ -295,24 +295,15 @@ span.intro-large-text b {
     display: none !important;
 }
 
-/* .cOPjdp {
-    font-size: 3.6rem;
-    line-height: 4.8rem;
-    color: rgb(54, 54, 54);
-    font-weight: 500;
+.s1isp7-3 {
+  display: none;
 }
 
-.PGpcb {
-    font-size: 3.6rem;
-    line-height: 4.8rem;
-    font-weight: 300;
-    text-align: center;
-    color: rgb(105, 105, 105);
-} */
+
 </style>
 <template>
 
-        <div id="root"><div><div class="sc-1vtbhe-1 jGxDFt styles__Backdrop-sc-1ly7md4-0 bvRPpy" height="640px"><div class="sc-1vtbhe-0 MSTa-D"><div height="100%" width="100%" class="s1isp7-1 kGRlle sc-1vtbhe-2 caLWTk br-10 mt-5"><div src="" class="s1isp7-3 egqLAC"></div><img alt="image" src="https://b.zmtcdn.com/data/o2_assets/3d60f209cb7e0e13eb27acdb2a9387651619371428.png" loading="lazy" class="s1isp7-5 cYoepp br-10"></div><div height="100%" width="100%" class="s1isp7-1 kGRlle sc-1vtbhe-2 dVseNc"><div src="" class="s1isp7-3 Isxlj"></div><img alt="image" src="" loading="lazy" class="s1isp7-5 eHisWo"></div></div><div class="sc-1vtbhe-4 cjRIxL"><div class="styles__ContentContainer-sc-1ly7md4-1 loyMQr"><p class="sc-1hez2tp-0 styles__Title-sc-1ly7md4-2 fHionu uQiuK"><span class="styles__BoldTitle-sc-1ly7md4-3 jCbZAy"><span class="HTMLWrapper__DecoratedText-sc-1sesw7s-0 kyDsER">India Needs Oxygen</span></span></p><p class="sc-1hez2tp-0 styles__Para-sc-1ly7md4-6 fHionu lbNrjo"><span class="HTMLWrapper__DecoratedText-sc-1sesw7s-0 kyDsER">Providing hospitals and patients with oxygen and related supplies. Help us save thousands of lives. </span></p>
+        <div id="root"><div><div class="sc-1vtbhe-1 jGxDFt styles__Backdrop-sc-1ly7md4-0 bvRPpy" height="640px"><div class="sc-1vtbhe-0 MSTa-D"><div height="100%" width="100%" class="s1isp7-1 kGRlle sc-1vtbhe-2 caLWTk br-10 mt-5" style="text-align: center;"><div src="" class="s1isp7-3 egqLAC"></div><img alt="image" src="https://minio.codingblocks.com/public/covid_donate.jpeg" loading="lazy" class="s1isp7-5 cYoepp br-10"></div><div height="100%" width="100%" class="s1isp7-1 kGRlle sc-1vtbhe-2 dVseNc"><div src="" class="s1isp7-3 Isxlj"></div></div></div><div class="sc-1vtbhe-4 cjRIxL"><div class="styles__ContentContainer-sc-1ly7md4-1 loyMQr"><p class="sc-1hez2tp-0 styles__Title-sc-1ly7md4-2 fHionu uQiuK"><span class="styles__BoldTitle-sc-1ly7md4-3 jCbZAy"><span class="HTMLWrapper__DecoratedText-sc-1sesw7s-0 kyDsER">India Needs Oxygen</span></span></p><p class="sc-1hez2tp-0 styles__Para-sc-1ly7md4-6 fHionu lbNrjo"><span class="HTMLWrapper__DecoratedText-sc-1sesw7s-0 kyDsER">Providing hospitals and patients with oxygen and related supplies. Help us save thousands of lives. </span></p>
         <a href="https://rzp.io/l/VvbRjBaXG" target="_blank"><button class="sc-1kx5g6g-1 bZotmW styles__DonateButton-sc-1ly7md4-7 fBZKec" role="button" tabindex="0" aria-disabled="false"><span tabindex="-1" class="sc-1kx5g6g-2 jYEixE"><span class="sc-1kx5g6g-3 ea-dWOt">Donate now</span></span></button></a>
         <!-- <p class="styles__SmallPara-sc-1ly7md4-4 gKKUJt">If you are not a citizen of India, <a href="https://pages.razorpay.com/zfi-oxygen-intl-dollar" target="_blank" class="styles__RedLink-sc-1ly7md4-5 jRQcYy">donate here.</a> -->
         </p></div></div></div><div class="sc-1mo3ldo-0 iHCEtL"><span class="HTMLWrapper__DecoratedText-sc-1sesw7s-0 kyDsER"></span></div>

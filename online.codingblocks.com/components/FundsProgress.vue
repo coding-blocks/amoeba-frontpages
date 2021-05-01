@@ -13,6 +13,15 @@
     text-align: center;
     color: rgb(105, 105, 105);
 }
+progress {
+  background-color: rgb(220, 220, 220) !important;
+}
+progress::-webkit-progress-bar {
+  background-color: rgb(220, 220, 220) !important;
+}
+.styles__Container-sc-10z716i-1 {
+  text-align: center;
+}
 </style>
 
 <template>
