@@ -43,7 +43,7 @@ export default {
       return this.attempt['tbm-submission'].submission
     },
     isSubmitted() {
-      return this.attempt?.meta?.isSubmitted
+      return this.attempt?.meta && this.attempt?.meta['is-submitted']
     }
   },
   tasks(t) {

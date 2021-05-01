@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="position-relative br-10 overflow-hidden">
+    <WinningModalEmpty 
+      v-if="winningsCount === 0"
+    />
+    <div class="position-relative br-10 overflow-hidden" v-else>
       <div
         class="position-sticky tr px-xl-5 px-4 py-4 br-10 bg-gradient-dpink z-pos white"
       >
@@ -13,7 +16,7 @@
           <div class="flex-1 t-align-c px-4">
             <div class="font-mds">YOUR WINNINGS</div>
             <div class="mt-1 font-md extra-bold">
-              {{ winningsCount }} Coupons Won
+              {{ winningsCount }} Prizes Won
             </div>
           </div>
           <img
@@ -21,70 +24,17 @@
           />
         </div>
       </div>
-
-      <div
+      <WinningRow 
         v-for="winning in winnings"
-        class="pb-5 px-xl-5 px-4 overflow-auto"
-        style="margin-top: -10px; max-height: 650px;"
+        :winning="winning"
         :key="winning.id"
-      >
-        <div
-          class="row no-gutters align-items-center justify-content-between py-5 border-bottom"
-        >
-          <div class="flex-1">
-            <div
-              class="row no-gutters align-items-center justify-content-lg-start justify-content-md-center justify-content-sm-start justify-content-center"
-            >
-              <img
-                src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/csk.svg"
-                style="max-width: 110px !important;"
-              />
-              <div class="font-mds bold mx-3">VS</div>
-              <img
-                src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/mumbai_indians.svg"
-                style="max-width: 110px !important;"
-              />
-            </div>
-          </div>
-          <div class="t-align-r d-lg-block d-md-none d-sm-block d-none">
-            <div class="card-md med-grey">
-              Thursday, 19 Sept {{ winning.updated_at }}
-            </div>
-            <div class="my-2 font-mds extra-bold">
-              {{ winning.meta.coupon.percentage }}% OFF COUPON
-            </div>
-            <div
-              @click="copyCouponCode"
-              class="py-2 px-3 br-5 copy-code font-sm"
-              style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
-            >
-              {{ winning.meta.coupon.code }}
-            </div>
-          </div>
-          <div class="col-12 mt-4 d-lg-none d-md-block d-sm-none d-block">
-            <div
-              class="row no-gutters justify-content-between align-items-center"
-            >
-              <div class="flex-1 pr-3">
-                <div class="card-md med-grey">Thursday, 19 Sept</div>
-                <div class="mt-2 font-mds extra-bold">
-                  {{ winning.meta.coupon.percentage }}% OFF COUPON
-                </div>
-              </div>
-              <div
-                class="py-2 px-3 br-5 copy-code font-sm"
-                style="width: fit-content; border: 1px dashed #1C40DE; color: #1C40DE;"
-              >
-                {{ winning.meta.coupon.code }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </template>
 <script>
+import WinningModalEmpty from './WinningModalEmpty';
+import WinningRow from './WinningRow';
 import { mapState } from 'vuex';
 
 export default {
@@ -92,16 +42,18 @@ export default {
   props: {
     winnings: Object
   },
-  computed: {
-    winningsCount() {
-      return this.winnings.length
-    }
+  components: {
+    WinningModalEmpty,
+    WinningRow
   },
   methods: {
     copyCouponCode() {}
   },
   computed: {
     ...mapState(['session']),
+    winningsCount() {
+      return this.winnings.length
+    },
     user () {
       return this.session?.user
     }

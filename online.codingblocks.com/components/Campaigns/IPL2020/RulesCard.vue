@@ -3,17 +3,20 @@
     <div class="font-md bold">Game Rules</div>
 
     <ul class="med-grey font-sm">
-      <li> - Sign in to play the contest from 19th Sep 2020 to 09th Nov 2020. </li>
+      <li> - Sign in to play the contest from 9th Apr 2021 to 30th May 2021. </li>
       <li> - For each match, make three predictions - guess the winning team, total number of wickets and total number of sixes in the match. </li>
-      <li> - Coupons will be given based on number of correct predictions: <br>
-        3 Correct Predictions - 70% OFF <br>
-        2 Correct Predictions - 55% OFF <br>
-        1 Correct Predictions - 40% OFF <br>
-        These coupons can be used to buy any online courses. </li>
+      <li>
+        <span class="font-xs bold">Hattrick<sup>*</sup> - Coding Blocks Exclusive Bag + Swag Kit + 75% Discount</span>  <br>
+        <span class="font-xs bold">3 Correct Predictions - Coding Blocks Exclusive T-Shirt + Swag Kit + 75% Discount</span>  <br>
+        <span class="font-xs bold">2 Correct Predictions - Coding Blocks Exclusive Sipper + Swag Kit + 75% Discount</span>  <br>
+        <span class="font-xs bold">1 Correct Prediction - Coding Blocks Swag Kit + 75% Discount</span> <br></li>
       <li> - Predictions once made cannot be changed or modified. </li>
-      <li> - Coding Blocks descision will be final in case of any discrepency.</li>
+      <li> - Final decision lies with Coding Blocks in case of any discrepancy.</li>
+      <li> - Courses purchased using IPL campaign won't be refunded.</li>
     </ul>
 
-    <div class="med-grey font-sm">Play more, Predict More and Win More</div>
+    <div class="med-grey font-sm">Play more, Predict more and Win more</div>
+
+    <div class="med-grey card-md mt-4">* Predict all 3 questions correctly for 3 consecutive matches. Once a hattrick is scored, winning next match will not be counted as hattrick.</div>
   </div>  
 </template>

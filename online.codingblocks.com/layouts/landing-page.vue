@@ -4,7 +4,7 @@
     <!-- <promotion-banner /> -->
     <div class="row no-gutters">
       <div class="col-12">
-        <TheNavbarTop class="ml-0 w-100" />
+        <TheNavBar class="ml-0 w-100" />
         <cb-navbar topalign="right" />
         <nuxt />
       </div>
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import TheNavbarTop from '~/components/LandingPage/Layout/TheNavBar.vue'
+import TheNavBar from '~/components/LandingPage/Layout/TheNavBar.vue'
 import TheFooter from '~/components/TheFooter.vue'
 import config from '~/config.json';
 
 
 export default {
   components: {
-    TheNavbarTop,
+    TheNavBar,
     TheFooter
   }
 }

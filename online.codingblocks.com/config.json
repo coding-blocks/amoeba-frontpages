@@ -9,6 +9,10 @@
     "dukaan": {
       "url": "https://dukaan.codingblocks.xyz"
     },
+    "oneauth": {
+      "clientId": "7642172843",
+      "url": "https://account.codingblocks.com"
+    },
     "gtm": "GTM-WQGT6VZ",
     "port": 8081
   },
@@ -22,6 +26,10 @@
     "publicUrl": "https://online.codingblocks.com",
     "dukaan": {
       "url": "https://dukaan.codingblocks.xyz"
+    },
+    "oneauth": {
+      "clientId": "5169892443",
+      "url": "https://account.codingblocks.com"
     },
     "gtm": "GTM-TWLQ78S",
     "port": 8081
@@ -37,6 +45,10 @@
     "dukaan": {
       "url": "https://dukaan.codingblocks.com"
     },
+    "oneauth": {
+      "clientId": "5633768694",
+      "url": "https://account.codingblocks.com"
+    },
     "gtm": "GTM-TWLQ78S",
     "port": 8082
   },
@@ -50,6 +62,10 @@
     "publicUrl": "http://test.online",
     "dukaan": {
       "url": "https://dukaan.codingblocks.xyz"
+    },
+    "oneauth": {
+      "clientId": "8225714181",
+      "url": "https://account.codingblocks.com"
     },
     "gtm": "GTM-WQGT6VZ",
     "port": 8081

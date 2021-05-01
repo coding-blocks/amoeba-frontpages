@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="my-auto p-md-4 position-relative home-banner">
+    <div>
+      <!-- <HomePageLarge /> // banner on homepage --> 
+    </div>
+    <div class="my-auto p-md-4 position-relative home-banner card">
       <Info />
     </div>
     <CompanyCard class="position-relative" />
@@ -10,7 +13,7 @@
       <TrackCard class="mb-5" />
 
       <!-- OLD "Learn from instructor led online courses" -->
-      
+
       <!-- <div class="container mb-5">
         <div class="row justify-content-between mb-5 align-items-center no-gutters">
             <h4 class="bold mx-auto">Learn from instructor led online courses</h4>
@@ -50,7 +53,7 @@
 
 <style scoped>
 .home-banner {
-  background-color: #FBFDF9;
+  background-color: #fbfdf9;
 }
 </style>
 
@@ -69,10 +72,12 @@ import FeatureCard from '~/components/LandingPage/FeatureCard'
 import StudentsExperience from '~/components/LandingPage/StudentsExperience'
 import ClassRoomCard from '~/components/Base/CourseCard'
 import PopularCourses from '~/components/LandingPage/PopularCourses'
+import HomePageLarge from '~/components/Banners/HomePageLarge'
 
 export default {
   layout: 'landing-page',
   components: {
+    HomePageLarge,
     Info,
     CompanyCard,
     TrackCard,
@@ -88,20 +93,25 @@ export default {
     ClassRoomCard,
     PopularCourses
   },
+  data() {
+    return {
+      courses: []
+    }
+  },
   async asyncData({ $axios, app: { $jsonApiStore } }) {
-    const {data: tagsPayload} = await $axios.get(`/tags`, {
+    const { data: tagsPayload } = await $axios.get(`/tags`, {
       params: {
         filter: {
-          name: 'Popular',
+          name: 'Popular'
         },
         exclude: 'courses.*'
       }
     })
 
     const tag = $jsonApiStore.sync(tagsPayload)[0]
-    const courseIds = ((tag && tag.courses) || []).map(c => c.id)
+    const courseIds = ((tag && tag.courses) || []).map((c) => c.id)
 
-    const {data: coursesPayload} = await $axios.get(`/courses`, {
+    const { data: coursesPayload } = await $axios.get(`/courses`, {
       params: {
         include: 'instructors,runs',
         exclude: 'ratings,instructors.*,feedbacks,runs.*',
@@ -124,15 +134,9 @@ export default {
     return {
       courses
     }
-  },
-  data() {
-    return {
-      courses: []
-    }
   }
 }
 </script>
-
 
 <style scoped>
 .font-normal {
@@ -141,7 +145,8 @@ export default {
 </style>
 
 <style>
-h4.bold, strong {
+h4.bold,
+strong {
   letter-spacing: 0.5px;
 }
 </style>

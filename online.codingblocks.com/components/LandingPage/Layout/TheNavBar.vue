@@ -38,7 +38,7 @@
             </a>
            
           </div>
-          <a class="button-solid button-orange ml-4" href="/app/login">Login</a>
+          <LoginRequiredButton class="button-solid button-orange ml-4" text="login" />
         </div>
       </div>
     </div>
@@ -64,9 +64,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-center mt-4" v-else>
-        <a href="/app/" class="button-solid button-orange px-5">
-          Login
-        </a>
+        <LoginRequiredButton class="button-solid button-orange px-5" text="Login" />
       </div>
 
       
@@ -184,9 +182,13 @@
 
 <script>
 import { mapState } from 'vuex'
+import LoginRequiredButton from '~/components/Base/LoginRequiredButton'
 
 export default {
-  name: 'TheNavbarTop',
+  name: 'TheNavBar',
+  components: {
+    LoginRequiredButton
+  },
   data () {
     return {
       hamburgerOpen: false,

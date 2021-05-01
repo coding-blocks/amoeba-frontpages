@@ -4,7 +4,7 @@
       Time left to predict
     </div>
     <div class="mt-4">
-      <VueCountdown :time="predictionEnd">
+      <VueCountdown :time="predictionEnd" @end="onEnd()">
         <template slot-scope="props">
           <div class="d-flex align-items-center justify-content-center justify-content-md-start">
             <div class="t-align-c py-3">
@@ -35,13 +35,14 @@
         class="button-solid button-blue font-mds"
         @click="onStart()"
       >
-        Make Predictions
+        {{isAuthenticated ? 'Make Predictions' : 'Login to Predict'}}
       </button>
     </div>
   </div>  
 </template>
 <script>
 import VueCountdown from '@chenfengyuan/vue-countdown';
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -57,6 +58,10 @@ export default {
     predictionEnd() {
       const predictionEnd = new Date(this.match['prediction-end'])
       return predictionEnd - Date.now()
+    },
+    ...mapState(['session']),
+    isAuthenticated() {
+      return this.session?.isAuthenticated
     }
   },
   data() {
@@ -70,7 +75,11 @@ export default {
       this.enabled = false
     },
     onStart() {
-      this.$emit('start')
+      if (this.isAuthenticated) {
+        return this.$emit('start')
+      }
+
+      window.location = '/app/'
     }
   }
 }

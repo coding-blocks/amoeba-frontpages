@@ -27,8 +27,8 @@ const RUN_FEATURES = {
       label: `Placement Support`
     },
     {
-      icon: `https://cb-thumbnails.s3.ap-south-1.amazonaws.com/goodies.png`,
-      label: `CB Goodies`
+      icon: `https://cb-thumbnails.s3.ap-south-1.amazonaws.com/msg.png`,
+      label: `Extra Live Sessions`
     },
     {
       icon: `https://cb-thumbnails.s3.ap-south-1.amazonaws.com/msg.png`,

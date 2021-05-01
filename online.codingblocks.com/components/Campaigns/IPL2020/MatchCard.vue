@@ -56,6 +56,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 import moment from 'moment';
 import VAsync from '~/components/Base/VAsync';
 import Timer from '~/components/Campaigns/IPL2020/MatchCard/Timer';
@@ -82,6 +83,10 @@ export default {
     }
   },
   computed: {
+    ...mapState(['session']),
+    isAuthenticated() {
+        return this.session?.isAuthenticated
+    },
     dateString() {
       return moment(this.match.start).format('dddd, D MMMM HH:MM A')
     }
@@ -97,9 +102,9 @@ export default {
   tasks(t) {
     return {
       fetchCurrentAttemptTask: t(function *() {
+        if (!this.isAuthenticated) return;
         const response = yield this.$axios.get(`/cricket_cup/matches/${this.match.id}/currentAttempt`)
         const currentAttempt = this.$jsonApiStore.sync(response.data)
-
         this.currentAttempt = currentAttempt
 
         return currentAttempt

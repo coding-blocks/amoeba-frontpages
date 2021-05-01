@@ -7,7 +7,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center justify-content-center justify-content-md-start">
           <div class="br-50 image-ring s-70x70 mr-3">
-            <img 
+            <img v-if="user"
               class="round img"
               :src="user.photo"
               :alt="user.firstname"
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div>
-          <div class="bold font-mds">Your Winnings</div>
+          <div class="bold font-mds py-2 px-3 br-5 card-sm border">Your Winnings</div>
         </div>
       </div>
     </div>
@@ -47,9 +47,8 @@ export default {
     }
   },
   mounted () {
-      // Todo: remove hard coded campaignId
     this.$axios
-      .post('/cricket_cup/matches/winnings', {campaignId: 1})
+      .get('/cricket_cup/matches/winnings')
       .then(response => {
         this.winnings = response.data.winnings
       })
