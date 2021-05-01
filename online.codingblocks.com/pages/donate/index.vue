@@ -335,8 +335,11 @@ India urgently needs <b>oxygen concentrators</b> to save thousands of lives.
         
 <script>
 import FundsProgress from '~/components/FundsProgress';
+import sidebarLayoutMixin from '~/mixins/sidebarForLoggedInUser';
+
 
 export default {
+  mixins: [sidebarLayoutMixin],
   components: {
     FundsProgress
   },
