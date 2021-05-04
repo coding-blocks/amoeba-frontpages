@@ -93,6 +93,7 @@ export default {
     IndexPagesSmall,
     FeaturedTagExplore
   },
+  middleware : 'user_course_wishlists',
   directives: {
     infiniteScroll
   },

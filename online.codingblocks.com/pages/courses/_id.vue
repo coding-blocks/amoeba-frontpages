@@ -158,6 +158,7 @@ export default {
     AlternateTrackCard,
     ChooseRunTier
   },
+  middleware : 'user_course_wishlists',
   mixins: [sidebarLayoutMixin],
   data() {
     return {

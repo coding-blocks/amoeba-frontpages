@@ -12,12 +12,9 @@
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
                 <button id="wishlist_btn" @click="addToWishlists()">
-                  <i
-                    class="fa-heart fa-lg"
-                    v-bind:class="{ far: unfilled, fas: filled }"
-                  ></i>
+                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeatClass : '' , unfilledHeartClass]"></i>
                 </button>
-
+         
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
                 </a>
@@ -155,8 +152,9 @@ export default {
   data: function () {
     return {
       pos: -1,
+      filledHeatClass : 'fas',
+      unfilledHeartClass : 'far',
       filled: false,
-      unfilled: false,
     }
   },
   components: {
@@ -170,12 +168,13 @@ export default {
       return this.visibleInstructors.map((i) => i.name).join(', ')
     },
     ...mapState(['session']),
-    // heart
   },
   created: function () {
+    
     let flag = false
     const course_list = this.$store.state.user_course_wishlists
       .user_course_wishlist
+      console.log(course_list);
     for (const i in course_list) {
       if (this.course['id'] == course_list[i].courseId) {
         flag = true
@@ -184,10 +183,8 @@ export default {
     }
     if (flag == true) {
       this.filled = true
-      this.unfilled = false
     } else {
       this.filled = false
-      this.unfilled = true
     }
   },
   methods: {
@@ -196,70 +193,56 @@ export default {
 
       var obj = new JsonApiDataStoreModel('user_course_wishlists')
       obj.setAttribute('courseId', this.course['id'])
-      obj.setRelationship(
-        'courses',
-        new JsonApiDataStoreModel('courses', this.course['id'])
-      )
-      console.log(obj.serialize())
-      obj = obj.serialize()
+      obj.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
+      console.log(obj.serialize());
+      obj = obj.serialize();
 
       const ancor = document.getElementById('wishlist_i')
       const btn = document.getElementById('wishlist_btn')
 
       if (isAuthenticated) {
         if (this.filled) {
-          // delete the course from the user wishlist
-          const course_list = this.$store.state.user_course_wishlists
-            .user_course_wishlist
-          for (const i in course_list) {
+            // delete the course from the user wishlist
+            const course_list = this.$store.state.user_course_wishlists.user_course_wishlist
+            for (const i in course_list) {
             if (this.course['id'] == course_list[i].courseId) {
-              this.pos = i
-              break
+                   this.pos = i;
+                    break;
+                 }
             }
-          }
-          const wishlist_id = this.$store.state.user_course_wishlists
-            .user_course_wishlist[this.pos].id
-
-          this.$axios
-            .$delete(`user_course_wishlists/${wishlist_id}`)
-            .then((res) => {
-              this.$store.commit('user_course_wishlists/delCourse', wishlist_id)
-              this.filled = false
-              this.unfilled = true
+            const wishlist_id = this.$store.state.user_course_wishlists.user_course_wishlist[this.pos].id
+            
+            this.$axios.$delete(`user_course_wishlists/${wishlist_id}`)
+            .then((res)=>{
+              this.$store.commit('user_course_wishlists/delCourse',wishlist_id);     
+            this.filled = false;
             })
-            .catch((err) => {
-              console.error(err)
+            .catch((err)=>{
+               console.error(err);
             })
+           
         } else {
-          await this.$axios
-            .$post('user_course_wishlists', obj)
-            .then((res) => {
-              this.$store.commit(
-                'user_course_wishlists/setUserCourseWishlists',
-                [
-                  {
-                    courseId: res.data.relationships.course.data.id,
-                    id: res.data.attributes.id,
-                  },
-                ]
-              )
-              console.log(
-                this.$store.state.user_course_wishlists.user_course_wishlist
-              )
-              this.unfilled = false
-              this.filled = true
+            // create a new course in user wishlist
+            await this.$axios.$post('user_course_wishlists', obj)
+            .then((res)=>{
+                
+                this.$store.commit('user_course_wishlists/setUserCourseWishlists', [{courseId:res.data.relationships.course.data.id,id:res.data.attributes.id}]);
+                console.log(this.$store.state.user_course_wishlists.user_course_wishlist);
+                // this.unfilled = false
+                this.filled = true;
             })
-            .catch((err) => {
-              console.error(err)
-            })
+            .catch((err)=>{
+                console.error(err)
+            })    
         }
       } else {
+
         const { url, clientId } = config[process.env.NODE_ENV].oneauth
         const publicUrl = `${window.location.protocol}//${window.location.hostname}/app/`
         const loginUrl = `${url}/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${publicUrl}`
-
-        localStorage.setItem('redirectionPath', window.location.pathname)
+        localStorage.setItem('redirectionPath', window.location.pathname);
         window.location.href = loginUrl
+    
       }
     },
   },
