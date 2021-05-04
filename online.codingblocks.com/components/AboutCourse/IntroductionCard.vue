@@ -12,9 +12,12 @@
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
                 <button id="wishlist_btn" @click="addToWishlists()">
+                  <!-- <i :class="heartStringClass" id="wishlist_i"></i> -->
+                  <!-- <i class="fa-heart fa-lg" v-bind:class="{far:unfilled,fas:filled}"></i> -->
+
                   <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeatClass : '' , unfilledHeartClass]"></i>
                 </button>
-         
+                <!--  -->
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
                 </a>
@@ -151,7 +154,6 @@ export default {
   },
   data: function () {
     return {
-      pos: -1,
       filledHeatClass : 'fas',
       unfilledHeartClass : 'far',
       filled: false,
@@ -170,22 +172,12 @@ export default {
     ...mapState(['session']),
   },
   created: function () {
-    
-    let flag = false
-    const course_list = this.$store.state.user_course_wishlists
-      .user_course_wishlist
-      console.log(course_list);
-    for (const i in course_list) {
-      if (this.course['id'] == course_list[i].courseId) {
-        flag = true
-        break
-      }
+    if(this.$store.state.user_course_wishlists.course_and_wishlist.has(this.course['id'])){
+      this.filled = true;
+    }else{
+      this.filled = false;
     }
-    if (flag == true) {
-      this.filled = true
-    } else {
-      this.filled = false
-    }
+
   },
   methods: {
     async addToWishlists() {
@@ -202,47 +194,40 @@ export default {
 
       if (isAuthenticated) {
         if (this.filled) {
-            // delete the course from the user wishlist
-            const course_list = this.$store.state.user_course_wishlists.user_course_wishlist
-            for (const i in course_list) {
-            if (this.course['id'] == course_list[i].courseId) {
-                   this.pos = i;
-                    break;
-                 }
-            }
-            const wishlist_id = this.$store.state.user_course_wishlists.user_course_wishlist[this.pos].id
-            
+            let course_and_wishlist_map = new Map();
+            course_and_wishlist_map = this.$store.state.user_course_wishlists.course_and_wishlist;
+            const wishlist_id = course_and_wishlist_map.get(this.course['id']);
             this.$axios.$delete(`user_course_wishlists/${wishlist_id}`)
             .then((res)=>{
-              this.$store.commit('user_course_wishlists/delCourse',wishlist_id);     
-            this.filled = false;
+              this.$store.commit('user_course_wishlists/delCourse',wishlist_id)     
+              this.filled = false
             })
             .catch((err)=>{
                console.error(err);
             })
            
         } else {
-            // create a new course in user wishlist
+          
             await this.$axios.$post('user_course_wishlists', obj)
             .then((res)=>{
-                
-                this.$store.commit('user_course_wishlists/setUserCourseWishlists', [{courseId:res.data.relationships.course.data.id,id:res.data.attributes.id}]);
-                console.log(this.$store.state.user_course_wishlists.user_course_wishlist);
-                // this.unfilled = false
-                this.filled = true;
+                this.$store.commit('user_course_wishlists/setMaps', [{courseId:res.data.relationships.course.data.id,id:res.data.attributes.id}])
+                this.filled = true
             })
             .catch((err)=>{
                 console.error(err)
             })    
         }
       } else {
-
+        
         const { url, clientId } = config[process.env.NODE_ENV].oneauth
         const publicUrl = `${window.location.protocol}//${window.location.hostname}/app/`
         const loginUrl = `${url}/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${publicUrl}`
-        localStorage.setItem('redirectionPath', window.location.pathname);
+        localStorage.setItem(
+          'redirectionPath',
+          'absolute_path:' + window.location.href
+        )
         window.location.href = loginUrl
-    
+       
       }
     },
   },
