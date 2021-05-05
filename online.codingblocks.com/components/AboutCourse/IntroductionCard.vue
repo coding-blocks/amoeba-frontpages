@@ -12,12 +12,8 @@
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
                 <button id="wishlist_btn" @click="addToWishlists()">
-                  <!-- <i :class="heartStringClass" id="wishlist_i"></i> -->
-                  <!-- <i class="fa-heart fa-lg" v-bind:class="{far:unfilled,fas:filled}"></i> -->
-
-                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeatClass : '' , unfilledHeartClass]"></i>
+                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeartClass : '' , unfilledHeartClass]"></i>
                 </button>
-                <!--  -->
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
                 </a>
@@ -127,11 +123,6 @@
             </div>
           </div>
 
-          <!-- <div class="col-6 col-md-3">
-            <div class="info-item">
-            <div>Course Duration </div>
-            <div>6 Months</div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -154,7 +145,7 @@ export default {
   },
   data: function () {
     return {
-      filledHeatClass : 'fas',
+      filledHeartClass : 'fas',
       unfilledHeartClass : 'far',
       filled: false,
     }
@@ -186,7 +177,6 @@ export default {
       var obj = new JsonApiDataStoreModel('user_course_wishlists')
       obj.setAttribute('courseId', this.course['id'])
       obj.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
-      console.log(obj.serialize());
       obj = obj.serialize();
 
       const ancor = document.getElementById('wishlist_i')
@@ -220,7 +210,7 @@ export default {
       } else {
         
         const { url, clientId } = config[process.env.NODE_ENV].oneauth
-        const publicUrl = `${window.location.protocol}//${window.location.hostname}/app/`
+        const publicUrl = config[process.env.NODE_ENV].publicUrl+'/app';
         const loginUrl = `${url}/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${publicUrl}`
         localStorage.setItem(
           'redirectionPath',
