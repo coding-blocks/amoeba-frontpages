@@ -11,8 +11,8 @@
             <div>
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
-                <button id="wishlist_btn" @click="addToWishlists()">
-                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeartClass : unfilledHeartClass]"></i>
+                <button id="wishlist_btn" @click="toggleWishlist()">
+                  <i class="fa-heart fa-lg" v-bind:class="[initialWishlistState ? filledHeartClass : unfilledHeartClass]"></i>
                 </button>
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
@@ -143,7 +143,6 @@ export default {
     return {
       filledHeartClass: 'fas',
       unfilledHeartClass: 'far',
-      filled: false,
       wishlist_id:''
     }
   },
@@ -157,16 +156,21 @@ export default {
     visibleInstructorNames() {
       return this.visibleInstructors.map((i) => i.name).join(', ')
     },
+    initialWishlistState(){
+       if(this.getWishListId.lastResolved != null && this.wishlist_id!=''){
+        return true;
+      }else{
+        return false;
+      } 
+    },
     ...mapState(['session']),
   },
+
   tasks(t){
       return t(function * getWishListId() {
         const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`)
-        if(res.data == null){
-          this.filled = false;
-        }else{
-          this.filled = true;
-          this.wishlist_id = res.data.id;
+        if(res.data != null){
+          this.wishlist_id = res.data.id
         }
     })
 
@@ -179,13 +183,12 @@ export default {
    
   },
   methods: {
-    async addToWishlists() {
+    async toggleWishlist() {
       const isAuthenticated = this.$store.state.session.isAuthenticated
       
       if (isAuthenticated) {
-        if (this.filled) {
+        if (this.wishlist_id!='') {
           this.$axios.$delete(`user_course_wishlists/${this.wishlist_id}`).then((res) => {
-              this.filled = false
               this.wishlist_id='';
             })
             .catch((err) => {
@@ -199,7 +202,6 @@ export default {
           await this.$axios
             .$post('user_course_wishlists', userCourseWishlistModel)
             .then((res) => {
-              this.filled = true
               this.wishlist_id = res.data.id
             })
             .catch((err) => {
