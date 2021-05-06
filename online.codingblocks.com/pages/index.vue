@@ -76,7 +76,6 @@ import HomePageLarge from '~/components/Banners/HomePageLarge'
 
 export default {
   layout: 'landing-page',
-  middleware : 'user_course_wishlists',
   components: {
     HomePageLarge,
     Info,
