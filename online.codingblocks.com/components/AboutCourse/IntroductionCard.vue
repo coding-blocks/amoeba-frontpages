@@ -12,7 +12,7 @@
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
                 <button id="wishlist_btn" @click="addToWishlists()">
-                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeartClass : '' , unfilledHeartClass]"></i>
+                  <i class="fa-heart fa-lg" v-bind:class="[filled ? filledHeartClass : unfilledHeartClass]"></i>
                 </button>
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
@@ -91,8 +91,7 @@
               <div class="col-sm-4 col-8 mb-sm-0 mb-4">
                 <div
                   class="br-10 border b-white p-4"
-                  style="background: rgba(255, 255, 255, 0.1)"
-                >
+                  style="background: rgba(255, 255, 255, 0.1)">
                   <div class="row no-gutters align-items-center">
                     <img
                       src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/best-mentors.svg"
@@ -103,11 +102,9 @@
                   </div>
                 </div>
               </div>
+
               <div class="col-sm-4 col-8">
-                <div
-                  class="br-10 border b-white p-4"
-                  style="background: rgba(255, 255, 255, 0.1)"
-                >
+                <div class="br-10 border b-white p-4" style="background: rgba(255, 255, 255, 0.1)">
                   <div class="row no-gutters align-items-center">
                     <img
                       src="https://cb-thumbnails.s3.ap-south-1.amazonaws.com/get-hired.svg"
@@ -122,7 +119,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -145,9 +141,10 @@ export default {
   },
   data: function () {
     return {
-      filledHeartClass : 'fas',
-      unfilledHeartClass : 'far',
+      filledHeartClass: 'fas',
+      unfilledHeartClass: 'far',
       filled: false,
+      wishlist_id:''
     }
   },
   components: {
@@ -162,62 +159,62 @@ export default {
     },
     ...mapState(['session']),
   },
-  created: function () {
-    if(this.$store.state.user_course_wishlists.course_and_wishlist.has(this.course['id'])){
-      this.filled = true;
-    }else{
-      this.filled = false;
-    }
+  tasks(t){
+      return t(function * getWishListId() {
+        const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`)
+        if(res.data == null){
+          this.filled = false;
+        }else{
+          this.filled = true;
+          this.wishlist_id = res.data.id;
+        }
+    })
 
+  },
+  created: function () {
+   
+   if(this.$store.state.session.isAuthenticated){
+     this.getWishListId.run();
+    }
+   
   },
   methods: {
     async addToWishlists() {
       const isAuthenticated = this.$store.state.session.isAuthenticated
-
-      var obj = new JsonApiDataStoreModel('user_course_wishlists')
-      obj.setAttribute('courseId', this.course['id'])
-      obj.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
-      obj = obj.serialize();
-
-      const ancor = document.getElementById('wishlist_i')
-      const btn = document.getElementById('wishlist_btn')
-
+      
       if (isAuthenticated) {
         if (this.filled) {
-            let course_and_wishlist_map = new Map();
-            course_and_wishlist_map = this.$store.state.user_course_wishlists.course_and_wishlist;
-            const wishlist_id = course_and_wishlist_map.get(this.course['id']);
-            this.$axios.$delete(`user_course_wishlists/${wishlist_id}`)
-            .then((res)=>{
-              this.$store.commit('user_course_wishlists/delCourse',wishlist_id)     
+          this.$axios.$delete(`user_course_wishlists/${this.wishlist_id}`).then((res) => {
               this.filled = false
+              this.wishlist_id='';
             })
-            .catch((err)=>{
-               console.error(err);
+            .catch((err) => {
+              console.error(err)
             })
-           
         } else {
-          
-            await this.$axios.$post('user_course_wishlists', obj)
-            .then((res)=>{
-                this.$store.commit('user_course_wishlists/setMaps', [{courseId:res.data.relationships.course.data.id,id:res.data.attributes.id}])
-                this.filled = true
+            var userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists')
+            userCourseWishlistModel.setAttribute('courseId', this.course['id'])
+            userCourseWishlistModel.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
+            userCourseWishlistModel = userCourseWishlistModel.serialize();
+          await this.$axios
+            .$post('user_course_wishlists', userCourseWishlistModel)
+            .then((res) => {
+              this.filled = true
+              this.wishlist_id = res.data.id
             })
-            .catch((err)=>{
-                console.error(err)
-            })    
+            .catch((err) => {
+              console.error(err)
+            })
         }
       } else {
-        
         const { url, clientId } = config[process.env.NODE_ENV].oneauth
-        const publicUrl = config[process.env.NODE_ENV].publicUrl+'/app';
+        const publicUrl = config[process.env.NODE_ENV].publicUrl + '/app'
         const loginUrl = `${url}/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${publicUrl}`
         localStorage.setItem(
           'redirectionPath',
           'absolute_path:' + window.location.href
         )
         window.location.href = loginUrl
-       
       }
     },
   },
