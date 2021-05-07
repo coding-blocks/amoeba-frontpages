@@ -127,7 +127,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import {JsonApiDataStoreModel} from 'jsonapi-datastore'
+import {JsonApiDataStoreModel } from 'jsonapi-datastore'
 import RatingStars from './RatingStars.vue'
 export default {
   modules: ['@nuxtjs/axios'],
@@ -142,7 +142,7 @@ export default {
     return {
       filledHeartClass: 'fas',
       unfilledHeartClass: 'far',
-      userCourseWishlistModel : null
+      userCourseWishlist:null
     }
   },
   components: {
@@ -156,7 +156,7 @@ export default {
       return this.visibleInstructors.map((i) => i.name).join(', ')
     },
     isCourseWishlisted(){
-      if(this.userCourseWishlistModel!=null){
+      if(!!this.userCourseWishlist){
         return true;
       }else{
         return false;
@@ -167,10 +167,8 @@ export default {
 
   tasks(t){
       return t(function * isWishListed() {
-        const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`)
-        if(res.data != null){
-          this.userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists',res.data.id);d
-        }
+        const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
+        this.userCourseWishlist = this.$jsonApiStore.sync(res);
     })
 
   },
@@ -186,9 +184,9 @@ export default {
       const isAuthenticated = this.$store.state.session.isAuthenticated
       
       if (isAuthenticated) {
-        if (this.userCourseWishlistModel!=null) {
-          this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlistModel.id}`).then((res) => {
-              this.userCourseWishlistModel=null;
+        if (this.userCourseWishlist!=null) {
+          this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlist.id}`).then((res) => {
+              this.userCourseWishlist=null;
             })
             .catch((err) => {
               console.error(err)
@@ -200,7 +198,7 @@ export default {
             userCourseWishlistModel = userCourseWishlistModel.serialize();
             await this.$axios.$post('user_course_wishlists', userCourseWishlistModel)
             .then((res) => {
-              this.userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists',res.data.id);
+              this.userCourseWishlist = this.$jsonApiStore.sync(res);
             })
             .catch((err) => {
               console.error(err)
