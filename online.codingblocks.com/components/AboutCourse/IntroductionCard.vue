@@ -12,7 +12,7 @@
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
                 <button id="wishlist_btn" @click="toggleWishlist()">
-                  <i class="fa-heart fa-lg" v-bind:class="[initialWishlistState ? filledHeartClass : unfilledHeartClass]"></i>
+                  <i class="fa-heart fa-lg" v-bind:class="[isCourseWishlisted ? filledHeartClass : unfilledHeartClass]"></i>
                 </button>
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
@@ -127,8 +127,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { JsonApiDataStore, JsonApiDataStoreModel } from 'jsonapi-datastore'
-import config from '~/config.json'
+import {JsonApiDataStoreModel} from 'jsonapi-datastore'
 import RatingStars from './RatingStars.vue'
 export default {
   modules: ['@nuxtjs/axios'],
@@ -139,11 +138,11 @@ export default {
       required: true,
     },
   },
-  data: function () {
+  data() {
     return {
       filledHeartClass: 'fas',
       unfilledHeartClass: 'far',
-      wishlist_id:''
+      userCourseWishlistModel : null
     }
   },
   components: {
@@ -156,29 +155,29 @@ export default {
     visibleInstructorNames() {
       return this.visibleInstructors.map((i) => i.name).join(', ')
     },
-    initialWishlistState(){
-       if(this.getWishListId.lastResolved != null && this.wishlist_id!=''){
+    isCourseWishlisted(){
+      if(this.userCourseWishlistModel!=null){
         return true;
       }else{
         return false;
-      } 
+      }
     },
     ...mapState(['session']),
   },
 
   tasks(t){
-      return t(function * getWishListId() {
+      return t(function * isWishListed() {
         const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`)
         if(res.data != null){
-          this.wishlist_id = res.data.id
+          this.userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists',res.data.id);d
         }
     })
 
   },
-  created: function () {
+  created() {
    
    if(this.$store.state.session.isAuthenticated){
-     this.getWishListId.run();
+     this.isWishListed.run();
     }
    
   },
@@ -187,9 +186,9 @@ export default {
       const isAuthenticated = this.$store.state.session.isAuthenticated
       
       if (isAuthenticated) {
-        if (this.wishlist_id!='') {
-          this.$axios.$delete(`user_course_wishlists/${this.wishlist_id}`).then((res) => {
-              this.wishlist_id='';
+        if (this.userCourseWishlistModel!=null) {
+          this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlistModel.id}`).then((res) => {
+              this.userCourseWishlistModel=null;
             })
             .catch((err) => {
               console.error(err)
@@ -199,24 +198,14 @@ export default {
             userCourseWishlistModel.setAttribute('courseId', this.course['id'])
             userCourseWishlistModel.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
             userCourseWishlistModel = userCourseWishlistModel.serialize();
-          await this.$axios
-            .$post('user_course_wishlists', userCourseWishlistModel)
+            await this.$axios.$post('user_course_wishlists', userCourseWishlistModel)
             .then((res) => {
-              this.wishlist_id = res.data.id
+              this.userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists',res.data.id);
             })
             .catch((err) => {
               console.error(err)
             })
         }
-      } else {
-        const { url, clientId } = config[process.env.NODE_ENV].oneauth
-        const publicUrl = config[process.env.NODE_ENV].publicUrl + '/app'
-        const loginUrl = `${url}/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${publicUrl}`
-        localStorage.setItem(
-          'redirectionPath',
-          'absolute_path:' + window.location.href
-        )
-        window.location.href = loginUrl
       }
     },
   },
