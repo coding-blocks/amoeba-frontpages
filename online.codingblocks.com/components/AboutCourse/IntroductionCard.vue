@@ -156,11 +156,7 @@ export default {
       return this.visibleInstructors.map((i) => i.name).join(', ')
     },
     isCourseWishlisted(){
-      if(!!this.userCourseWishlist){
-        return true;
-      }else{
-        return false;
-      }
+      return !!this.userCourseWishlist;
     },
     ...mapState(['session']),
   },
@@ -193,8 +189,7 @@ export default {
             })
         } else {
             var userCourseWishlistModel = new JsonApiDataStoreModel('user_course_wishlists')
-            userCourseWishlistModel.setAttribute('courseId', this.course['id'])
-            userCourseWishlistModel.setRelationship('courses', new JsonApiDataStoreModel('courses',this.course['id']));
+            userCourseWishlistModel.setRelationship('course', new JsonApiDataStoreModel('courses',this.course['id']));
             userCourseWishlistModel = userCourseWishlistModel.serialize();
             await this.$axios.$post('user_course_wishlists', userCourseWishlistModel)
             .then((res) => {
