@@ -152,17 +152,13 @@ export default {
     visibleInstructors() {
       return this.course.instructors.slice(0, 2)
     },
-      return this.visibleInstructors.map(i => i.name).join(', ')
+    visibleInstructorNames() {
+      return this.visibleInstructors.map((i) => i.name).join(', ')
+    },
+    isCourseWishlisted(){
+      return !!this.userCourseWishlist;
     },
     ...mapState(['session']),
-  },
-
-  tasks(t){
-      return t(function * isWishListed() {
-        const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
-        this.userCourseWishlist = this.$jsonApiStore.sync(res);
-    })
-
   },
   async created(){
      const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
