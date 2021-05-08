@@ -162,18 +162,16 @@ export default {
   },
 
   tasks(t){
-      return t(function * isWishListed() {
+      return t(function * getCourseWishlist() {
         const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
         this.userCourseWishlist = this.$jsonApiStore.sync(res);
     })
 
   },
-  created() {
-   
+  mounted() {
    if(this.$store.state.session.isAuthenticated){
-     this.isWishListed.run();
+     this.getCourseWishlist.run();
     }
-   
   },
   methods: {
     async toggleWishlist() {
