@@ -152,11 +152,7 @@ export default {
     visibleInstructors() {
       return this.course.instructors.slice(0, 2)
     },
-    visibleInstructorNames() {
-      return this.visibleInstructors.map((i) => i.name).join(', ')
-    },
-    isCourseWishlisted(){
-      return !!this.userCourseWishlist;
+      return this.visibleInstructors.map(i => i.name).join(', ')
     },
     ...mapState(['session']),
   },
