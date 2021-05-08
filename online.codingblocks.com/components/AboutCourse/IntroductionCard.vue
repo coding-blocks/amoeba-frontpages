@@ -162,22 +162,21 @@ export default {
   },
 
   tasks(t){
-      return t(function * getCourseWishlist() {
-        const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
-        this.userCourseWishlist = this.$jsonApiStore.sync(res);
+    return t(function * getCourseWishlistTask() {
+      const res =  yield this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
+      this.userCourseWishlist = this.$jsonApiStore.sync(res);
     })
-
   },
+
   mounted() {
-   if(this.$store.state.session.isAuthenticated){
-     this.getCourseWishlist.run();
+    if(this.session.isAuthenticated){
+      this.getCourseWishlistTask.run();
     }
   },
+
   methods: {
     async toggleWishlist() {
-      const isAuthenticated = this.$store.state.session.isAuthenticated
-      
-      if (isAuthenticated) {
+      if (this.session.isAuthenticated) {
         if (this.userCourseWishlist!=null) {
           this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlist.id}`).then((res) => {
               this.userCourseWishlist=null;
