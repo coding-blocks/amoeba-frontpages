@@ -168,13 +168,12 @@ export default {
     })
 
   },
-  created() {
-   
-   if(this.$store.state.session.isAuthenticated){
-     this.isWishListed.run();
-    }
-   
+  async created(){
+     const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
+     this.userCourseWishlist = this.$jsonApiStore.sync(res);
   },
+   
+  
   methods: {
     async toggleWishlist() {
       const isAuthenticated = this.$store.state.session.isAuthenticated
