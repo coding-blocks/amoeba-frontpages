@@ -169,9 +169,7 @@ export default {
   
   methods: {
     async toggleWishlist() {
-      const isAuthenticated = this.$store.state.session.isAuthenticated
-      
-      if (isAuthenticated) {
+      if (this.session.isAuthenticated) {
         if (this.userCourseWishlist!=null) {
           this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlist.id}`).then((res) => {
               this.userCourseWishlist=null;
