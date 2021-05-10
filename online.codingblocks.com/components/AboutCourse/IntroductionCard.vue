@@ -162,8 +162,10 @@ export default {
   },
 
   async created(){
+    if(this.session.isAuthenticated){
      const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
      this.userCourseWishlist = this.$jsonApiStore.sync(res);
+    }
   },
    
   
