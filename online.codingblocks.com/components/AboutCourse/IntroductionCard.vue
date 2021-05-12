@@ -11,9 +11,15 @@
             <div>
               <span class="bold font-xl">{{ course.title }}</span>
               <span class="ml-4">
-                <button id="wishlist_btn" @click="toggleWishlist()">
+
+                <button id="wishlist_btn" @click="toggleWishlist()" v-if="isLoggedIn">
                   <i class="fa-heart fa-lg" v-bind:class="[isCourseWishlisted ? filledHeartClass : unfilledHeartClass]"></i>
-                </button>
+                </button> 
+                 
+                <LoginRequiredButton  text="" v-else>
+                   <i class="fa-heart fa-lg far"></i>
+                </LoginRequiredButton>
+
                 <a href="#" class="white">
                   <i class="fas fa-lg fa-share-alt ml-2"></i>
                 </a>
@@ -129,6 +135,7 @@
 import { mapState } from 'vuex'
 import {JsonApiDataStoreModel } from 'jsonapi-datastore'
 import RatingStars from './RatingStars.vue'
+import LoginRequiredButton from '../Base/LoginRequiredButton.vue'
 export default {
   modules: ['@nuxtjs/axios'],
   name: 'IntroductionCard',
@@ -142,11 +149,13 @@ export default {
     return {
       filledHeartClass: 'fas',
       unfilledHeartClass: 'far',
-      userCourseWishlist:null
+      userCourseWishlist:null,
+      isLoggedIn : false
     }
   },
   components: {
     RatingStars,
+    LoginRequiredButton,
   },
   computed: {
     visibleInstructors() {
@@ -162,9 +171,11 @@ export default {
   },
 
   async created(){
+
     if(this.session.isAuthenticated){
      const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
      this.userCourseWishlist = this.$jsonApiStore.sync(res);
+     this.isLoggedIn = !!this.userCourseWishlist;
     }
   },
    
