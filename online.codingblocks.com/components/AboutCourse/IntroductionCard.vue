@@ -150,7 +150,6 @@ export default {
       filledHeartClass: 'fas',
       unfilledHeartClass: 'far',
       userCourseWishlist:null,
-      isLoggedIn : false
     }
   },
   components: {
@@ -167,6 +166,9 @@ export default {
     isCourseWishlisted(){
       return !!this.userCourseWishlist;
     },
+    isLoggedIn(){
+      return !!this.userCourseWishlist;
+    },
     ...mapState(['session']),
   },
 
@@ -175,7 +177,6 @@ export default {
     if(this.session.isAuthenticated){
      const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
      this.userCourseWishlist = this.$jsonApiStore.sync(res);
-     this.isLoggedIn = !!this.userCourseWishlist;
     }
   },
    
