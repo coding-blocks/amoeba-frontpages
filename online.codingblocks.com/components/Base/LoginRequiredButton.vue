@@ -1,7 +1,7 @@
 <template>
   <button @click="onClick()">
 
-    <span v-if="text!=''">{{text}}</span>
+    <span v-if="!!text">{{text}}</span>
     <span v-else><template><slot></slot></template></span>
     
   </button>  

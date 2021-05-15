@@ -167,7 +167,7 @@ export default {
       return !!this.userCourseWishlist;
     },
     isLoggedIn(){
-      return !!this.userCourseWishlist;
+       return !!this.session.isAuthenticated;
     },
     ...mapState(['session']),
   },
