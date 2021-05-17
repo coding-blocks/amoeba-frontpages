@@ -174,7 +174,7 @@ export default {
 
   async created(){
 
-    if(this.session.isAuthenticated){
+    if(this.isLoggedIn){
      const res = await this.$axios.$get(`/courses/${this.course['id']}/relationships/user_course_wishlist`);
      this.userCourseWishlist = this.$jsonApiStore.sync(res);
     }
@@ -183,7 +183,7 @@ export default {
   
   methods: {
     async toggleWishlist() {
-      if (this.session.isAuthenticated) {
+      if (this.isLoggedIn) {
         if (this.userCourseWishlist!=null) {
           this.$axios.$delete(`user_course_wishlists/${this.userCourseWishlist.id}`).then((res) => {
               this.userCourseWishlist=null;
