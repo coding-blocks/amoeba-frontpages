@@ -1,9 +1,9 @@
 `<template>
   <VAaccordian>
     <template v-slot:head="{ onToggle, expanded }">
-      <div v-show="featuredTag.tag.courses.length">
+      <div v-show="featuredTag.courses.length">
         <div class="row mb-4">
-          <h4 class="font-lgs col-10 capitalise">{{featuredTag.name}} ({{featuredTag.tag.courses.length}})</h4>
+          <h4 class="font-lgs col-10 capitalise">{{featuredTag.name}} ({{featuredTag.courses.length}})</h4>
           <div class="my-auto font-lgs orange underline col-2 t-align-r pointer" @click="onToggle" v-show="expandedCourses.length">{{expanded? 'Hide':'View All'}}</div>
         </div>
         <div class="h-100 row">
@@ -44,14 +44,11 @@
       VAaccordian
     },
     computed:{
-      sortedCourses(){
-        return this.featuredTag.tag.courses.sort((a,b)=> a.runs[0].price - b.runs[0].price)
-      },
       collapsedCourses(){
-        return this.sortedCourses.slice(0,3)
+        return this.featuredTag.courses.slice(0,3)
       },
       expandedCourses(){
-        return this.sortedCourses.slice(3)
+        return this.featuredTag.courses.slice(3)
 
       }
     }
