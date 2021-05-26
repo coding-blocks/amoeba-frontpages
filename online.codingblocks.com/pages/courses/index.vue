@@ -19,12 +19,11 @@
         <div>
           <!-- <IndexPagesSmall /> //small banner inside -->
         </div>
-    <div v-show="!searchQuery.trim()" class="border-bottom-list">
-      <FeaturedTagExplore
-        :featuredTag="featuredTag"
-        v-for="featuredTag in featuredTags"
-        :key="`feature_${featuredTag.id}`"
-      />
+    <div v-show="!searchQuery.trim()">
+      <div v-for="featuredTag in featuredTags" :key="`feature_${featuredTag.id}`"> 
+        <FeaturedTagExplore :featuredTag="featuredTag"/>
+        <div v-if="featuredTag.courses.length" class="divider-h my-4"></div>
+      </div>
     </div>
     <div class="divider-h my-4"></div>
 
